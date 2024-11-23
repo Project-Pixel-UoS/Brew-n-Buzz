@@ -28,6 +28,7 @@ introduces new challenges and mechanics.
 To get started with Brew n’ Buzz:
 
 1. Clone the repository:
-	git clone https://github.com/yourusername/Brew-n-Buzz-Game.git
+	git clone https://github.com/Project-Pixel-UoS/Brew-n-Buzz.git
 2. Open the project in Godot Engine.
-3. Run the project from the Godot project manager to start playing or developing.
+3. Run the project from the Godot project manager to start playing or 
+	developing.
