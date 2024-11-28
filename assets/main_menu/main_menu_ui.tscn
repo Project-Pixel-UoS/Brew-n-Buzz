@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmt7cypqjmru0"]
+
+[ext_resource type="Theme" uid="uid://bl05s12fg23o3" path="res://assets/themes/main_menu_theme.tres" id="1_hqo7j"]
+
+[node name="title_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -217.5
+offset_top = 121.0
+offset_right = 217.5
+offset_bottom = 221.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "Brew N Buzz"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.0
+offset_top = 264.0
+offset_right = 113.0
+offset_bottom = 555.0
+grow_horizontal = 2
+pivot_offset = Vector2(87, 0)
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="StartButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_hqo7j")
+text = "Start"
+
+[node name="LevelsButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_hqo7j")
+text = "Levels"
+
+[node name="SettingsButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_hqo7j")
+text = "Settings"

@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyakoudohtl2h"]
+
+[ext_resource type="Script" path="res://assets/main_menu/levels_populator.gd" id="1_e6vc0"]
+[ext_resource type="PackedScene" uid="uid://4r5vd3qgx1g6" path="res://assets/main_menu/back_button.tscn" id="2_ch2uj"]
+[ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://assets/main_menu/title_label.tscn" id="3_vrv7c"]
+
+[node name="levels_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -50.0
+offset_right = 290.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+script = ExtResource("1_e6vc0")
+number_of_levels = 15
+
+[node name="BackButton" parent="." instance=ExtResource("2_ch2uj")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -118.0
+offset_right = -51.0
+offset_bottom = -41.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TitleLabel" parent="." instance=ExtResource("3_vrv7c")]
+layout_mode = 1
+offset_top = 60.0
+offset_bottom = 160.0
+text = "Levels"

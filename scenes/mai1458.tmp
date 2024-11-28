@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwovlnl5bfqtr"]
+
+[ext_resource type="Script" path="res://scripts/menu_manager.gd" id="1_r2aoh"]
+[ext_resource type="PackedScene" uid="uid://cmt7cypqjmru0" path="res://assets/main_menu/main_menu_ui.tscn" id="1_vk558"]
+[ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="2_ap78m"]
+[ext_resource type="Script" path="res://scripts/transition_ui.gd" id="3_70rn2"]
+[ext_resource type="Theme" uid="uid://c1xx0ai0x7qku" path="res://assets/themes/title_theme.tres" id="4_a07cc"]
+[ext_resource type="PackedScene" uid="uid://cyakoudohtl2h" path="res://assets/main_menu/levels_menu.tscn" id="4_qvo6n"]
+[ext_resource type="Script" path="res://scenes/start_button.gd" id="5_eqc8n"]
+[ext_resource type="Script" path="res://scripts/saver_loader.gd" id="7_s7wvx"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="MenuCanvas" type="CanvasLayer" parent="."]
+script = ExtResource("1_r2aoh")
+
+[node name="TitleMenu" parent="MenuCanvas" instance=ExtResource("1_vk558")]
+script = ExtResource("3_70rn2")
+start_position = Vector2(0, -800)
+is_active = true
+
+[node name="TitleLabel" parent="MenuCanvas/TitleMenu" index="0"]
+theme = ExtResource("4_a07cc")
+
+[node name="StartButton" parent="MenuCanvas/TitleMenu/Buttons" index="0"]
+script = ExtResource("5_eqc8n")
+
+[node name="SettingsMenu" parent="MenuCanvas" instance=ExtResource("2_ap78m")]
+offset_left = -1200.0
+offset_right = -1200.0
+script = ExtResource("3_70rn2")
+
+[node name="LevelsMenu" parent="MenuCanvas" instance=ExtResource("4_qvo6n")]
+offset_left = 1200.0
+offset_right = 1200.0
+script = ExtResource("3_70rn2")
+
+[node name="SaverLoader" type="Node" parent="."]
+script = ExtResource("7_s7wvx")
+
+[connection signal="pressed" from="MenuCanvas/TitleMenu/Buttons/LevelsButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["LevelsMenu"]]
+[connection signal="pressed" from="MenuCanvas/TitleMenu/Buttons/SettingsButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["SettingsMenu"]]
+[connection signal="pressed" from="MenuCanvas/SettingsMenu/BackButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]
+[connection signal="pressed" from="MenuCanvas/LevelsMenu/BackButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]
+
+[editable path="MenuCanvas/TitleMenu"]
+[editable path="MenuCanvas/SettingsMenu"]
+[editable path="MenuCanvas/LevelsMenu"]
