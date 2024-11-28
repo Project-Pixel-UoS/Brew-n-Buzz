@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bek4j2yvgcwn8"]
+
+[ext_resource type="PackedScene" uid="uid://4r5vd3qgx1g6" path="res://assets/main_menu/back_button.tscn" id="1_q6b7t"]
+[ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://assets/main_menu/title_label.tscn" id="2_s0r7p"]
+
+[node name="settings_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" parent="." instance=ExtResource("1_q6b7t")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -118.0
+offset_right = -51.0
+offset_bottom = -41.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TitleLabel" parent="." instance=ExtResource("2_s0r7p")]
+layout_mode = 1
+offset_top = 60.0
+offset_bottom = 160.0
+text = "Settings
+"

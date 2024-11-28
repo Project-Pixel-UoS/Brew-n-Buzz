@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cmt7cypqjmru0"]
 
-[ext_resource type="Theme" uid="uid://bl05s12fg23o3" path="res://main_menu_theme.tres" id="1_hqo7j"]
+[ext_resource type="Theme" uid="uid://bl05s12fg23o3" path="res://assets/themes/main_menu_theme.tres" id="1_hqo7j"]
 
-[node name="MainMenuUI" type="Control"]
+[node name="title_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

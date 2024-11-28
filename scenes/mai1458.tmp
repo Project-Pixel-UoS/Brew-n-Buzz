@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwovlnl5bfqtr"]
+[gd_scene load_steps=9 format=3 uid="uid://bwovlnl5bfqtr"]
 
 [ext_resource type="Script" path="res://scripts/menu_manager.gd" id="1_r2aoh"]
 [ext_resource type="PackedScene" uid="uid://cmt7cypqjmru0" path="res://assets/main_menu/main_menu_ui.tscn" id="1_vk558"]
@@ -6,15 +6,8 @@
 [ext_resource type="Script" path="res://scripts/transition_ui.gd" id="3_70rn2"]
 [ext_resource type="Theme" uid="uid://c1xx0ai0x7qku" path="res://assets/themes/title_theme.tres" id="4_a07cc"]
 [ext_resource type="PackedScene" uid="uid://cyakoudohtl2h" path="res://assets/main_menu/levels_menu.tscn" id="4_qvo6n"]
-[ext_resource type="Theme" uid="uid://bl05s12fg23o3" path="res://assets/themes/main_menu_theme.tres" id="5_1yw01"]
 [ext_resource type="Script" path="res://scenes/start_button.gd" id="5_eqc8n"]
 [ext_resource type="Script" path="res://scripts/saver_loader.gd" id="7_s7wvx"]
-[ext_resource type="Script" path="res://scripts/saved_game.gd" id="9_08i8y"]
-
-[sub_resource type="Resource" id="Resource_kliah"]
-script = ExtResource("9_08i8y")
-level_completed = 0
-level_started = 0
 
 [node name="MainMenu" type="Node2D"]
 
@@ -28,16 +21,6 @@ is_active = true
 
 [node name="TitleLabel" parent="MenuCanvas/TitleMenu" index="0"]
 theme = ExtResource("4_a07cc")
-
-[node name="ResetButton" type="Button" parent="MenuCanvas/TitleMenu"]
-layout_mode = 2
-offset_left = 710.0
-offset_top = 371.0
-offset_right = 863.0
-offset_bottom = 448.0
-size_flags_horizontal = 4
-theme = ExtResource("5_1yw01")
-text = "Reset"
 
 [node name="StartButton" parent="MenuCanvas/TitleMenu/Buttons" index="0"]
 script = ExtResource("5_eqc8n")
@@ -53,12 +36,8 @@ offset_right = 1200.0
 script = ExtResource("3_70rn2")
 
 [node name="SaverLoader" type="Node" parent="."]
-unique_name_in_owner = true
 script = ExtResource("7_s7wvx")
-saved_game = SubResource("Resource_kliah")
 
-[connection signal="pressed" from="MenuCanvas/TitleMenu/ResetButton" to="SaverLoader" method="reset_game"]
-[connection signal="pressed" from="MenuCanvas/TitleMenu/Buttons/StartButton" to="SaverLoader" method="update_level_started"]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/Buttons/LevelsButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["LevelsMenu"]]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/Buttons/SettingsButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["SettingsMenu"]]
 [connection signal="pressed" from="MenuCanvas/SettingsMenu/BackButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]

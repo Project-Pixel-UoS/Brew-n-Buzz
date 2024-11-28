@@ -1,6 +1,6 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bl05s12fg23o3"]
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://b4j6moe2mpnkc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj4ym"]
+[resource]
 content_margin_left = 20.0
 content_margin_top = 5.0
 content_margin_right = 20.0
@@ -13,7 +13,3 @@ corner_radius_bottom_left = 10
 shadow_color = Color(0, 0, 0, 1)
 shadow_size = 1
 shadow_offset = Vector2(0, 10)
-
-[resource]
-Button/font_sizes/font_size = 48
-Button/styles/normal = SubResource("StyleBoxFlat_vj4ym")
