@@ -2,7 +2,7 @@ extends HFlowContainer
 ## @brief populates the levels menu with level buttons
 
 @export var number_of_levels: int
-@export var level_button: PackedScene = preload("res://assets/main_menu/level_button.tscn")
+@export var level_button: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

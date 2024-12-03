@@ -3,7 +3,7 @@ extends Node
 ## @brief manages loading and saving of game states
 
 @export var has_saved_game: bool
-@export var saved_game : SavedGame = SavedGame.new()
+@export var saved_game : SavedGame
 
 func save_game():
 	ResourceSaver.save(saved_game, "user://savegame.tres")

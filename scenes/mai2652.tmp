@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=3 uid="uid://bwovlnl5bfqtr"]
+[gd_scene load_steps=21 format=3 uid="uid://bwovlnl5bfqtr"]
 
-[ext_resource type="PackedScene" uid="uid://o08kpm1g2d1a" path="res://assets/main_menu/bg_stretch.tscn" id="1_2a4e5"]
 [ext_resource type="Script" path="res://scripts/menu_manager.gd" id="1_r2aoh"]
 [ext_resource type="PackedScene" uid="uid://cmt7cypqjmru0" path="res://assets/main_menu/main_menu_ui.tscn" id="1_vk558"]
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="2_ap78m"]
@@ -10,14 +9,16 @@
 [ext_resource type="Script" path="res://scenes/start_button.gd" id="5_eqc8n"]
 [ext_resource type="Script" path="res://scripts/saver_loader.gd" id="7_s7wvx"]
 [ext_resource type="Script" path="res://scripts/saved_game.gd" id="9_08i8y"]
-[ext_resource type="Texture2D" uid="uid://dwf3vdgvfvt55" path="res://images/menu/start_button.png" id="9_e0v36"]
-[ext_resource type="Texture2D" uid="uid://yfd0gd6gol5w" path="res://images/menu/menu_coffee.png" id="10_45787"]
-[ext_resource type="Texture2D" uid="uid://8odguhgmhxjc" path="res://images/menu/plants_left.png" id="10_lyvtn"]
-[ext_resource type="Texture2D" uid="uid://cvceom1p52f6f" path="res://images/menu/settings_button.png" id="10_s7kv1"]
-[ext_resource type="Texture2D" uid="uid://b4788gbrrrlce" path="res://images/menu/plants_right.png" id="11_amd6u"]
-[ext_resource type="Texture2D" uid="uid://ctiw86b4ohhhi" path="res://images/menu/logo.png" id="14_ishto"]
-
-[sub_resource type="Theme" id="Theme_id8kp"]
+[ext_resource type="Texture2D" uid="uid://dwf3vdgvfvt55" path="res://images/start_button.png" id="9_e0v36"]
+[ext_resource type="Texture2D" uid="uid://cvceom1p52f6f" path="res://images/settings_button.png" id="10_s7kv1"]
+[ext_resource type="Texture2D" uid="uid://yfd0gd6gol5w" path="res://images/menu_coffee.png" id="11_6bu63"]
+[ext_resource type="Texture2D" uid="uid://ck3mihqlmdot4" path="res://images/menu_background.png" id="12_1uils"]
+[ext_resource type="Texture2D" uid="uid://dy7itn1chxloa" path="res://images/notes.png" id="13_etjjq"]
+[ext_resource type="Texture2D" uid="uid://ctiw86b4ohhhi" path="res://images/logo.png" id="14_ishto"]
+[ext_resource type="Texture2D" uid="uid://brt1klixqpxtd" path="res://images/shift.png" id="15_qv1kq"]
+[ext_resource type="Texture2D" uid="uid://8odguhgmhxjc" path="res://images/plants_left.png" id="16_5e1na"]
+[ext_resource type="Texture2D" uid="uid://b4788gbrrrlce" path="res://images/plants_right.png" id="17_ca5y8"]
+[ext_resource type="Texture2D" uid="uid://bqoeufcteiwsq" path="res://images/template.png" id="18_vmgat"]
 
 [sub_resource type="Resource" id="Resource_kliah"]
 script = ExtResource("9_08i8y")
@@ -28,23 +29,123 @@ level_started = 0
 
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
 
-[node name="Background" parent="BackgroundCanvas" instance=ExtResource("1_2a4e5")]
+[node name="Control" type="Control" parent="BackgroundCanvas"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="PixelButton" type="TextureButton" parent="BackgroundCanvas"]
+[node name="Bg" type="TextureRect" parent="BackgroundCanvas/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_1uils")
+expand_mode = 2
+
+[node name="BgNotes" type="TextureRect" parent="BackgroundCanvas/Control/Bg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 113.0
+offset_top = 73.0
+offset_right = -849.0
+offset_bottom = -342.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("13_etjjq")
+stretch_mode = 2
+
+[node name="BgShiftCard" type="TextureRect" parent="BackgroundCanvas/Control"]
+texture_filter = 1
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -525.0
+offset_left = -414.0
+offset_top = -71.0
+offset_right = -183.0
+offset_bottom = 122.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_qv1kq")
+stretch_mode = 2
+
+[node name="Coffee" type="TextureRect" parent="BackgroundCanvas/Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1533.47
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("11_6bu63")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="PlantLeft" type="TextureRect" parent="BackgroundCanvas/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 381.469
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_5e1na")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="ProjectPixelButton" type="TextureButton" parent="BackgroundCanvas/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -487.0
 offset_top = -235.0
-offset_right = -386.0
+offset_right = -348.0
 offset_bottom = -158.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.8, 1.8)
-theme = SubResource("Theme_id8kp")
 texture_normal = ExtResource("14_ishto")
+
+[node name="PlantRight" type="TextureRect" parent="BackgroundCanvas/Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -303.634
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("17_ca5y8")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="BgTemplate" type="TextureRect" parent="BackgroundCanvas/Control"]
+visible = false
+modulate = Color(1, 1, 1, 0.454902)
+custom_minimum_size = Vector2(3500, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 3500.0
+grow_vertical = 2
+texture = ExtResource("18_vmgat")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
 script = ExtResource("1_r2aoh")
@@ -71,7 +172,6 @@ scale = Vector2(1.8, 1.8)
 pivot_offset = Vector2(64, 0)
 texture_normal = ExtResource("9_e0v36")
 script = ExtResource("5_eqc8n")
-continueSprite = ExtResource("10_s7kv1")
 
 [node name="SettingsButton" type="TextureButton" parent="MenuCanvas/TitleMenu"]
 layout_mode = 1
@@ -91,7 +191,6 @@ pivot_offset = Vector2(88, 0)
 texture_normal = ExtResource("10_s7kv1")
 
 [node name="ResetButton" type="Button" parent="MenuCanvas/TitleMenu"]
-visible = false
 layout_mode = 2
 offset_left = 497.0
 offset_top = 299.0
@@ -101,56 +200,12 @@ size_flags_horizontal = 4
 theme = ExtResource("5_1yw01")
 text = "Reset"
 
-[node name="Coffee" type="TextureRect" parent="MenuCanvas/TitleMenu"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -349.0
-offset_top = -149.0
-offset_right = -233.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(1.8, 1.8)
-pivot_offset = Vector2(116, 149)
-texture = ExtResource("10_45787")
-stretch_mode = 2
-
-[node name="PlantLeft" type="TextureRect" parent="MenuCanvas/TitleMenu"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 680.914
-grow_vertical = 2
-texture = ExtResource("10_lyvtn")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="PlantRight" type="TextureRect" parent="MenuCanvas/TitleMenu"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -303.634
-grow_horizontal = 0
-grow_vertical = 2
-pivot_offset = Vector2(303.634, 0)
-texture = ExtResource("11_amd6u")
-expand_mode = 3
-stretch_mode = 4
-
 [node name="SettingsMenu" parent="MenuCanvas" instance=ExtResource("2_ap78m")]
-visible = false
 offset_left = -1200.0
 offset_right = -1200.0
-pivot_offset = Vector2(1200, 0)
 script = ExtResource("3_70rn2")
 
 [node name="LevelsMenu" parent="MenuCanvas" instance=ExtResource("4_qvo6n")]
-visible = false
 offset_left = 1200.0
 offset_right = 1200.0
 script = ExtResource("3_70rn2")
