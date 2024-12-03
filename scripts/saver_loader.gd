@@ -10,6 +10,8 @@ func save_game():
 	
 func load_game():
 	saved_game = load("user://savegame.tres") as SavedGame
+	if saved_game == null:
+		saved_game = SavedGame.new()
 	has_saved_game = saved_game.level_started > 0;
 
 func reset_game():

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyakoudohtl2h"]
 
 [ext_resource type="Script" path="res://scripts/levels_populator.gd" id="1_e6vc0"]
-[ext_resource type="PackedScene" uid="uid://h4hjt0fkwmrq" path="res://assets/main_menu/buttons/level_button.tscn" id="2_2isbr"]
-[ext_resource type="PackedScene" uid="uid://4r5vd3qgx1g6" path="res://assets/main_menu/buttons/back_button.tscn" id="2_ch2uj"]
-[ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://assets/main_menu/title_label.tscn" id="3_vrv7c"]
+[ext_resource type="PackedScene" uid="uid://h4hjt0fkwmrq" path="res://assets/main_menu/components/level_button.tscn" id="2_2isbr"]
+[ext_resource type="PackedScene" uid="uid://4r5vd3qgx1g6" path="res://assets/main_menu/components/back_button.tscn" id="2_ch2uj"]
+[ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://assets/main_menu/components/title_label.tscn" id="3_vrv7c"]
 
 [node name="levels_menu" type="Control"]
 layout_mode = 3
