@@ -29,6 +29,9 @@ is_active = true
 [node name="TitleLabel" parent="MenuCanvas/TitleMenu" index="0"]
 theme = ExtResource("4_a07cc")
 
+[node name="StartButton" parent="MenuCanvas/TitleMenu/Buttons" index="0"]
+script = ExtResource("5_eqc8n")
+
 [node name="ResetButton" type="Button" parent="MenuCanvas/TitleMenu"]
 layout_mode = 2
 offset_left = 710.0
@@ -38,9 +41,6 @@ offset_bottom = 448.0
 size_flags_horizontal = 4
 theme = ExtResource("5_1yw01")
 text = "Reset"
-
-[node name="StartButton" parent="MenuCanvas/TitleMenu/Buttons" index="0"]
-script = ExtResource("5_eqc8n")
 
 [node name="SettingsMenu" parent="MenuCanvas" instance=ExtResource("2_ap78m")]
 offset_left = -1200.0
@@ -57,10 +57,10 @@ unique_name_in_owner = true
 script = ExtResource("7_s7wvx")
 saved_game = SubResource("Resource_kliah")
 
-[connection signal="pressed" from="MenuCanvas/TitleMenu/ResetButton" to="SaverLoader" method="reset_game"]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/Buttons/StartButton" to="SaverLoader" method="update_level_started"]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/Buttons/LevelsButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["LevelsMenu"]]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/Buttons/SettingsButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["SettingsMenu"]]
+[connection signal="pressed" from="MenuCanvas/TitleMenu/ResetButton" to="SaverLoader" method="reset_game"]
 [connection signal="pressed" from="MenuCanvas/SettingsMenu/BackButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]
 [connection signal="pressed" from="MenuCanvas/LevelsMenu/BackButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]
 
