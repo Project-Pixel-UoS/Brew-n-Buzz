@@ -4,14 +4,18 @@ extends Node
 
 @export var has_saved_game: bool
 @export var saved_game : SavedGame
+@export var save_file_name: String = "savegame.tres"
+var save_path: String
+
+func _ready() -> void:
+	save_path =  "user://%s" % save_file_name
 
 func save_game():
-	ResourceSaver.save(saved_game, "user://savegame.tres")
+	ResourceSaver.save(saved_game, save_path)
 	
 func load_game():
-	saved_game = load("user://savegame.tres") as SavedGame
-	if saved_game == null:
-		saved_game = SavedGame.new()
+	if FileAccess.file_exists(save_path):
+		saved_game = load(save_path) as SavedGame
 	has_saved_game = saved_game.level_started > 0;
 
 func reset_game():
