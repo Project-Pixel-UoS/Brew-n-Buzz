@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bek4j2yvgcwn8"]
 
-[ext_resource type="PackedScene" uid="uid://4r5vd3qgx1g6" path="res://assets/main_menu/back_button.tscn" id="1_q6b7t"]
-[ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://assets/main_menu/title_label.tscn" id="2_s0r7p"]
+[ext_resource type="PackedScene" uid="uid://4r5vd3qgx1g6" path="res://assets/main_menu/components/back_button.tscn" id="1_q6b7t"]
+[ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://assets/main_menu/components/title_label.tscn" id="2_s0r7p"]
 
 [node name="settings_menu" type="Control"]
 layout_mode = 3
