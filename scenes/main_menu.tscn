@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bwovlnl5bfqtr"]
+[gd_scene load_steps=19 format=3 uid="uid://bwovlnl5bfqtr"]
 
 [ext_resource type="PackedScene" uid="uid://o08kpm1g2d1a" path="res://assets/main_menu/components/bg_stretch.tscn" id="1_2a4e5"]
 [ext_resource type="Script" path="res://scripts/menu_manager.gd" id="1_r2aoh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/pixel_button.gd" id="3_ydt3q"]
 [ext_resource type="PackedScene" uid="uid://cyakoudohtl2h" path="res://assets/main_menu/levels_menu.tscn" id="4_qvo6n"]
 [ext_resource type="Theme" uid="uid://bl05s12fg23o3" path="res://assets/themes/main_menu_theme.tres" id="5_1yw01"]
+[ext_resource type="Script" path="res://scenes/animation_component.gd" id="7_4kjcu"]
 [ext_resource type="Script" path="res://scripts/saver_loader.gd" id="7_s7wvx"]
 [ext_resource type="Script" path="res://scripts/saved_game.gd" id="9_08i8y"]
 [ext_resource type="Texture2D" uid="uid://8odguhgmhxjc" path="res://images/menu/plants_left.png" id="10_lyvtn"]
@@ -55,6 +56,14 @@ mouse_filter = 2
 script = ExtResource("3_70rn2")
 is_active = true
 
+[node name="AnimationComponent" type="Node" parent="MenuCanvas/TitleMenu/StartButton" index="0"]
+script = ExtResource("7_4kjcu")
+transition_type = 1
+
+[node name="AnimationComponent" type="Node" parent="MenuCanvas/TitleMenu/SettingsButton" index="0"]
+script = ExtResource("7_4kjcu")
+transition_type = 1
+
 [node name="ResetButton2" type="Button" parent="MenuCanvas/TitleMenu"]
 visible = false
 layout_mode = 0
@@ -73,11 +82,19 @@ pivot_offset = Vector2(1200, 0)
 script = ExtResource("3_70rn2")
 start_position = 3
 
+[node name="AnimationComponent" type="Node" parent="MenuCanvas/SettingsMenu/BackButton" index="0"]
+script = ExtResource("7_4kjcu")
+transition_type = 1
+
 [node name="LevelsMenu" parent="MenuCanvas" instance=ExtResource("4_qvo6n")]
 offset_left = 1280.0
 offset_right = 1280.0
 script = ExtResource("3_70rn2")
 start_position = 1
+
+[node name="AnimationComponent" type="Node" parent="MenuCanvas/LevelsMenu/BackButton" index="0"]
+script = ExtResource("7_4kjcu")
+transition_type = 1
 
 [node name="SaverLoader" type="Node" parent="."]
 unique_name_in_owner = true
@@ -142,11 +159,20 @@ text = "Credits"
 [node name="BackButton" parent="PlantLayer/Control/Credits" instance=ExtResource("15_4amlb")]
 layout_mode = 0
 
+[node name="AnimationComponent" type="Node" parent="PlantLayer/Control/Credits/BackButton"]
+script = ExtResource("7_4kjcu")
+transition_type = 1
+
 [connection signal="pressed" from="BackgroundCanvas/PixelButton" to="BackgroundCanvas/PixelButton" method="_on_pressed" binds= [true]]
+[connection signal="pressed" from="MenuCanvas/TitleMenu/StartButton" to="MenuCanvas/TitleMenu/StartButton/AnimationComponent" method="button_press"]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/StartButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["LevelsMenu"]]
+[connection signal="pressed" from="MenuCanvas/TitleMenu/SettingsButton" to="MenuCanvas/TitleMenu/SettingsButton/AnimationComponent" method="button_press"]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/SettingsButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["SettingsMenu"]]
+[connection signal="pressed" from="MenuCanvas/SettingsMenu/BackButton" to="MenuCanvas/SettingsMenu/BackButton/AnimationComponent" method="button_press"]
 [connection signal="pressed" from="MenuCanvas/SettingsMenu/BackButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]
+[connection signal="pressed" from="MenuCanvas/LevelsMenu/BackButton" to="MenuCanvas/LevelsMenu/BackButton/AnimationComponent" method="button_press"]
 [connection signal="pressed" from="MenuCanvas/LevelsMenu/BackButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]
+[connection signal="pressed" from="PlantLayer/Control/Credits/BackButton" to="PlantLayer/Control/Credits/BackButton/AnimationComponent" method="_on_back_button_pressed"]
 [connection signal="pressed" from="PlantLayer/Control/Credits/BackButton" to="BackgroundCanvas/PixelButton" method="_on_pressed" binds= [false]]
 
 [editable path="MenuCanvas/TitleMenu"]
