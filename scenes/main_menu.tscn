@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bwovlnl5bfqtr"]
+[gd_scene load_steps=22 format=3 uid="uid://bwovlnl5bfqtr"]
 
 [ext_resource type="PackedScene" uid="uid://o08kpm1g2d1a" path="res://assets/main_menu/components/bg_stretch.tscn" id="1_2a4e5"]
 [ext_resource type="Script" path="res://scripts/menu_manager.gd" id="1_r2aoh"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://assets/main_menu/components/title_label.tscn" id="13_h33pi"]
 [ext_resource type="Texture2D" uid="uid://ctiw86b4ohhhi" path="res://images/menu/logo.png" id="14_ishto"]
 [ext_resource type="PackedScene" uid="uid://4r5vd3qgx1g6" path="res://assets/main_menu/components/back_button.tscn" id="15_4amlb"]
-[ext_resource type="Script" path="res://scenes/game_manager.gd" id="17_dkr4e"]
 
 [sub_resource type="Theme" id="Theme_id8kp"]
 
@@ -47,9 +46,6 @@ level_completed = 0
 level_started = 0
 
 [node name="MainMenu" type="Node2D"]
-
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("17_dkr4e")
 
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
 
