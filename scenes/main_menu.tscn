@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bwovlnl5bfqtr"]
+[gd_scene load_steps=23 format=3 uid="uid://bwovlnl5bfqtr"]
 
 [ext_resource type="PackedScene" uid="uid://o08kpm1g2d1a" path="res://assets/main_menu/components/bg_stretch.tscn" id="1_2a4e5"]
 [ext_resource type="Script" path="res://scripts/menu_manager.gd" id="1_r2aoh"]
@@ -13,11 +13,33 @@
 [ext_resource type="Script" path="res://scripts/saved_game.gd" id="9_08i8y"]
 [ext_resource type="Texture2D" uid="uid://8odguhgmhxjc" path="res://images/menu/plants_left.png" id="10_lyvtn"]
 [ext_resource type="Texture2D" uid="uid://b4788gbrrrlce" path="res://images/menu/plants_right.png" id="11_amd6u"]
+[ext_resource type="Script" path="res://scenes/money_counter.gd" id="11_n08fg"]
 [ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://assets/main_menu/components/title_label.tscn" id="13_h33pi"]
 [ext_resource type="Texture2D" uid="uid://ctiw86b4ohhhi" path="res://images/menu/logo.png" id="14_ishto"]
 [ext_resource type="PackedScene" uid="uid://4r5vd3qgx1g6" path="res://assets/main_menu/components/back_button.tscn" id="15_4amlb"]
+[ext_resource type="Script" path="res://scenes/game_manager.gd" id="17_dkr4e"]
 
 [sub_resource type="Theme" id="Theme_id8kp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2jiu"]
+bg_color = Color(0.448437, 0.608589, 0.342772, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fybge"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="Resource" id="Resource_kliah"]
 script = ExtResource("9_08i8y")
@@ -25,6 +47,9 @@ level_completed = 0
 level_started = 0
 
 [node name="MainMenu" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("17_dkr4e")
 
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
 
@@ -109,6 +134,54 @@ scale = Vector2(1.8, 1.8)
 [node name="AnimationComponent" type="Node" parent="MenuCanvas/LevelsMenu/BackButton" index="0"]
 script = ExtResource("7_4kjcu")
 transition_type = 1
+
+[node name="MoneyContainer" type="Panel" parent="MenuCanvas/LevelsMenu"]
+layout_mode = 1
+offset_left = 800.0
+offset_top = 80.0
+offset_right = 1022.0
+offset_bottom = 156.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p2jiu")
+
+[node name="ImageFrame" type="Panel" parent="MenuCanvas/LevelsMenu/MoneyContainer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.5
+offset_top = -27.5
+offset_right = 65.5
+offset_bottom = 27.5
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fybge")
+
+[node name="MoneyIcon" type="TextureRect" parent="MenuCanvas/LevelsMenu/MoneyContainer/ImageFrame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MoneyLabel" type="Label" parent="MenuCanvas/LevelsMenu/MoneyContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("11_n08fg")
 
 [node name="SaverLoader" type="Node" parent="."]
 unique_name_in_owner = true
