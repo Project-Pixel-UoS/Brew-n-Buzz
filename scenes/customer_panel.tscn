@@ -1,0 +1,158 @@
+[gd_scene load_steps=9 format=3 uid="uid://u38bjr6bo3jn"]
+
+[ext_resource type="Theme" uid="uid://c1xx0ai0x7qku" path="res://assets/themes/title_theme.tres" id="1_ehbd8"]
+[ext_resource type="PackedScene" uid="uid://dbplx5axo07pj" path="res://prototype/doll.tscn" id="2_aajm0"]
+[ext_resource type="Script" path="res://resources/Customer.gd" id="3_b0h2i"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_44g8s"]
+size = Vector2(1, 320)
+
+[sub_resource type="Resource" id="Resource_kl66k"]
+script = ExtResource("3_b0h2i")
+patience = 25.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jqvw7"]
+size = Vector2(300, 150)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_afs2u"]
+size = Vector2(80, 100)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c12m0"]
+size = Vector2(200, 180)
+
+[node name="CustomerPanel" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(600, 1080)
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 600.0
+offset_bottom = 360.0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="CafeBG" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.243137)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_44g8s")
+
+[node name="Label" type="Label" parent="CafeBG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -49.5
+offset_right = 141.0
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ehbd8")
+text = "Cafe Background"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Doll" parent="." instance=ExtResource("2_aajm0")]
+position = Vector2(286.07, 455.283)
+scale = Vector2(0.3, 0.3)
+character = SubResource("Resource_kl66k")
+
+[node name="SpeechBox" type="Sprite2D" parent="."]
+position = Vector2(280.351, 130.155)
+texture = SubResource("PlaceholderTexture2D_jqvw7")
+
+[node name="Label" type="Label" parent="SpeechBox"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -75.0
+offset_right = -150.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 75)
+theme = ExtResource("1_ehbd8")
+theme_override_font_sizes/font_size = 48
+text = "Speech Box"
+horizontal_alignment = 1
+
+[node name="Counter" type="TextureRect" parent="."]
+self_modulate = Color(0.184314, 1, 1, 0.286275)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -181.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("PlaceholderTexture2D_44g8s")
+
+[node name="Label" type="Label" parent="Counter"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -49.5
+offset_right = 141.0
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ehbd8")
+text = "Counter"
+
+[node name="Bell" type="Sprite2D" parent="."]
+position = Vector2(91.9742, 772.552)
+scale = Vector2(1.159, 1)
+texture = SubResource("PlaceholderTexture2D_afs2u")
+
+[node name="Label" type="Label" parent="Bell"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.9366
+offset_top = -82.8608
+offset_right = 221.063
+offset_bottom = -16.8608
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 75)
+theme = ExtResource("1_ehbd8")
+theme_override_font_sizes/font_size = 48
+text = "Bell
+"
+vertical_alignment = 1
+
+[node name="CashRegister" type="Sprite2D" parent="."]
+position = Vector2(456.55, 767.01)
+scale = Vector2(1.159, 1)
+texture = SubResource("PlaceholderTexture2D_c12m0")
+
+[node name="Label" type="Label" parent="CashRegister"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -85.5649
+offset_top = -85.567
+offset_right = 179.435
+offset_bottom = -19.567
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 75)
+theme = ExtResource("1_ehbd8")
+theme_override_font_sizes/font_size = 48
+text = "register"
+vertical_alignment = 1

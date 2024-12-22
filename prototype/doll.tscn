@@ -1,0 +1,41 @@
+[gd_scene load_steps=14 format=3 uid="uid://dbplx5axo07pj"]
+
+[ext_resource type="Script" path="res://prototype/doll.gd" id="1_us47g"]
+[ext_resource type="Texture2D" uid="uid://th4n66o2surt" path="res://prototype/head1.png" id="1_utlxh"]
+[ext_resource type="Script" path="res://prototype/randomFeature.gd" id="2_aqjws"]
+[ext_resource type="Texture2D" uid="uid://dus2e37pd4vxf" path="res://prototype/head3.png" id="3_66p2g"]
+[ext_resource type="Texture2D" uid="uid://bk7qk78osl531" path="res://prototype/body2.png" id="4_oj47j"]
+[ext_resource type="Texture2D" uid="uid://krrd3ra33v5n" path="res://prototype/body1.png" id="5_615ty"]
+[ext_resource type="Texture2D" uid="uid://bww0ni55tyl2x" path="res://prototype/body3.png" id="6_pl6bt"]
+[ext_resource type="Texture2D" uid="uid://cawn4fjtqrp8x" path="res://prototype/face1.png" id="7_xgv87"]
+[ext_resource type="Texture2D" uid="uid://pnpu4oh4oshf" path="res://prototype/face2.png" id="8_qsj68"]
+[ext_resource type="Texture2D" uid="uid://di4gdxjk8jdns" path="res://prototype/face3.png" id="9_sd7oi"]
+[ext_resource type="Texture2D" uid="uid://chcj8ar6mnyxv" path="res://prototype/hair1.png" id="10_mvem5"]
+[ext_resource type="Texture2D" uid="uid://g8syph5ynqnh" path="res://prototype/hair2.png" id="11_h1px3"]
+[ext_resource type="Texture2D" uid="uid://c8nyqryxksejc" path="res://prototype/hair3.png" id="12_0nnrm"]
+
+[node name="Doll" type="Node2D"]
+texture_filter = 1
+position = Vector2(0, -256)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_us47g")
+
+[node name="body" type="Sprite2D" parent="."]
+texture = ExtResource("4_oj47j")
+script = ExtResource("2_aqjws")
+sprites = Array[Texture2D]([ExtResource("5_615ty"), ExtResource("4_oj47j"), ExtResource("6_pl6bt")])
+
+[node name="head" type="Sprite2D" parent="."]
+texture = ExtResource("1_utlxh")
+script = ExtResource("2_aqjws")
+sprites = Array[Texture2D]([ExtResource("1_utlxh"), ExtResource("1_utlxh"), ExtResource("3_66p2g")])
+
+[node name="face" type="Sprite2D" parent="."]
+texture = ExtResource("7_xgv87")
+script = ExtResource("2_aqjws")
+sprites = Array[Texture2D]([ExtResource("7_xgv87"), ExtResource("8_qsj68"), ExtResource("9_sd7oi")])
+
+[node name="hair" type="Sprite2D" parent="."]
+texture = ExtResource("10_mvem5")
+script = ExtResource("2_aqjws")
+sprites = Array[Texture2D]([ExtResource("10_mvem5"), ExtResource("11_h1px3"), ExtResource("12_0nnrm")])
