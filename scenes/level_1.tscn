@@ -1,3 +1,128 @@
-[gd_scene format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=7 format=3 uid="uid://clguhfei4o2fg"]
+
+[ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
+[ext_resource type="Script" path="res://scenes/level_manager.gd" id="2_q7cu4"]
+[ext_resource type="Script" path="res://scenes/timer.gd" id="3_sh0uv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33rai"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0l01m"]
+bg_color = Color(0.370837, 0.489447, 0.279365, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61usj"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Level1" type="Node2D"]
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("2_q7cu4")
+
+[node name="TimerContainer" type="Panel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 860.0
+offset_top = 50.0
+offset_right = 1082.0
+offset_bottom = 126.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_33rai")
+
+[node name="Timer" type="Timer" parent="TimerContainer"]
+unique_name_in_owner = true
+process_callback = 0
+one_shot = true
+script = ExtResource("3_sh0uv")
+
+[node name="TimeRemaining" type="Label" parent="TimerContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -11.5
+offset_right = 20.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "00:00"
+
+[node name="MoneyContainer" type="Panel" parent="."]
+offset_left = 180.0
+offset_top = 50.0
+offset_right = 402.0
+offset_bottom = 126.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0l01m")
+
+[node name="ImageFrame" type="Panel" parent="MoneyContainer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.5
+offset_top = -27.5
+offset_right = 65.5
+offset_bottom = 27.5
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_61usj")
+
+[node name="MoneyIcon" type="TextureRect" parent="MoneyContainer/ImageFrame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MoneyLabel" type="Label" parent="MoneyContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_4qq85")
+
+[connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
