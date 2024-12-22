@@ -1,15 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://u38bjr6bo3jn"]
+[gd_scene load_steps=8 format=3 uid="uid://u38bjr6bo3jn"]
 
 [ext_resource type="Theme" uid="uid://c1xx0ai0x7qku" path="res://assets/themes/title_theme.tres" id="1_ehbd8"]
 [ext_resource type="PackedScene" uid="uid://dbplx5axo07pj" path="res://prototype/doll.tscn" id="2_aajm0"]
-[ext_resource type="Script" path="res://resources/Customer.gd" id="3_b0h2i"]
+[ext_resource type="Resource" uid="uid://byfovq6w6kbyh" path="res://resources/basic_customer.tres" id="3_4kdmd"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_44g8s"]
 size = Vector2(1, 320)
-
-[sub_resource type="Resource" id="Resource_kl66k"]
-script = ExtResource("3_b0h2i")
-patience = 25.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jqvw7"]
 size = Vector2(300, 150)
@@ -63,7 +59,7 @@ autowrap_mode = 2
 [node name="Doll" parent="." instance=ExtResource("2_aajm0")]
 position = Vector2(286.07, 455.283)
 scale = Vector2(0.3, 0.3)
-character = SubResource("Resource_kl66k")
+character = ExtResource("3_4kdmd")
 
 [node name="SpeechBox" type="Sprite2D" parent="."]
 position = Vector2(280.351, 130.155)

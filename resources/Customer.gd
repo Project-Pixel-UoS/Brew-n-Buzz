@@ -1,5 +1,6 @@
 class_name Customer extends Resource
 
+## @brief holds data for customer attributes
 @export var patience: float
 @export var body: Body
 @export var drink: Resource
