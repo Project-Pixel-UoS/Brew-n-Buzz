@@ -12,7 +12,7 @@ func out_of_time():
 	
 func _ready() -> void:
 	timer.wait_time = 1/float(game_time_scale)
-	time_remaining.text= "13:00"
+	time_remaining.text= "12:00"
 	timer.start()
 
 func _format_time()-> String:
