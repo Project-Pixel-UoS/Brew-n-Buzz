@@ -46,10 +46,10 @@ script = ExtResource("2_q7cu4")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 1050.0
-offset_top = 10.0
-offset_right = 1272.0
-offset_bottom = 86.0
+offset_left = 1035.0
+offset_top = 109.0
+offset_right = 1257.0
+offset_bottom = 185.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_33rai")
 
