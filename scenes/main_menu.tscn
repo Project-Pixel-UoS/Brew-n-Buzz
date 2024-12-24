@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bwovlnl5bfqtr"]
+[gd_scene load_steps=23 format=3 uid="uid://bwovlnl5bfqtr"]
 
 [ext_resource type="PackedScene" uid="uid://o08kpm1g2d1a" path="res://assets/main_menu/components/bg_stretch.tscn" id="1_2a4e5"]
 [ext_resource type="Script" path="res://scripts/menu_manager.gd" id="1_r2aoh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Theme" uid="uid://bl05s12fg23o3" path="res://assets/themes/main_menu_theme.tres" id="5_1yw01"]
 [ext_resource type="Script" path="res://scenes/animation_component.gd" id="7_4kjcu"]
 [ext_resource type="Script" path="res://scripts/saver_loader.gd" id="7_s7wvx"]
+[ext_resource type="Texture2D" uid="uid://b6vbnyk3724a4" path="res://images/menu/brew_n_buzz_logo.png" id="8_wn6et"]
 [ext_resource type="Script" path="res://scripts/saved_game.gd" id="9_08i8y"]
 [ext_resource type="Texture2D" uid="uid://8odguhgmhxjc" path="res://images/menu/plants_left.png" id="10_lyvtn"]
 [ext_resource type="Texture2D" uid="uid://b4788gbrrrlce" path="res://images/menu/plants_right.png" id="11_amd6u"]
@@ -84,6 +85,24 @@ transition_type = 1
 [node name="AnimationComponent" type="Node" parent="MenuCanvas/TitleMenu/SettingsButton" index="0"]
 script = ExtResource("7_4kjcu")
 transition_type = 1
+
+[node name="Logo" type="TextureRect" parent="MenuCanvas/TitleMenu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -190.0
+offset_right = 39.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.5, 3.5)
+pivot_offset = Vector2(37.5, 0)
+texture = ExtResource("8_wn6et")
 
 [node name="ResetButton2" type="Button" parent="MenuCanvas/TitleMenu"]
 visible = false
