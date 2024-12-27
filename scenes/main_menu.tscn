@@ -70,6 +70,68 @@ texture_normal = ExtResource("14_ishto")
 script = ExtResource("3_ydt3q")
 credits_page = NodePath("../../PlantLayer/Control/Credits")
 
+[node name="PlantLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="PlantLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlantLeft" type="TextureRect" parent="PlantLayer/Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 680.914
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_lyvtn")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="PlantRight" type="TextureRect" parent="PlantLayer/Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -337.371
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(303.634, 0)
+mouse_filter = 2
+texture = ExtResource("11_amd6u")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Credits" type="Control" parent="PlantLayer/Control"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" parent="PlantLayer/Control/Credits" instance=ExtResource("13_h33pi")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 435.0
+offset_bottom = 100.0
+grow_horizontal = 1
+text = "Credits"
+
+[node name="BackButton" parent="PlantLayer/Control/Credits" instance=ExtResource("15_4amlb")]
+layout_mode = 0
+
+[node name="AnimationComponent" type="Node" parent="PlantLayer/Control/Credits/BackButton"]
+script = ExtResource("7_4kjcu")
+transition_type = 1
+
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
 script = ExtResource("1_r2aoh")
 
@@ -132,6 +194,10 @@ scale = Vector2(1.8, 1.8)
 [node name="AnimationComponent" type="Node" parent="MenuCanvas/SettingsMenu/BackButton" index="0"]
 script = ExtResource("7_4kjcu")
 transition_type = 1
+
+[node name="ScrollContainer" parent="MenuCanvas/SettingsMenu" index="2"]
+offset_right = 310.0
+offset_bottom = 157.0
 
 [node name="LevelsMenu" parent="MenuCanvas" instance=ExtResource("4_qvo6n")]
 offset_left = 1280.0
@@ -203,69 +269,9 @@ unique_name_in_owner = true
 script = ExtResource("7_s7wvx")
 saved_game = SubResource("Resource_kliah")
 
-[node name="PlantLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="PlantLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="PlantLeft" type="TextureRect" parent="PlantLayer/Control"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 680.914
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("10_lyvtn")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="PlantRight" type="TextureRect" parent="PlantLayer/Control"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -337.371
-grow_horizontal = 0
-grow_vertical = 2
-pivot_offset = Vector2(303.634, 0)
-mouse_filter = 2
-texture = ExtResource("11_amd6u")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Credits" type="Control" parent="PlantLayer/Control"]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TitleLabel" parent="PlantLayer/Control/Credits" instance=ExtResource("13_h33pi")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_right = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 435.0
-offset_bottom = 100.0
-grow_horizontal = 1
-text = "Credits"
-
-[node name="BackButton" parent="PlantLayer/Control/Credits" instance=ExtResource("15_4amlb")]
-layout_mode = 0
-
-[node name="AnimationComponent" type="Node" parent="PlantLayer/Control/Credits/BackButton"]
-script = ExtResource("7_4kjcu")
-transition_type = 1
-
 [connection signal="pressed" from="BackgroundCanvas/PixelButton" to="BackgroundCanvas/PixelButton" method="_on_pressed" binds= [true]]
+[connection signal="pressed" from="PlantLayer/Control/Credits/BackButton" to="PlantLayer/Control/Credits/BackButton/AnimationComponent" method="_on_back_button_pressed"]
+[connection signal="pressed" from="PlantLayer/Control/Credits/BackButton" to="BackgroundCanvas/PixelButton" method="_on_pressed" binds= [false]]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/StartButton" to="MenuCanvas/TitleMenu/StartButton/AnimationComponent" method="button_press"]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/StartButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["LevelsMenu"]]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/SettingsButton" to="MenuCanvas/TitleMenu/SettingsButton/AnimationComponent" method="button_press"]
@@ -274,8 +280,6 @@ transition_type = 1
 [connection signal="pressed" from="MenuCanvas/SettingsMenu/BackButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]
 [connection signal="pressed" from="MenuCanvas/LevelsMenu/BackButton" to="MenuCanvas/LevelsMenu/BackButton/AnimationComponent" method="button_press"]
 [connection signal="pressed" from="MenuCanvas/LevelsMenu/BackButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]
-[connection signal="pressed" from="PlantLayer/Control/Credits/BackButton" to="PlantLayer/Control/Credits/BackButton/AnimationComponent" method="_on_back_button_pressed"]
-[connection signal="pressed" from="PlantLayer/Control/Credits/BackButton" to="BackgroundCanvas/PixelButton" method="_on_pressed" binds= [false]]
 
 [editable path="MenuCanvas/TitleMenu"]
 [editable path="MenuCanvas/SettingsMenu"]
