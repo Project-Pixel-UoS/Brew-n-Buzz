@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=9 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="2_q7cu4"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_sh0uv"]
+[ext_resource type="PackedScene" uid="uid://n7usixvpisr4" path="res://scenes/platform.tscn" id="4_kra0f"]
+[ext_resource type="PackedScene" uid="uid://boyudpbxnh87s" path="res://scenes/object.tscn" id="5_6bfpp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33rai"]
 bg_color = Color(1, 1, 1, 1)
@@ -124,5 +126,17 @@ text = "0
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_4qq85")
+
+[node name="platform3" parent="." instance=ExtResource("4_kra0f")]
+position = Vector2(441, 366)
+
+[node name="platform2" parent="." instance=ExtResource("4_kra0f")]
+position = Vector2(903, 484)
+
+[node name="platform" parent="." instance=ExtResource("4_kra0f")]
+position = Vector2(753, 298)
+
+[node name="object" parent="." instance=ExtResource("5_6bfpp")]
+position = Vector2(608, 505)
 
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
