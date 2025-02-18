@@ -128,7 +128,7 @@ vertical_alignment = 1
 script = ExtResource("2_4qq85")
 
 [node name="platform3" parent="." instance=ExtResource("4_kra0f")]
-position = Vector2(441, 366)
+position = Vector2(344, 330)
 
 [node name="platform2" parent="." instance=ExtResource("4_kra0f")]
 position = Vector2(903, 484)
