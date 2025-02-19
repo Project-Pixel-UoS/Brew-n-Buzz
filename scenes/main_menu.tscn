@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bwovlnl5bfqtr"]
+[gd_scene load_steps=27 format=3 uid="uid://bwovlnl5bfqtr"]
 
 [ext_resource type="PackedScene" uid="uid://o08kpm1g2d1a" path="res://assets/main_menu/components/bg_stretch.tscn" id="1_2a4e5"]
 [ext_resource type="Script" path="res://scripts/menu_manager.gd" id="1_r2aoh"]
@@ -20,6 +20,31 @@
 [ext_resource type="PackedScene" uid="uid://4r5vd3qgx1g6" path="res://assets/main_menu/components/back_button.tscn" id="15_4amlb"]
 
 [sub_resource type="Theme" id="Theme_id8kp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exptb"]
+bg_color = Color(0.94902, 0.643137, 0.34902, 0.392157)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.882353, 0.588235, 0.301961, 0.392157)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 10
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="Theme" id="Theme_t31c4"]
+
+[sub_resource type="Theme" id="Theme_acqyv"]
+
+[sub_resource type="Theme" id="Theme_7ldcs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2jiu"]
 bg_color = Color(0.448437, 0.608589, 0.342772, 1)
@@ -196,8 +221,22 @@ script = ExtResource("7_4kjcu")
 transition_type = 1
 
 [node name="ScrollContainer" parent="MenuCanvas/SettingsMenu" index="2"]
-offset_right = 310.0
-offset_bottom = 157.0
+clip_contents = false
+offset_left = -329.0
+offset_top = -130.01
+offset_right = 347.0
+offset_bottom = 110.435
+theme_override_styles/panel = SubResource("StyleBoxFlat_exptb")
+
+[node name="VBoxContainer" parent="MenuCanvas/SettingsMenu/ScrollContainer" index="0"]
+theme = SubResource("Theme_t31c4")
+theme_override_constants/separation = 80
+
+[node name="Audo_Slider_Settings" parent="MenuCanvas/SettingsMenu/ScrollContainer/VBoxContainer" index="0"]
+theme = SubResource("Theme_acqyv")
+
+[node name="Audo_Slider_Settings3" parent="MenuCanvas/SettingsMenu/ScrollContainer/VBoxContainer" index="2"]
+theme = SubResource("Theme_7ldcs")
 
 [node name="LevelsMenu" parent="MenuCanvas" instance=ExtResource("4_qvo6n")]
 offset_left = 1280.0
