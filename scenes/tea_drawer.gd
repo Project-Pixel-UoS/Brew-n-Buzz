@@ -1,20 +1,25 @@
+## @brief Allows a button to be pressed that will extend/retract the tea drawer
 extends Button
 
-var target : Control
-var button_position : Vector2
-var new_position = Vector2(1400,394)
-var old_position = Vector2(1477,394)
+@onready var pullOutButton = %DrawerButton
+var new_position = Vector2(1380,341)
+var old_position = Vector2(1632,341)
 var been_pressed = false
+var children = []
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	target = get_parent()
-	button_position = target.position
+	children = get_children()
+	for i in children:
+		i.visible = false
 
 func drawer_press() -> void:
 	if !been_pressed:
 		been_pressed = true
-		target.position = button_position.lerp(new_position,1)
+		for i in children:
+			i.visible = true
+		pullOutButton.position = old_position.lerp(new_position,1)
 	else:
 		been_pressed = false
-		target.position = new_position.lerp(old_position,1)
+		pullOutButton.position = new_position.lerp(old_position,1)
+		for i in children:
+			i.visible = false

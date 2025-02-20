@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=26 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="2_q7cu4"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://boyudpbxnh87s" path="res://scenes/object.tscn" id="5_6bfpp"]
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
 [ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="7_6t2pv"]
+[ext_resource type="Texture2D" uid="uid://urbolafgxjia" path="res://images/kitchen panel/ingredients/fruittea.PNG" id="7_siltn"]
+[ext_resource type="Texture2D" uid="uid://d0v7hhu101kvr" path="res://images/kitchen panel/ingredients/camomilletea.PNG" id="8_0eusx"]
 [ext_resource type="Texture2D" uid="uid://cholgudtx35vj" path="res://images/kitchen panel/ingredients/coffeebean.PNG" id="8_bvyag"]
 [ext_resource type="Texture2D" uid="uid://brgx44mv1up15" path="res://images/kitchen panel/ingredients/cocoabean.PNG" id="9_ib0ym"]
 [ext_resource type="Texture2D" uid="uid://c3vgqimow5qnu" path="res://images/kitchen panel/ingredients/whippedcream.PNG" id="10_2da5q"]
@@ -156,13 +158,6 @@ position = Vector2(484, 427)
 [node name="object" parent="." instance=ExtResource("5_6bfpp")]
 position = Vector2(339, 634)
 
-[node name="PullOutButton" type="Panel" parent="."]
-offset_left = 1628.0
-offset_top = 433.0
-offset_right = 1724.0
-offset_bottom = 473.0
-rotation = -1.5708
-
 [node name="BottomPanel" type="Panel" parent="."]
 offset_left = 925.0
 offset_top = 667.0
@@ -181,34 +176,91 @@ offset_top = 90.0
 offset_right = 1804.0
 offset_bottom = 218.0
 
+[node name="Machines" type="Node" parent="."]
+
+[node name="Prep" type="Panel" parent="Machines"]
+offset_left = 930.0
+offset_top = 517.0
+offset_right = 1058.0
+offset_bottom = 645.0
+
+[node name="Grinder" type="Panel" parent="Machines"]
+offset_left = 1337.0
+offset_top = 370.0
+offset_right = 1465.0
+offset_bottom = 626.0
+
+[node name="GroupHandle" type="Panel" parent="Machines"]
+offset_left = 1238.0
+offset_top = 349.0
+offset_right = 1302.0
+offset_bottom = 477.0
+
+[node name="CoffeeMachine" type="Panel" parent="Machines"]
+offset_left = 930.0
+offset_top = 285.0
+offset_right = 1234.0
+offset_bottom = 477.0
+
+[node name="Guidebook" type="Panel" parent="Machines"]
+offset_left = 1292.0
+offset_top = 686.0
+offset_right = 1548.0
+offset_bottom = 814.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_opiph")
+
+[node name="Bin" type="Panel" parent="Machines"]
+offset_left = 987.0
+offset_top = 686.0
+offset_right = 1243.0
+offset_bottom = 814.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jvdqx")
+
+[node name="Mugs" type="Panel" parent="Machines"]
+offset_left = 1138.0
+offset_top = 516.0
+offset_right = 1266.0
+offset_bottom = 644.0
+
+[node name="Frother" type="Panel" parent="Machines"]
+offset_left = 1494.0
+offset_top = 468.0
+offset_right = 1622.0
+offset_bottom = 596.0
+
 [node name="Ingredients" type="Node" parent="."]
 
-[node name="TeaDrawer" type="Panel" parent="Ingredients"]
-offset_left = 554.0
-offset_top = 929.0
-offset_right = 815.71
-offset_bottom = 1023.0
-
-[node name="DrawerButton" type="Button" parent="Ingredients/TeaDrawer"]
+[node name="DrawerButton" type="Button" parent="Ingredients"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 86.0
-offset_bottom = 92.0
+offset_left = 1632.0
+offset_top = 341.0
+offset_right = 1672.0
+offset_bottom = 437.0
 script = ExtResource("6_7ydoj")
 
-[node name="Tea1" type="Button" parent="Ingredients/TeaDrawer"]
-layout_mode = 0
-offset_left = 113.0
-offset_top = 22.0
-offset_right = 163.0
-offset_bottom = 73.0
+[node name="TeaDrawer" type="Panel" parent="Ingredients/DrawerButton"]
+offset_left = 49.0
+offset_top = -11.0
+offset_right = 301.0
+offset_bottom = 105.0
 
-[node name="Tea2" type="Button" parent="Ingredients/TeaDrawer"]
-layout_mode = 0
-offset_left = 186.0
-offset_top = 22.0
+[node name="FruitTea" type="TextureButton" parent="Ingredients/DrawerButton/TeaDrawer"]
+texture_filter = 1
+offset_left = 140.0
+offset_top = 10.0
 offset_right = 236.0
-offset_bottom = 73.0
+offset_bottom = 106.0
+texture_normal = ExtResource("7_siltn")
+stretch_mode = 0
+
+[node name="CamomileTea" type="TextureButton" parent="Ingredients/DrawerButton/TeaDrawer"]
+texture_filter = 1
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 111.0
+offset_bottom = 108.0
+texture_normal = ExtResource("8_0eusx")
+stretch_mode = 0
 
 [node name="Milk" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
@@ -318,57 +370,5 @@ offset_bottom = 199.0
 texture_normal = ExtResource("18_753bm")
 stretch_mode = 0
 
-[node name="Machines" type="Node" parent="."]
-
-[node name="Prep" type="Panel" parent="Machines"]
-offset_left = 930.0
-offset_top = 517.0
-offset_right = 1058.0
-offset_bottom = 645.0
-
-[node name="Grinder" type="Panel" parent="Machines"]
-offset_left = 1337.0
-offset_top = 370.0
-offset_right = 1465.0
-offset_bottom = 626.0
-
-[node name="GroupHandle" type="Panel" parent="Machines"]
-offset_left = 1238.0
-offset_top = 349.0
-offset_right = 1302.0
-offset_bottom = 477.0
-
-[node name="CoffeeMachine" type="Panel" parent="Machines"]
-offset_left = 930.0
-offset_top = 285.0
-offset_right = 1234.0
-offset_bottom = 477.0
-
-[node name="Guidebook" type="Panel" parent="Machines"]
-offset_left = 1292.0
-offset_top = 686.0
-offset_right = 1548.0
-offset_bottom = 814.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_opiph")
-
-[node name="Bin" type="Panel" parent="Machines"]
-offset_left = 987.0
-offset_top = 686.0
-offset_right = 1243.0
-offset_bottom = 814.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_jvdqx")
-
-[node name="Mugs" type="Panel" parent="Machines"]
-offset_left = 1138.0
-offset_top = 516.0
-offset_right = 1266.0
-offset_bottom = 644.0
-
-[node name="Frother" type="Panel" parent="Machines"]
-offset_left = 1494.0
-offset_top = 468.0
-offset_right = 1622.0
-offset_bottom = 596.0
-
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
-[connection signal="pressed" from="Ingredients/TeaDrawer/DrawerButton" to="Ingredients/TeaDrawer/DrawerButton" method="drawer_press"]
+[connection signal="pressed" from="Ingredients/DrawerButton" to="Ingredients/DrawerButton" method="drawer_press"]
