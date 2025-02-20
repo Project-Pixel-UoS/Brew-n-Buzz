@@ -1,10 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=24 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="2_q7cu4"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_sh0uv"]
 [ext_resource type="PackedScene" uid="uid://n7usixvpisr4" path="res://scenes/platform.tscn" id="4_kra0f"]
 [ext_resource type="PackedScene" uid="uid://boyudpbxnh87s" path="res://scenes/object.tscn" id="5_6bfpp"]
+[ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
+[ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="7_6t2pv"]
+[ext_resource type="Texture2D" uid="uid://cholgudtx35vj" path="res://images/kitchen panel/ingredients/coffeebean.PNG" id="8_bvyag"]
+[ext_resource type="Texture2D" uid="uid://brgx44mv1up15" path="res://images/kitchen panel/ingredients/cocoabean.PNG" id="9_ib0ym"]
+[ext_resource type="Texture2D" uid="uid://c3vgqimow5qnu" path="res://images/kitchen panel/ingredients/whippedcream.PNG" id="10_2da5q"]
+[ext_resource type="Texture2D" uid="uid://0m7hc17rio08" path="res://images/kitchen panel/ingredients/marshmallows.PNG" id="11_huvnx"]
+[ext_resource type="Texture2D" uid="uid://cra7ey65ac01n" path="res://images/kitchen panel/ingredients/cinnamonsticks.PNG" id="12_fl4k1"]
+[ext_resource type="Texture2D" uid="uid://bv21buat5ru68" path="res://images/kitchen panel/ingredients/liquor.PNG" id="13_ukxhq"]
+[ext_resource type="Texture2D" uid="uid://chhg3bdelfhie" path="res://images/kitchen panel/ingredients/honey.PNG" id="14_yfrnt"]
+[ext_resource type="Texture2D" uid="uid://cd65qjd357183" path="res://images/kitchen panel/ingredients/lemon.PNG" id="15_fbm44"]
+[ext_resource type="Texture2D" uid="uid://c8uo4vwkrjvxa" path="res://images/kitchen panel/ingredients/caramel.PNG" id="16_xaw5t"]
+[ext_resource type="Texture2D" uid="uid://fxklg6y5jju4" path="res://images/kitchen panel/ingredients/teabag(black tea).PNG" id="17_tk8mh"]
+[ext_resource type="Texture2D" uid="uid://dp7fj8v05cdu1" path="res://images/kitchen panel/ingredients/pumpkin.PNG" id="18_753bm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33rai"]
 bg_color = Color(1, 1, 1, 1)
@@ -39,6 +52,10 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opiph"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvdqx"]
+
 [node name="Level1" type="Node2D"]
 
 [node name="LevelManager" type="Node" parent="."]
@@ -48,10 +65,10 @@ script = ExtResource("2_q7cu4")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 1035.0
-offset_top = 109.0
-offset_right = 1257.0
-offset_bottom = 185.0
+offset_left = 1432.0
+offset_top = 220.0
+offset_right = 1672.0
+offset_bottom = 324.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_33rai")
 
@@ -128,15 +145,230 @@ vertical_alignment = 1
 script = ExtResource("2_4qq85")
 
 [node name="platform3" parent="." instance=ExtResource("4_kra0f")]
-position = Vector2(344, 330)
+position = Vector2(75, 459)
 
 [node name="platform2" parent="." instance=ExtResource("4_kra0f")]
-position = Vector2(903, 484)
+position = Vector2(619, 641)
 
 [node name="platform" parent="." instance=ExtResource("4_kra0f")]
-position = Vector2(753, 298)
+position = Vector2(484, 427)
 
 [node name="object" parent="." instance=ExtResource("5_6bfpp")]
-position = Vector2(608, 505)
+position = Vector2(339, 634)
+
+[node name="PullOutButton" type="Panel" parent="."]
+offset_left = 1628.0
+offset_top = 433.0
+offset_right = 1724.0
+offset_bottom = 473.0
+rotation = -1.5708
+
+[node name="BottomPanel" type="Panel" parent="."]
+offset_left = 925.0
+offset_top = 667.0
+offset_right = 1805.0
+offset_bottom = 815.0
+
+[node name="VerticalPanel" type="Panel" parent="."]
+offset_left = 1676.0
+offset_top = 221.0
+offset_right = 1804.0
+offset_bottom = 665.0
+
+[node name="HorizontalPanel" type="Panel" parent="."]
+offset_left = 924.0
+offset_top = 90.0
+offset_right = 1804.0
+offset_bottom = 218.0
+
+[node name="Ingredients" type="Node" parent="."]
+
+[node name="TeaDrawer" type="Panel" parent="Ingredients"]
+offset_left = 554.0
+offset_top = 929.0
+offset_right = 815.71
+offset_bottom = 1023.0
+
+[node name="DrawerButton" type="Button" parent="Ingredients/TeaDrawer"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 86.0
+offset_bottom = 92.0
+script = ExtResource("6_7ydoj")
+
+[node name="Tea1" type="Button" parent="Ingredients/TeaDrawer"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 22.0
+offset_right = 163.0
+offset_bottom = 73.0
+
+[node name="Tea2" type="Button" parent="Ingredients/TeaDrawer"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 22.0
+offset_right = 236.0
+offset_bottom = 73.0
+
+[node name="Milk" type="TextureButton" parent="Ingredients"]
+texture_filter = 1
+offset_left = 1692.0
+offset_top = 557.0
+offset_right = 1788.0
+offset_bottom = 653.0
+texture_normal = ExtResource("7_6t2pv")
+stretch_mode = 0
+
+[node name="Coffee" type="TextureButton" parent="Ingredients"]
+texture_filter = 1
+offset_left = 1693.0
+offset_top = 233.0
+offset_right = 1789.0
+offset_bottom = 329.0
+texture_normal = ExtResource("8_bvyag")
+stretch_mode = 0
+
+[node name="Cocoa" type="TextureButton" parent="Ingredients"]
+texture_filter = 1
+offset_left = 1693.0
+offset_top = 448.0
+offset_right = 1789.0
+offset_bottom = 544.0
+texture_normal = ExtResource("9_ib0ym")
+stretch_mode = 0
+
+[node name="WhippedCream" type="TextureButton" parent="Ingredients"]
+texture_filter = 1
+offset_left = 943.0
+offset_top = 104.0
+offset_right = 1039.0
+offset_bottom = 200.0
+texture_normal = ExtResource("10_2da5q")
+stretch_mode = 0
+
+[node name="Marshmallows" type="TextureButton" parent="Ingredients"]
+texture_filter = 1
+offset_left = 1691.0
+offset_top = 104.0
+offset_right = 1787.0
+offset_bottom = 200.0
+texture_normal = ExtResource("11_huvnx")
+stretch_mode = 0
+
+[node name="CinnamonSticks" type="TextureButton" parent="Ingredients"]
+texture_filter = 1
+offset_left = 1373.0
+offset_top = 104.0
+offset_right = 1469.0
+offset_bottom = 200.0
+texture_normal = ExtResource("12_fl4k1")
+stretch_mode = 0
+
+[node name="Liquor" type="TextureButton" parent="Ingredients"]
+texture_filter = 1
+offset_left = 1586.0
+offset_top = 103.0
+offset_right = 1682.0
+offset_bottom = 199.0
+texture_normal = ExtResource("13_ukxhq")
+stretch_mode = 0
+
+[node name="Honey" type="TextureButton" parent="Ingredients"]
+texture_filter = 1
+offset_left = 1152.0
+offset_top = 101.0
+offset_right = 1248.0
+offset_bottom = 197.0
+texture_normal = ExtResource("14_yfrnt")
+stretch_mode = 0
+
+[node name="Lemon" type="TextureButton" parent="Ingredients"]
+texture_filter = 1
+offset_left = 1267.0
+offset_top = 104.0
+offset_right = 1363.0
+offset_bottom = 200.0
+texture_normal = ExtResource("15_fbm44")
+stretch_mode = 0
+
+[node name="Caramel" type="TextureButton" parent="Ingredients"]
+texture_filter = 1
+offset_left = 1048.0
+offset_top = 102.0
+offset_right = 1144.0
+offset_bottom = 198.0
+texture_normal = ExtResource("16_xaw5t")
+stretch_mode = 0
+
+[node name="BlackTea" type="TextureButton" parent="Ingredients"]
+texture_filter = 1
+offset_left = 1693.0
+offset_top = 340.0
+offset_right = 1789.0
+offset_bottom = 436.0
+texture_normal = ExtResource("17_tk8mh")
+stretch_mode = 0
+
+[node name="Seasonal" type="TextureButton" parent="Ingredients"]
+texture_filter = 1
+offset_left = 1481.0
+offset_top = 103.0
+offset_right = 1577.0
+offset_bottom = 199.0
+texture_normal = ExtResource("18_753bm")
+stretch_mode = 0
+
+[node name="Machines" type="Node" parent="."]
+
+[node name="Prep" type="Panel" parent="Machines"]
+offset_left = 930.0
+offset_top = 517.0
+offset_right = 1058.0
+offset_bottom = 645.0
+
+[node name="Grinder" type="Panel" parent="Machines"]
+offset_left = 1337.0
+offset_top = 370.0
+offset_right = 1465.0
+offset_bottom = 626.0
+
+[node name="GroupHandle" type="Panel" parent="Machines"]
+offset_left = 1238.0
+offset_top = 349.0
+offset_right = 1302.0
+offset_bottom = 477.0
+
+[node name="CoffeeMachine" type="Panel" parent="Machines"]
+offset_left = 930.0
+offset_top = 285.0
+offset_right = 1234.0
+offset_bottom = 477.0
+
+[node name="Guidebook" type="Panel" parent="Machines"]
+offset_left = 1292.0
+offset_top = 686.0
+offset_right = 1548.0
+offset_bottom = 814.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_opiph")
+
+[node name="Bin" type="Panel" parent="Machines"]
+offset_left = 987.0
+offset_top = 686.0
+offset_right = 1243.0
+offset_bottom = 814.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jvdqx")
+
+[node name="Mugs" type="Panel" parent="Machines"]
+offset_left = 1138.0
+offset_top = 516.0
+offset_right = 1266.0
+offset_bottom = 644.0
+
+[node name="Frother" type="Panel" parent="Machines"]
+offset_left = 1494.0
+offset_top = 468.0
+offset_right = 1622.0
+offset_bottom = 596.0
 
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
+[connection signal="pressed" from="Ingredients/TeaDrawer/DrawerButton" to="Ingredients/TeaDrawer/DrawerButton" method="drawer_press"]
