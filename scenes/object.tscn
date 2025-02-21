@@ -1,23 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://boyudpbxnh87s"]
 
 [ext_resource type="Script" path="res://scenes/object.gd" id="1_myfes"]
-[ext_resource type="Texture2D" uid="uid://krrd3ra33v5n" path="res://prototype/body1.png" id="2_n8tra"]
+[ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="2_imion"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgone"]
-size = Vector2(207, 172)
+size = Vector2(95.5, 79)
 
 [node name="object" type="Node2D"]
 script = ExtResource("1_myfes")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3.99988, 3)
-scale = Vector2(0.174184, 0.140625)
-texture = ExtResource("2_n8tra")
+scale = Vector2(5.875, 5.29167)
+texture = ExtResource("2_imion")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1.5, 62)
 shape = SubResource("RectangleShape2D_lgone")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
