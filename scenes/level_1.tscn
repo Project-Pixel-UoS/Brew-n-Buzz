@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=31 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="2_q7cu4"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://urbolafgxjia" path="res://images/kitchen panel/ingredients/fruittea.PNG" id="7_siltn"]
 [ext_resource type="Texture2D" uid="uid://d0v7hhu101kvr" path="res://images/kitchen panel/ingredients/camomilletea.PNG" id="8_0eusx"]
 [ext_resource type="Texture2D" uid="uid://cholgudtx35vj" path="res://images/kitchen panel/ingredients/coffeebean.PNG" id="8_bvyag"]
+[ext_resource type="Texture2D" uid="uid://dsfwxtbv87hwx" path="res://images/kitchen panel/machines/bnb_grinder_og.png" id="8_tm5b5"]
 [ext_resource type="Texture2D" uid="uid://brgx44mv1up15" path="res://images/kitchen panel/ingredients/cocoabean.PNG" id="9_ib0ym"]
+[ext_resource type="Texture2D" uid="uid://pebtaeyx30uc" path="res://images/kitchen panel/machines/bnb_frother_og.png" id="9_lrgjr"]
 [ext_resource type="Texture2D" uid="uid://c3vgqimow5qnu" path="res://images/kitchen panel/ingredients/whippedcream.PNG" id="10_2da5q"]
 [ext_resource type="Texture2D" uid="uid://0m7hc17rio08" path="res://images/kitchen panel/ingredients/marshmallows.PNG" id="11_huvnx"]
 [ext_resource type="Texture2D" uid="uid://cra7ey65ac01n" path="res://images/kitchen panel/ingredients/cinnamonsticks.PNG" id="12_fl4k1"]
@@ -55,9 +57,15 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6op6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opiph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvdqx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_diwq2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Level1" type="Node2D"]
 
@@ -209,6 +217,17 @@ offset_left = 1238.0
 offset_top = 414.0
 offset_right = 1424.18
 offset_bottom = 786.364
+theme_override_styles/panel = SubResource("StyleBoxFlat_t6op6")
+
+[node name="GrinderImage" type="TextureRect" parent="Machines/Grinder"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_tm5b5")
 
 [node name="GroupHandle" type="Panel" parent="Machines"]
 offset_left = 1082.18
@@ -243,10 +262,22 @@ offset_right = 1180.18
 offset_bottom = 812.182
 
 [node name="Frother" type="Panel" parent="Machines"]
+texture_filter = 1
 offset_left = 1473.0
 offset_top = 588.0
 offset_right = 1659.18
 offset_bottom = 774.182
+theme_override_styles/panel = SubResource("StyleBoxFlat_diwq2")
+
+[node name="GrinderImage" type="TextureRect" parent="Machines/Frother"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_lrgjr")
 
 [node name="Ingredients" type="Node" parent="."]
 
