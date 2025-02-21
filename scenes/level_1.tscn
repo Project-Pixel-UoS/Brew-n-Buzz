@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=27 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="2_q7cu4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://boyudpbxnh87s" path="res://scenes/object.tscn" id="5_6bfpp"]
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
 [ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="7_6t2pv"]
+[ext_resource type="Texture2D" uid="uid://0mqegeimatcy" path="res://images/kitchen panel/ingredients/matcha.PNG" id="7_bg7qj"]
 [ext_resource type="Texture2D" uid="uid://urbolafgxjia" path="res://images/kitchen panel/ingredients/fruittea.PNG" id="7_siltn"]
 [ext_resource type="Texture2D" uid="uid://d0v7hhu101kvr" path="res://images/kitchen panel/ingredients/camomilletea.PNG" id="8_0eusx"]
 [ext_resource type="Texture2D" uid="uid://cholgudtx35vj" path="res://images/kitchen panel/ingredients/coffeebean.PNG" id="8_bvyag"]
@@ -67,10 +68,10 @@ script = ExtResource("2_q7cu4")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 1432.0
-offset_top = 220.0
-offset_right = 1672.0
-offset_bottom = 324.0
+offset_left = 2140.0
+offset_top = 142.0
+offset_right = 2380.0
+offset_bottom = 246.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_33rai")
 
@@ -159,22 +160,21 @@ position = Vector2(484, 427)
 position = Vector2(339, 634)
 
 [node name="BottomPanel" type="Panel" parent="."]
-offset_left = 925.0
-offset_top = 667.0
-offset_right = 1805.0
-offset_bottom = 815.0
+offset_left = 640.0
+offset_top = 864.727
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="VerticalPanel" type="Panel" parent="."]
-offset_left = 1676.0
-offset_top = 221.0
-offset_right = 1804.0
-offset_bottom = 665.0
+offset_left = 1733.82
+offset_top = 202.547
+offset_right = 1920.0
+offset_bottom = 848.365
 
 [node name="HorizontalPanel" type="Panel" parent="."]
-offset_left = 924.0
-offset_top = 90.0
-offset_right = 1804.0
-offset_bottom = 218.0
+offset_left = 640.0
+offset_right = 1920.0
+offset_bottom = 186.182
 
 [node name="Machines" type="Node" parent="."]
 
@@ -232,144 +232,154 @@ offset_bottom = 596.0
 
 [node name="DrawerButton" type="Button" parent="Ingredients"]
 unique_name_in_owner = true
-offset_left = 1632.0
-offset_top = 341.0
-offset_right = 1672.0
-offset_bottom = 437.0
+offset_left = 1669.0
+offset_top = 377.093
+offset_right = 1727.18
+offset_bottom = 516.729
 script = ExtResource("6_7ydoj")
 
 [node name="TeaDrawer" type="Panel" parent="Ingredients/DrawerButton"]
 layout_mode = 0
-offset_left = 49.0
-offset_top = -11.0
-offset_right = 301.0
-offset_bottom = 105.0
+offset_left = 66.0
+offset_top = -19.093
+offset_right = 577.996
+offset_bottom = 155.452
+
+[node name="Matcha" type="TextureButton" parent="Ingredients/DrawerButton/TeaDrawer"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 343.917
+offset_top = 18.101
+offset_right = 483.553
+offset_bottom = 157.737
+texture_normal = ExtResource("7_bg7qj")
+stretch_mode = 0
 
 [node name="FruitTea" type="TextureButton" parent="Ingredients/DrawerButton/TeaDrawer"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 140.0
-offset_top = 10.0
-offset_right = 236.0
-offset_bottom = 106.0
+offset_left = 181.009
+offset_top = 18.101
+offset_right = 320.645
+offset_bottom = 157.737
 texture_normal = ExtResource("7_siltn")
 stretch_mode = 0
 
 [node name="CamomileTea" type="TextureButton" parent="Ingredients/DrawerButton/TeaDrawer"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 15.0
-offset_top = 12.0
-offset_right = 111.0
-offset_bottom = 108.0
+offset_left = 23.272
+offset_top = 18.101
+offset_right = 162.908
+offset_bottom = 157.737
 texture_normal = ExtResource("8_0eusx")
 stretch_mode = 0
 
 [node name="Milk" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
-offset_left = 1692.0
-offset_top = 557.0
-offset_right = 1788.0
-offset_bottom = 653.0
+offset_left = 1757.81
+offset_top = 691.275
+offset_right = 1897.45
+offset_bottom = 830.911
 texture_normal = ExtResource("7_6t2pv")
 stretch_mode = 0
 
 [node name="Coffee" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
-offset_left = 1693.0
-offset_top = 233.0
-offset_right = 1789.0
-offset_bottom = 329.0
+offset_left = 1757.81
+offset_top = 220.002
+offset_right = 1897.45
+offset_bottom = 359.638
 texture_normal = ExtResource("8_bvyag")
 stretch_mode = 0
 
 [node name="Cocoa" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
-offset_left = 1693.0
-offset_top = 448.0
-offset_right = 1789.0
-offset_bottom = 544.0
+offset_left = 1757.81
+offset_top = 534.184
+offset_right = 1897.45
+offset_bottom = 673.82
 texture_normal = ExtResource("9_ib0ym")
+stretch_mode = 0
+
+[node name="BlackTea" type="TextureButton" parent="Ingredients"]
+texture_filter = 1
+offset_left = 1757.81
+offset_top = 377.093
+offset_right = 1897.45
+offset_bottom = 516.729
+texture_normal = ExtResource("17_tk8mh")
 stretch_mode = 0
 
 [node name="WhippedCream" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
-offset_left = 943.0
-offset_top = 104.0
-offset_right = 1039.0
-offset_bottom = 200.0
+offset_left = 658.101
+offset_top = 24.0
+offset_right = 797.737
+offset_bottom = 163.636
 texture_normal = ExtResource("10_2da5q")
 stretch_mode = 0
 
 [node name="Marshmallows" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
-offset_left = 1691.0
-offset_top = 104.0
-offset_right = 1787.0
-offset_bottom = 200.0
+offset_left = 1762.26
+offset_top = 24.0
+offset_right = 1901.9
+offset_bottom = 163.636
 texture_normal = ExtResource("11_huvnx")
 stretch_mode = 0
 
 [node name="CinnamonSticks" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
-offset_left = 1373.0
-offset_top = 104.0
-offset_right = 1469.0
-offset_bottom = 200.0
+offset_left = 1289.05
+offset_top = 24.0
+offset_right = 1428.68
+offset_bottom = 163.636
 texture_normal = ExtResource("12_fl4k1")
 stretch_mode = 0
 
 [node name="Liquor" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
-offset_left = 1586.0
-offset_top = 103.0
-offset_right = 1682.0
-offset_bottom = 199.0
+offset_left = 1604.52
+offset_top = 24.0
+offset_right = 1744.16
+offset_bottom = 163.636
 texture_normal = ExtResource("13_ukxhq")
 stretch_mode = 0
 
 [node name="Honey" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
-offset_left = 1152.0
-offset_top = 101.0
-offset_right = 1248.0
-offset_bottom = 197.0
+offset_left = 973.575
+offset_top = 24.0
+offset_right = 1113.21
+offset_bottom = 163.636
 texture_normal = ExtResource("14_yfrnt")
 stretch_mode = 0
 
 [node name="Lemon" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
-offset_left = 1267.0
-offset_top = 104.0
-offset_right = 1363.0
-offset_bottom = 200.0
+offset_left = 1131.31
+offset_top = 24.0
+offset_right = 1270.95
+offset_bottom = 163.636
 texture_normal = ExtResource("15_fbm44")
 stretch_mode = 0
 
 [node name="Caramel" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
-offset_left = 1048.0
-offset_top = 102.0
-offset_right = 1144.0
-offset_bottom = 198.0
+offset_left = 815.838
+offset_top = 24.0
+offset_right = 955.474
+offset_bottom = 163.636
 texture_normal = ExtResource("16_xaw5t")
-stretch_mode = 0
-
-[node name="BlackTea" type="TextureButton" parent="Ingredients"]
-texture_filter = 1
-offset_left = 1693.0
-offset_top = 340.0
-offset_right = 1789.0
-offset_bottom = 436.0
-texture_normal = ExtResource("17_tk8mh")
 stretch_mode = 0
 
 [node name="Seasonal" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
-offset_left = 1481.0
-offset_top = 103.0
-offset_right = 1577.0
-offset_bottom = 199.0
+offset_left = 1446.79
+offset_top = 24.0
+offset_right = 1586.42
+offset_bottom = 163.636
 texture_normal = ExtResource("18_753bm")
 stretch_mode = 0
 
