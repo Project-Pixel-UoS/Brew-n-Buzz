@@ -1,12 +1,15 @@
-[gd_scene load_steps=31 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=35 format=3 uid="uid://clguhfei4o2fg"]
 
+[ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
+[ext_resource type="Script" path="res://assets/main_menu/settings_menu_level.gd" id="2_lvwfi"]
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="2_q7cu4"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_sh0uv"]
 [ext_resource type="PackedScene" uid="uid://n7usixvpisr4" path="res://scenes/platform.tscn" id="4_kra0f"]
 [ext_resource type="PackedScene" uid="uid://boyudpbxnh87s" path="res://scenes/object.tscn" id="5_6bfpp"]
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
 [ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="7_6t2pv"]
+[ext_resource type="Script" path="res://scenes/settings_button.gd" id="7_7my2j"]
 [ext_resource type="Texture2D" uid="uid://0mqegeimatcy" path="res://images/kitchen panel/ingredients/matcha.PNG" id="7_bg7qj"]
 [ext_resource type="Texture2D" uid="uid://urbolafgxjia" path="res://images/kitchen panel/ingredients/fruittea.PNG" id="7_siltn"]
 [ext_resource type="Texture2D" uid="uid://d0v7hhu101kvr" path="res://images/kitchen panel/ingredients/camomilletea.PNG" id="8_0eusx"]
@@ -23,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://c8uo4vwkrjvxa" path="res://images/kitchen panel/ingredients/caramel.PNG" id="16_xaw5t"]
 [ext_resource type="Texture2D" uid="uid://fxklg6y5jju4" path="res://images/kitchen panel/ingredients/teabag(black tea).PNG" id="17_tk8mh"]
 [ext_resource type="Texture2D" uid="uid://dp7fj8v05cdu1" path="res://images/kitchen panel/ingredients/pumpkin.PNG" id="18_753bm"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8bbxd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33rai"]
 bg_color = Color(1, 1, 1, 1)
@@ -68,6 +73,24 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Level1" type="Node2D"]
+
+[node name="SettingsLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="TextureRect" type="TextureRect" parent="SettingsLayer"]
+offset_left = 540.0
+offset_top = 260.0
+offset_right = 1500.0
+offset_bottom = 800.0
+texture = SubResource("CanvasTexture_8bbxd")
+
+[node name="settings_menu" parent="SettingsLayer" instance=ExtResource("1_4f0ye")]
+unique_name_in_owner = true
+offset_left = 540.0
+offset_top = 260.0
+offset_right = -430.0
+offset_bottom = -280.0
+script = ExtResource("2_lvwfi")
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("2_q7cu4")
@@ -193,6 +216,7 @@ offset_bottom = 1042.18
 texture_normal = ExtResource("7_6t2pv")
 stretch_mode = 0
 flip_v = true
+script = ExtResource("7_7my2j")
 
 [node name="PauseButton" type="TextureButton" parent="."]
 texture_filter = 1
@@ -435,4 +459,5 @@ texture_normal = ExtResource("18_753bm")
 stretch_mode = 0
 
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
+[connection signal="pressed" from="SettingsButton" to="SettingsButton" method="open_settings"]
 [connection signal="pressed" from="Ingredients/DrawerButton" to="Ingredients/DrawerButton" method="drawer_press"]
