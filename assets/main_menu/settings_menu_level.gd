@@ -9,3 +9,4 @@ func _ready():
 
 func _on_button_pressed():
 	settingsLayer.visible = false
+	Engine.time_scale = 1

@@ -1,12 +1,14 @@
-[gd_scene load_steps=35 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=38 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
 [ext_resource type="Script" path="res://assets/main_menu/settings_menu_level.gd" id="2_lvwfi"]
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="2_q7cu4"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_sh0uv"]
+[ext_resource type="PackedScene" uid="uid://cor4f38g6u27x" path="res://scenes/pause_menu.tscn" id="4_cm10t"]
 [ext_resource type="PackedScene" uid="uid://n7usixvpisr4" path="res://scenes/platform.tscn" id="4_kra0f"]
 [ext_resource type="PackedScene" uid="uid://boyudpbxnh87s" path="res://scenes/object.tscn" id="5_6bfpp"]
+[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="5_gufwp"]
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
 [ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="7_6t2pv"]
 [ext_resource type="Script" path="res://scenes/settings_button.gd" id="7_7my2j"]
@@ -19,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://pebtaeyx30uc" path="res://images/kitchen panel/machines/bnb_frother_og.png" id="9_lrgjr"]
 [ext_resource type="Texture2D" uid="uid://c3vgqimow5qnu" path="res://images/kitchen panel/ingredients/whippedcream.PNG" id="10_2da5q"]
 [ext_resource type="Texture2D" uid="uid://0m7hc17rio08" path="res://images/kitchen panel/ingredients/marshmallows.PNG" id="11_huvnx"]
+[ext_resource type="Script" path="res://scenes/pause_button.gd" id="11_oodk7"]
 [ext_resource type="Texture2D" uid="uid://cra7ey65ac01n" path="res://images/kitchen panel/ingredients/cinnamonsticks.PNG" id="12_fl4k1"]
 [ext_resource type="Texture2D" uid="uid://bv21buat5ru68" path="res://images/kitchen panel/ingredients/liquor.PNG" id="13_ukxhq"]
 [ext_resource type="Texture2D" uid="uid://chhg3bdelfhie" path="res://images/kitchen panel/ingredients/honey.PNG" id="14_yfrnt"]
@@ -74,26 +77,40 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Level1" type="Node2D"]
 
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("2_q7cu4")
+
 [node name="SettingsLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 
 [node name="TextureRect" type="TextureRect" parent="SettingsLayer"]
-offset_left = 540.0
-offset_top = 260.0
-offset_right = 1500.0
-offset_bottom = 800.0
+offset_left = 240.0
+offset_top = 135.0
+offset_right = 1680.0
+offset_bottom = 945.0
 texture = SubResource("CanvasTexture_8bbxd")
 
 [node name="settings_menu" parent="SettingsLayer" instance=ExtResource("1_4f0ye")]
 unique_name_in_owner = true
-offset_left = 540.0
-offset_top = 260.0
-offset_right = -430.0
-offset_bottom = -280.0
+offset_left = 240.0
+offset_top = 135.0
+offset_right = -240.0
+offset_bottom = -135.0
 script = ExtResource("2_lvwfi")
 
-[node name="LevelManager" type="Node" parent="."]
-script = ExtResource("2_q7cu4")
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="TextureRect" type="TextureRect" parent="PauseLayer"]
+offset_left = 240.0
+offset_top = 135.0
+offset_right = 1680.0
+offset_bottom = 945.0
+texture = SubResource("CanvasTexture_8bbxd")
+
+[node name="pause_menu" parent="PauseLayer" instance=ExtResource("4_cm10t")]
+unique_name_in_owner = true
+script = ExtResource("5_gufwp")
 
 [node name="TimerContainer" type="Panel" parent="."]
 anchors_preset = 5
@@ -227,6 +244,7 @@ offset_bottom = 1042.18
 texture_normal = ExtResource("11_huvnx")
 stretch_mode = 0
 flip_v = true
+script = ExtResource("11_oodk7")
 
 [node name="Machines" type="Node" parent="."]
 
@@ -460,4 +478,5 @@ stretch_mode = 0
 
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="open_settings"]
+[connection signal="pressed" from="PauseButton" to="PauseButton" method="_on_pressed"]
 [connection signal="pressed" from="Ingredients/DrawerButton" to="Ingredients/DrawerButton" method="drawer_press"]
