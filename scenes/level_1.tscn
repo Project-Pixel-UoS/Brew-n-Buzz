@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=42 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
@@ -25,10 +25,13 @@
 [ext_resource type="Texture2D" uid="uid://cra7ey65ac01n" path="res://images/kitchen panel/ingredients/cinnamonsticks.PNG" id="12_fl4k1"]
 [ext_resource type="Texture2D" uid="uid://bv21buat5ru68" path="res://images/kitchen panel/ingredients/liquor.PNG" id="13_ukxhq"]
 [ext_resource type="Texture2D" uid="uid://chhg3bdelfhie" path="res://images/kitchen panel/ingredients/honey.PNG" id="14_yfrnt"]
+[ext_resource type="Texture2D" uid="uid://blhi3gojmhxry" path="res://images/kitchen panel/machines/bnb_mugs_og.png" id="15_64fdl"]
 [ext_resource type="Texture2D" uid="uid://cd65qjd357183" path="res://images/kitchen panel/ingredients/lemon.PNG" id="15_fbm44"]
 [ext_resource type="Texture2D" uid="uid://c8uo4vwkrjvxa" path="res://images/kitchen panel/ingredients/caramel.PNG" id="16_xaw5t"]
 [ext_resource type="Texture2D" uid="uid://fxklg6y5jju4" path="res://images/kitchen panel/ingredients/teabag(black tea).PNG" id="17_tk8mh"]
 [ext_resource type="Texture2D" uid="uid://dp7fj8v05cdu1" path="res://images/kitchen panel/ingredients/pumpkin.PNG" id="18_753bm"]
+[ext_resource type="PackedScene" uid="uid://cpkyt4dom3j3v" path="res://scenes/ingredient_scenes/Milk.tscn" id="31_eeuus"]
+[ext_resource type="PackedScene" uid="uid://do113ikliufn3" path="res://scenes/ingredient_scenes/Mug.tscn" id="32_kty7d"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8bbxd"]
 
@@ -75,6 +78,9 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_diwq2"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pd73u"]
+size = Vector2(81, 78)
+
 [node name="Level1" type="Node2D"]
 
 [node name="LevelManager" type="Node" parent="."]
@@ -82,6 +88,7 @@ script = ExtResource("2_q7cu4")
 
 [node name="SettingsLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="SettingsLayer"]
 offset_left = 240.0
@@ -100,6 +107,7 @@ script = ExtResource("2_lvwfi")
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="PauseLayer"]
 offset_left = 240.0
@@ -195,6 +203,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_4qq85")
 
+[node name="Mug" parent="." groups=["dropable"] instance=ExtResource("32_kty7d")]
+position = Vector2(478, 208)
+
 [node name="platform3" parent="." instance=ExtResource("4_kra0f")]
 position = Vector2(129, 449)
 
@@ -205,7 +216,10 @@ position = Vector2(502, 776)
 position = Vector2(367, 562)
 
 [node name="object" parent="." instance=ExtResource("5_6bfpp")]
-position = Vector2(222, 769)
+position = Vector2(179, 622)
+
+[node name="Milk" parent="." instance=ExtResource("31_eeuus")]
+position = Vector2(551, 392)
 
 [node name="BottomPanel" type="Panel" parent="."]
 offset_left = 640.0
@@ -303,6 +317,16 @@ offset_top = 626.0
 offset_right = 1180.18
 offset_bottom = 812.182
 
+[node name="TextureRect" type="TextureRect" parent="Machines/Mugs"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_64fdl")
+
 [node name="Frother" type="Panel" parent="Machines"]
 texture_filter = 1
 offset_left = 1473.0
@@ -348,6 +372,13 @@ offset_bottom = 157.737
 texture_normal = ExtResource("7_bg7qj")
 stretch_mode = 0
 
+[node name="Area2D" type="Area2D" parent="Ingredients/DrawerButton/TeaDrawer/Matcha"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/DrawerButton/TeaDrawer/Matcha/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
+
 [node name="FruitTea" type="TextureButton" parent="Ingredients/DrawerButton/TeaDrawer"]
 texture_filter = 1
 layout_mode = 0
@@ -357,6 +388,13 @@ offset_right = 320.645
 offset_bottom = 157.737
 texture_normal = ExtResource("7_siltn")
 stretch_mode = 0
+
+[node name="Area2D" type="Area2D" parent="Ingredients/DrawerButton/TeaDrawer/FruitTea"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/DrawerButton/TeaDrawer/FruitTea/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
 
 [node name="CamomileTea" type="TextureButton" parent="Ingredients/DrawerButton/TeaDrawer"]
 texture_filter = 1
@@ -368,14 +406,12 @@ offset_bottom = 157.737
 texture_normal = ExtResource("8_0eusx")
 stretch_mode = 0
 
-[node name="Milk" type="TextureButton" parent="Ingredients"]
-texture_filter = 1
-offset_left = 1757.81
-offset_top = 691.275
-offset_right = 1897.45
-offset_bottom = 830.911
-texture_normal = ExtResource("7_6t2pv")
-stretch_mode = 0
+[node name="Area2D" type="Area2D" parent="Ingredients/DrawerButton/TeaDrawer/CamomileTea"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/DrawerButton/TeaDrawer/CamomileTea/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
 
 [node name="Coffee" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
@@ -386,6 +422,13 @@ offset_bottom = 359.638
 texture_normal = ExtResource("8_bvyag")
 stretch_mode = 0
 
+[node name="Area2D" type="Area2D" parent="Ingredients/Coffee"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Coffee/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
+
 [node name="Cocoa" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
 offset_left = 1757.81
@@ -394,6 +437,13 @@ offset_right = 1897.45
 offset_bottom = 673.82
 texture_normal = ExtResource("9_ib0ym")
 stretch_mode = 0
+
+[node name="Area2D" type="Area2D" parent="Ingredients/Cocoa"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Cocoa/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
 
 [node name="BlackTea" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
@@ -404,6 +454,13 @@ offset_bottom = 516.729
 texture_normal = ExtResource("17_tk8mh")
 stretch_mode = 0
 
+[node name="Area2D" type="Area2D" parent="Ingredients/BlackTea"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/BlackTea/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
+
 [node name="WhippedCream" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
 offset_left = 658.101
@@ -412,6 +469,13 @@ offset_right = 797.737
 offset_bottom = 163.636
 texture_normal = ExtResource("10_2da5q")
 stretch_mode = 0
+
+[node name="Area2D" type="Area2D" parent="Ingredients/WhippedCream"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/WhippedCream/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
 
 [node name="Marshmallows" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
@@ -422,6 +486,13 @@ offset_bottom = 163.636
 texture_normal = ExtResource("11_huvnx")
 stretch_mode = 0
 
+[node name="Area2D" type="Area2D" parent="Ingredients/Marshmallows"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Marshmallows/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
+
 [node name="CinnamonSticks" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
 offset_left = 1289.05
@@ -430,6 +501,13 @@ offset_right = 1428.68
 offset_bottom = 163.636
 texture_normal = ExtResource("12_fl4k1")
 stretch_mode = 0
+
+[node name="Area2D" type="Area2D" parent="Ingredients/CinnamonSticks"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/CinnamonSticks/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
 
 [node name="Liquor" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
@@ -440,6 +518,13 @@ offset_bottom = 163.636
 texture_normal = ExtResource("13_ukxhq")
 stretch_mode = 0
 
+[node name="Area2D" type="Area2D" parent="Ingredients/Liquor"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Liquor/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
+
 [node name="Honey" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
 offset_left = 973.575
@@ -448,6 +533,13 @@ offset_right = 1113.21
 offset_bottom = 163.636
 texture_normal = ExtResource("14_yfrnt")
 stretch_mode = 0
+
+[node name="Area2D" type="Area2D" parent="Ingredients/Honey"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Honey/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
 
 [node name="Lemon" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
@@ -458,6 +550,13 @@ offset_bottom = 163.636
 texture_normal = ExtResource("15_fbm44")
 stretch_mode = 0
 
+[node name="Area2D" type="Area2D" parent="Ingredients/Lemon"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Lemon/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
+
 [node name="Caramel" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
 offset_left = 815.838
@@ -467,6 +566,13 @@ offset_bottom = 163.636
 texture_normal = ExtResource("16_xaw5t")
 stretch_mode = 0
 
+[node name="Area2D" type="Area2D" parent="Ingredients/Caramel"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Caramel/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
+
 [node name="Seasonal" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
 offset_left = 1446.79
@@ -475,6 +581,13 @@ offset_right = 1586.42
 offset_bottom = 163.636
 texture_normal = ExtResource("18_753bm")
 stretch_mode = 0
+
+[node name="Area2D" type="Area2D" parent="Ingredients/Seasonal"]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Seasonal/Area2D"]
+position = Vector2(0.398987, 0)
+shape = SubResource("RectangleShape2D_pd73u")
 
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="open_settings"]
