@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_area_entered(body: Node2D) -> void:
 	print("Body entered:", body.name)  # Debugging line
 	if body.is_in_group('mug'):
 		print("Ingredient entered mug!")  # Debugging line
@@ -44,7 +44,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_area_exited(body: Node2D) -> void:
 	## @brief if object is not hovering over the box go back to normal size
 	if body.is_in_group('mug'):
 		print("Ingredient exited mug!")
