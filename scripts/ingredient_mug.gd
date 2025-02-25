@@ -1,11 +1,11 @@
 extends Node2D
 
+@onready var mugObject: Node2D = %Mug
 var draggable = false
 var is_inside_mug = false
 var body_ref
 var offset: Vector2
 var initialPos: Vector2
-
 
 func _process(delta: float) -> void:
 	if draggable:
@@ -41,9 +41,8 @@ func _on_area_2d_area_entered(body: Node2D) -> void:
 		is_inside_mug = true
 		body.modulate = Color(Color.DARK_BLUE, 1)
 		body_ref = body  
-
-
-
+		mugObject.add_ingredient(name)
+		
 
 func _on_area_2d_area_exited(body: Node2D) -> void:
 	## @brief if object is not hovering over the box go back to normal size

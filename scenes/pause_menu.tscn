@@ -27,6 +27,7 @@ text = "PAUSED
 "
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1121.0
 offset_top = 603.0
 offset_right = 1334.0

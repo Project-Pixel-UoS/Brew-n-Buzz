@@ -206,7 +206,6 @@ vertical_alignment = 1
 script = ExtResource("2_4qq85")
 
 [node name="Counter" parent="." instance=ExtResource("11_nyi6s")]
-unique_name_in_owner = true
 position = Vector2(237, 394)
 script = ExtResource("9_gfxbv")
 
