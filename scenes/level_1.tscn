@@ -214,7 +214,6 @@ script = ExtResource("9_gfxbv")
 [node name="Mug" parent="." instance=ExtResource("32_kty7d")]
 unique_name_in_owner = true
 position = Vector2(385, 183)
-script = ExtResource("9_hbwqn")
 
 [node name="BottomPanel" type="Panel" parent="."]
 offset_left = 640.0
