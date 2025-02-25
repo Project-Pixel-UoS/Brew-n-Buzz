@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=42 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://cholgudtx35vj" path="res://images/kitchen panel/ingredients/coffeebean.PNG" id="8_bvyag"]
 [ext_resource type="Texture2D" uid="uid://dsfwxtbv87hwx" path="res://images/kitchen panel/machines/bnb_grinder_og.png" id="8_tm5b5"]
 [ext_resource type="Script" path="res://scenes/counter.gd" id="9_gfxbv"]
-[ext_resource type="Script" path="res://scripts/mug.gd" id="9_hbwqn"]
 [ext_resource type="Texture2D" uid="uid://brgx44mv1up15" path="res://images/kitchen panel/ingredients/cocoabean.PNG" id="9_ib0ym"]
 [ext_resource type="Texture2D" uid="uid://pebtaeyx30uc" path="res://images/kitchen panel/machines/bnb_frother_og.png" id="9_lrgjr"]
 [ext_resource type="Texture2D" uid="uid://c3vgqimow5qnu" path="res://images/kitchen panel/ingredients/whippedcream.PNG" id="10_2da5q"]
@@ -213,7 +212,6 @@ script = ExtResource("9_gfxbv")
 [node name="Mug" parent="." instance=ExtResource("32_kty7d")]
 unique_name_in_owner = true
 position = Vector2(385, 183)
-script = ExtResource("9_hbwqn")
 
 [node name="Milk" parent="." groups=["ingredient"] instance=ExtResource("31_eeuus")]
 position = Vector2(551, 392)

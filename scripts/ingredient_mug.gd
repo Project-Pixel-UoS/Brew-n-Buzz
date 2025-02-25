@@ -1,6 +1,9 @@
 extends Node2D
 
-@onready var mugObject: Node2D = %Mug
+
+@onready var mugObject: Node2D =  %Mug
+
+
 var draggable = false
 var is_inside_mug = false
 var body_ref
@@ -34,7 +37,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(body: Node2D) -> void:
 	print("Body entered:", body.name)  # Debugging line
-	if body.is_in_group('mug'):
+	if body.is_in_group('ingredient'):
 		print("Ingredient entered mug!")  # Debugging line
 		print("Ingredient Path:", get_path())  
 		print("Mug Path:", body.get_path())  
@@ -46,7 +49,7 @@ func _on_area_2d_area_entered(body: Node2D) -> void:
 
 func _on_area_2d_area_exited(body: Node2D) -> void:
 	## @brief if object is not hovering over the box go back to normal size
-	if body.is_in_group('mug'):
+	if body.is_in_group('ingredient'):
 		print("Ingredient exited mug!")
 		is_inside_mug = false
 		body.modulate = Color(Color.MEDIUM_BLUE, 0.7)
