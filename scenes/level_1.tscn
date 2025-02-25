@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=44 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
@@ -10,28 +10,29 @@
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
 [ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="7_6t2pv"]
 [ext_resource type="Script" path="res://scenes/settings_button.gd" id="7_7my2j"]
-[ext_resource type="Texture2D" uid="uid://0mqegeimatcy" path="res://images/kitchen panel/ingredients/matcha.PNG" id="7_bg7qj"]
-[ext_resource type="Texture2D" uid="uid://urbolafgxjia" path="res://images/kitchen panel/ingredients/fruittea.PNG" id="7_siltn"]
-[ext_resource type="Texture2D" uid="uid://d0v7hhu101kvr" path="res://images/kitchen panel/ingredients/camomilletea.PNG" id="8_0eusx"]
 [ext_resource type="Texture2D" uid="uid://cholgudtx35vj" path="res://images/kitchen panel/ingredients/coffeebean.PNG" id="8_bvyag"]
 [ext_resource type="Texture2D" uid="uid://dsfwxtbv87hwx" path="res://images/kitchen panel/machines/bnb_grinder_og.png" id="8_tm5b5"]
 [ext_resource type="Script" path="res://scenes/counter.gd" id="9_gfxbv"]
 [ext_resource type="Script" path="res://scripts/mug.gd" id="9_hbwqn"]
-[ext_resource type="Texture2D" uid="uid://brgx44mv1up15" path="res://images/kitchen panel/ingredients/cocoabean.PNG" id="9_ib0ym"]
 [ext_resource type="Texture2D" uid="uid://pebtaeyx30uc" path="res://images/kitchen panel/machines/bnb_frother_og.png" id="9_lrgjr"]
-[ext_resource type="Texture2D" uid="uid://c3vgqimow5qnu" path="res://images/kitchen panel/ingredients/whippedcream.PNG" id="10_2da5q"]
 [ext_resource type="Texture2D" uid="uid://0m7hc17rio08" path="res://images/kitchen panel/ingredients/marshmallows.PNG" id="11_huvnx"]
 [ext_resource type="PackedScene" uid="uid://do5qquw381o6m" path="res://scenes/Counter.tscn" id="11_nyi6s"]
 [ext_resource type="Script" path="res://scenes/pause_button.gd" id="11_oodk7"]
-[ext_resource type="Texture2D" uid="uid://cra7ey65ac01n" path="res://images/kitchen panel/ingredients/cinnamonsticks.PNG" id="12_fl4k1"]
-[ext_resource type="Texture2D" uid="uid://bv21buat5ru68" path="res://images/kitchen panel/ingredients/liquor.PNG" id="13_ukxhq"]
-[ext_resource type="Texture2D" uid="uid://chhg3bdelfhie" path="res://images/kitchen panel/ingredients/honey.PNG" id="14_yfrnt"]
 [ext_resource type="Texture2D" uid="uid://blhi3gojmhxry" path="res://images/kitchen panel/machines/bnb_mugs_og.png" id="15_64fdl"]
-[ext_resource type="Texture2D" uid="uid://cd65qjd357183" path="res://images/kitchen panel/ingredients/lemon.PNG" id="15_fbm44"]
-[ext_resource type="Texture2D" uid="uid://c8uo4vwkrjvxa" path="res://images/kitchen panel/ingredients/caramel.PNG" id="16_xaw5t"]
-[ext_resource type="Texture2D" uid="uid://fxklg6y5jju4" path="res://images/kitchen panel/ingredients/teabag(black tea).PNG" id="17_tk8mh"]
-[ext_resource type="Texture2D" uid="uid://dp7fj8v05cdu1" path="res://images/kitchen panel/ingredients/pumpkin.PNG" id="18_753bm"]
+[ext_resource type="PackedScene" uid="uid://codola8g3qlei" path="res://scenes/ingredient_scenes/caramel.tscn" id="21_qs7as"]
+[ext_resource type="PackedScene" uid="uid://c22hnkdgad2kf" path="res://scenes/ingredient_scenes/fruit_tea.tscn" id="22_o036c"]
+[ext_resource type="PackedScene" uid="uid://boqghshkws7xv" path="res://scenes/ingredient_scenes/black_tea.tscn" id="22_ykq7m"]
+[ext_resource type="PackedScene" uid="uid://6xqcmsoeb0ot" path="res://scenes/ingredient_scenes/matcha_tea.tscn" id="23_0xdor"]
+[ext_resource type="PackedScene" uid="uid://cntx8otc6apaf" path="res://scenes/ingredient_scenes/honey.tscn" id="23_mn8qr"]
+[ext_resource type="PackedScene" uid="uid://ccfltk5xsbiqq" path="res://scenes/ingredient_scenes/lemon.tscn" id="24_aiskv"]
+[ext_resource type="PackedScene" uid="uid://bpbkfwvjt5smt" path="res://scenes/ingredient_scenes/cinnamon_sticks.tscn" id="25_ihoko"]
+[ext_resource type="PackedScene" uid="uid://boegh6vo2j4ke" path="res://scenes/ingredient_scenes/seasonal.tscn" id="26_jhukx"]
+[ext_resource type="PackedScene" uid="uid://dms10yfki14n1" path="res://scenes/ingredient_scenes/liquor.tscn" id="27_ieyrb"]
+[ext_resource type="PackedScene" uid="uid://bdfqj4iadnovk" path="res://scenes/ingredient_scenes/whipped_cream.tscn" id="27_yany0"]
+[ext_resource type="PackedScene" uid="uid://btber43fpl6hi" path="res://scenes/ingredient_scenes/marshmallows.tscn" id="28_p15hi"]
+[ext_resource type="PackedScene" uid="uid://jyac1i82nd1l" path="res://scenes/ingredient_scenes/cocoa.tscn" id="29_jdwl5"]
 [ext_resource type="PackedScene" uid="uid://cpkyt4dom3j3v" path="res://scenes/ingredient_scenes/Milk.tscn" id="31_eeuus"]
+[ext_resource type="PackedScene" uid="uid://dne7b5jsbdtnk" path="res://scenes/ingredient_scenes/camomille_tea.tscn" id="31_ffwb3"]
 [ext_resource type="PackedScene" uid="uid://do113ikliufn3" path="res://scenes/ingredient_scenes/Mug.tscn" id="32_kty7d"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8bbxd"]
@@ -215,9 +216,6 @@ unique_name_in_owner = true
 position = Vector2(385, 183)
 script = ExtResource("9_hbwqn")
 
-[node name="Milk" parent="." groups=["ingredient"] instance=ExtResource("31_eeuus")]
-position = Vector2(551, 392)
-
 [node name="BottomPanel" type="Panel" parent="."]
 offset_left = 640.0
 offset_top = 864.727
@@ -359,63 +357,54 @@ offset_top = -19.093
 offset_right = 577.996
 offset_bottom = 155.452
 
-[node name="Matcha" type="TextureButton" parent="Ingredients/DrawerButton/TeaDrawer"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 343.917
-offset_top = 18.101
-offset_right = 483.553
-offset_bottom = 157.737
-texture_normal = ExtResource("7_bg7qj")
-stretch_mode = 0
+[node name="CamomilleTea" parent="Ingredients/DrawerButton/TeaDrawer" instance=ExtResource("31_ffwb3")]
+position = Vector2(93, 87)
 
-[node name="Area2D" type="Area2D" parent="Ingredients/DrawerButton/TeaDrawer/Matcha"]
-position = Vector2(70, 70)
+[node name="FruitTea" parent="Ingredients/DrawerButton/TeaDrawer" instance=ExtResource("22_o036c")]
+position = Vector2(256, 87)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/DrawerButton/TeaDrawer/Matcha/Area2D"]
-position = Vector2(0.398987, 0)
-shape = SubResource("RectangleShape2D_pd73u")
+[node name="MatchaTea" parent="Ingredients/DrawerButton/TeaDrawer" instance=ExtResource("23_0xdor")]
+position = Vector2(416, 87)
 
-[node name="FruitTea" type="TextureButton" parent="Ingredients/DrawerButton/TeaDrawer"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 181.009
-offset_top = 18.101
-offset_right = 320.645
-offset_bottom = 157.737
-texture_normal = ExtResource("7_siltn")
-stretch_mode = 0
+[node name="WhippedCream" parent="Ingredients" instance=ExtResource("27_yany0")]
+position = Vector2(730, 94)
 
-[node name="Area2D" type="Area2D" parent="Ingredients/DrawerButton/TeaDrawer/FruitTea"]
-position = Vector2(70, 70)
+[node name="Caramel" parent="Ingredients" instance=ExtResource("21_qs7as")]
+position = Vector2(887, 94)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/DrawerButton/TeaDrawer/FruitTea/Area2D"]
-position = Vector2(0.398987, 0)
-shape = SubResource("RectangleShape2D_pd73u")
+[node name="BlackTea" parent="Ingredients" instance=ExtResource("22_ykq7m")]
+position = Vector2(1827, 445)
 
-[node name="CamomileTea" type="TextureButton" parent="Ingredients/DrawerButton/TeaDrawer"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 23.272
-offset_top = 18.101
-offset_right = 162.908
-offset_bottom = 157.737
-texture_normal = ExtResource("8_0eusx")
-stretch_mode = 0
+[node name="Honey" parent="Ingredients" instance=ExtResource("23_mn8qr")]
+position = Vector2(1045, 94)
 
-[node name="Area2D" type="Area2D" parent="Ingredients/DrawerButton/TeaDrawer/CamomileTea"]
-position = Vector2(70, 70)
+[node name="Lemon" parent="Ingredients" instance=ExtResource("24_aiskv")]
+position = Vector2(1202, 94)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/DrawerButton/TeaDrawer/CamomileTea/Area2D"]
-position = Vector2(0.398987, 0)
-shape = SubResource("RectangleShape2D_pd73u")
+[node name="CinnamonSticks" parent="Ingredients" instance=ExtResource("25_ihoko")]
+position = Vector2(1357, 94)
+
+[node name="Seasonal" parent="Ingredients" instance=ExtResource("26_jhukx")]
+position = Vector2(1514, 94)
+
+[node name="Liquor" parent="Ingredients" instance=ExtResource("27_ieyrb")]
+position = Vector2(1671, 94)
+
+[node name="Marshmallows" parent="Ingredients" instance=ExtResource("28_p15hi")]
+position = Vector2(1827, 94)
+
+[node name="Cocoa" parent="Ingredients" instance=ExtResource("29_jdwl5")]
+position = Vector2(1828, 615)
+
+[node name="Milk" parent="Ingredients" groups=["ingredient"] instance=ExtResource("31_eeuus")]
+position = Vector2(1828, 767)
 
 [node name="Coffee" type="TextureButton" parent="Ingredients"]
 texture_filter = 1
-offset_left = 1757.81
-offset_top = 220.002
-offset_right = 1897.45
-offset_bottom = 359.638
+offset_left = 1759.0
+offset_top = 211.0
+offset_right = 1898.64
+offset_bottom = 350.636
 texture_normal = ExtResource("8_bvyag")
 stretch_mode = 0
 
@@ -423,166 +412,6 @@ stretch_mode = 0
 position = Vector2(70, 70)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Coffee/Area2D"]
-position = Vector2(0.398987, 0)
-shape = SubResource("RectangleShape2D_pd73u")
-
-[node name="Cocoa" type="TextureButton" parent="Ingredients"]
-texture_filter = 1
-offset_left = 1757.81
-offset_top = 534.184
-offset_right = 1897.45
-offset_bottom = 673.82
-texture_normal = ExtResource("9_ib0ym")
-stretch_mode = 0
-
-[node name="Area2D" type="Area2D" parent="Ingredients/Cocoa"]
-position = Vector2(70, 70)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Cocoa/Area2D"]
-position = Vector2(0.398987, 0)
-shape = SubResource("RectangleShape2D_pd73u")
-
-[node name="BlackTea" type="TextureButton" parent="Ingredients"]
-texture_filter = 1
-offset_left = 1757.81
-offset_top = 377.093
-offset_right = 1897.45
-offset_bottom = 516.729
-texture_normal = ExtResource("17_tk8mh")
-stretch_mode = 0
-
-[node name="Area2D" type="Area2D" parent="Ingredients/BlackTea"]
-position = Vector2(70, 70)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/BlackTea/Area2D"]
-position = Vector2(0.398987, 0)
-shape = SubResource("RectangleShape2D_pd73u")
-
-[node name="WhippedCream" type="TextureButton" parent="Ingredients"]
-texture_filter = 1
-offset_left = 658.101
-offset_top = 24.0
-offset_right = 797.737
-offset_bottom = 163.636
-texture_normal = ExtResource("10_2da5q")
-stretch_mode = 0
-
-[node name="Area2D" type="Area2D" parent="Ingredients/WhippedCream"]
-position = Vector2(70, 70)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/WhippedCream/Area2D"]
-position = Vector2(0.398987, 0)
-shape = SubResource("RectangleShape2D_pd73u")
-
-[node name="Marshmallows" type="TextureButton" parent="Ingredients"]
-texture_filter = 1
-offset_left = 1762.26
-offset_top = 24.0
-offset_right = 1901.9
-offset_bottom = 163.636
-texture_normal = ExtResource("11_huvnx")
-stretch_mode = 0
-
-[node name="Area2D" type="Area2D" parent="Ingredients/Marshmallows"]
-position = Vector2(70, 70)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Marshmallows/Area2D"]
-position = Vector2(0.398987, 0)
-shape = SubResource("RectangleShape2D_pd73u")
-
-[node name="CinnamonSticks" type="TextureButton" parent="Ingredients"]
-texture_filter = 1
-offset_left = 1289.05
-offset_top = 24.0
-offset_right = 1428.68
-offset_bottom = 163.636
-texture_normal = ExtResource("12_fl4k1")
-stretch_mode = 0
-
-[node name="Area2D" type="Area2D" parent="Ingredients/CinnamonSticks"]
-position = Vector2(70, 70)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/CinnamonSticks/Area2D"]
-position = Vector2(0.398987, 0)
-shape = SubResource("RectangleShape2D_pd73u")
-
-[node name="Liquor" type="TextureButton" parent="Ingredients"]
-texture_filter = 1
-offset_left = 1604.52
-offset_top = 24.0
-offset_right = 1744.16
-offset_bottom = 163.636
-texture_normal = ExtResource("13_ukxhq")
-stretch_mode = 0
-
-[node name="Area2D" type="Area2D" parent="Ingredients/Liquor"]
-position = Vector2(70, 70)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Liquor/Area2D"]
-position = Vector2(0.398987, 0)
-shape = SubResource("RectangleShape2D_pd73u")
-
-[node name="Honey" type="TextureButton" parent="Ingredients"]
-texture_filter = 1
-offset_left = 973.575
-offset_top = 24.0
-offset_right = 1113.21
-offset_bottom = 163.636
-texture_normal = ExtResource("14_yfrnt")
-stretch_mode = 0
-
-[node name="Area2D" type="Area2D" parent="Ingredients/Honey"]
-position = Vector2(70, 70)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Honey/Area2D"]
-position = Vector2(0.398987, 0)
-shape = SubResource("RectangleShape2D_pd73u")
-
-[node name="Lemon" type="TextureButton" parent="Ingredients"]
-texture_filter = 1
-offset_left = 1131.31
-offset_top = 24.0
-offset_right = 1270.95
-offset_bottom = 163.636
-texture_normal = ExtResource("15_fbm44")
-stretch_mode = 0
-
-[node name="Area2D" type="Area2D" parent="Ingredients/Lemon"]
-position = Vector2(70, 70)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Lemon/Area2D"]
-position = Vector2(0.398987, 0)
-shape = SubResource("RectangleShape2D_pd73u")
-
-[node name="Caramel" type="TextureButton" parent="Ingredients"]
-texture_filter = 1
-offset_left = 815.838
-offset_top = 24.0
-offset_right = 955.474
-offset_bottom = 163.636
-texture_normal = ExtResource("16_xaw5t")
-stretch_mode = 0
-
-[node name="Area2D" type="Area2D" parent="Ingredients/Caramel"]
-position = Vector2(70, 70)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Caramel/Area2D"]
-position = Vector2(0.398987, 0)
-shape = SubResource("RectangleShape2D_pd73u")
-
-[node name="Seasonal" type="TextureButton" parent="Ingredients"]
-texture_filter = 1
-offset_left = 1446.79
-offset_top = 24.0
-offset_right = 1586.42
-offset_bottom = 163.636
-texture_normal = ExtResource("18_753bm")
-stretch_mode = 0
-
-[node name="Area2D" type="Area2D" parent="Ingredients/Seasonal"]
-position = Vector2(70, 70)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Seasonal/Area2D"]
 position = Vector2(0.398987, 0)
 shape = SubResource("RectangleShape2D_pd73u")
 

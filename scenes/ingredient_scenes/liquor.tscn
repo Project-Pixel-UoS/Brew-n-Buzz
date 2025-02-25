@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dms10yfki14n1"]
+
+[ext_resource type="Script" path="res://scripts/ingredient_mug.gd" id="1_nk2nw"]
+[ext_resource type="Texture2D" uid="uid://bv21buat5ru68" path="res://images/kitchen panel/ingredients/liquor.PNG" id="2_tkkdq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h15a0"]
+
+[node name="Liquor" type="Node2D"]
+script = ExtResource("1_nk2nw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5.8, 5.8)
+texture = ExtResource("2_tkkdq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_h15a0")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
