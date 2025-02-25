@@ -21,10 +21,11 @@ func _process(delta: float) -> void:
 		elif Input.is_action_just_released("click"):
 			GameManager.is_dragging = false
 			var tween = get_tree().create_tween()
+			print(is_inside_mug);
 			if is_inside_mug and body_ref:
 				## @brief if object is dropped in box then move item to box
 				print("Dropping into mug at position: ", body_ref.global_position)
-				tween.tween_property(self, "global_position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 			else:
 				## @brief if object is dropped in an invalid position then return back to original position
 				print("Invalid drop, returning to initial position")

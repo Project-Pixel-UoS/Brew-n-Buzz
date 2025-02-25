@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=40 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
@@ -6,8 +6,6 @@
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="2_q7cu4"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_sh0uv"]
 [ext_resource type="PackedScene" uid="uid://cor4f38g6u27x" path="res://scenes/pause_menu.tscn" id="4_cm10t"]
-[ext_resource type="PackedScene" uid="uid://n7usixvpisr4" path="res://scenes/platform.tscn" id="4_kra0f"]
-[ext_resource type="PackedScene" uid="uid://boyudpbxnh87s" path="res://scenes/object.tscn" id="5_6bfpp"]
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="5_gufwp"]
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
 [ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="7_6t2pv"]
@@ -203,20 +201,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_4qq85")
 
-[node name="Mug" parent="." groups=["dropable"] instance=ExtResource("32_kty7d")]
-position = Vector2(478, 208)
-
-[node name="platform3" parent="." instance=ExtResource("4_kra0f")]
-position = Vector2(129, 449)
-
-[node name="platform2" parent="." instance=ExtResource("4_kra0f")]
-position = Vector2(502, 776)
-
-[node name="platform" parent="." groups=["mug"] instance=ExtResource("4_kra0f")]
-position = Vector2(367, 562)
-
-[node name="object" parent="." instance=ExtResource("5_6bfpp")]
-position = Vector2(179, 622)
+[node name="Mug" parent="." instance=ExtResource("32_kty7d")]
+position = Vector2(385, 183)
 
 [node name="Milk" parent="." groups=["ingredient"] instance=ExtResource("31_eeuus")]
 position = Vector2(551, 392)
