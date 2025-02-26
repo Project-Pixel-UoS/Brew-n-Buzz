@@ -1,0 +1,258 @@
+[gd_scene load_steps=8 format=3 uid="uid://cf0ya1o4m6ooe"]
+
+[ext_resource type="Texture2D" uid="uid://d0v7hhu101kvr" path="res://images/kitchen panel/ingredients/camomilletea.PNG" id="1_66nlc"]
+[ext_resource type="Script" path="res://scenes/guidebook_menu.gd" id="1_cyubo"]
+[ext_resource type="Texture2D" uid="uid://cholgudtx35vj" path="res://images/kitchen panel/ingredients/coffeebean.PNG" id="2_ch34b"]
+[ext_resource type="Texture2D" uid="uid://0m7hc17rio08" path="res://images/kitchen panel/ingredients/marshmallows.PNG" id="3_s6lml"]
+[ext_resource type="Texture2D" uid="uid://bv21buat5ru68" path="res://images/kitchen panel/ingredients/liquor.PNG" id="5_kti5i"]
+[ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="6_pquxm"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5pe41"]
+
+[node name="guidebook_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cyubo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 240.0
+offset_top = 135.0
+offset_right = 1680.0
+offset_bottom = 945.0
+texture = SubResource("CanvasTexture_5pe41")
+
+[node name="GuidebookLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -314.0
+offset_top = -378.0
+offset_right = 280.0
+offset_bottom = -241.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0156863, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "GUIDEBOOK
+"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1470.0
+offset_top = 165.0
+offset_right = 1634.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 60
+text = "BACK"
+
+[node name="RightButton" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 1436.0
+offset_top = 786.0
+offset_right = 1637.0
+offset_bottom = 912.0
+texture_normal = ExtResource("3_s6lml")
+stretch_mode = 0
+
+[node name="LeftButton" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 302.0
+offset_top = 786.0
+offset_right = 503.0
+offset_bottom = 912.0
+texture_normal = ExtResource("3_s6lml")
+stretch_mode = 0
+
+[node name="Pages" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Page1" type="Control" parent="Pages"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Coffee" type="Panel" parent="Pages/Page1"]
+offset_left = 305.0
+offset_top = 550.0
+offset_right = 1070.0
+offset_bottom = 730.0
+
+[node name="TextureRect" type="TextureRect" parent="Pages/Page1/Coffee"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 32.0
+offset_right = 158.0
+offset_bottom = 142.0
+texture = ExtResource("2_ch34b")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page1/Coffee"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 42.0
+offset_right = 729.0
+offset_bottom = 122.0
+bbcode_enabled = true
+text = "[b]Coffee[/b]
+[ul]
+Coffee
+[/ul]"
+
+[node name="Americano" type="Panel" parent="Pages/Page1"]
+offset_left = 305.0
+offset_top = 324.0
+offset_right = 1070.0
+offset_bottom = 504.0
+
+[node name="TextureRect" type="TextureRect" parent="Pages/Page1/Americano"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 32.0
+offset_right = 158.0
+offset_bottom = 142.0
+texture = ExtResource("1_66nlc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page1/Americano"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 42.0
+offset_right = 729.0
+offset_bottom = 122.0
+bbcode_enabled = true
+text = "[b]Americano[/b]
+[ul]
+Coffee
+Water
+[/ul]"
+
+[node name="Page2" type="Control" parent="Pages"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Coffee" type="Panel" parent="Pages/Page2"]
+offset_left = 305.0
+offset_top = 550.0
+offset_right = 1070.0
+offset_bottom = 730.0
+
+[node name="TextureRect" type="TextureRect" parent="Pages/Page2/Coffee"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 32.0
+offset_right = 158.0
+offset_bottom = 142.0
+texture = ExtResource("5_kti5i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page2/Coffee"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 42.0
+offset_right = 729.0
+offset_bottom = 122.0
+bbcode_enabled = true
+text = "[b]Coffee[/b]
+[ul]
+Coffee
+[/ul]"
+
+[node name="Americano" type="Panel" parent="Pages/Page2"]
+offset_left = 305.0
+offset_top = 324.0
+offset_right = 1070.0
+offset_bottom = 504.0
+
+[node name="TextureRect" type="TextureRect" parent="Pages/Page2/Americano"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 32.0
+offset_right = 158.0
+offset_bottom = 142.0
+texture = ExtResource("1_66nlc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page2/Americano"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 42.0
+offset_right = 729.0
+offset_bottom = 122.0
+bbcode_enabled = true
+text = "[b]Americano[/b]
+[ul]
+Coffee
+Water
+[/ul]"
+
+[node name="Page3" type="Control" parent="Pages"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Coffee" type="Panel" parent="Pages/Page3"]
+offset_left = 305.0
+offset_top = 550.0
+offset_right = 1070.0
+offset_bottom = 730.0
+
+[node name="TextureRect" type="TextureRect" parent="Pages/Page3/Coffee"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 32.0
+offset_right = 158.0
+offset_bottom = 142.0
+texture = ExtResource("6_pquxm")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page3/Coffee"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 42.0
+offset_right = 729.0
+offset_bottom = 122.0
+bbcode_enabled = true
+text = "[b]Coffee[/b]
+[ul]
+Coffee
+[/ul]"
+
+[node name="Americano" type="Panel" parent="Pages/Page3"]
+offset_left = 305.0
+offset_top = 324.0
+offset_right = 1070.0
+offset_bottom = 504.0
+
+[node name="TextureRect" type="TextureRect" parent="Pages/Page3/Americano"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 32.0
+offset_right = 158.0
+offset_bottom = 142.0
+texture = ExtResource("1_66nlc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page3/Americano"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 42.0
+offset_right = 729.0
+offset_bottom = 122.0
+bbcode_enabled = true
+text = "[b]Americano[/b]
+[ul]
+Coffee
+Water
+[/ul]"
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="RightButton" to="." method="get_next_right_page"]
+[connection signal="pressed" from="LeftButton" to="." method="get_next_left_page"]

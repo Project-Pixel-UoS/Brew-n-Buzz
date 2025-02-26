@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dne7b5jsbdtnk"]
+[gd_scene load_steps=4 format=3 uid="uid://qwlm2ed31uqw"]
 
 [ext_resource type="Script" path="res://scripts/ingredient_mug.gd" id="1_ivgue"]
 [ext_resource type="Texture2D" uid="uid://d0v7hhu101kvr" path="res://images/kitchen panel/ingredients/camomilletea.PNG" id="2_lgq08"]

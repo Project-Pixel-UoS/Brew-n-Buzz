@@ -1,7 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=44 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
+[ext_resource type="PackedScene" uid="uid://cf0ya1o4m6ooe" path="res://scenes/guidebook_menu.tscn" id="2_5lu8m"]
 [ext_resource type="Script" path="res://assets/main_menu/settings_menu_level.gd" id="2_lvwfi"]
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="2_q7cu4"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_sh0uv"]
@@ -16,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://0m7hc17rio08" path="res://images/kitchen panel/ingredients/marshmallows.PNG" id="11_huvnx"]
 [ext_resource type="PackedScene" uid="uid://do5qquw381o6m" path="res://scenes/Counter.tscn" id="11_nyi6s"]
 [ext_resource type="Script" path="res://scenes/pause_button.gd" id="11_oodk7"]
-[ext_resource type="Texture2D" uid="uid://blhi3gojmhxry" path="res://images/kitchen panel/machines/bnb_mugs_og.png" id="15_64fdl"]
 [ext_resource type="PackedScene" uid="uid://ekoyd5v80o3n" path="res://scenes/machine_scenes/bin.tscn" id="17_47q0w"]
 [ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/caramel.tscn" id="21_qs7as"]
 [ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/fruit_tea.tscn" id="22_o036c"]
@@ -31,8 +31,10 @@
 [ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/marshmallows.tscn" id="28_p15hi"]
 [ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/cocoa.tscn" id="29_jdwl5"]
 [ext_resource type="PackedScene" uid="uid://cpkyt4dom3j3v" path="res://scenes/ingredient_scenes/Milk.tscn" id="31_eeuus"]
-[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/camomille_tea.tscn" id="31_ffwb3"]
+[ext_resource type="PackedScene" uid="uid://qwlm2ed31uqw" path="res://scenes/ingredient_scenes/camomille_tea.tscn" id="31_ffwb3"]
 [ext_resource type="PackedScene" uid="uid://do113ikliufn3" path="res://scenes/ingredient_scenes/Mug.tscn" id="32_kty7d"]
+[ext_resource type="Texture2D" uid="uid://cbuxcu7u4re48" path="res://images/kitchen panel/machines/bnb_book_transp.png" id="33_hjb6b"]
+[ext_resource type="Script" path="res://scenes/guide_book_button.gd" id="34_n0bjo"]
 [ext_resource type="PackedScene" uid="uid://v1c4hq8je5g2" path="res://scenes/machine_scenes/guide_book.tscn" id="34_rs850"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8bbxd"]
@@ -84,6 +86,12 @@ size = Vector2(81, 78)
 [node name="LevelManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_q7cu4")
+
+[node name="guidebook_layer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="guidebook_menu" parent="guidebook_layer" instance=ExtResource("2_5lu8m")]
+unique_name_in_owner = true
 
 [node name="SettingsLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -209,10 +217,7 @@ position = Vector2(237, 394)
 [node name="Mug" parent="." instance=ExtResource("32_kty7d")]
 unique_name_in_owner = true
 texture_filter = 1
-position = Vector2(385, 183)
-
-[node name="Milk" parent="." groups=["ingredient"] instance=ExtResource("31_eeuus")]
-position = Vector2(464, 392)
+position = Vector2(1081, 715)
 
 [node name="BottomPanel" type="Panel" parent="."]
 offset_left = 640.0
@@ -295,22 +300,6 @@ offset_left = 640.0
 offset_top = 270.0
 offset_right = 1082.18
 offset_bottom = 549.273
-
-[node name="Mugs" type="Panel" parent="Machines"]
-offset_left = 994.0
-offset_top = 626.0
-offset_right = 1180.18
-offset_bottom = 812.182
-
-[node name="TextureRect" type="TextureRect" parent="Machines/Mugs"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("15_64fdl")
 
 [node name="Frother" type="Panel" parent="Machines"]
 texture_filter = 1
@@ -406,10 +395,21 @@ position = Vector2(70, 70)
 position = Vector2(0.398987, 0)
 shape = SubResource("RectangleShape2D_pd73u")
 
+[node name="GuideBookButton" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 1132.0
+offset_top = 893.0
+offset_right = 1503.2
+offset_bottom = 1078.6
+texture_normal = ExtResource("33_hjb6b")
+stretch_mode = 0
+script = ExtResource("34_n0bjo")
+
 [node name="GuideBook" parent="." instance=ExtResource("34_rs850")]
-position = Vector2(1334, 987)
+position = Vector2(1442, 1534)
 
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="open_settings"]
 [connection signal="pressed" from="PauseButton" to="PauseButton" method="_on_pressed"]
 [connection signal="pressed" from="Ingredients/DrawerButton" to="Ingredients/DrawerButton" method="drawer_press"]
+[connection signal="pressed" from="GuideBookButton" to="GuideBookButton" method="open_guideBook"]
