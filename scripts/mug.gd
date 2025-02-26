@@ -10,6 +10,7 @@ var body_ref
 var offset: Vector2
 var initialPos: Vector2
 var last_frame_x = global_position.x
+var is_inside_bin = false
 
 func add_ingredient(ingredient: String) -> void:
 	ingredients.append(ingredient)
@@ -47,6 +48,11 @@ func _process(delta: float) -> void:
 				print("Dropping into object at position: ", body_ref.global_position)
 				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				animationPlayer.play("idle")
+			elif is_inside_bin and body_ref:
+				print("Mug dropped into bin! Destroying...")
+				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				replenish_mug()
+				queue_free()  # Remove the ingredient from the scene
 			else:
 				## @brief if object is dropped in an invalid position then return back to original position
 				print("Invalid drop, returning to initial position")
@@ -56,12 +62,23 @@ func _process(delta: float) -> void:
 				animationPlayer.play("idle")
 		last_frame_x = initial_x
 
+func replenish_mug():
+	if scene_file_path != "":
+		var mug_scene = load(scene_file_path) 
+		var new_mug = mug_scene.instantiate()
+		new_mug.global_position = initialPos
+		get_parent().add_child(new_mug)
+	else:
+		print("Error: scene_file_path is empty, cannot replenish mug")
 
 func _on_area_2d_area_entered(body: Node2D) -> void:
 	if body.is_in_group('mug'):
 		is_inside_object = true
 		body.modulate = Color(Color.DARK_BLUE, 1)
 		body_ref = body  
+	elif body.is_in_group('bin'):
+		is_inside_bin = true
+		body_ref = body
 		
 func _on_area_2d_area_exited(body: Node2D) -> void:
 	## @brief if object is not hovering over the box go back to normal size
