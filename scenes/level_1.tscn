@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://do5qquw381o6m" path="res://scenes/Counter.tscn" id="11_nyi6s"]
 [ext_resource type="Script" path="res://scenes/pause_button.gd" id="11_oodk7"]
 [ext_resource type="Texture2D" uid="uid://blhi3gojmhxry" path="res://images/kitchen panel/machines/bnb_mugs_og.png" id="15_64fdl"]
+[ext_resource type="PackedScene" uid="uid://ekoyd5v80o3n" path="res://scenes/machine_scenes/bin.tscn" id="17_47q0w"]
 [ext_resource type="PackedScene" uid="uid://codola8g3qlei" path="res://scenes/ingredient_scenes/caramel.tscn" id="21_qs7as"]
 [ext_resource type="PackedScene" uid="uid://c22hnkdgad2kf" path="res://scenes/ingredient_scenes/fruit_tea.tscn" id="22_o036c"]
 [ext_resource type="PackedScene" uid="uid://boqghshkws7xv" path="res://scenes/ingredient_scenes/black_tea.tscn" id="22_ykq7m"]
@@ -32,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://cpkyt4dom3j3v" path="res://scenes/ingredient_scenes/Milk.tscn" id="31_eeuus"]
 [ext_resource type="PackedScene" uid="uid://dne7b5jsbdtnk" path="res://scenes/ingredient_scenes/camomille_tea.tscn" id="31_ffwb3"]
 [ext_resource type="PackedScene" uid="uid://do113ikliufn3" path="res://scenes/ingredient_scenes/Mug.tscn" id="32_kty7d"]
+[ext_resource type="PackedScene" uid="uid://v1c4hq8je5g2" path="res://scenes/machine_scenes/guide_book.tscn" id="34_rs850"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8bbxd"]
 
@@ -70,10 +72,6 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6op6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opiph"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvdqx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_diwq2"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -256,6 +254,9 @@ script = ExtResource("11_oodk7")
 
 [node name="Machines" type="Node" parent="."]
 
+[node name="Bin" parent="Machines" instance=ExtResource("17_47q0w")]
+position = Vector2(879, 987)
+
 [node name="Prep" type="Panel" parent="Machines"]
 offset_left = 656.0
 offset_top = 629.0
@@ -290,20 +291,6 @@ offset_left = 640.0
 offset_top = 270.0
 offset_right = 1082.18
 offset_bottom = 549.273
-
-[node name="Guidebook" type="Panel" parent="Machines"]
-offset_left = 1148.0
-offset_top = 893.818
-offset_right = 1520.36
-offset_bottom = 1080.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_opiph")
-
-[node name="Bin" type="Panel" parent="Machines"]
-offset_left = 693.0
-offset_top = 893.818
-offset_right = 1065.36
-offset_bottom = 1080.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_jvdqx")
 
 [node name="Mugs" type="Panel" parent="Machines"]
 offset_left = 994.0
@@ -414,6 +401,9 @@ position = Vector2(70, 70)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/Coffee/Area2D"]
 position = Vector2(0.398987, 0)
 shape = SubResource("RectangleShape2D_pd73u")
+
+[node name="GuideBook" parent="." instance=ExtResource("34_rs850")]
+position = Vector2(1334, 987)
 
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="open_settings"]

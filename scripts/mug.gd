@@ -28,7 +28,6 @@ func _process(delta: float) -> void:
 		elif Input.is_action_just_released("click"):
 			GameManager.is_dragging = false
 			var tween = get_tree().create_tween()
-			print(is_inside_object);
 			if is_inside_object and body_ref:
 				## @brief if object is dropped in box then move item to box
 				print("Dropping into object at position: ", body_ref.global_position)
@@ -40,7 +39,6 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_area_entered(body: Node2D) -> void:
-	print("Body entered:", body.name)
 	if body.is_in_group('mug'):
 		is_inside_object = true
 		body.modulate = Color(Color.DARK_BLUE, 1)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ekoyd5v80o3n"]
+
+[ext_resource type="Texture2D" uid="uid://catx8wl8hhy8v" path="res://images/kitchen panel/machines/bnb_bin_transp.png" id="1_lfdko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajvbj"]
+size = Vector2(92, 44.75)
+
+[node name="Bin" type="Node2D" groups=["bin"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5.8, 5.8)
+texture = ExtResource("1_lfdko")
+
+[node name="Area2D" type="Area2D" parent="." groups=["bin"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 1.5)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_ajvbj")
