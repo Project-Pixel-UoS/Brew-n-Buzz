@@ -18,20 +18,20 @@
 [ext_resource type="Script" path="res://scenes/pause_button.gd" id="11_oodk7"]
 [ext_resource type="Texture2D" uid="uid://blhi3gojmhxry" path="res://images/kitchen panel/machines/bnb_mugs_og.png" id="15_64fdl"]
 [ext_resource type="PackedScene" uid="uid://ekoyd5v80o3n" path="res://scenes/machine_scenes/bin.tscn" id="17_47q0w"]
-[ext_resource type="PackedScene" uid="uid://codola8g3qlei" path="res://scenes/ingredient_scenes/caramel.tscn" id="21_qs7as"]
-[ext_resource type="PackedScene" uid="uid://c22hnkdgad2kf" path="res://scenes/ingredient_scenes/fruit_tea.tscn" id="22_o036c"]
-[ext_resource type="PackedScene" uid="uid://boqghshkws7xv" path="res://scenes/ingredient_scenes/black_tea.tscn" id="22_ykq7m"]
-[ext_resource type="PackedScene" uid="uid://6xqcmsoeb0ot" path="res://scenes/ingredient_scenes/matcha_tea.tscn" id="23_0xdor"]
-[ext_resource type="PackedScene" uid="uid://cntx8otc6apaf" path="res://scenes/ingredient_scenes/honey.tscn" id="23_mn8qr"]
-[ext_resource type="PackedScene" uid="uid://ccfltk5xsbiqq" path="res://scenes/ingredient_scenes/lemon.tscn" id="24_aiskv"]
-[ext_resource type="PackedScene" uid="uid://bpbkfwvjt5smt" path="res://scenes/ingredient_scenes/cinnamon_sticks.tscn" id="25_ihoko"]
-[ext_resource type="PackedScene" uid="uid://boegh6vo2j4ke" path="res://scenes/ingredient_scenes/seasonal.tscn" id="26_jhukx"]
-[ext_resource type="PackedScene" uid="uid://dms10yfki14n1" path="res://scenes/ingredient_scenes/liquor.tscn" id="27_ieyrb"]
-[ext_resource type="PackedScene" uid="uid://bdfqj4iadnovk" path="res://scenes/ingredient_scenes/whipped_cream.tscn" id="27_yany0"]
-[ext_resource type="PackedScene" uid="uid://btber43fpl6hi" path="res://scenes/ingredient_scenes/marshmallows.tscn" id="28_p15hi"]
-[ext_resource type="PackedScene" uid="uid://jyac1i82nd1l" path="res://scenes/ingredient_scenes/cocoa.tscn" id="29_jdwl5"]
+[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/caramel.tscn" id="21_qs7as"]
+[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/fruit_tea.tscn" id="22_o036c"]
+[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/black_tea.tscn" id="22_ykq7m"]
+[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/matcha_tea.tscn" id="23_0xdor"]
+[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/honey.tscn" id="23_mn8qr"]
+[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/lemon.tscn" id="24_aiskv"]
+[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/cinnamon_sticks.tscn" id="25_ihoko"]
+[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/seasonal.tscn" id="26_jhukx"]
+[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/liquor.tscn" id="27_ieyrb"]
+[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/whipped_cream.tscn" id="27_yany0"]
+[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/marshmallows.tscn" id="28_p15hi"]
+[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/cocoa.tscn" id="29_jdwl5"]
 [ext_resource type="PackedScene" uid="uid://cpkyt4dom3j3v" path="res://scenes/ingredient_scenes/Milk.tscn" id="31_eeuus"]
-[ext_resource type="PackedScene" uid="uid://dne7b5jsbdtnk" path="res://scenes/ingredient_scenes/camomille_tea.tscn" id="31_ffwb3"]
+[ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/camomille_tea.tscn" id="31_ffwb3"]
 [ext_resource type="PackedScene" uid="uid://do113ikliufn3" path="res://scenes/ingredient_scenes/Mug.tscn" id="32_kty7d"]
 [ext_resource type="PackedScene" uid="uid://v1c4hq8je5g2" path="res://scenes/machine_scenes/guide_book.tscn" id="34_rs850"]
 
@@ -208,7 +208,11 @@ position = Vector2(237, 394)
 
 [node name="Mug" parent="." instance=ExtResource("32_kty7d")]
 unique_name_in_owner = true
+texture_filter = 1
 position = Vector2(385, 183)
+
+[node name="Milk" parent="." groups=["ingredient"] instance=ExtResource("31_eeuus")]
+position = Vector2(464, 392)
 
 [node name="BottomPanel" type="Panel" parent="."]
 offset_left = 640.0
