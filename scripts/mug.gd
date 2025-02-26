@@ -11,10 +11,19 @@ var offset: Vector2
 var initialPos: Vector2
 var last_frame_x = global_position.x
 var is_inside_bin = false
+var initial_mug_position = Vector2(385,183)
+
+func remove_numbers(input_string: String) -> String:
+	var result = ""
+	for char in input_string:
+		if not (char >= "0" and char <= "9"):  # Check if the character is not a digit
+			result += char  # Add the character to result if it's not a digi
+	return result
 
 func add_ingredient(ingredient: String) -> void:
-	ingredients.append(ingredient)
-	print("added " + ingredient)
+	print(remove_numbers(ingredient))
+	ingredients.append(remove_numbers(ingredient))
+	print("added " + remove_numbers(ingredient))
 	
 func get_ingredients() -> Array:
 	return ingredients
@@ -51,12 +60,13 @@ func _process(delta: float) -> void:
 			elif is_inside_bin and body_ref:
 				print("Mug dropped into bin! Destroying...")
 				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				queue_free()
 				replenish_mug()
-				queue_free()  # Remove the ingredient from the scene
 			else:
 				## @brief if object is dropped in an invalid position then return back to original position
 				print("Invalid drop, returning to initial position")
-				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				
 				
 				determine_animation(x_change)
 				animationPlayer.play("idle")
@@ -66,8 +76,9 @@ func replenish_mug():
 	if scene_file_path != "":
 		var mug_scene = load(scene_file_path) 
 		var new_mug = mug_scene.instantiate()
-		new_mug.global_position = initialPos
+		new_mug.global_position = initial_mug_position
 		get_parent().add_child(new_mug)
+		new_mug.name = "Mug"
 	else:
 		print("Error: scene_file_path is empty, cannot replenish mug")
 
