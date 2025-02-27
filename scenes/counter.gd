@@ -8,7 +8,6 @@ func _ready() -> void:
 	modulate = Color(Color.MEDIUM_PURPLE, 0.7)
 	mugObject = get_parent().get_node("Mug")
 	var area2d = counter.get_node("Area2D")
-	area2d.connect("area_entered", Callable(self, "_on_area_2d_area_entered"))
 
 func check_recipe():
 	for child in get_parent().get_children():

@@ -1,7 +1,6 @@
 extends Node2D
 
-
-@onready var mugObject: Node2D =  %Mug
+var mugObject: Node2D
 
 
 var draggable = false
@@ -13,6 +12,9 @@ var initialPos: Vector2
 var being_dragged = false
 
 func _process(delta: float) -> void:
+	for child in get_parent().get_children():
+		if child.name.begins_with("Mug"):
+			mugObject = child
 	if draggable:
 		if Input.is_action_just_pressed("click"):
 			## @brief maintain position of where mouse clicked on object through using an offset
@@ -44,7 +46,7 @@ func _process(delta: float) -> void:
 				# Remove the ingredient from the scene
 			else:
 				## @brief if object is dropped in an invalid position then return back to original position
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 			being_dragged = false
 
 func _on_area_2d_area_entered(body: Node2D) -> void:

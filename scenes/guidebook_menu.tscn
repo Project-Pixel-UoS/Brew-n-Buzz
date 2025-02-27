@@ -19,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_cyubo")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 240.0
 offset_top = 135.0
 offset_right = 1680.0
@@ -54,6 +55,7 @@ text = "BACK"
 
 [node name="RightButton" type="TextureButton" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 1436.0
 offset_top = 786.0
 offset_right = 1637.0
@@ -83,6 +85,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Coffee" type="Panel" parent="Pages/Page1"]
+layout_mode = 0
 offset_left = 305.0
 offset_top = 550.0
 offset_right = 1070.0
@@ -109,6 +112,7 @@ Coffee
 [/ul]"
 
 [node name="Americano" type="Panel" parent="Pages/Page1"]
+layout_mode = 0
 offset_left = 305.0
 offset_top = 324.0
 offset_right = 1070.0
@@ -142,6 +146,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Coffee" type="Panel" parent="Pages/Page2"]
+layout_mode = 0
 offset_left = 305.0
 offset_top = 550.0
 offset_right = 1070.0
@@ -168,6 +173,7 @@ Coffee
 [/ul]"
 
 [node name="Americano" type="Panel" parent="Pages/Page2"]
+layout_mode = 0
 offset_left = 305.0
 offset_top = 324.0
 offset_right = 1070.0
@@ -201,6 +207,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Coffee" type="Panel" parent="Pages/Page3"]
+layout_mode = 0
 offset_left = 305.0
 offset_top = 550.0
 offset_right = 1070.0
@@ -227,6 +234,7 @@ Coffee
 [/ul]"
 
 [node name="Americano" type="Panel" parent="Pages/Page3"]
+layout_mode = 0
 offset_left = 305.0
 offset_top = 324.0
 offset_right = 1070.0

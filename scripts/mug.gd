@@ -11,7 +11,7 @@ var offset: Vector2
 var initialPos: Vector2
 var last_frame_x = global_position.x
 var is_inside_bin = false
-var initial_mug_position = Vector2(385,183)
+var initial_mug_position = Vector2(1081,715)
 
 func remove_numbers(input_string: String) -> String:
 	var result = ""
@@ -65,8 +65,7 @@ func _process(delta: float) -> void:
 			else:
 				## @brief if object is dropped in an invalid position then return back to original position
 				print("Invalid drop, returning to initial position")
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-				
+				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 				
 				determine_animation(x_change)
 				animationPlayer.play("idle")
