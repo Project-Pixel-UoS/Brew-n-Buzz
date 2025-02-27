@@ -12,3 +12,7 @@ func add_correct_recipe():
 	
 func add_incorrect_recipe():
 	incorrect_recipes += 1
+	
+func save_level():
+	GameManager.update_level()
+	pass

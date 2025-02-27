@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=43 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="2_q7cu4"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_sh0uv"]
 [ext_resource type="PackedScene" uid="uid://cor4f38g6u27x" path="res://scenes/pause_menu.tscn" id="4_cm10t"]
-[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="5_gufwp"]
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
 [ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="7_6t2pv"]
 [ext_resource type="Script" path="res://scenes/settings_button.gd" id="7_7my2j"]
@@ -116,16 +115,8 @@ script = ExtResource("2_lvwfi")
 unique_name_in_owner = true
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="PauseLayer"]
-offset_left = 240.0
-offset_top = 135.0
-offset_right = 1680.0
-offset_bottom = 945.0
-texture = SubResource("CanvasTexture_8bbxd")
-
 [node name="pause_menu" parent="PauseLayer" instance=ExtResource("4_cm10t")]
 unique_name_in_owner = true
-script = ExtResource("5_gufwp")
 
 [node name="TimerContainer" type="Panel" parent="."]
 anchors_preset = 5

@@ -10,3 +10,6 @@ func add_money(money):
 	
 func get_money():
 	return total_money
+
+func update_level():
+	pass
