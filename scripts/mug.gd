@@ -60,6 +60,7 @@ func _process(delta: float) -> void:
 			elif is_inside_bin and body_ref:
 				print("Mug dropped into bin! Destroying...")
 				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				body_ref.get_parent().play_sound()
 				queue_free()
 				replenish_mug()
 			else:
