@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://tx12kibrxlhe"]
+
+[ext_resource type="Texture2D" uid="uid://dsfwxtbv87hwx" path="res://images/kitchen panel/machines/bnb_grinder_og.png" id="1_jvxwd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nf8t"]
+size = Vector2(224, 430)
+
+[node name="Grinder" type="Node2D" groups=["grinder"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_jvxwd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["grinder"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-20, -58)
+shape = SubResource("RectangleShape2D_0nf8t")
