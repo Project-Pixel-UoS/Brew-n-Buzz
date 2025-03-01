@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=45 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
@@ -12,11 +12,14 @@
 [ext_resource type="Script" path="res://scenes/settings_button.gd" id="7_7my2j"]
 [ext_resource type="Texture2D" uid="uid://cholgudtx35vj" path="res://images/kitchen panel/ingredients/coffeebean.PNG" id="8_bvyag"]
 [ext_resource type="Texture2D" uid="uid://dsfwxtbv87hwx" path="res://images/kitchen panel/machines/bnb_grinder_og.png" id="8_tm5b5"]
-[ext_resource type="Texture2D" uid="uid://pebtaeyx30uc" path="res://images/kitchen panel/machines/bnb_frother_og.png" id="9_lrgjr"]
 [ext_resource type="Texture2D" uid="uid://0m7hc17rio08" path="res://images/kitchen panel/ingredients/marshmallows.PNG" id="11_huvnx"]
 [ext_resource type="PackedScene" uid="uid://do5qquw381o6m" path="res://scenes/Counter.tscn" id="11_nyi6s"]
 [ext_resource type="Script" path="res://scenes/pause_button.gd" id="11_oodk7"]
+[ext_resource type="PackedScene" uid="uid://xnigc2lo1y6n" path="res://scenes/machine_scenes/steam_wand.tscn" id="16_4e4bv"]
+[ext_resource type="PackedScene" uid="uid://mv7fctnonvje" path="res://scenes/machine_scenes/milk_jug.tscn" id="16_fnp02"]
 [ext_resource type="PackedScene" uid="uid://ekoyd5v80o3n" path="res://scenes/machine_scenes/bin.tscn" id="17_47q0w"]
+[ext_resource type="Script" path="res://scripts/steam_wand.gd" id="17_x3tsx"]
+[ext_resource type="PackedScene" uid="uid://de18hqi3hvdur" path="res://scenes/machine_scenes/frother.tscn" id="18_f5kmt"]
 [ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/caramel.tscn" id="21_qs7as"]
 [ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/fruit_tea.tscn" id="22_o036c"]
 [ext_resource type="PackedScene" path="res://scenes/ingredient_scenes/black_tea.tscn" id="22_ykq7m"]
@@ -74,9 +77,6 @@ corner_radius_bottom_left = 4
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6op6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_diwq2"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pd73u"]
 size = Vector2(81, 78)
 
@@ -88,6 +88,7 @@ script = ExtResource("2_q7cu4")
 
 [node name="guidebook_layer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="guidebook_menu" parent="guidebook_layer" instance=ExtResource("2_5lu8m")]
 unique_name_in_owner = true
@@ -280,35 +281,21 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_tm5b5")
 
-[node name="GroupHandle" type="Panel" parent="Machines"]
-offset_left = 1082.18
-offset_top = 363.091
-offset_right = 1175.27
-offset_bottom = 549.273
-
 [node name="CoffeeMachine" type="Panel" parent="Machines"]
 offset_left = 640.0
 offset_top = 270.0
 offset_right = 1082.18
 offset_bottom = 549.273
 
-[node name="Frother" type="Panel" parent="Machines"]
-texture_filter = 1
-offset_left = 1473.0
-offset_top = 588.0
-offset_right = 1659.18
-offset_bottom = 774.182
-theme_override_styles/panel = SubResource("StyleBoxFlat_diwq2")
+[node name="SteamWand" parent="Machines" instance=ExtResource("16_4e4bv")]
+position = Vector2(1000, 362)
+script = ExtResource("17_x3tsx")
 
-[node name="GrinderImage" type="TextureRect" parent="Machines/Frother"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_lrgjr")
+[node name="Frother" parent="Machines" instance=ExtResource("18_f5kmt")]
+position = Vector2(1586, 722)
+
+[node name="MilkJug" parent="Machines" instance=ExtResource("16_fnp02")]
+position = Vector2(1152, 500)
 
 [node name="Ingredients" type="Node" parent="."]
 
@@ -367,7 +354,7 @@ position = Vector2(1827, 94)
 [node name="Cocoa" parent="Ingredients" instance=ExtResource("29_jdwl5")]
 position = Vector2(1828, 615)
 
-[node name="Milk" parent="Ingredients" groups=["ingredient"] instance=ExtResource("31_eeuus")]
+[node name="Milk" parent="Ingredients" groups=["ingredient", "milkJug"] instance=ExtResource("31_eeuus")]
 position = Vector2(1828, 767)
 
 [node name="Coffee" type="TextureButton" parent="Ingredients"]

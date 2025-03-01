@@ -16,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_gkmwg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 240.0
 offset_top = 135.0
 offset_right = 1680.0
