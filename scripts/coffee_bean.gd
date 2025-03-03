@@ -4,7 +4,7 @@ var mugObject: Node2D
 
 
 var draggable = false
-var is_inside_mug = false
+var is_inside_grinder = false
 var is_inside_bin = false
 var body_ref
 var offset: Vector2
@@ -12,9 +12,6 @@ var initialPos: Vector2
 var being_dragged = false
 
 func _process(delta: float) -> void:
-	for child in get_parent().get_children():
-		if child.name.begins_with("Grinder"):
-			mugObject = child
 	if draggable:
 		if Input.is_action_just_pressed("click"):
 			## @brief maintain position of where mouse clicked on object through using an offset
@@ -30,9 +27,9 @@ func _process(delta: float) -> void:
 		elif Input.is_action_just_released("click"):
 			GameManager.is_dragging = false
 			var tween = get_tree().create_tween()
-			if is_inside_mug and body_ref:
+			if is_inside_grinder and body_ref:
 				## @brief if object is dropped in box then move item to box
-				print("Dropping into mug at position: ", body_ref.global_position)
+				print("Dropping into grinder at position: ", body_ref.global_position)
 				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				await tween.finished  # Wait until the animation finishes
 				queue_free()
@@ -50,24 +47,33 @@ func _process(delta: float) -> void:
 			being_dragged = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group('grinder') && being_dragged:
-		is_inside_mug = true
-		body_ref = body  
-		if body_ref and body_ref.get_parent().has_method("add_ingredient"):
-			print(body_ref)
-			body_ref.get_parent().add_ingredient(name)  # Add ingredient to mug
+	if body.is_in_group('grinder') and being_dragged:
+		is_inside_grinder = true
+		body_ref = body  # StaticBody2D reference
+
+		print("Entered Grinder:", body_ref)
+
+		# Now get the "Grinder" node
+		var grinder_node = body_ref.get_parent()  # This should be the "Grinder" node
+
+		# Check if we successfully found the Grinder node
+		if grinder_node:
+			print("Found grinder node:", grinder_node.name)
+			if grinder_node.has_method("fill_grinder"):
+				grinder_node.fill_grinder()
+			else:
+				print("Error: fill_grinder method missing in grinder node!")
 		else:
-			print("Error: body_ref is null or missing add_ingredient method")
-	# Check if the object is a bin and destroy the ingredient
+			print("Error: Could not find Grinder node!")
 	elif body.is_in_group('bin'):
 		is_inside_bin = true
 		body_ref = body
-		
+
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	## @brief if object is not hovering over the box go back to normal size
 	if body.is_in_group('grinder'):
-		is_inside_mug = false
+		is_inside_grinder = false
 
 
 func _on_area_2d_mouse_entered() -> void:

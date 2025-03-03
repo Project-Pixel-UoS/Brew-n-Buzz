@@ -1,19 +1,25 @@
 extends Node
 
-var max_amount
-var amount_left
-var coffee = false
+var max_amount = 8 # potential to have a set max_amount function later
+var amount_left # amount left in grinder
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	amount_left = randi() % max_amount + 1
+	print(amount_left , " and " ,max_amount)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	pass ## need to code how to catch teh object when falls into script, idk how :( plz help fanks
 
 
-func fill_grinder(coffee_entered: bool) -> void:
-	if coffee_entered == true:
-		amount_left = max_amount
+func fill_grinder() -> void:
+	if amount_left == max_amount:
+		print("Grinder is already full!")
+	amount_left = max_amount
+	print(amount_left)
+
+func get_amount() -> int: #will be needed for grinder visual level amount on sprite.
+	return amount_left

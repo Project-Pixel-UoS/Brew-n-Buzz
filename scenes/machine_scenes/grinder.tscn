@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://tx12kibrxlhe"]
+[gd_scene load_steps=4 format=3 uid="uid://tx12kibrxlhe"]
 
+[ext_resource type="Script" path="res://scripts/Machines/grinder.gd" id="1_gqequ"]
 [ext_resource type="Texture2D" uid="uid://dsfwxtbv87hwx" path="res://images/kitchen panel/machines/bnb_grinder_og.png" id="1_jvxwd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nf8t"]
 size = Vector2(224, 430)
 
 [node name="Grinder" type="Node2D" groups=["grinder"]]
+script = ExtResource("1_gqequ")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
