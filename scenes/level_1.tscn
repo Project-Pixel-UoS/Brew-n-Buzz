@@ -10,24 +10,25 @@
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
 [ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="7_6t2pv"]
 [ext_resource type="Script" path="res://scenes/settings_button.gd" id="7_7my2j"]
-[ext_resource type="Texture2D" uid="uid://dsfwxtbv87hwx" path="res://images/kitchen panel/machines/bnb_grinder_og.png" id="8_tm5b5"]
 [ext_resource type="Texture2D" uid="uid://deej5yg0pbcj6" path="res://images/kitchen panel/machines/bnb_bgbar_side.PNG" id="10_pl0tn"]
 [ext_resource type="Texture2D" uid="uid://crlfoajba4cwi" path="res://images/kitchen panel/machines/bnb_bgbar_top.PNG" id="11_eudfb"]
 [ext_resource type="Texture2D" uid="uid://0m7hc17rio08" path="res://images/kitchen panel/ingredients/marshmallows.PNG" id="11_huvnx"]
-[ext_resource type="PackedScene" uid="uid://do5qquw381o6m" path="res://scenes/Counter.tscn" id="11_nyi6s"]
+[ext_resource type="PackedScene" path="res://scenes/Counter.tscn" id="11_nyi6s"]
 [ext_resource type="Script" path="res://scenes/pause_button.gd" id="11_oodk7"]
-[ext_resource type="PackedScene" path="res://scenes/machine_scenes/steam_wand.tscn" id="16_4e4bv"]
+[ext_resource type="PackedScene" uid="uid://xnigc2lo1y6n" path="res://scenes/machine_scenes/steam_wand.tscn" id="16_4e4bv"]
 [ext_resource type="PackedScene" uid="uid://cikh8xovd5wod" path="res://scenes/machine_scenes/milk_jug.tscn" id="16_fnp02"]
 [ext_resource type="Script" path="res://scripts/bin.gd" id="17_14wim"]
 [ext_resource type="PackedScene" uid="uid://ekoyd5v80o3n" path="res://scenes/machine_scenes/bin.tscn" id="17_47q0w"]
 [ext_resource type="Script" path="res://scripts/steam_wand.gd" id="17_x3tsx"]
-[ext_resource type="PackedScene" path="res://scenes/machine_scenes/frother.tscn" id="18_f5kmt"]
+[ext_resource type="PackedScene" uid="uid://de18hqi3hvdur" path="res://scenes/machine_scenes/frother.tscn" id="18_f5kmt"]
 [ext_resource type="PackedScene" uid="uid://codola8g3qlei" path="res://scenes/ingredient_scenes/caramel.tscn" id="21_qs7as"]
 [ext_resource type="PackedScene" uid="uid://c22hnkdgad2kf" path="res://scenes/ingredient_scenes/fruit_tea.tscn" id="22_o036c"]
 [ext_resource type="PackedScene" uid="uid://boqghshkws7xv" path="res://scenes/ingredient_scenes/black_tea.tscn" id="22_ykq7m"]
 [ext_resource type="PackedScene" uid="uid://6xqcmsoeb0ot" path="res://scenes/ingredient_scenes/matcha_tea.tscn" id="23_0xdor"]
+[ext_resource type="PackedScene" uid="uid://cywru0xulouqc" path="res://scenes/machine_scenes/group_handle.tscn" id="23_61ggs"]
 [ext_resource type="PackedScene" uid="uid://cntx8otc6apaf" path="res://scenes/ingredient_scenes/honey.tscn" id="23_mn8qr"]
 [ext_resource type="PackedScene" uid="uid://ccfltk5xsbiqq" path="res://scenes/ingredient_scenes/lemon.tscn" id="24_aiskv"]
+[ext_resource type="PackedScene" uid="uid://c6p8tde7gf4ur" path="res://scenes/machine_scenes/coffee_machine.tscn" id="24_ykd68"]
 [ext_resource type="PackedScene" uid="uid://bpbkfwvjt5smt" path="res://scenes/ingredient_scenes/cinnamon_sticks.tscn" id="25_ihoko"]
 [ext_resource type="PackedScene" uid="uid://boegh6vo2j4ke" path="res://scenes/ingredient_scenes/seasonal.tscn" id="26_jhukx"]
 [ext_resource type="PackedScene" uid="uid://dms10yfki14n1" path="res://scenes/ingredient_scenes/liquor.tscn" id="27_ieyrb"]
@@ -77,9 +78,6 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6op6"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Level1" type="Node2D"]
 
@@ -281,6 +279,14 @@ script = ExtResource("11_oodk7")
 
 [node name="Machines" type="Node" parent="."]
 
+[node name="CoffeeMachine" parent="Machines" instance=ExtResource("24_ykd68")]
+unique_name_in_owner = true
+position = Vector2(693, 347)
+
+[node name="Grinder" parent="Machines" instance=ExtResource("42_bos0h")]
+unique_name_in_owner = true
+position = Vector2(1360, 639)
+
 [node name="Bin" parent="Machines" instance=ExtResource("17_47q0w")]
 position = Vector2(879, 987)
 script = ExtResource("17_14wim")
@@ -291,29 +297,6 @@ offset_top = 629.0
 offset_right = 842.182
 offset_bottom = 815.182
 
-[node name="Grinder" type="Panel" parent="Machines"]
-offset_left = 1238.0
-offset_top = 414.0
-offset_right = 1424.18
-offset_bottom = 786.364
-theme_override_styles/panel = SubResource("StyleBoxFlat_t6op6")
-
-[node name="GrinderImage" type="TextureRect" parent="Machines/Grinder"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_tm5b5")
-
-[node name="CoffeeMachine" type="Panel" parent="Machines"]
-offset_left = 640.0
-offset_top = 270.0
-offset_right = 1082.18
-offset_bottom = 549.273
-
 [node name="SteamWand" parent="Machines" instance=ExtResource("16_4e4bv")]
 position = Vector2(1000, 362)
 script = ExtResource("17_x3tsx")
@@ -323,6 +306,9 @@ position = Vector2(1586, 722)
 
 [node name="MilkJug" parent="Machines" instance=ExtResource("16_fnp02")]
 position = Vector2(1152, 500)
+
+[node name="GroupHandle" parent="Machines" instance=ExtResource("23_61ggs")]
+position = Vector2(1295, 672)
 
 [node name="Ingredients" type="Node" parent="."]
 
@@ -402,9 +388,6 @@ position = Vector2(1442, 1534)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-
-[node name="Grinder" parent="." instance=ExtResource("42_bos0h")]
-position = Vector2(435, 844)
 
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="open_settings"]
