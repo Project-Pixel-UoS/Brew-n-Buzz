@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 			var tween = get_tree().create_tween()
 			if is_inside_valid_drop and body_ref && has_milk:
 				## @brief if object is dropped in box then move item to box
-				if steamed_milk:
+				if steamed_milk && body_ref.is_in_group("ingredient"):
 					queue_free()
 					replenish_milk_jug()
 					print("Dropping steamed milk into mug")
@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 					replenish_milk_jug()
 					print("Dropping into object at position: ", body_ref.global_position)
 					tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-				else:
+				elif !steamed_milk:
 					body_ref.get_parent().steam_milk(self)
 			elif is_inside_bin and body_ref:
 				print("Mug dropped into bin! Destroying...")

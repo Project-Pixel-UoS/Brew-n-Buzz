@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=49 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
@@ -8,13 +8,14 @@
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_sh0uv"]
 [ext_resource type="PackedScene" uid="uid://cor4f38g6u27x" path="res://scenes/pause_menu.tscn" id="4_cm10t"]
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
+[ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://images/bnb_clockbg.PNG" id="6_uiqnr"]
 [ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="7_6t2pv"]
 [ext_resource type="Script" path="res://scenes/settings_button.gd" id="7_7my2j"]
-[ext_resource type="Texture2D" uid="uid://deej5yg0pbcj6" path="res://images/kitchen panel/machines/bnb_bgbar_side.PNG" id="10_pl0tn"]
+[ext_resource type="Texture2D" uid="uid://cjjsydugbmk1b" path="res://images/kitchen panel/machines/bnb_barbg_side_update.PNG" id="10_qu227"]
 [ext_resource type="Texture2D" uid="uid://crlfoajba4cwi" path="res://images/kitchen panel/machines/bnb_bgbar_top.PNG" id="11_eudfb"]
-[ext_resource type="Texture2D" uid="uid://0m7hc17rio08" path="res://images/kitchen panel/ingredients/marshmallows.PNG" id="11_huvnx"]
 [ext_resource type="PackedScene" path="res://scenes/Counter.tscn" id="11_nyi6s"]
 [ext_resource type="Script" path="res://scenes/pause_button.gd" id="11_oodk7"]
+[ext_resource type="Texture2D" uid="uid://ctox1u5bql1w3" path="res://images/buttons/bnb_pause.PNG" id="14_nqeqg"]
 [ext_resource type="PackedScene" uid="uid://xnigc2lo1y6n" path="res://scenes/machine_scenes/steam_wand.tscn" id="16_4e4bv"]
 [ext_resource type="PackedScene" uid="uid://cikh8xovd5wod" path="res://scenes/machine_scenes/milk_jug.tscn" id="16_fnp02"]
 [ext_resource type="Script" path="res://scripts/bin.gd" id="17_14wim"]
@@ -46,18 +47,8 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8bbxd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33rai"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 13
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4sqfi"]
+texture = ExtResource("6_uiqnr")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0l01m"]
 bg_color = Color(0.370837, 0.489447, 0.279365, 1)
@@ -127,7 +118,7 @@ offset_top = 186.183
 offset_right = 1733.82
 offset_bottom = 337.456
 grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_33rai")
+theme_override_styles/panel = SubResource("StyleBoxTexture_4sqfi")
 
 [node name="Timer" type="Timer" parent="TimerContainer"]
 unique_name_in_owner = true
@@ -138,20 +129,21 @@ script = ExtResource("3_sh0uv")
 [node name="TimeRemaining" type="Label" parent="TimerContainer"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = -11.5
-offset_right = 20.5
-offset_bottom = 11.5
+offset_left = -38.5
+offset_top = -21.0
+offset_right = 38.5
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 70
 text = "00:00"
+horizontal_alignment = 1
 
 [node name="MoneyContainer" type="Panel" parent="."]
 offset_left = 6.0
@@ -224,10 +216,10 @@ offset_bottom = 40.0
 
 [node name="VerticalPanel" type="Panel" parent="."]
 texture_filter = 1
-offset_left = 1733.82
-offset_top = 186.183
-offset_right = 1920.0
-offset_bottom = 832.001
+offset_left = 1732.0
+offset_top = 186.0
+offset_right = 1917.0
+offset_bottom = 865.0
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="VerticalPanel"]
@@ -235,9 +227,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -2.0
+offset_right = 3.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("10_pl0tn")
+texture = ExtResource("10_qu227")
 
 [node name="HorizontalPanel" type="Panel" parent="."]
 texture_filter = 1
@@ -272,7 +267,7 @@ offset_left = 1576.0
 offset_top = 902.545
 offset_right = 1715.64
 offset_bottom = 1042.18
-texture_normal = ExtResource("11_huvnx")
+texture_normal = ExtResource("14_nqeqg")
 stretch_mode = 0
 flip_v = true
 script = ExtResource("11_oodk7")
@@ -314,10 +309,10 @@ position = Vector2(1295, 672)
 
 [node name="DrawerButton" type="Button" parent="Ingredients"]
 unique_name_in_owner = true
-offset_left = 1668.0
-offset_top = 360.0
-offset_right = 1726.18
-offset_bottom = 499.636
+offset_left = 1666.0
+offset_top = 381.0
+offset_right = 1724.18
+offset_bottom = 520.636
 script = ExtResource("6_7ydoj")
 
 [node name="TeaDrawer" type="Panel" parent="Ingredients/DrawerButton"]
@@ -344,7 +339,7 @@ position = Vector2(730, 94)
 position = Vector2(887, 94)
 
 [node name="BlackTea" parent="Ingredients" instance=ExtResource("22_ykq7m")]
-position = Vector2(1828, 426)
+position = Vector2(1826, 451)
 
 [node name="Honey" parent="Ingredients" instance=ExtResource("23_mn8qr")]
 position = Vector2(1045, 94)
@@ -365,13 +360,13 @@ position = Vector2(1671, 94)
 position = Vector2(1827, 94)
 
 [node name="Cocoa" parent="Ingredients" instance=ExtResource("29_jdwl5")]
-position = Vector2(1829, 602)
+position = Vector2(1829, 616)
 
 [node name="Milk" parent="Ingredients" groups=["ingredient", "milkJug"] instance=ExtResource("31_eeuus")]
-position = Vector2(1829, 755)
+position = Vector2(1829, 774)
 
 [node name="Coffee" parent="Ingredients" instance=ExtResource("38_6ol86")]
-position = Vector2(1827, 262)
+position = Vector2(1825, 278)
 
 [node name="GuideBookButton" type="TextureButton" parent="."]
 texture_filter = 1
