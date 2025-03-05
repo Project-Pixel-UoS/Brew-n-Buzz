@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=50 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
@@ -69,6 +69,9 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxl8e"]
+texture = ExtResource("10_qu227")
 
 [node name="Level1" type="Node2D"]
 
@@ -316,12 +319,14 @@ offset_bottom = 520.636
 script = ExtResource("6_7ydoj")
 
 [node name="TeaDrawer" type="Panel" parent="Ingredients/DrawerButton"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 66.0
 offset_top = -19.093
 offset_right = 577.996
 offset_bottom = 155.452
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gxl8e")
 
 [node name="CamomilleTea" parent="Ingredients/DrawerButton/TeaDrawer" instance=ExtResource("31_ffwb3")]
 position = Vector2(93, 87)

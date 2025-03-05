@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deej5yg0pbcj6"
-path="res://.godot/imported/bnb_bgbar_side.PNG-35b1edba732ea66bcda3743fea791887.ctex"
+uid="uid://ctox1u5bql1w3"
+path="res://.godot/imported/bnb_pause.PNG-625a51e8aba5bcd762d4e5cf7ea02479.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/kitchen panel/machines/bnb_bgbar_side.PNG"
-dest_files=["res://.godot/imported/bnb_bgbar_side.PNG-35b1edba732ea66bcda3743fea791887.ctex"]
+source_file="res://images/buttons/bnb_pause.PNG"
+dest_files=["res://.godot/imported/bnb_pause.PNG-625a51e8aba5bcd762d4e5cf7ea02479.ctex"]
 
 [params]
 
