@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://scenes/settings_button.gd" id="7_7my2j"]
 [ext_resource type="Texture2D" uid="uid://cjjsydugbmk1b" path="res://images/kitchen panel/machines/bnb_barbg_side_update.PNG" id="10_qu227"]
 [ext_resource type="Texture2D" uid="uid://crlfoajba4cwi" path="res://images/kitchen panel/machines/bnb_bgbar_top.PNG" id="11_eudfb"]
-[ext_resource type="PackedScene" path="res://scenes/Counter.tscn" id="11_nyi6s"]
+[ext_resource type="PackedScene" uid="uid://do5qquw381o6m" path="res://scenes/Counter.tscn" id="11_nyi6s"]
 [ext_resource type="Script" path="res://scenes/pause_button.gd" id="11_oodk7"]
 [ext_resource type="Texture2D" uid="uid://ctox1u5bql1w3" path="res://images/buttons/bnb_pause.PNG" id="14_nqeqg"]
 [ext_resource type="PackedScene" uid="uid://xnigc2lo1y6n" path="res://scenes/machine_scenes/steam_wand.tscn" id="16_4e4bv"]
@@ -200,11 +200,6 @@ script = ExtResource("2_4qq85")
 unique_name_in_owner = true
 position = Vector2(237, 394)
 
-[node name="Mug" parent="." instance=ExtResource("32_kty7d")]
-unique_name_in_owner = true
-texture_filter = 1
-position = Vector2(1081, 715)
-
 [node name="BottomPanel" type="Panel" parent="."]
 offset_left = 640.0
 offset_top = 864.727
@@ -307,6 +302,11 @@ position = Vector2(1152, 500)
 
 [node name="GroupHandle" parent="Machines" instance=ExtResource("23_61ggs")]
 position = Vector2(1295, 672)
+
+[node name="Mug" parent="." instance=ExtResource("32_kty7d")]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(1081, 715)
 
 [node name="Ingredients" type="Node" parent="."]
 

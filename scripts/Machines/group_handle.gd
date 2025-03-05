@@ -36,12 +36,8 @@ func _process(delta: float) -> void:
 				print("Dropping into coffee machine at position: ", body_ref.global_position)
 				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				await tween.finished  # Wait until the animation finishes
-				coffeeMachine.make_coffee()
-				await get_tree().create_timer(3.0).timeout
-				print("yo")
-				queue_free()
-				replenish_group_handle()  # Recreate the ingredient at the original position
-				  # Remove the old ingredient from the scene
+				coffeeMachine.is_group_handle_in_machine(true)
+
 			elif is_inside_bin and body_ref:
 				print("Group Handle dropped into bin! Destroying...")
 				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
@@ -53,7 +49,6 @@ func _process(delta: float) -> void:
 				## @brief if object is dropped in an invalid position then return back to original position
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 			being_dragged = false
-
 	
 func _on_area_2d_area_entered(body: Node2D) -> void:
 	if body.is_in_group("coffeeMachine") && being_dragged:
