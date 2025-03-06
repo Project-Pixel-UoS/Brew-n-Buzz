@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://tx12kibrxlhe"]
 
 [ext_resource type="Script" path="res://scripts/Machines/grinder.gd" id="1_gqequ"]
-[ext_resource type="Texture2D" uid="uid://dsfwxtbv87hwx" path="res://images/kitchen panel/machines/bnb_grinder_og.png" id="1_jvxwd"]
+[ext_resource type="Texture2D" uid="uid://b4p8ru3ydccxb" path="res://images/kitchen panel/machines/grinder sprites/bnb_grinder_0.png" id="2_w53ot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nf8t"]
-size = Vector2(222, 235)
+size = Vector2(149, 159)
 
 [node name="Grinder" type="Node2D" groups=["grinder"]]
 script = ExtResource("1_gqequ")
@@ -12,10 +12,10 @@ script = ExtResource("1_gqequ")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(5, 5)
-texture = ExtResource("1_jvxwd")
+texture = ExtResource("2_w53ot")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["grinder"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-21, -155.5)
+position = Vector2(-8, -101)
 shape = SubResource("RectangleShape2D_0nf8t")
