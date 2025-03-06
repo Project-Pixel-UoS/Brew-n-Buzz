@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6p8tde7gf4ur"]
+[gd_scene load_steps=6 format=3 uid="uid://c6p8tde7gf4ur"]
 
 [ext_resource type="Script" path="res://scripts/Machines/coffee_machine.gd" id="1_ugxt8"]
 [ext_resource type="Texture2D" uid="uid://c8065j16mhydi" path="res://images/kitchen panel/machines/bnb_coffee_machine_main.png" id="2_nqjqm"]
@@ -8,6 +8,9 @@ size = Vector2(13.9655, 6.20689)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfbmk"]
 size = Vector2(97, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i071q"]
+size = Vector2(119, 85)
 
 [node name="CoffeeMachine" type="Node2D" groups=["coffeeMachine"]]
 script = ExtResource("1_ugxt8")
@@ -25,6 +28,10 @@ position = Vector2(2.99998, 35)
 scale = Vector2(5.8, 5.8)
 shape = SubResource("RectangleShape2D_74vpx")
 
-[node name="MugCollision" type="CollisionShape2D" parent="StaticBody2D" groups=["mug"]]
+[node name="MugCoffeeCollision" type="CollisionShape2D" parent="StaticBody2D" groups=["mug"]]
 position = Vector2(0, 156)
 shape = SubResource("RectangleShape2D_nfbmk")
+
+[node name="MugWaterCollision" type="CollisionShape2D" parent="StaticBody2D" groups=["mug"]]
+position = Vector2(212.5, 152.5)
+shape = SubResource("RectangleShape2D_i071q")

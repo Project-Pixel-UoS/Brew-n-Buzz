@@ -8,15 +8,22 @@ var mugObject
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	for child in get_parent().get_parent().get_children():
+		if child.name.begins_with("Mug"):
+			mugObject = child 
 	if has_group_handle and has_mug:
-		for child in get_parent().get_parent().get_children():
-			if child.name.begins_with("Mug"):
-				mugObject = child 
 		make_coffee()
 		has_group_handle = false 
 		has_mug = false
 
-
+func add_water():
+	#playAnimation
+	mugObject.get_node("Area2D/CollisionShape2D").set_deferred("disabled", true)  # Disable collision
+	
+	await get_tree().create_timer(3.0).timeout
+	mugObject.get_node("Area2D/CollisionShape2D").set_deferred("disabled", false)  # Disable collision
+	mugObject.add_ingredient("Water")
+	
 func is_group_handle_in_machine(truth_value):
 	has_group_handle = truth_value
 	for child in get_parent().get_children():
