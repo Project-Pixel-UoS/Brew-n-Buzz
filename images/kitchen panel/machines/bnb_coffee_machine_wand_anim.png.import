@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c58hyy4hw05we"
-path="res://.godot/imported/bnb_coffee_machine_wand.png-aade2b7dd9525bef17f2211b8c301c7b.ctex"
+uid="uid://bqsgu4ue3eaol"
+path="res://.godot/imported/bnb_coffee_machine_wand_anim.png-98744d48f1d1dbd3b15ae1967712b87c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/kitchen panel/machines/bnb_coffee_machine_wand.png"
-dest_files=["res://.godot/imported/bnb_coffee_machine_wand.png-aade2b7dd9525bef17f2211b8c301c7b.ctex"]
+source_file="res://images/kitchen panel/machines/bnb_coffee_machine_wand_anim.png"
+dest_files=["res://.godot/imported/bnb_coffee_machine_wand_anim.png-98744d48f1d1dbd3b15ae1967712b87c.ctex"]
 
 [params]
 

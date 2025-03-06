@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=50 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://cikh8xovd5wod" path="res://scenes/machine_scenes/milk_jug.tscn" id="16_fnp02"]
 [ext_resource type="Script" path="res://scripts/bin.gd" id="17_14wim"]
 [ext_resource type="PackedScene" uid="uid://ekoyd5v80o3n" path="res://scenes/machine_scenes/bin.tscn" id="17_47q0w"]
-[ext_resource type="Script" path="res://scripts/steam_wand.gd" id="17_x3tsx"]
 [ext_resource type="PackedScene" uid="uid://de18hqi3hvdur" path="res://scenes/machine_scenes/frother.tscn" id="18_f5kmt"]
 [ext_resource type="Texture2D" uid="uid://brj5wqqf37nt7" path="res://images/bnb_mugs_pile.png" id="20_ra8kd"]
 [ext_resource type="PackedScene" uid="uid://codola8g3qlei" path="res://scenes/ingredient_scenes/caramel.tscn" id="21_qs7as"]
@@ -296,14 +295,15 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_qqlp7")
 
 [node name="SteamWand" parent="Machines" instance=ExtResource("16_4e4bv")]
 position = Vector2(950, 391)
-script = ExtResource("17_x3tsx")
-
-[node name="Frother" parent="Machines" instance=ExtResource("18_f5kmt")]
-position = Vector2(1252, 652)
 
 [node name="MilkJug" parent="Machines" instance=ExtResource("16_fnp02")]
 z_index = -2
 position = Vector2(1291, 487)
+
+[node name="Frother" parent="Machines" instance=ExtResource("18_f5kmt")]
+z_index = -1
+texture_filter = 1
+position = Vector2(1280, 659)
 
 [node name="GroupHandle" parent="Machines" instance=ExtResource("23_61ggs")]
 z_index = 2

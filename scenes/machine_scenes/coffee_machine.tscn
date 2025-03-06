@@ -1,7 +1,47 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6p8tde7gf4ur"]
+[gd_scene load_steps=10 format=3 uid="uid://c6p8tde7gf4ur"]
 
 [ext_resource type="Script" path="res://scripts/Machines/coffee_machine.gd" id="1_ugxt8"]
-[ext_resource type="Texture2D" uid="uid://c8065j16mhydi" path="res://images/kitchen panel/machines/bnb_coffee_machine_main.png" id="2_nqjqm"]
+[ext_resource type="Texture2D" uid="uid://dnqbc6dy05bhb" path="res://images/kitchen panel/machines/bnb_coffee_machine_water.png" id="2_a3w5r"]
+
+[sub_resource type="Animation" id="Animation_mnd28"]
+resource_name = "water"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667, 0.733333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_a4m57"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
+[sub_resource type="Animation" id="Animation_jyrjr"]
+resource_name = "coffee"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p2b12"]
+_data = {
+"RESET": SubResource("Animation_a4m57"),
+"coffee": SubResource("Animation_jyrjr"),
+"water": SubResource("Animation_mnd28")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74vpx"]
 size = Vector2(13.9655, 6.20689)
@@ -19,7 +59,17 @@ script = ExtResource("1_ugxt8")
 texture_filter = 1
 position = Vector2(186, 116)
 scale = Vector2(5, 5)
-texture = ExtResource("2_nqjqm")
+texture = ExtResource("2_a3w5r")
+hframes = 4
+vframes = 3
+frame = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_p2b12")
+}
+speed_scale = 0.25
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

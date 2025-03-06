@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 					body_ref.get_parent().add_ingredient("Frothed Milk")
 				elif body_ref.get_parent().name == "Frother":
 					print("Dropping into object at position: ", body_ref.global_position)
-					tween.tween_property(self, "global_position", Vector2(1285,730), 0.2).set_ease(Tween.EASE_OUT)
+					tween.tween_property(self, "global_position",body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 					body_ref.get_parent().froth_milk()
 					frothed_milk = true
 				elif !steamed_milk:

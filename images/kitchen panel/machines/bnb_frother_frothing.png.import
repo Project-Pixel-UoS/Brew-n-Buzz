@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dym7ooc683l0w"
-path="res://.godot/imported/bnb_frother_wand.png-59adbf4ca50a293e1c500907886fdd7b.ctex"
+uid="uid://cim42gcikc086"
+path="res://.godot/imported/bnb_frother_frothing.png-5ca32366d13759221e28c46ef96f9fa3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/kitchen panel/machines/bnb_frother_wand.png"
-dest_files=["res://.godot/imported/bnb_frother_wand.png-59adbf4ca50a293e1c500907886fdd7b.ctex"]
+source_file="res://images/kitchen panel/machines/bnb_frother_frothing.png"
+dest_files=["res://.godot/imported/bnb_frother_frothing.png-5ca32366d13759221e28c46ef96f9fa3.ctex"]
 
 [params]
 
