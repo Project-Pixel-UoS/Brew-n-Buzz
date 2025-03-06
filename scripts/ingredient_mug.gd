@@ -11,6 +11,12 @@ var offset: Vector2
 var initialPos: Vector2
 var being_dragged = false
 var valid_drops = ['ingredient','milkJug']
+var select_sound
+var deselect_sound
+
+func _ready() -> void:
+	select_sound = load('res://audio/sfx/pick_up_select.wav')
+	deselect_sound = load('res://audio/sfx/put_down_deselect.wav')
 
 func _process(delta: float) -> void:
 	for child in get_parent().get_children():
@@ -24,6 +30,8 @@ func _process(delta: float) -> void:
 			offset = get_global_mouse_position() - global_position
 			GameManager.is_dragging = true
 			being_dragged = true
+			AudioManager.set_stream(select_sound)
+			AudioManager.play()
 		if Input.is_action_pressed("click"):
 			## @brief when clicked on object make object pos same as cursor
 			global_position = get_global_mouse_position() - offset
@@ -31,6 +39,8 @@ func _process(delta: float) -> void:
 		elif Input.is_action_just_released("click"):
 			GameManager.is_dragging = false
 			var tween = get_tree().create_tween()
+			AudioManager.set_stream(deselect_sound)
+			AudioManager.play()
 			if is_inside_valid_drop and body_ref:
 				## @brief if object is dropped in box then move item to box
 				print("Dropping into mug at position: ", body_ref.global_position)

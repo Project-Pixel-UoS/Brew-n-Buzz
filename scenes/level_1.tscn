@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://clguhfei4o2fg"]
+[gd_scene load_steps=51 format=3 uid="uid://clguhfei4o2fg"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_sh0uv"]
 [ext_resource type="PackedScene" uid="uid://cor4f38g6u27x" path="res://scenes/pause_menu.tscn" id="4_cm10t"]
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
-[ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://images/bnb_clockbg.PNG" id="6_uiqnr"]
+[ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://images/kitchen panel/misc/bnb_clockbg.PNG" id="6_uiqnr"]
 [ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="7_6t2pv"]
 [ext_resource type="Script" path="res://scenes/settings_button.gd" id="7_7my2j"]
 [ext_resource type="Texture2D" uid="uid://cjjsydugbmk1b" path="res://images/kitchen panel/misc/bnb_barbg_side_update.PNG" id="10_qu227"]
@@ -21,7 +21,7 @@
 [ext_resource type="Script" path="res://scripts/bin.gd" id="17_14wim"]
 [ext_resource type="PackedScene" uid="uid://ekoyd5v80o3n" path="res://scenes/machine_scenes/bin.tscn" id="17_47q0w"]
 [ext_resource type="PackedScene" uid="uid://de18hqi3hvdur" path="res://scenes/machine_scenes/frother.tscn" id="18_f5kmt"]
-[ext_resource type="Texture2D" uid="uid://brj5wqqf37nt7" path="res://images/bnb_mugs_pile.png" id="20_ra8kd"]
+[ext_resource type="Texture2D" uid="uid://brj5wqqf37nt7" path="res://images/kitchen panel/misc/bnb_mugs_pile.png" id="20_ra8kd"]
 [ext_resource type="PackedScene" uid="uid://codola8g3qlei" path="res://scenes/ingredient_scenes/caramel.tscn" id="21_qs7as"]
 [ext_resource type="PackedScene" uid="uid://c22hnkdgad2kf" path="res://scenes/ingredient_scenes/fruit_tea.tscn" id="22_o036c"]
 [ext_resource type="PackedScene" uid="uid://boqghshkws7xv" path="res://scenes/ingredient_scenes/black_tea.tscn" id="22_ykq7m"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://c6p8tde7gf4ur" path="res://scenes/machine_scenes/coffee_machine.tscn" id="24_ykd68"]
 [ext_resource type="PackedScene" uid="uid://bpbkfwvjt5smt" path="res://scenes/ingredient_scenes/cinnamon_sticks.tscn" id="25_ihoko"]
 [ext_resource type="PackedScene" uid="uid://boegh6vo2j4ke" path="res://scenes/ingredient_scenes/seasonal.tscn" id="26_jhukx"]
+[ext_resource type="Texture2D" uid="uid://c45tgc28i320x" path="res://images/kitchen panel/misc/bnb_pullout_tab.PNG" id="26_ju7ky"]
 [ext_resource type="PackedScene" uid="uid://dms10yfki14n1" path="res://scenes/ingredient_scenes/liquor.tscn" id="27_ieyrb"]
 [ext_resource type="PackedScene" uid="uid://bdfqj4iadnovk" path="res://scenes/ingredient_scenes/whipped_cream.tscn" id="27_yany0"]
 [ext_resource type="PackedScene" uid="uid://btber43fpl6hi" path="res://scenes/ingredient_scenes/marshmallows.tscn" id="28_p15hi"]
@@ -320,21 +321,24 @@ script = ExtResource("17_14wim")
 
 [node name="Ingredients" type="Node" parent="."]
 
-[node name="DrawerButton" type="Button" parent="Ingredients"]
+[node name="DrawerButton" type="TextureButton" parent="Ingredients"]
 unique_name_in_owner = true
-offset_left = 1666.0
-offset_top = 381.0
-offset_right = 1724.18
-offset_bottom = 520.636
+texture_filter = 1
+offset_left = 1667.0
+offset_top = 380.0
+offset_right = 1725.18
+offset_bottom = 519.636
+texture_normal = ExtResource("26_ju7ky")
+stretch_mode = 0
 script = ExtResource("6_7ydoj")
 
 [node name="TeaDrawer" type="Panel" parent="Ingredients/DrawerButton"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 66.0
-offset_top = -19.093
-offset_right = 577.996
-offset_bottom = 155.452
+offset_left = 65.18
+offset_top = -17.0
+offset_right = 577.176
+offset_bottom = 157.545
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_gxl8e")
 
@@ -392,9 +396,6 @@ offset_bottom = 1078.6
 texture_normal = ExtResource("33_hjb6b")
 stretch_mode = 0
 script = ExtResource("34_n0bjo")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
 
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="open_settings"]
