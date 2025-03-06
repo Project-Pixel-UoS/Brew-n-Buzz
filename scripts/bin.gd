@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var audioStreamer = %AudioStreamPlayer2D
 @export var bin_sounds = []
 var path = "res://audio/sfx/bin sounds/"
 var dir_access = DirAccess.open(path)
@@ -17,6 +16,6 @@ func _ready() -> void:
 	
 func play_sound():
 	var number = rng.randi_range(0,bin_sounds.size()-1)
-	audioStreamer.set_stream(bin_sounds[number])
-	audioStreamer.play()
+	AudioManager.set_stream(bin_sounds[number])
+	AudioManager.play()
 	print("playing")
