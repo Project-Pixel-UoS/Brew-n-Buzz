@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmyvrm7e5y0w1"
-path="res://.godot/imported/bnb_mug_active_backnforth.png-c639671250a0e5b5408723cad382ed90.ctex"
+uid="uid://c74ea24pdwjpa"
+path="res://.godot/imported/bnb_americano.png-19316bb4f114c82cb04137557271e33f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/kitchen panel/machines/bnb_mug_active_backnforth.png"
-dest_files=["res://.godot/imported/bnb_mug_active_backnforth.png-c639671250a0e5b5408723cad382ed90.ctex"]
+source_file="res://images/kitchen panel/mug sprites/bnb_americano.png"
+dest_files=["res://.godot/imported/bnb_americano.png-19316bb4f114c82cb04137557271e33f.ctex"]
 
 [params]
 

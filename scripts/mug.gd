@@ -13,6 +13,8 @@ var last_frame_x = global_position.x
 var is_inside_bin = false
 var initial_mug_position = Vector2(1081,715)
 
+func stop_animation():
+	animationPlayer.set_process(false)
 func remove_numbers(input_string: String) -> String:
 	var result = ""
 	for char in input_string:

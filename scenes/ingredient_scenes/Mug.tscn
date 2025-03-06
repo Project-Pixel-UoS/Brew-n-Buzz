@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://do113ikliufn3"]
 
 [ext_resource type="Script" path="res://scripts/mug.gd" id="1_x2rlu"]
-[ext_resource type="Texture2D" uid="uid://cj3x3jd54me62" path="res://images/kitchen panel/machines/bnb_mug_active_backnforth (1).png" id="2_dkovv"]
+[ext_resource type="Texture2D" uid="uid://cj3x3jd54me62" path="res://images/kitchen panel/mug sprites/bnb_mug_active_backnforth (1).png" id="2_dkovv"]
 
 [sub_resource type="Animation" id="Animation_6rmyq"]
 tracks/0/type = "value"

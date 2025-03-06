@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pspr72aipalt"
-path="res://.godot/imported/bnb_mug_active (1).png-174024871abf39b4bc6c0dabbf804243.ctex"
+uid="uid://cj3x3jd54me62"
+path="res://.godot/imported/bnb_mug_active_backnforth (1).png-e55178f9cbb5cf93f90d971c1330a057.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/kitchen panel/machines/bnb_mug_active (1).png"
-dest_files=["res://.godot/imported/bnb_mug_active (1).png-174024871abf39b4bc6c0dabbf804243.ctex"]
+source_file="res://images/kitchen panel/mug sprites/bnb_mug_active_backnforth (1).png"
+dest_files=["res://.godot/imported/bnb_mug_active_backnforth (1).png-e55178f9cbb5cf93f90d971c1330a057.ctex"]
 
 [params]
 
