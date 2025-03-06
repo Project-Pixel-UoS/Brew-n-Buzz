@@ -33,9 +33,10 @@ func _process(delta: float) -> void:
 			
 			if is_inside_valid_drop and body_ref and has_ground_coffee:
 				## @brief if object is dropped in box then move item to box
-				print("Dropping into coffee machine at position: ", body_ref.global_position)
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				print("Dropping into coffee machine at position: ", Vector2(730,377))
+				tween.tween_property(self, "global_position", Vector2(730,377), 0.2).set_ease(Tween.EASE_OUT)
 				await tween.finished  # Wait until the animation finishes
+				grinder.remove_coffee()
 				coffeeMachine.is_group_handle_in_machine(true)
 
 			elif is_inside_bin and body_ref:
@@ -50,18 +51,18 @@ func _process(delta: float) -> void:
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 			being_dragged = false
 	
-func _on_area_2d_area_entered(body: Node2D) -> void:
-	if body.is_in_group("coffeeMachine") && being_dragged:
-		is_inside_valid_drop = true
-		body_ref = body  	
+func _on_body_2d_area_entered(body: Node2D) -> void:
+	for shape in body.get_children():
+		if shape.is_in_group("groupHandle") and being_dragged:
+			is_inside_valid_drop = true
+			body_ref = body  	
 
-	elif body.is_in_group('bin'):
+	if body.is_in_group('bin'):
 		is_inside_bin = true
 		body_ref = body
 		
-func _on_area_2d_area_exited(body: Node2D) -> void:
+func _on_body_2d_area_exited(body: Node2D) -> void:
 	is_inside_valid_drop = false
-
 
 func _on_area_2d_mouse_entered() -> void:
 	## @brief when mouse hovers over object it increase in size
@@ -80,7 +81,7 @@ func replenish_group_handle() -> void:
 	if scene_file_path != "":
 		var ingredient_scene = load(scene_file_path)  # Dynamically load the correct ingredient scene
 		var new_ingredient = ingredient_scene.instantiate()
-		new_ingredient.global_position = Vector2(1295,672)
+		new_ingredient.global_position = Vector2(1492,721)
 		get_parent().add_child(new_ingredient)
 		new_ingredient.name = "GroupHandle"
 		print(new_ingredient.get_path())

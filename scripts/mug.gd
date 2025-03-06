@@ -55,9 +55,12 @@ func _process(delta: float) -> void:
 			if is_inside_object and body_ref:
 				## @brief if object is dropped in box then move item to box
 				print("Dropping into object at position: ", body_ref.global_position)
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				
 				if body_ref.get_parent().name == "CoffeeMachine":
 					body_ref.get_parent().is_mug_in_machine(true)
+					tween.tween_property(self, "global_position", Vector2(756,482), 0.2).set_ease(Tween.EASE_OUT)
+				else:
+					tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				animationPlayer.play("idle")
 			elif is_inside_bin and body_ref:
 				print("Mug dropped into bin! Destroying...")
@@ -113,9 +116,10 @@ func _on_area_2d_mouse_exited() -> void:
 		scale = Vector2(1,1)
 		
 func _on_body_area_entered(body: Node2D) -> void:
-	if body.is_in_group("coffeeMachine"):
-		is_inside_object = true
-		body_ref = body  	
-		
+	for shape in body.get_children():
+		if shape.is_in_group("mug"):
+			is_inside_object = true
+			body_ref = body  
+
 func _on_body_area_exited(body: Node2D) -> void:
 	is_inside_object = false
