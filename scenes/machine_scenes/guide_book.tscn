@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://v1c4hq8je5g2"]
 
-[ext_resource type="Texture2D" uid="uid://cbuxcu7u4re48" path="res://images/kitchen panel/machines/bnb_book_transp.png" id="1_tragu"]
+[ext_resource type="Texture2D" uid="uid://cbuxcu7u4re48" path="res://images/kitchen panel/misc/bnb_book_transp.png" id="1_tragu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjc3b"]
 size = Vector2(93, 46)

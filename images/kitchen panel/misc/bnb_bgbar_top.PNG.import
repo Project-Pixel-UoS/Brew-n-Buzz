@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbuxcu7u4re48"
-path="res://.godot/imported/bnb_book_transp.png-0a044c63795f303f02297dcf68775e60.ctex"
+uid="uid://crlfoajba4cwi"
+path="res://.godot/imported/bnb_bgbar_top.PNG-50b8ddf38a5efdbbf607b1249026927d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/kitchen panel/machines/bnb_book_transp.png"
-dest_files=["res://.godot/imported/bnb_book_transp.png-0a044c63795f303f02297dcf68775e60.ctex"]
+source_file="res://images/kitchen panel/misc/bnb_bgbar_top.PNG"
+dest_files=["res://.godot/imported/bnb_bgbar_top.PNG-50b8ddf38a5efdbbf607b1249026927d.ctex"]
 
 [params]
 

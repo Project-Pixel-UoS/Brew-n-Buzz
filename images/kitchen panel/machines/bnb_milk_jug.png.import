@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blhi3gojmhxry"
-path="res://.godot/imported/bnb_mugs_og.png-a5b554ace16ccb0148afe99935f34072.ctex"
+uid="uid://cehcerwxdn810"
+path="res://.godot/imported/bnb_milk_jug.png-a8d0e3c8f963bfd0c1e09c81d067a0f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/kitchen panel/machines/bnb_mugs_og.png"
-dest_files=["res://.godot/imported/bnb_mugs_og.png-a5b554ace16ccb0148afe99935f34072.ctex"]
+source_file="res://images/kitchen panel/machines/bnb_milk_jug.png"
+dest_files=["res://.godot/imported/bnb_milk_jug.png-a8d0e3c8f963bfd0c1e09c81d067a0f1.ctex"]
 
 [params]
 

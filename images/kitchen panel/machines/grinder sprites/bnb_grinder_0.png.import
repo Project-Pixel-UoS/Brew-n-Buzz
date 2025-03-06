@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjjsydugbmk1b"
-path="res://.godot/imported/bnb_barbg_side_update.PNG-f3f2dd9fd4f01eaeb7e90636d8f4ce3a.ctex"
+uid="uid://b4p8ru3ydccxb"
+path="res://.godot/imported/bnb_grinder_0.png-c3c7003438ac46028d174a0f061d0a68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/kitchen panel/machines/bnb_barbg_side_update.PNG"
-dest_files=["res://.godot/imported/bnb_barbg_side_update.PNG-f3f2dd9fd4f01eaeb7e90636d8f4ce3a.ctex"]
+source_file="res://images/kitchen panel/machines/grinder sprites/bnb_grinder_0.png"
+dest_files=["res://.godot/imported/bnb_grinder_0.png-c3c7003438ac46028d174a0f061d0a68.ctex"]
 
 [params]
 

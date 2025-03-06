@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://do113ikliufn3"]
 
 [ext_resource type="Script" path="res://scripts/mug.gd" id="1_x2rlu"]
-[ext_resource type="Texture2D" uid="uid://bmyvrm7e5y0w1" path="res://images/kitchen panel/machines/bnb_mug_active_backnforth.png" id="2_dbb70"]
+[ext_resource type="Texture2D" uid="uid://cj3x3jd54me62" path="res://images/kitchen panel/machines/bnb_mug_active_backnforth (1).png" id="2_dkovv"]
 
 [sub_resource type="Animation" id="Animation_6rmyq"]
 tracks/0/type = "value"
@@ -71,7 +71,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhmh3"]
-size = Vector2(106, 99.5)
+size = Vector2(116, 121.75)
 
 [node name="Mug" type="Node2D" groups=["ingredient"]]
 position = Vector2(200, 20)
@@ -80,8 +80,8 @@ script = ExtResource("1_x2rlu")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(5.8, 5.8)
-texture = ExtResource("2_dbb70")
+scale = Vector2(5, 5)
+texture = ExtResource("2_dkovv")
 hframes = 4
 vframes = 2
 
@@ -96,7 +96,7 @@ speed_scale = 0.7
 script = ExtResource("1_x2rlu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -1)
+position = Vector2(5, -12.125)
 shape = SubResource("RectangleShape2D_hhmh3")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

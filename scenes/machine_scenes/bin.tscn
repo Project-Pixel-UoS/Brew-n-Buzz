@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ekoyd5v80o3n"]
 
-[ext_resource type="Texture2D" uid="uid://b6jqclp7r403u" path="res://images/kitchen panel/machines/bnb_bin_updated.PNG" id="1_ujgw8"]
+[ext_resource type="Texture2D" uid="uid://b6jqclp7r403u" path="res://images/kitchen panel/misc/bnb_bin_updated.PNG" id="1_ujgw8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajvbj"]
 size = Vector2(92, 44.75)

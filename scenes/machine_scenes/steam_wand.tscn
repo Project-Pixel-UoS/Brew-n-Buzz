@@ -1,22 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://xnigc2lo1y6n"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_3tjij"]
+[ext_resource type="Texture2D" uid="uid://c58hyy4hw05we" path="res://images/kitchen panel/machines/bnb_coffee_machine_wand.png" id="1_hsyo2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rergy"]
-size = Vector2(11.25, 41.75)
+size = Vector2(21.875, 21.4375)
 
 [node name="SteamWand" type="Node2D" groups=["steamWand"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.423529, 1, 1, 1)
 texture_filter = 1
-position = Vector2(-4, -0.999999)
-scale = Vector2(64, 56)
-texture = SubResource("CanvasTexture_3tjij")
+scale = Vector2(5, 5)
+texture = ExtResource("1_hsyo2")
 
 [node name="Area2D" type="Area2D" parent="." groups=["steamWand"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 68.5)
+position = Vector2(167, 86)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_rergy")
