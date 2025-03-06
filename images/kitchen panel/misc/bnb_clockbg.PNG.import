@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brj5wqqf37nt7"
-path="res://.godot/imported/bnb_mugs_pile.png-2cb2592a5666230fe3bb96d57d810d63.ctex"
+uid="uid://c2tdqnsn53tw8"
+path="res://.godot/imported/bnb_clockbg.PNG-7a2a845844bfad0ed10ae5e1443c95f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/bnb_mugs_pile.png"
-dest_files=["res://.godot/imported/bnb_mugs_pile.png-2cb2592a5666230fe3bb96d57d810d63.ctex"]
+source_file="res://images/kitchen panel/misc/bnb_clockbg.PNG"
+dest_files=["res://.godot/imported/bnb_clockbg.PNG-7a2a845844bfad0ed10ae5e1443c95f1.ctex"]
 
 [params]
 
