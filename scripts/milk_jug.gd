@@ -2,6 +2,7 @@ extends Node2D
 
 var has_milk = false
 var steamed_milk = false
+var frothed_milk = false
 var draggable = false
 var is_inside_object = false
 var is_inside_valid_drop = false
@@ -9,7 +10,7 @@ var body_ref
 var offset: Vector2
 var initialPos: Vector2
 var is_inside_bin = false
-var initial_milk_jug_position = Vector2(1152,500)
+var initial_milk_jug_position = Vector2(1291,487)
 var valid_drops = ['frother','steamWand','ingredient']
 var mugObject
 func _ready() -> void:
@@ -43,14 +44,18 @@ func _process(delta: float) -> void:
 					replenish_milk_jug()
 					print("Dropping steamed milk into mug")
 					body_ref.get_parent().add_ingredient("Steamed Milk")
-					#tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-				elif body_ref.get_parent().name.contains("Frother"):
-					body_ref.get_parent().froth_milk()
+				elif frothed_milk && body_ref.is_in_group("ingredient"):
 					queue_free()
 					replenish_milk_jug()
+					print("Dropping steamed milk into mug")
+					body_ref.get_parent().add_ingredient("Frothed Milk")
+				elif body_ref.get_parent().name == "Frother":
 					print("Dropping into object at position: ", body_ref.global_position)
-					tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+					tween.tween_property(self, "global_position", Vector2(1285,730), 0.2).set_ease(Tween.EASE_OUT)
+					body_ref.get_parent().froth_milk()
+					frothed_milk = true
 				elif !steamed_milk:
+					print("bam")
 					body_ref.get_parent().steam_milk(self)
 			elif is_inside_bin and body_ref:
 				print("Mug dropped into bin! Destroying...")
