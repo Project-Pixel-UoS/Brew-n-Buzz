@@ -38,10 +38,10 @@ func make_coffee():
 	print("making coffee")
 	groupHandleObject.get_node("Area2D/CollisionShape2D").set_deferred("disabled", true)  # Disable collision
 	mugObject.get_node("Area2D/CollisionShape2D").set_deferred("disabled", true)  # Disable collision
-	await get_tree().create_timer(3.0).timeout
-	groupHandleObject.get_node("Area2D/CollisionShape2D").set_deferred("disabled", false)  # Disable collision
-	mugObject.get_node("Area2D/CollisionShape2D").set_deferred("disabled", false)  # Disable collision
-	coffee_made = true
 	groupHandleObject.replenish_group_handle()
 	groupHandleObject.queue_free()
+	animationPlayer.play("coffee")
+	await get_tree().create_timer(3.0).timeout
+	mugObject.get_node("Area2D/CollisionShape2D").set_deferred("disabled", false)  # Disable collision
+	coffee_made = true
 	mugObject.add_ingredient("Coffee")

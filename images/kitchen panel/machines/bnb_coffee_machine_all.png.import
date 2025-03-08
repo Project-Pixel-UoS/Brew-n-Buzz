@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iib5qnqy0xpy"
-path="res://.godot/imported/bnb_grinder_1.png-848a47fec50892c7833b608960cbc0a6.ctex"
+uid="uid://cugn5sv1t5mop"
+path="res://.godot/imported/bnb_coffee_machine_all.png-8d02c423155c9f8c0e6dbdb8267395d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/kitchen panel/machines/grinder sprites/bnb_grinder_1.png"
-dest_files=["res://.godot/imported/bnb_grinder_1.png-848a47fec50892c7833b608960cbc0a6.ctex"]
+source_file="res://images/kitchen panel/machines/bnb_coffee_machine_all.png"
+dest_files=["res://.godot/imported/bnb_coffee_machine_all.png-8d02c423155c9f8c0e6dbdb8267395d5.ctex"]
 
 [params]
 

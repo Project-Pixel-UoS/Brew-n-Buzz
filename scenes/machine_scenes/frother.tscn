@@ -3,21 +3,6 @@
 [ext_resource type="Script" path="res://scripts/frother.gd" id="1_rxply"]
 [ext_resource type="Texture2D" uid="uid://cim42gcikc086" path="res://images/kitchen panel/machines/bnb_frother_frothing.png" id="2_s82dk"]
 
-[sub_resource type="Animation" id="Animation_dda8u"]
-resource_name = "frothing"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 0]
-}
-
 [sub_resource type="Animation" id="Animation_dutji"]
 length = 0.001
 tracks/0/type = "value"
@@ -31,6 +16,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dda8u"]
+resource_name = "frothing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_282vv"]
