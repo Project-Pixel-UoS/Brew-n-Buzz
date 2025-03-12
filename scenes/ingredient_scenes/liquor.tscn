@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://dms10yfki14n1"]
 
-[ext_resource type="Script" path="res://scripts/ingredient_mug.gd" id="1_nk2nw"]
+[ext_resource type="Script" path="res://scenes/ingredient_logic.gd" id="1_bp60j"]
 [ext_resource type="Texture2D" uid="uid://bv21buat5ru68" path="res://images/kitchen panel/ingredients/liquor.PNG" id="2_tkkdq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h15a0"]
 
 [node name="Liquor" type="Node2D"]
-script = ExtResource("1_nk2nw")
+script = ExtResource("1_bp60j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

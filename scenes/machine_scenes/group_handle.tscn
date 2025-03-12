@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cywru0xulouqc"]
 
 [ext_resource type="Script" path="res://scripts/Machines/group_handle.gd" id="1_3m80d"]
-[ext_resource type="Texture2D" uid="uid://csk0sks3rudxx" path="res://images/kitchen panel/machines/bnb_group_handle_unsized.png" id="1_dkhor"]
+[ext_resource type="Texture2D" uid="uid://bce8wdr8esqjy" path="res://images/kitchen panel/machines/bnb_group_handle.png" id="2_cwk3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fc41"]
 size = Vector2(110, 39)
@@ -11,15 +11,14 @@ script = ExtResource("1_3m80d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(5.8, 5.8)
-texture = ExtResource("1_dkhor")
+scale = Vector2(6.3, 6.3)
+texture = ExtResource("2_cwk3t")
 
 [node name="Area2D" type="Area2D" parent="." groups=["groupHandle"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_2fc41")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -1,5 +1,5 @@
 ## @brief Allows a button to be pressed that will extend/retract the tea drawer
-extends Button
+extends TextureButton
 
 @onready var pullOutButton = %DrawerButton
 var new_position = Vector2(1380,341)

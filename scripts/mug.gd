@@ -13,6 +13,8 @@ var last_frame_x = global_position.x
 var is_inside_bin = false
 var initial_mug_position = Vector2(1081,715)
 
+func stop_animation():
+	animationPlayer.set_process(false)
 func remove_numbers(input_string: String) -> String:
 	var result = ""
 	for char in input_string:
@@ -55,7 +57,16 @@ func _process(delta: float) -> void:
 			if is_inside_object and body_ref:
 				## @brief if object is dropped in box then move item to box
 				print("Dropping into object at position: ", body_ref.global_position)
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				
+				if body_ref.get_parent().name == "CoffeeMachine":
+					if has_child_with_name(body_ref, "MugWaterCollision") and self.position.x > 900:
+						tween.tween_property(self, "global_position", Vector2(974,482), 0.2).set_ease(Tween.EASE_OUT)
+						body_ref.get_parent().add_water()
+					else:
+						body_ref.get_parent().is_mug_in_machine(true)
+						tween.tween_property(self, "global_position", Vector2(756,482), 0.2).set_ease(Tween.EASE_OUT)
+				else:
+					tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				animationPlayer.play("idle")
 			elif is_inside_bin and body_ref:
 				print("Mug dropped into bin! Destroying...")
@@ -71,6 +82,12 @@ func _process(delta: float) -> void:
 				determine_animation(x_change)
 				animationPlayer.play("idle")
 		last_frame_x = initial_x
+		
+func has_child_with_name(parent: Node, child_name: String) -> bool:
+	for child in parent.get_children():
+		if child.name == child_name:
+			return true
+	return false
 
 func replenish_mug():
 	if scene_file_path != "":
@@ -109,3 +126,12 @@ func _on_area_2d_mouse_exited() -> void:
 	if not GameManager.is_dragging:
 		draggable = false
 		scale = Vector2(1,1)
+		
+func _on_body_area_entered(body: Node2D) -> void:
+	for shape in body.get_children():
+		if shape.is_in_group("mug"):
+			is_inside_object = true
+			body_ref = body  
+
+func _on_body_area_exited(body: Node2D) -> void:
+	is_inside_object = false

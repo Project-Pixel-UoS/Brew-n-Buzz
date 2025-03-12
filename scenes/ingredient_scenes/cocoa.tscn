@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://jyac1i82nd1l"]
 
-[ext_resource type="Script" path="res://scripts/ingredient_mug.gd" id="1_tw6pq"]
+[ext_resource type="Script" path="res://scenes/ingredient_logic.gd" id="1_ekdg0"]
 [ext_resource type="Texture2D" uid="uid://brgx44mv1up15" path="res://images/kitchen panel/ingredients/cocoabean.PNG" id="2_7asmk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jptm3"]
 
 [node name="Cocoa" type="Node2D"]
-script = ExtResource("1_tw6pq")
+script = ExtResource("1_ekdg0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
