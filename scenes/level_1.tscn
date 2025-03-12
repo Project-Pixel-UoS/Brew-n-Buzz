@@ -70,11 +70,11 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qqlp7"]
-texture = ExtResource("20_ra8kd")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxl8e"]
 texture = ExtResource("10_qu227")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qqlp7"]
+texture = ExtResource("20_ra8kd")
 
 [node name="Level1" type="Node2D"]
 
@@ -273,52 +273,6 @@ stretch_mode = 0
 flip_v = true
 script = ExtResource("11_oodk7")
 
-[node name="Mug" parent="." instance=ExtResource("32_kty7d")]
-unique_name_in_owner = true
-z_index = 1
-texture_filter = 1
-position = Vector2(1061, 742)
-
-[node name="Machines" type="Node" parent="."]
-
-[node name="Grinder" parent="Machines" instance=ExtResource("42_bos0h")]
-unique_name_in_owner = true
-position = Vector2(1541, 626)
-
-[node name="Prep" type="Panel" parent="Machines"]
-texture_filter = 1
-offset_left = 641.0
-offset_top = 631.0
-offset_right = 685.0
-offset_bottom = 660.0
-scale = Vector2(5.8, 5.8)
-theme_override_styles/panel = SubResource("StyleBoxTexture_qqlp7")
-
-[node name="SteamWand" parent="Machines" instance=ExtResource("16_4e4bv")]
-position = Vector2(950, 391)
-
-[node name="MilkJug" parent="Machines" instance=ExtResource("16_fnp02")]
-z_index = -2
-position = Vector2(1291, 487)
-
-[node name="Frother" parent="Machines" instance=ExtResource("18_f5kmt")]
-z_index = -1
-texture_filter = 1
-position = Vector2(1280, 659)
-
-[node name="GroupHandle" parent="Machines" instance=ExtResource("23_61ggs")]
-z_index = 2
-position = Vector2(1492, 721)
-
-[node name="CoffeeMachine" parent="Machines" instance=ExtResource("24_ykd68")]
-unique_name_in_owner = true
-z_index = -2
-position = Vector2(755, 324)
-
-[node name="Bin" parent="Machines" instance=ExtResource("17_47q0w")]
-position = Vector2(879, 987)
-script = ExtResource("17_14wim")
-
 [node name="Ingredients" type="Node" parent="."]
 
 [node name="DrawerButton" type="TextureButton" parent="Ingredients"]
@@ -343,6 +297,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_gxl8e")
 
 [node name="CamomilleTea" parent="Ingredients/DrawerButton/TeaDrawer" instance=ExtResource("31_ffwb3")]
+z_index = 2
 position = Vector2(93, 87)
 
 [node name="FruitTea" parent="Ingredients/DrawerButton/TeaDrawer" instance=ExtResource("22_o036c")]
@@ -355,6 +310,7 @@ position = Vector2(416, 87)
 position = Vector2(730, 94)
 
 [node name="Caramel" parent="Ingredients" instance=ExtResource("21_qs7as")]
+z_index = 4
 position = Vector2(887, 94)
 
 [node name="BlackTea" parent="Ingredients" instance=ExtResource("22_ykq7m")]
@@ -385,7 +341,55 @@ position = Vector2(1829, 616)
 position = Vector2(1829, 774)
 
 [node name="Coffee" parent="Ingredients" instance=ExtResource("38_6ol86")]
+z_index = 3
 position = Vector2(1825, 278)
+
+[node name="Mug" parent="." instance=ExtResource("32_kty7d")]
+unique_name_in_owner = true
+z_index = -4
+texture_filter = 1
+position = Vector2(1061, 742)
+
+[node name="Machines" type="Node" parent="."]
+
+[node name="Grinder" parent="Machines" instance=ExtResource("42_bos0h")]
+unique_name_in_owner = true
+z_index = -3
+position = Vector2(1541, 626)
+
+[node name="Prep" type="Panel" parent="Machines"]
+texture_filter = 1
+offset_left = 641.0
+offset_top = 631.0
+offset_right = 685.0
+offset_bottom = 660.0
+scale = Vector2(5.8, 5.8)
+theme_override_styles/panel = SubResource("StyleBoxTexture_qqlp7")
+
+[node name="SteamWand" parent="Machines" instance=ExtResource("16_4e4bv")]
+position = Vector2(950, 391)
+
+[node name="MilkJug" parent="Machines" instance=ExtResource("16_fnp02")]
+z_index = -2
+position = Vector2(1291, 487)
+
+[node name="Frother" parent="Machines" instance=ExtResource("18_f5kmt")]
+z_index = -1
+texture_filter = 1
+position = Vector2(1280, 659)
+
+[node name="GroupHandle" parent="Machines" instance=ExtResource("23_61ggs")]
+z_index = 2
+position = Vector2(1492, 721)
+
+[node name="CoffeeMachine" parent="Machines" instance=ExtResource("24_ykd68")]
+unique_name_in_owner = true
+z_index = -6
+position = Vector2(755, 324)
+
+[node name="Bin" parent="Machines" instance=ExtResource("17_47q0w")]
+position = Vector2(879, 987)
+script = ExtResource("17_14wim")
 
 [node name="GuideBookButton" type="TextureButton" parent="."]
 texture_filter = 1

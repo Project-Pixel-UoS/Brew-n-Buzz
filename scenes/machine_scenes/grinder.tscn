@@ -104,7 +104,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nf8t"]
-size = Vector2(149, 159)
+size = Vector2(153.5, 367.5)
 
 [node name="Grinder" type="Node2D" groups=["grinder"]]
 script = ExtResource("1_gqequ")
@@ -124,8 +124,8 @@ libraries = {
 }
 speed_scale = 0.75
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["grinder"]]
+[node name="Area2D" type="Area2D" parent="." groups=["grinder"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-8, -101)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5.75, 3.25)
 shape = SubResource("RectangleShape2D_0nf8t")

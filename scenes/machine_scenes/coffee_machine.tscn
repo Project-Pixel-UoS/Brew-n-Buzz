@@ -59,10 +59,10 @@ _data = {
 size = Vector2(13.9655, 6.20689)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfbmk"]
-size = Vector2(97, 78)
+size = Vector2(105.5, 107)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i071q"]
-size = Vector2(119, 85)
+size = Vector2(135, 177)
 
 [node name="CoffeeMachine" type="Node2D" groups=["coffeeMachine"]]
 script = ExtResource("1_ugxt8")
@@ -83,17 +83,17 @@ libraries = {
 }
 speed_scale = 0.25
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="GroupHandleCollision" type="CollisionShape2D" parent="StaticBody2D" groups=["groupHandle"]]
+[node name="GroupHandleCollision" type="CollisionShape2D" parent="Area2D" groups=["groupHandle"]]
 position = Vector2(2.99998, 35)
 scale = Vector2(5.8, 5.8)
 shape = SubResource("RectangleShape2D_74vpx")
 
-[node name="MugCoffeeCollision" type="CollisionShape2D" parent="StaticBody2D" groups=["mug"]]
-position = Vector2(0, 156)
+[node name="MugCoffeeCollision" type="CollisionShape2D" parent="Area2D" groups=["mug"]]
+position = Vector2(4.25, 141.5)
 shape = SubResource("RectangleShape2D_nfbmk")
 
-[node name="MugWaterCollision" type="CollisionShape2D" parent="StaticBody2D" groups=["mug"]]
-position = Vector2(212.5, 152.5)
+[node name="MugWaterCollision" type="CollisionShape2D" parent="Area2D" groups=["mug"]]
+position = Vector2(220.5, 152.5)
 shape = SubResource("RectangleShape2D_i071q")

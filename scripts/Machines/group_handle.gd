@@ -8,82 +8,72 @@ var offset: Vector2
 var initialPos: Vector2
 var being_dragged = false
 var has_ground_coffee = false
+var respawnPos
 @onready var grinder = get_node_or_null("../Grinder")
 @onready var coffeeMachine = get_node_or_null("../CoffeeMachine")
 
+func _ready() -> void:
+	initialPos = global_position
+	respawnPos = global_position
+	Input.set_use_accumulated_input(false)
+	
 func _process(delta: float) -> void:
 	has_ground_coffee = grinder.is_coffee_grinded()
-	if draggable:
-		if Input.is_action_just_pressed("click"):
-			## @brief maintain position of where mouse clicked on object through using an offset
-			## @brief if i hold object from bottom left it will maintain that
-			initialPos = global_position
-			offset = get_global_mouse_position() - global_position
-			GameManager.is_dragging = true
-			being_dragged = true
-		if Input.is_action_pressed("click"):
-			## @brief when clicked on object make object pos same as cursor
-			global_position = get_global_mouse_position() - offset
-			being_dragged = true
-		elif Input.is_action_just_released("click"):
-			GameManager.is_dragging = false
-			var tween = get_tree().create_tween()
-			print(is_inside_valid_drop)
-			print(has_ground_coffee)
-			
-			if is_inside_valid_drop and body_ref and has_ground_coffee:
-				## @brief if object is dropped in box then move item to box
-				print("Dropping into coffee machine at position: ", Vector2(730,377))
-				tween.tween_property(self, "global_position", Vector2(730,377), 0.2).set_ease(Tween.EASE_OUT)
-				await tween.finished  # Wait until the animation finishes
-				grinder.remove_coffee()
-				coffeeMachine.is_group_handle_in_machine(true)
 
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	var tween = get_tree().create_tween()
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			offset = global_position - event.position
+			GameManager.is_dragging = true
+			scale = Vector2(1.05,1.05)  
+			being_dragged = true
+		elif not event.pressed: 
+			being_dragged = false
+			GameManager.is_dragging = false
+			scale = Vector2(1,1)
+			if is_inside_valid_drop and body_ref and has_ground_coffee:
+				print('in')
+				if body_ref.get_parent().name == "CoffeeMachine":
+					tween.tween_property(self, "global_position", Vector2(730,377), 0.2).set_ease(Tween.EASE_OUT)
+					await tween.finished  # Wait until the animation finishes
+					grinder.remove_coffee()
+					coffeeMachine.is_group_handle_in_machine(true)
 			elif is_inside_bin and body_ref:
-				print("Group Handle dropped into bin! Destroying...")
+				print("hi2")
 				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				await tween.finished
 				queue_free()  
 				replenish_group_handle()
-				# Remove the ingredient from the scene
 			else:
-				print("invalid drop")
-				## @brief if object is dropped in an invalid position then return back to original position
+				print("hi3")
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
-			being_dragged = false
-	
-func _on_body_2d_area_entered(body: Node2D) -> void:
-	for shape in body.get_children():
-		if shape.is_in_group("groupHandle") and being_dragged:
-			is_inside_valid_drop = true
-			body_ref = body  	
+								
+	elif event is InputEventScreenDrag and being_dragged:
+		global_position = event.position - offset	
+		
 
-	if body.is_in_group('bin'):
+func _on_area_2d_area_entered(body: Node2D) -> void:
+	if check_valid_drop(body) && being_dragged:
+		is_inside_valid_drop = true
+		body_ref = body  
+	elif body.is_in_group('bin'):
 		is_inside_bin = true
 		body_ref = body
 		
-func _on_body_2d_area_exited(body: Node2D) -> void:
+func check_valid_drop(body: Node2D) -> bool:
+	for shape in body.get_children():
+		if shape.is_in_group("groupHandle"):
+			return true
+	return false		
+	
+func _on_area_2d_area_exited(body: Node2D) -> void:
 	is_inside_valid_drop = false
-
-func _on_area_2d_mouse_entered() -> void:
-	## @brief when mouse hovers over object it increase in size
-	if not GameManager.is_dragging:
-		draggable = true
-		scale = Vector2(1.05,1.05)
-
-func _on_area_2d_mouse_exited() -> void:
-	## @brief when mouse hovers off object it goes back to original size
-	if not GameManager.is_dragging:
-		draggable = false
-		scale = Vector2(1,1)
-		
+	is_inside_bin = false
+	
 func replenish_group_handle() -> void:
-	print(scene_file_path)
-	if scene_file_path != "":
-		var ingredient_scene = load(scene_file_path)  # Dynamically load the correct ingredient scene
-		var new_ingredient = ingredient_scene.instantiate()
-		new_ingredient.global_position = Vector2(1492,721)
-		get_parent().add_child(new_ingredient)
-		new_ingredient.name = "GroupHandle"
-		print(new_ingredient.get_path())
-	else:
-		print("Error: scene_file_path is empty, cannot replenish ingredient")
+	var handle_scene = load(scene_file_path)  # Dynamically load the correct ingredient scene
+	var new_handle= handle_scene.instantiate()
+	new_handle.global_position = respawnPos
+	get_parent().add_child(new_handle)
+	new_handle.name = "GroupHandle"
