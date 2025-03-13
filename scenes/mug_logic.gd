@@ -56,66 +56,6 @@ func determine_animation(x_change) -> void:
 
 func set_draggable(value):
 	draggable = value	
-func _input(event):
-	var tween = get_tree().create_tween()
-	var node1 = get_node_at_touch_position(event.position)
-	if node1 != null and node1.get_parent().name == name and draggable:
-		if event is InputEventScreenTouch:
-			if event.pressed:
-				offset = global_position - event.position
-				GameManager.is_dragging = true
-				scale = Vector2(1.05,1.05)  
-				being_dragged = true
-				determine_animation(x_change)
-			elif not event.pressed: 
-				being_dragged = false
-				GameManager.is_dragging = false
-				scale = Vector2(1,1)
-				if is_inside_valid_drop and body_ref:
-					print('in')
-					if body_ref.get_parent().name == "CoffeeMachine":
-						if has_child_with_name(body_ref, "MugWaterCollision") and self.position.x > 900:
-							tween.tween_property(self, "global_position", Vector2(974,482), 0.2).set_ease(Tween.EASE_OUT)
-							body_ref.get_parent().add_water()
-							is_inside_valid_drop = false
-							initialPos = global_position
-						else:
-							body_ref.get_parent().is_mug_in_machine(true)
-							tween.tween_property(self, "global_position", Vector2(756,482), 0.2).set_ease(Tween.EASE_OUT)
-					else:
-						tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-					animationPlayer.play("idle")
-					initialPos = body_ref.global_position
-				elif is_inside_bin and body_ref:
-					print("hi2")
-					tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-					await tween.finished
-					queue_free()  
-					replenish_mug()
-				else:
-					print("hi3")
-					tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
-					determine_animation(x_change)
-					animationPlayer.play("idle")
-								
-		elif event is InputEventScreenDrag and being_dragged:
-			global_position = event.position - offset	
-			determine_animation(x_change)
-		
-
-func get_node_at_touch_position(position: Vector2) -> Node:
-	var query = PhysicsPointQueryParameters2D.new()
-	query.position = position
-	query.collide_with_areas = true
-	query.collide_with_bodies = true
-	
-	var space_state = get_world_2d().direct_space_state
-	
-	var result = space_state.intersect_point(query)
-	
-	if result.size() > 0:
-		return result[0]["collider"]
-	return null
 			
 func has_child_with_name(parent: Node, child_name: String) -> bool:
 	for child in parent.get_children():
@@ -150,3 +90,48 @@ func _on_area_2d_area_exited(body: Node2D) -> void:
 	is_inside_valid_drop = false
 	is_inside_bin = false
 		
+
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	var tween = get_tree().create_tween()
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			offset = global_position - event.position
+			GameManager.is_dragging = true
+			scale = Vector2(1.05,1.05)  
+			being_dragged = true
+			determine_animation(x_change)
+		elif not event.pressed: 
+			being_dragged = false
+			GameManager.is_dragging = false
+			scale = Vector2(1,1)
+			if is_inside_valid_drop and body_ref:
+				print('in')
+				if body_ref.get_parent().name == "CoffeeMachine":
+					if has_child_with_name(body_ref, "MugWaterCollision") and self.position.x > 900:
+						tween.tween_property(self, "global_position", Vector2(974,482), 0.2).set_ease(Tween.EASE_OUT)
+						body_ref.get_parent().add_water()
+						is_inside_valid_drop = false
+						initialPos = global_position
+					else:
+						body_ref.get_parent().is_mug_in_machine(true)
+						tween.tween_property(self, "global_position", Vector2(756,482), 0.2).set_ease(Tween.EASE_OUT)
+				else:
+					tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				animationPlayer.play("idle")
+				initialPos = body_ref.global_position
+			elif is_inside_bin and body_ref:
+				print("hi2")
+				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				await tween.finished
+				queue_free()  
+				replenish_mug()
+			else:
+				print("hi3")
+				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+				determine_animation(x_change)
+				animationPlayer.play("idle")
+							
+	elif event is InputEventScreenDrag and being_dragged:
+		global_position = event.position - offset	
+		determine_animation(x_change)

@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://scenes/ingredient_logic.gd" id="1_svr6p"]
 [ext_resource type="Texture2D" uid="uid://0m7hc17rio08" path="res://images/kitchen panel/ingredients/marshmallows.PNG" id="2_a4wc0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rt1su"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjmu7"]
+size = Vector2(33.5, 34.5)
 
 [node name="Marshmallows" type="Node2D"]
 script = ExtResource("1_svr6p")
@@ -17,9 +18,8 @@ texture = ExtResource("2_a4wc0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(4, 4)
-shape = SubResource("RectangleShape2D_rt1su")
+shape = SubResource("RectangleShape2D_pjmu7")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
