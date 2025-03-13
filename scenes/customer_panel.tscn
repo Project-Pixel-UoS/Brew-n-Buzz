@@ -1,154 +1,80 @@
-[gd_scene load_steps=8 format=3 uid="uid://u38bjr6bo3jn"]
+[gd_scene load_steps=11 format=3 uid="uid://dxtsd31kpgpvb"]
 
-[ext_resource type="Theme" uid="uid://c1xx0ai0x7qku" path="res://assets/themes/title_theme.tres" id="1_ehbd8"]
 [ext_resource type="PackedScene" uid="uid://dbplx5axo07pj" path="res://prototype/doll.tscn" id="2_aajm0"]
-[ext_resource type="Resource" uid="uid://byfovq6w6kbyh" path="res://resources/basic_customer.tres" id="3_4kdmd"]
+[ext_resource type="Script" path="res://resources/Customer.gd" id="2_bu6fg"]
+[ext_resource type="Texture2D" uid="uid://f46riariqn3d" path="res://images/customer panel/Counter (positioned for 100x180).png" id="3_hf0r0"]
+[ext_resource type="Texture2D" uid="uid://dgjhj680dtatb" path="res://images/customer panel/Shelf (positioned for 100x180).png" id="4_pfvda"]
+[ext_resource type="Texture2D" uid="uid://bpwjb63grcivj" path="res://images/customer panel/Leaves  (positioned for 100x180).png" id="5_0ijvf"]
+[ext_resource type="Texture2D" uid="uid://68ohys6rwqnn" path="res://images/customer panel/Till (positioned for 100x180).png" id="6_rjibo"]
+[ext_resource type="Texture2D" uid="uid://d3xbyqbaelprj" path="res://images/customer panel/Bell (isolated).png" id="7_m51nf"]
+[ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="8_r2lhv"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_44g8s"]
-size = Vector2(1, 320)
+[sub_resource type="Resource" id="Resource_eds7h"]
+script = ExtResource("2_bu6fg")
+patience = 0.0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jqvw7"]
-size = Vector2(300, 150)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fqnyi"]
+size = Vector2(50, 30)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_afs2u"]
-size = Vector2(80, 100)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c12m0"]
-size = Vector2(200, 180)
-
-[node name="CustomerPanel" type="Control"]
+[node name="CustomerPanel2" type="Control"]
 clip_contents = true
-custom_minimum_size = Vector2(600, 1080)
+custom_minimum_size = Vector2(100, 180)
 layout_mode = 3
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 600.0
-offset_bottom = 360.0
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
-
-[node name="CafeBG" type="TextureRect" parent="."]
-self_modulate = Color(1, 1, 1, 0.243137)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1820.0
+offset_bottom = -900.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_44g8s")
-
-[node name="Label" type="Label" parent="CafeBG"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -141.0
-offset_top = -49.5
-offset_right = 141.0
-offset_bottom = 49.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_ehbd8")
-text = "Cafe Background"
-horizontal_alignment = 1
-autowrap_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Doll" parent="." instance=ExtResource("2_aajm0")]
-position = Vector2(286.07, 455.283)
-scale = Vector2(0.3, 0.3)
-character = ExtResource("3_4kdmd")
+position = Vector2(35, 97)
+scale = Vector2(0.05, 0.05)
+character = SubResource("Resource_eds7h")
+
+[node name="BackgroundElements" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="Counter" type="Sprite2D" parent="BackgroundElements"]
+texture = ExtResource("3_hf0r0")
+centered = false
+
+[node name="Shelf" type="Sprite2D" parent="BackgroundElements"]
+texture = ExtResource("4_pfvda")
+centered = false
+
+[node name="Leaves" type="Sprite2D" parent="BackgroundElements"]
+texture = ExtResource("5_0ijvf")
+centered = false
+
+[node name="Till" type="Sprite2D" parent="BackgroundElements"]
+texture = ExtResource("6_rjibo")
+centered = false
+
+[node name="Bell" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(11.5, 150)
+texture = ExtResource("7_m51nf")
 
 [node name="SpeechBox" type="Sprite2D" parent="."]
-position = Vector2(280.351, 130.155)
-texture = SubResource("PlaceholderTexture2D_jqvw7")
+position = Vector2(74, 44)
+texture = SubResource("PlaceholderTexture2D_fqnyi")
 
 [node name="Label" type="Label" parent="SpeechBox"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -75.0
-offset_right = -150.0
-offset_bottom = -75.0
+offset_left = -25.0
+offset_top = -15.0
+offset_right = -25.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(150, 75)
-theme = ExtResource("1_ehbd8")
-theme_override_font_sizes/font_size = 48
-text = "Speech Box"
-horizontal_alignment = 1
-
-[node name="Counter" type="TextureRect" parent="."]
-self_modulate = Color(0.184314, 1, 1, 0.286275)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -181.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = SubResource("PlaceholderTexture2D_44g8s")
-
-[node name="Label" type="Label" parent="Counter"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -141.0
-offset_top = -49.5
-offset_right = 141.0
-offset_bottom = 49.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_ehbd8")
-text = "Counter"
-
-[node name="Bell" type="Sprite2D" parent="."]
-position = Vector2(91.9742, 772.552)
-scale = Vector2(1.159, 1)
-texture = SubResource("PlaceholderTexture2D_afs2u")
-
-[node name="Label" type="Label" parent="Bell"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -43.9366
-offset_top = -82.8608
-offset_right = 221.063
-offset_bottom = -16.8608
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(150, 75)
-theme = ExtResource("1_ehbd8")
-theme_override_font_sizes/font_size = 48
-text = "Bell
-"
-vertical_alignment = 1
-
-[node name="CashRegister" type="Sprite2D" parent="."]
-position = Vector2(456.55, 767.01)
-scale = Vector2(1.159, 1)
-texture = SubResource("PlaceholderTexture2D_c12m0")
-
-[node name="Label" type="Label" parent="CashRegister"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -85.5649
-offset_top = -85.567
-offset_right = 179.435
-offset_bottom = -19.567
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(150, 75)
-theme = ExtResource("1_ehbd8")
-theme_override_font_sizes/font_size = 48
-text = "register"
-vertical_alignment = 1
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("8_r2lhv")
+theme_override_font_sizes/font_size = 8
+text = "TEXT"
+uppercase = true
