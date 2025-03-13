@@ -10,12 +10,12 @@
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
 [ext_resource type="PackedScene" uid="uid://dxtsd31kpgpvb" path="res://scenes/customer_panel.tscn" id="6_qcswm"]
 [ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://images/kitchen panel/misc/bnb_clockbg.PNG" id="6_uiqnr"]
-[ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://images/kitchen panel/ingredients/milk.PNG" id="7_6t2pv"]
 [ext_resource type="Script" path="res://scenes/settings_button.gd" id="7_7my2j"]
 [ext_resource type="Texture2D" uid="uid://cjjsydugbmk1b" path="res://images/kitchen panel/misc/bnb_barbg_side_update.PNG" id="10_qu227"]
 [ext_resource type="Texture2D" uid="uid://crlfoajba4cwi" path="res://images/kitchen panel/misc/bnb_bgbar_top.PNG" id="11_eudfb"]
 [ext_resource type="PackedScene" uid="uid://cy2b17h1cvyh0" path="res://scenes/Counter.tscn" id="11_nyi6s"]
 [ext_resource type="Script" path="res://scenes/pause_button.gd" id="11_oodk7"]
+[ext_resource type="Texture2D" uid="uid://drhr6fyawp2hy" path="res://images/buttons/bnb_settings.PNG" id="12_yiwqt"]
 [ext_resource type="Texture2D" uid="uid://ctox1u5bql1w3" path="res://images/buttons/bnb_pause.PNG" id="14_nqeqg"]
 [ext_resource type="PackedScene" uid="uid://xnigc2lo1y6n" path="res://scenes/machine_scenes/steam_wand.tscn" id="16_4e4bv"]
 [ext_resource type="PackedScene" uid="uid://cikh8xovd5wod" path="res://scenes/machine_scenes/milk_jug.tscn" id="16_fnp02"]
@@ -258,7 +258,7 @@ offset_left = 1750.0
 offset_top = 902.545
 offset_right = 1889.64
 offset_bottom = 1042.18
-texture_normal = ExtResource("7_6t2pv")
+texture_normal = ExtResource("12_yiwqt")
 stretch_mode = 0
 flip_v = true
 script = ExtResource("7_7my2j")
