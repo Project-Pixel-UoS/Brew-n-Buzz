@@ -41,17 +41,17 @@ func _on_area_2d_area_entered(body: Node2D) -> void:
 		if check_valid_drop(body):
 			is_inside_valid_drop = true
 			body_ref = body  
-			print("we in")
 
 		elif body.is_in_group('bin'):
 			is_inside_bin = true
 			body_ref = body
 		
 func _on_area_2d_area_exited(body: Node2D) -> void:
-	if not being_dragged:
-		is_inside_valid_drop = false
-		is_inside_grinder = false
-		is_inside_bin = false
+	if body_ref:
+		if body.get_parent() == body_ref.get_parent():
+			is_inside_valid_drop = false
+			is_inside_grinder = false
+			is_inside_bin = false
 
 func replenish_ingredient(ingredient_name) -> void:
 	var ingredient_scene = load(scene_file_path) 
@@ -73,10 +73,10 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			GameManager.is_dragging = false
 			AudioManager.set_stream(deselect_sound)
 			AudioManager.play()
+
+			await get_tree().physics_frame
 			var tween = get_tree().create_tween()
-			print(is_inside_valid_drop)
-			print(body_ref)
-			if is_inside_valid_drop and body_ref and not being_dragged:
+			if is_inside_valid_drop and body_ref and not is_inside_bin:
 				if body_ref.get_parent().name == 'Grinder':
 					body_ref.get_parent().fill_grinder()
 				else:
@@ -93,9 +93,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				queue_free()  
 				replenish_ingredient(name)
 			else:
-				print("hi3")
-				
-				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "global_position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
+					
 								
 	elif event is InputEventScreenDrag and being_dragged:
 		global_position = event.position - offset

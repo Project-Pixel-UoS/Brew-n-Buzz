@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 	has_ground_coffee = grinder.is_coffee_grinded()
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	var tween = get_tree().create_tween()
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			offset = global_position - event.position
@@ -32,6 +31,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			being_dragged = false
 			GameManager.is_dragging = false
 			scale = Vector2(1,1)
+			await get_tree().physics_frame
+			var tween = get_tree().create_tween()
 			if is_inside_valid_drop and body_ref and has_ground_coffee:
 				print('in')
 				if body_ref.get_parent().name == "CoffeeMachine":
@@ -69,9 +70,11 @@ func check_valid_drop(body: Node2D) -> bool:
 	return false		
 	
 func _on_area_2d_area_exited(body: Node2D) -> void:
-	is_inside_valid_drop = false
-	is_inside_bin = false
-	
+	if body_ref:
+		if body.get_parent() == body_ref.get_parent():
+			is_inside_valid_drop = false
+			is_inside_bin = false
+			
 func replenish_group_handle() -> void:
 	var handle_scene = load(scene_file_path)
 	var new_handle= handle_scene.instantiate()

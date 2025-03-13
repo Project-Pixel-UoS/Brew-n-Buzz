@@ -79,21 +79,23 @@ func check_valid_drop(body: Node2D) -> bool:
 	return false
 	
 func _on_area_2d_area_entered(body: Node2D) -> void:
-	if check_valid_drop(body) && being_dragged:
-		is_inside_valid_drop = true
-		body_ref = body  
-	elif body.is_in_group('bin'):
-		is_inside_bin = true
-		body_ref = body
+	if being_dragged:
+		if check_valid_drop(body):
+			is_inside_valid_drop = true
+			body_ref = body  
+		elif body.is_in_group('bin'):
+			is_inside_bin = true
+			body_ref = body
 		
 func _on_area_2d_area_exited(body: Node2D) -> void:
-	is_inside_valid_drop = false
-	is_inside_bin = false
-		
+	if body_ref:
+		if body.get_parent() == body_ref.get_parent():
+			is_inside_valid_drop = false
+			is_inside_bin = false
+			
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	var tween = get_tree().create_tween()
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			offset = global_position - event.position
@@ -105,6 +107,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			being_dragged = false
 			GameManager.is_dragging = false
 			scale = Vector2(1,1)
+			await get_tree().physics_frame
+			var tween = get_tree().create_tween()
 			if is_inside_valid_drop and body_ref:
 				print('in')
 				if body_ref.get_parent().name == "CoffeeMachine":
