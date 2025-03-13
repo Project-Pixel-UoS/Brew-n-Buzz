@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://do5qquw381o6m"]
+[gd_scene load_steps=4 format=3 uid="uid://cy2b17h1cvyh0"]
 
-[ext_resource type="Texture2D" uid="uid://bv21buat5ru68" path="res://images/kitchen panel/ingredients/liquor.PNG" id="1_njdtj"]
+[ext_resource type="Texture2D" uid="uid://ylw2yqlbyg7e" path="res://images/customer panel/Coaster for drinks (isolated).png" id="2_a44yh"]
 [ext_resource type="Script" path="res://scenes/counter.gd" id="2_y17qr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yyklq"]
@@ -12,7 +12,7 @@ script = ExtResource("2_y17qr")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(5.8, 5.8)
-texture = ExtResource("1_njdtj")
+texture = ExtResource("2_a44yh")
 
 [node name="Area2D" type="Area2D" parent="." groups=["mug"]]
 
