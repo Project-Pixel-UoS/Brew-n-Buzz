@@ -1,0 +1,131 @@
+[gd_scene load_steps=11 format=3 uid="uid://tx12kibrxlhe"]
+
+[ext_resource type="Script" path="res://scripts/Machines/grinder.gd" id="1_gqequ"]
+[ext_resource type="Texture2D" uid="uid://cskle0kmincaa" path="res://images/kitchen panel/machines/bnb_grinder_all.png" id="2_d1nvq"]
+
+[sub_resource type="Animation" id="Animation_mcnr6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+
+[sub_resource type="Animation" id="Animation_s1gxu"]
+resource_name = "grinding1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [25, 24, 23, 22, 21, 20]
+}
+
+[sub_resource type="Animation" id="Animation_re6v8"]
+resource_name = "grinding2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [20, 19, 18, 17, 17, 16]
+}
+
+[sub_resource type="Animation" id="Animation_0ep6b"]
+resource_name = "grinding3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 14, 13, 12, 11, 10]
+}
+
+[sub_resource type="Animation" id="Animation_6y1qc"]
+resource_name = "grinding4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 9, 8, 7, 6, 5]
+}
+
+[sub_resource type="Animation" id="Animation_nsmk0"]
+resource_name = "grinding5"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_llec7"]
+_data = {
+"RESET": SubResource("Animation_mcnr6"),
+"grinding1": SubResource("Animation_s1gxu"),
+"grinding2": SubResource("Animation_re6v8"),
+"grinding3": SubResource("Animation_0ep6b"),
+"grinding4": SubResource("Animation_6y1qc"),
+"grinding5": SubResource("Animation_nsmk0")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nf8t"]
+size = Vector2(153.5, 367.5)
+
+[node name="Grinder" type="Node2D" groups=["grinder"]]
+script = ExtResource("1_gqequ")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("2_d1nvq")
+hframes = 9
+vframes = 3
+frame = 25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_llec7")
+}
+speed_scale = 0.75
+
+[node name="Area2D" type="Area2D" parent="." groups=["grinder"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5.75, 3.25)
+shape = SubResource("RectangleShape2D_0nf8t")

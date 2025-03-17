@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://cor4f38g6u27x"]
+
+[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_gkmwg"]
+[ext_resource type="Texture2D" uid="uid://0m7hc17rio08" path="res://images/kitchen panel/ingredients/marshmallows.PNG" id="2_ng8xj"]
+[ext_resource type="Texture2D" uid="uid://chhg3bdelfhie" path="res://images/kitchen panel/ingredients/honey.PNG" id="3_girbc"]
+[ext_resource type="Texture2D" uid="uid://cxdh5en4j141i" path="res://images/buttons/bnb_play.PNG" id="4_pnkfm"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ujdu7"]
+
+[node name="pause_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gkmwg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 135.0
+offset_right = 1680.0
+offset_bottom = 945.0
+texture = SubResource("CanvasTexture_ujdu7")
+
+[node name="PauseLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -68.5
+offset_right = 193.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0156863, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "PAUSED
+"
+
+[node name="ExitWithoutSavingButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 640.0
+offset_right = 822.0
+offset_bottom = 714.0
+texture_normal = ExtResource("2_ng8xj")
+stretch_mode = 0
+
+[node name="ExitWithSavingButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 636.0
+offset_right = 1267.0
+offset_bottom = 710.0
+texture_normal = ExtResource("3_girbc")
+stretch_mode = 0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1485.0
+offset_top = 764.0
+offset_right = 1623.64
+offset_bottom = 902.636
+texture_normal = ExtResource("4_pnkfm")
+stretch_mode = 0
+
+[connection signal="pressed" from="ExitWithoutSavingButton" to="." method="exit_without_saving_pressed"]
+[connection signal="pressed" from="ExitWithSavingButton" to="." method="exit_with_saving_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_back_button_pressed"]
