@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://d0tmn2yr7n018"]
+[gd_scene load_steps=56 format=3 uid="uid://d0tmn2yr7n018"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
@@ -45,6 +45,9 @@
 [ext_resource type="Script" path="res://scenes/guide_book_button.gd" id="34_n0bjo"]
 [ext_resource type="PackedScene" uid="uid://daoj33obkgehj" path="res://scenes/ingredient_scenes/coffee_bean.tscn" id="38_6ol86"]
 [ext_resource type="PackedScene" uid="uid://tx12kibrxlhe" path="res://scenes/machine_scenes/grinder.tscn" id="42_bos0h"]
+[ext_resource type="Texture2D" uid="uid://b2j4wjwo5o67o" path="res://images/kitchen panel/misc/bnb_kitchen_bg_base.png" id="45_edaoi"]
+[ext_resource type="PackedScene" uid="uid://g4b5i07s3qtn" path="res://mug_ring.tscn" id="46_asyge"]
+[ext_resource type="Texture2D" uid="uid://broplvxjdtq3i" path="res://images/kitchen panel/misc/bnb_kitchen_bg_spill.png" id="47_73nat"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8bbxd"]
 
@@ -77,11 +80,22 @@ texture = ExtResource("10_qu227")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qqlp7"]
 texture = ExtResource("20_ra8kd")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3h4qw"]
+texture = ExtResource("47_73nat")
+
 [node name="Level1" type="Node2D"]
 
 [node name="LevelManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_q7cu4")
+
+[node name="backGround" type="TextureRect" parent="."]
+z_index = -10
+offset_left = 640.0
+offset_top = 186.0
+offset_right = 1732.0
+offset_bottom = 865.0
+texture = ExtResource("45_edaoi")
 
 [node name="guidebook_layer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -231,7 +245,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -2.0
 offset_right = 3.0
-offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_qu227")
@@ -262,6 +275,16 @@ texture_normal = ExtResource("12_yiwqt")
 stretch_mode = 0
 flip_v = true
 script = ExtResource("7_7my2j")
+
+[node name="GuideBookButton" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 1132.0
+offset_top = 893.0
+offset_right = 1503.2
+offset_bottom = 1078.6
+texture_normal = ExtResource("33_hjb6b")
+stretch_mode = 0
+script = ExtResource("34_n0bjo")
 
 [node name="PauseButton" type="TextureButton" parent="."]
 texture_filter = 1
@@ -349,7 +372,7 @@ position = Vector2(1825, 278)
 unique_name_in_owner = true
 z_index = -4
 texture_filter = 1
-position = Vector2(1061, 742)
+position = Vector2(1064, 771)
 
 [node name="Machines" type="Node" parent="."]
 
@@ -360,10 +383,10 @@ position = Vector2(1541, 626)
 
 [node name="Prep" type="Panel" parent="Machines"]
 texture_filter = 1
-offset_left = 641.0
-offset_top = 631.0
-offset_right = 685.0
-offset_bottom = 660.0
+offset_left = 628.0
+offset_top = 681.0
+offset_right = 672.0
+offset_bottom = 710.0
 scale = Vector2(5.8, 5.8)
 theme_override_styles/panel = SubResource("StyleBoxTexture_qqlp7")
 
@@ -372,9 +395,9 @@ position = Vector2(950, 391)
 
 [node name="MilkJug" parent="Machines" instance=ExtResource("16_fnp02")]
 z_index = -2
-position = Vector2(1291, 487)
+position = Vector2(1340, 523)
 
-[node name="Frother" parent="Machines" instance=ExtResource("18_f5kmt")]
+[node name="Frother" parent="Machines" groups=["mug"] instance=ExtResource("18_f5kmt")]
 z_index = -1
 texture_filter = 1
 position = Vector2(1280, 659)
@@ -392,15 +415,18 @@ position = Vector2(755, 324)
 position = Vector2(879, 987)
 script = ExtResource("17_14wim")
 
-[node name="GuideBookButton" type="TextureButton" parent="."]
+[node name="MugRing" parent="Machines" instance=ExtResource("46_asyge")]
+z_index = -8
+position = Vector2(1063, 803)
+
+[node name="Spill" type="Panel" parent="Machines"]
 texture_filter = 1
-offset_left = 1132.0
-offset_top = 893.0
-offset_right = 1503.2
-offset_bottom = 1078.6
-texture_normal = ExtResource("33_hjb6b")
-stretch_mode = 0
-script = ExtResource("34_n0bjo")
+offset_left = 1100.0
+offset_top = 539.0
+offset_right = 1178.0
+offset_bottom = 601.0
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxTexture_3h4qw")
 
 [node name="CustomerPanel2" parent="." instance=ExtResource("6_qcswm")]
 z_index = -10
@@ -410,6 +436,6 @@ scale = Vector2(6, 6)
 
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="open_settings"]
+[connection signal="pressed" from="GuideBookButton" to="GuideBookButton" method="open_guideBook"]
 [connection signal="pressed" from="PauseButton" to="PauseButton" method="_on_pressed"]
 [connection signal="pressed" from="Ingredients/DrawerButton" to="Ingredients/DrawerButton" method="drawer_press"]
-[connection signal="pressed" from="GuideBookButton" to="GuideBookButton" method="open_guideBook"]

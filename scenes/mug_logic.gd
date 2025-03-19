@@ -93,8 +93,8 @@ func _on_area_2d_area_exited(body: Node2D) -> void:
 			is_inside_valid_drop = false
 			is_inside_bin = false
 			
-
-
+			
+			
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed:
@@ -120,6 +120,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					else:
 						body_ref.get_parent().is_mug_in_machine(true)
 						tween.tween_property(self, "global_position", Vector2(756,482), 0.2).set_ease(Tween.EASE_OUT)
+				elif body_ref.get_parent().name == "MugRing":
+					tween.tween_property(self, "global_position", Vector2(1064,771), 0.2).set_ease(Tween.EASE_OUT)
 				else:
 					tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				animationPlayer.play("idle")
