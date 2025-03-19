@@ -2,7 +2,7 @@ extends Node
 
 var max_amount = 5 
 var amount_in 
-var coffee_grinded = false
+var coffee_grinded = true #can be changed
 @onready var animationPlayer = %AnimationPlayer
 
 func _ready() -> void:

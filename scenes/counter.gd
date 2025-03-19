@@ -1,6 +1,6 @@
 extends Node2D
 var mugObject: Node2D
-@onready var levelManager: Node = %LevelManager
+@onready var levelManager: Node2D = %Level1
 var correct_recipe = ["Coffee"]
 var drink_name = "espresso"
 @onready var counter = %Counter

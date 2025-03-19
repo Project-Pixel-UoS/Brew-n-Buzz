@@ -145,6 +145,7 @@ theme_override_font_sizes/font_size = 35
 text = "Hot Water"
 
 [node name="TextureRect2" type="TextureRect" parent="Pages/Page1/Americano/Panel2"]
+layout_mode = 0
 offset_left = 66.0
 offset_top = 99.0
 offset_right = 138.0
@@ -153,6 +154,7 @@ texture = ExtResource("7_07k52")
 
 [node name="Espresso" type="Panel" parent="Pages/Page1"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 315.0
 offset_top = 578.0
 offset_right = 897.0
