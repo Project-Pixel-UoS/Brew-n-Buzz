@@ -63,12 +63,6 @@ func has_child_with_name(parent: Node, child_name: String) -> bool:
 			return true
 	return false
 
-func replenish_mug():
-	var mug_scene = load(scene_file_path) 
-	var new_mug = mug_scene.instantiate()
-	new_mug.global_position = respawnPos
-	get_parent().add_child(new_mug)
-	new_mug.name = "Mug"
 
 func check_valid_drop(body: Node2D) -> bool:
 	for shape in body.get_children():
@@ -131,7 +125,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				await tween.finished
 				queue_free()  
-				replenish_mug()
 			else:
 				print("hi3")
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
