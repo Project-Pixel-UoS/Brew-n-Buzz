@@ -77,6 +77,9 @@ func _on_area_2d_area_entered(body: Node2D) -> void:
 		if check_valid_drop(body):
 			is_inside_valid_drop = true
 			body_ref = body  
+		elif (body.get_parent()).name == 'Counter':
+			is_inside_valid_drop = true
+			body_ref = body
 		elif body.is_in_group('bin'):
 			is_inside_bin = true
 			body_ref = body
@@ -114,6 +117,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					else:
 						body_ref.get_parent().is_mug_in_machine(true)
 						tween.tween_property(self, "global_position", Vector2(756,482), 0.2).set_ease(Tween.EASE_OUT)
+				elif body_ref.get_parent().name == "Counter":
+					tween.tween_property(self, "global_position", Vector2(210,980), 0.2).set_ease(Tween.EASE_OUT)
 				elif body_ref.get_parent().name == "MugRing":
 					tween.tween_property(self, "global_position", Vector2(1064,771), 0.2).set_ease(Tween.EASE_OUT)
 				else:
