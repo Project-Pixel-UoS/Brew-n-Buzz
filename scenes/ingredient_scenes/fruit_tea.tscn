@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://scenes/ingredient_logic.gd" id="1_02g2y"]
 [ext_resource type="Texture2D" uid="uid://urbolafgxjia" path="res://images/kitchen panel/ingredients/fruittea.PNG" id="2_rserd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_847bf"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m3vk"]
+size = Vector2(33.5, 34.5)
 
 [node name="FruitTea" type="Node2D"]
 script = ExtResource("1_02g2y")
@@ -17,9 +18,8 @@ texture = ExtResource("2_rserd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(4, 4)
-shape = SubResource("RectangleShape2D_847bf")
+shape = SubResource("RectangleShape2D_0m3vk")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://g4b5i07s3qtn"]
+
+[ext_resource type="Texture2D" uid="uid://c8bkh2ey0h3fy" path="res://images/kitchen panel/misc/bnb_kitchen_bg_mug_ring.png" id="1_vpw51"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55osg"]
+size = Vector2(26.2069, 13.1034)
+
+[node name="MugRing" type="Node2D" groups=["mug"]]
+scale = Vector2(5.8, 5.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vpw51")
+
+[node name="Area2D" type="Area2D" parent="." groups=["mug"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["mug"]]
+position = Vector2(-5.96046e-08, -5.96046e-08)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_55osg")
