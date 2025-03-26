@@ -1,5 +1,6 @@
 extends Node
 
+@onready var levelManager: Node2D = get_tree().root.get_node("Level1")
 var total_money = 0
 
 ## @brief for when an object is in a 'dragging state'

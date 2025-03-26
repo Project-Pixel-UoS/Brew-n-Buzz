@@ -4,6 +4,7 @@ var correct_recipes = 0
 var incorrect_recipes = 0
 var inactive_objects = ["Ingredients/Seasonal", "Machines/Grinder", "Ingredients/Coffee", "Ingredients/Milk"]
 var shader
+var level_money = 0
 
 func _ready() -> void:
 	shader = preload("res://scenes/ingredient_scenes/greyscale.gdshader") 
@@ -12,7 +13,7 @@ func _ready() -> void:
 		
 func _process(delta: float) -> void:
 	if timer.out_of_time():
-		pass	
+		GameManager.update_level()
 
 func add_correct_recipe():
 	correct_recipes += 1
@@ -20,10 +21,12 @@ func add_correct_recipe():
 func add_incorrect_recipe():
 	incorrect_recipes += 1
 	
-func save_level():
-	GameManager.update_level()
-	pass
-
+func add_payment(payment):
+	level_money += payment
+	
+func get_level_money():
+	return level_money
+	
 func turn_inactive(object_name):
 	var obj = get_node_or_null(object_name)
 	turn_greyscale(obj)

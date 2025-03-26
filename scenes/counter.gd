@@ -1,7 +1,7 @@
 extends Node2D
 var mugObject: Node2D
-@onready var levelManager: Node2D = %Level1
-var correct_recipe = ["Coffee"]
+@onready var levelManager: Node2D = get_tree().root.get_node("Level1")
+var correct_recipe = []
 var drink_name = "espresso"
 @onready var counter = %Counter
 
@@ -16,6 +16,7 @@ func check_recipe():
 			mugObject = child
 	if mugObject.get_ingredients() == correct_recipe:
 		levelManager.add_correct_recipe()
+		levelManager.add_payment(2)
 		print("correct recipe")
 		mugObject.stop_animation()
 		mugObject.get_node('Sprite2D').hframes = 1
