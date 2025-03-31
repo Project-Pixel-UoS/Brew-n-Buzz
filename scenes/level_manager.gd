@@ -1,5 +1,6 @@
 extends Node
 @onready var timer: Timer = %Timer
+@onready var endOfLevel = %end_of_level_layer
 var correct_recipes = 0
 var incorrect_recipes = 0
 var inactive_objects = ["Ingredients/Seasonal", "Machines/Grinder", "Ingredients/Coffee", "Ingredients/Milk"]
@@ -7,12 +8,14 @@ var shader
 var level_money = 0
 
 func _ready() -> void:
+	endOfLevel.visible = false
 	shader = preload("res://scenes/ingredient_scenes/greyscale.gdshader") 
 	for object in inactive_objects:
 		turn_inactive(object)
 		
 func _process(delta: float) -> void:
 	if timer.out_of_time():
+		endOfLevel.visible = true
 		GameManager.update_level()
 
 func add_correct_recipe():

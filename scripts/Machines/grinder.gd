@@ -4,10 +4,14 @@ var max_amount = 5
 var amount_in 
 var coffee_grinded = true #can be changed
 @onready var animationPlayer = %AnimationPlayer
+@onready var groupHandle = %GroupHandle
+var time_waiting = 0
+var upgrades = GameManager.get_number_upgrades("Grinder")
+var starting_time = 3
 
 func _ready() -> void:
 	amount_in = 0
-
+	time_waiting = starting_time - (0.25*upgrades)
 func remove_coffee():
 	amount_in-= 1
 	animationPlayer.play_backwards('grinding' + str(amount_in + 1))
@@ -17,8 +21,12 @@ func _input_event(camera, event, position, normal, shape_idx):
 		get_tree().set_input_as_handled()
 
 func add_coffee():
-	amount_in += 1
+	groupHandle.set_dragged(false)
 	animationPlayer.play('grinding' + str(amount_in))
+	await get_tree().create_timer(time_waiting).timeout
+	groupHandle.set_dragged(true)
+	amount_in += 1
+	
 func fill_grinder() -> void:
 	print(amount_in)
 	#run animation here

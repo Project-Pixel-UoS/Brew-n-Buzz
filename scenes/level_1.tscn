@@ -1,11 +1,13 @@
-[gd_scene load_steps=55 format=3 uid="uid://d0tmn2yr7n018"]
+[gd_scene load_steps=57 format=3 uid="uid://c3tmg8jk8brjg"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="PackedScene" uid="uid://cf0ya1o4m6ooe" path="res://scenes/guidebook_menu.tscn" id="2_5lu8m"]
 [ext_resource type="Script" path="res://assets/main_menu/settings_menu_level.gd" id="2_lvwfi"]
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="2_q7cu4"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_sh0uv"]
+[ext_resource type="PackedScene" uid="uid://b8uqqq6nqcvt6" path="res://endOfLevelScreen.tscn" id="3_tsawe"]
 [ext_resource type="PackedScene" uid="uid://cor4f38g6u27x" path="res://scenes/pause_menu.tscn" id="4_cm10t"]
+[ext_resource type="Texture2D" uid="uid://cxdh5en4j141i" path="res://images/buttons/bnb_play.PNG" id="5_f6fyx"]
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
 [ext_resource type="PackedScene" uid="uid://dxtsd31kpgpvb" path="res://scenes/customer_panel.tscn" id="6_qcswm"]
 [ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://images/kitchen panel/misc/bnb_clockbg.PNG" id="6_uiqnr"]
@@ -45,8 +47,8 @@
 [ext_resource type="PackedScene" uid="uid://daoj33obkgehj" path="res://scenes/ingredient_scenes/coffee_bean.tscn" id="38_6ol86"]
 [ext_resource type="PackedScene" uid="uid://tx12kibrxlhe" path="res://scenes/machine_scenes/grinder.tscn" id="42_bos0h"]
 [ext_resource type="Texture2D" uid="uid://b2j4wjwo5o67o" path="res://images/kitchen panel/misc/bnb_kitchen_bg_base.png" id="45_edaoi"]
-[ext_resource type="PackedScene" path="res://mug_ring.tscn" id="46_asyge"]
-[ext_resource type="PackedScene" path="res://mug_area.tscn" id="46_mxk6h"]
+[ext_resource type="PackedScene" uid="uid://g4b5i07s3qtn" path="res://mug_ring.tscn" id="46_asyge"]
+[ext_resource type="PackedScene" uid="uid://c67pq8jw0ro0q" path="res://mug_area.tscn" id="46_mxk6h"]
 [ext_resource type="Texture2D" uid="uid://broplvxjdtq3i" path="res://images/kitchen panel/misc/bnb_kitchen_bg_spill.png" id="47_73nat"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8bbxd"]
@@ -90,6 +92,28 @@ offset_top = 186.0
 offset_right = 1732.0
 offset_bottom = 865.0
 texture = ExtResource("45_edaoi")
+
+[node name="end_of_level_layer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="end_of_level" parent="end_of_level_layer" instance=ExtResource("3_tsawe")]
+
+[node name="ExitLevelButton" type="TextureButton" parent="end_of_level_layer"]
+offset_left = 648.0
+offset_top = 745.0
+offset_right = 724.0
+offset_bottom = 826.0
+texture_normal = ExtResource("14_nqeqg")
+stretch_mode = 0
+
+[node name="NextLevelButton" type="TextureButton" parent="end_of_level_layer"]
+offset_left = 1233.0
+offset_top = 738.0
+offset_right = 1330.0
+offset_bottom = 826.0
+texture_normal = ExtResource("5_f6fyx")
+stretch_mode = 0
 
 [node name="guidebook_layer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -389,6 +413,7 @@ texture_filter = 1
 position = Vector2(1280, 659)
 
 [node name="GroupHandle" parent="Machines" instance=ExtResource("23_61ggs")]
+unique_name_in_owner = true
 z_index = 2
 position = Vector2(1492, 721)
 
@@ -423,6 +448,8 @@ offset_right = 100.0
 offset_bottom = 180.0
 scale = Vector2(6, 6)
 
+[connection signal="pressed" from="end_of_level_layer/ExitLevelButton" to="end_of_level_layer/end_of_level" method="_on_exit_level_button_pressed"]
+[connection signal="pressed" from="end_of_level_layer/NextLevelButton" to="end_of_level_layer/end_of_level" method="_on_next_level_button_pressed"]
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="open_settings"]
 [connection signal="pressed" from="GuideBookButton" to="GuideBookButton" method="open_guideBook"]

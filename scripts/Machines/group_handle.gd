@@ -9,9 +9,13 @@ var initialPos: Vector2
 var being_dragged = false
 var has_ground_coffee = false
 var respawnPos
+var can_be_dragged = true
 @onready var grinder = get_node_or_null("../Grinder")
 @onready var coffeeMachine = get_node_or_null("../CoffeeMachine")
 
+func set_dragged(value):
+	can_be_dragged = value
+	
 func _ready() -> void:
 	initialPos = global_position
 	respawnPos = global_position
@@ -21,7 +25,7 @@ func _process(delta: float) -> void:
 	has_ground_coffee = grinder.is_coffee_grinded()
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventScreenTouch:
+	if event is InputEventScreenTouch and can_be_dragged:
 		if event.pressed:
 			offset = global_position - event.position
 			GameManager.is_dragging = true

@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8uqqq6nqcvt6"]
+
+[ext_resource type="Script" path="res://end_of_level_screen.gd" id="1_kjc0s"]
+[ext_resource type="Texture2D" uid="uid://ctox1u5bql1w3" path="res://images/buttons/bnb_pause.PNG" id="1_r2p63"]
+[ext_resource type="Script" path="res://upgradeButton.gd" id="2_e36be"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wclvn"]
+bg_color = Color(0.80127, 0.465444, 0.725853, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kjc0s")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 135.0
+offset_right = 1440.0
+offset_bottom = 945.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wclvn")
+
+[node name="GrinderButton" type="TextureButton" parent="."]
+offset_left = 570.0
+offset_top = 312.0
+offset_right = 730.0
+offset_bottom = 364.0
+texture_normal = ExtResource("1_r2p63")
+stretch_mode = 0
+script = ExtResource("2_e36be")
+
+[node name="SteamerButton" type="TextureButton" parent="."]
+offset_left = 858.0
+offset_top = 486.0
+offset_right = 1018.0
+offset_bottom = 538.0
+texture_normal = ExtResource("1_r2p63")
+stretch_mode = 0
+script = ExtResource("2_e36be")
+
+[node name="FrotherButton" type="TextureButton" parent="."]
+offset_left = 1126.0
+offset_top = 367.0
+offset_right = 1286.0
+offset_bottom = 419.0
+texture_normal = ExtResource("1_r2p63")
+stretch_mode = 0
+script = ExtResource("2_e36be")
+
+[connection signal="pressed" from="GrinderButton" to="GrinderButton" method="_on_pressed"]
+[connection signal="pressed" from="SteamerButton" to="SteamerButton" method="_on_pressed"]
+[connection signal="pressed" from="FrotherButton" to="FrotherButton" method="_on_pressed"]
