@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cy2b17h1cvyh0" path="res://scenes/Counter.tscn" id="11_nyi6s"]
 [ext_resource type="Script" path="res://scenes/pause_button.gd" id="11_oodk7"]
 [ext_resource type="Texture2D" uid="uid://drhr6fyawp2hy" path="res://images/buttons/bnb_settings.PNG" id="12_yiwqt"]
+[ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://images/customer panel/bnb_money_pile.png" id="13_6px4r"]
 [ext_resource type="Texture2D" uid="uid://ctox1u5bql1w3" path="res://images/buttons/bnb_pause.PNG" id="14_nqeqg"]
 [ext_resource type="PackedScene" uid="uid://xnigc2lo1y6n" path="res://scenes/machine_scenes/steam_wand.tscn" id="16_4e4bv"]
 [ext_resource type="PackedScene" uid="uid://cikh8xovd5wod" path="res://scenes/machine_scenes/milk_jug.tscn" id="16_fnp02"]
@@ -56,25 +57,8 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4sqfi"]
 texture = ExtResource("6_uiqnr")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0l01m"]
-bg_color = Color(0.370837, 0.489447, 0.279365, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 13
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61usj"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skcim"]
+texture = ExtResource("6_uiqnr")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxl8e"]
 texture = ExtResource("10_qu227")
@@ -189,34 +173,8 @@ offset_left = 236.0
 offset_top = 3.0
 offset_right = 458.0
 offset_bottom = 79.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_0l01m")
+theme_override_styles/panel = SubResource("StyleBoxTexture_skcim")
 script = ExtResource("9_1rouu")
-
-[node name="ImageFrame" type="Panel" parent="MoneyContainer"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 10.5
-offset_top = -27.5
-offset_right = 65.5
-offset_bottom = 27.5
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_61usj")
-
-[node name="MoneyIcon" type="TextureRect" parent="MoneyContainer/ImageFrame"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -22.0
-offset_top = -22.0
-offset_right = 22.0
-offset_bottom = 22.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="MoneyLabel" type="Label" parent="MoneyContainer"]
 unique_name_in_owner = true
@@ -226,11 +184,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MoneyIcon" type="TextureRect" parent="MoneyContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -22.0
+offset_right = -47.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_6px4r")
 
 [node name="Counter" parent="." instance=ExtResource("11_nyi6s")]
 unique_name_in_owner = true
