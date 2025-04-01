@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cydmx6tyibi66"
-path="res://.godot/imported/Face_1.png-f376011cfb4934238b55e9f914e33f77.ctex"
+uid="uid://yipro0nl3ns7"
+path="res://.godot/imported/Hair_3.png-74686f95299984b2b4fa269480a20574.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/NPC sprites/Face_1.png"
-dest_files=["res://.godot/imported/Face_1.png-f376011cfb4934238b55e9f914e33f77.ctex"]
+source_file="res://images/NPC sprites (OLD)/Hair_3.png"
+dest_files=["res://.godot/imported/Hair_3.png-74686f95299984b2b4fa269480a20574.ctex"]
 
 [params]
 

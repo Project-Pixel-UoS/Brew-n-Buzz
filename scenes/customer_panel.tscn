@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dxtsd31kpgpvb"]
 
-[ext_resource type="Texture2D" uid="uid://bru11wdegfea" path="res://images/NPC sprites/Example_1.png" id="1_vyvqa"]
+[ext_resource type="Texture2D" uid="uid://bru11wdegfea" path="res://images/NPC sprites (OLD)/Example_1.png" id="1_vyvqa"]
 [ext_resource type="PackedScene" uid="uid://dbplx5axo07pj" path="res://prototype/doll.tscn" id="2_aajm0"]
 [ext_resource type="Texture2D" uid="uid://f46riariqn3d" path="res://images/customer panel/Counter (positioned for 100x180).png" id="3_hf0r0"]
 [ext_resource type="Texture2D" uid="uid://dgjhj680dtatb" path="res://images/customer panel/Shelf (positioned for 100x180).png" id="4_pfvda"]
@@ -14,8 +14,8 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fqnyi"]
 size = Vector2(50, 30)
 
-[sub_resource type="Animation" id="Animation_7f8f7"]
-resource_name = "happy"
+[sub_resource type="Animation" id="Animation_7pxyo"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -29,8 +29,23 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_7pxyo"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_oriwa"]
+resource_name = "angry"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_7f8f7"]
+resource_name = "happy"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -57,21 +72,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_oriwa"]
-resource_name = "angry"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2tl2o"]

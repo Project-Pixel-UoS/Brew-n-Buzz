@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh8k2bf86my7u"
-path="res://.godot/imported/Head_1.png-427f4c45b7fe885b026e974fb48c853c.ctex"
+uid="uid://c7ayr2if4ikbb"
+path="res://.godot/imported/Head_2.png-7d258d74116aed3e0420c12c0c7a39c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/NPC sprites/Head_1.png"
-dest_files=["res://.godot/imported/Head_1.png-427f4c45b7fe885b026e974fb48c853c.ctex"]
+source_file="res://images/NPC sprites (OLD)/Head_2.png"
+dest_files=["res://.godot/imported/Head_2.png-7d258d74116aed3e0420c12c0c7a39c8.ctex"]
 
 [params]
 
