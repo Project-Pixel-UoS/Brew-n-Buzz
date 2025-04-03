@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dxtsd31kpgpvb"]
+[gd_scene load_steps=19 format=3 uid="uid://dxtsd31kpgpvb"]
 
 [ext_resource type="Texture2D" uid="uid://b2hvsg7q311wr" path="res://images/NPC sprites/Jasmine.png" id="1_54jym"]
 [ext_resource type="PackedScene" uid="uid://dbplx5axo07pj" path="res://prototype/doll.tscn" id="2_aajm0"]
@@ -10,6 +10,8 @@
 [ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="8_r2lhv"]
 [ext_resource type="Script" path="res://scenes/patience_meter.gd" id="9_vxukn"]
 [ext_resource type="Texture2D" uid="uid://bai52bbgw5fyq" path="res://images/customer panel/bnb_customer_patience_emojis.png" id="9_w44ji"]
+[ext_resource type="Script" path="res://scenes/dialogue_label.gd" id="11_4vyp6"]
+[ext_resource type="Texture2D" uid="uid://cbfoqwwoska4x" path="res://images/customer panel/dialogue_box_9patch.png" id="12_gbijp"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fqnyi"]
 size = Vector2(50, 30)
@@ -117,6 +119,7 @@ texture = ExtResource("4_pfvda")
 centered = false
 
 [node name="Leaves" type="Sprite2D" parent="BackgroundElements"]
+visible = false
 texture = ExtResource("5_0ijvf")
 centered = false
 
@@ -130,6 +133,7 @@ position = Vector2(11.5, 150)
 texture = ExtResource("7_m51nf")
 
 [node name="SpeechBox" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(74, 44)
 texture = SubResource("PlaceholderTexture2D_fqnyi")
 
@@ -147,7 +151,6 @@ theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("8_r2lhv")
 theme_override_font_sizes/font_size = 8
 text = "TEXT"
-uppercase = true
 
 [node name="PatienceMeter" type="Node2D" parent="."]
 script = ExtResource("9_vxukn")
@@ -165,5 +168,40 @@ libraries = {
 
 [node name="Timer" type="Timer" parent="PatienceMeter"]
 unique_name_in_owner = true
+
+[node name="DialogueBox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 15.0
+offset_right = 147.0
+offset_bottom = 131.0
+scale = Vector2(0.5, 0.5)
+alignment = 2
+
+[node name="DialogueLabel" type="Label" parent="DialogueBox"]
+custom_minimum_size = Vector2(96, 24)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("8_r2lhv")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("11_4vyp6")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogueBox/DialogueLabel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_gbijp")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
 
 [connection signal="timeout" from="PatienceMeter/Timer" to="PatienceMeter" method="_on_timer_timeout"]
