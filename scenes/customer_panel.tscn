@@ -95,6 +95,7 @@ offset_right = -1820.0
 offset_bottom = -900.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(5.8, 5.8)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -171,15 +172,15 @@ unique_name_in_owner = true
 
 [node name="DialogueBox" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 51.0
-offset_top = 15.0
-offset_right = 147.0
-offset_bottom = 131.0
+offset_left = 48.0
+offset_top = 14.0
+offset_right = 144.0
+offset_bottom = 94.0
 scale = Vector2(0.5, 0.5)
 alignment = 2
 
 [node name="DialogueLabel" type="Label" parent="DialogueBox"]
-custom_minimum_size = Vector2(96, 24)
+custom_minimum_size = Vector2(96, 16)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 0
@@ -187,7 +188,8 @@ theme_override_fonts/font = ExtResource("8_r2lhv")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
+autowrap_mode = 1
+justification_flags = 160
 script = ExtResource("11_4vyp6")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="DialogueBox/DialogueLabel"]
@@ -196,6 +198,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_gbijp")
