@@ -1,7 +1,7 @@
 extends Control
 @onready var pauseLayer = %PauseLayer
 @onready var pause_menu = %pause_menu
-@onready var levelManager = %LevelManager
+@onready var levelManager = get_tree().root.get_node("Level1")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var button = pause_menu.get_node("TextureButton")

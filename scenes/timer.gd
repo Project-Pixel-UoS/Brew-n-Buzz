@@ -4,7 +4,7 @@ extends Timer
 
 var game_time_scale = 2 #Every real second is two in-game
 var round_time_hours = 1 #How many hours is a shift from 12pm
-var game_time_seconds = round_time_hours * 60
+var game_time_seconds = 2#round_time_hours * 60
 var finished = false 
 
 func out_of_time():
@@ -12,7 +12,7 @@ func out_of_time():
 	
 func _ready() -> void:
 	timer.wait_time = 1/float(game_time_scale)
-	time_remaining.text= "13:00"
+	time_remaining.text= "12:00"
 	timer.start()
 
 func _format_time()-> String:

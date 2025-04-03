@@ -1,26 +1,21 @@
-[gd_scene load_steps=52 format=3 uid="uid://d0tmn2yr7n018"]
-[gd_scene load_steps=55 format=3 uid="uid://c3tmg8jk8brjg"]
-[gd_scene load_steps=57 format=3 uid="uid://c3tmg8jk8brjg"]
+[gd_scene load_steps=55 format=3 uid="uid://d0tmn2yr7n018"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
+[ext_resource type="Script" path="res://scenes/money_counter.gd" id="2_4qq85"]
 [ext_resource type="PackedScene" uid="uid://cf0ya1o4m6ooe" path="res://scenes/guidebook_menu.tscn" id="2_5lu8m"]
 [ext_resource type="Script" path="res://assets/main_menu/settings_menu_level.gd" id="2_lvwfi"]
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="2_q7cu4"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_sh0uv"]
-[ext_resource type="PackedScene" uid="uid://b8uqqq6nqcvt6" path="res://endOfLevelScreen.tscn" id="3_tsawe"]
 [ext_resource type="PackedScene" uid="uid://cor4f38g6u27x" path="res://scenes/pause_menu.tscn" id="4_cm10t"]
-[ext_resource type="Texture2D" uid="uid://cxdh5en4j141i" path="res://images/buttons/bnb_play.PNG" id="5_f6fyx"]
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
 [ext_resource type="PackedScene" uid="uid://dxtsd31kpgpvb" path="res://scenes/customer_panel.tscn" id="6_qcswm"]
 [ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://images/kitchen panel/misc/bnb_clockbg.PNG" id="6_uiqnr"]
 [ext_resource type="Script" path="res://scenes/settings_button.gd" id="7_7my2j"]
-[ext_resource type="Script" path="res://scenes/money_container.gd" id="9_1rouu"]
 [ext_resource type="Texture2D" uid="uid://cjjsydugbmk1b" path="res://images/kitchen panel/misc/bnb_barbg_side_update.PNG" id="10_qu227"]
 [ext_resource type="Texture2D" uid="uid://crlfoajba4cwi" path="res://images/kitchen panel/misc/bnb_bgbar_top.PNG" id="11_eudfb"]
 [ext_resource type="PackedScene" uid="uid://cy2b17h1cvyh0" path="res://scenes/Counter.tscn" id="11_nyi6s"]
 [ext_resource type="Script" path="res://scenes/pause_button.gd" id="11_oodk7"]
 [ext_resource type="Texture2D" uid="uid://drhr6fyawp2hy" path="res://images/buttons/bnb_settings.PNG" id="12_yiwqt"]
-[ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://images/customer panel/bnb_money_pile.png" id="13_6px4r"]
 [ext_resource type="Texture2D" uid="uid://ctox1u5bql1w3" path="res://images/buttons/bnb_pause.PNG" id="14_nqeqg"]
 [ext_resource type="PackedScene" uid="uid://xnigc2lo1y6n" path="res://scenes/machine_scenes/steam_wand.tscn" id="16_4e4bv"]
 [ext_resource type="PackedScene" uid="uid://cikh8xovd5wod" path="res://scenes/machine_scenes/milk_jug.tscn" id="16_fnp02"]
@@ -59,8 +54,25 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4sqfi"]
 texture = ExtResource("6_uiqnr")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skcim"]
-texture = ExtResource("6_uiqnr")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0l01m"]
+bg_color = Color(0.370837, 0.489447, 0.279365, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61usj"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxl8e"]
 texture = ExtResource("10_qu227")
@@ -78,28 +90,6 @@ offset_top = 186.0
 offset_right = 1732.0
 offset_bottom = 865.0
 texture = ExtResource("45_edaoi")
-
-[node name="end_of_level_layer" type="CanvasLayer" parent="."]
-unique_name_in_owner = true
-visible = false
-
-[node name="end_of_level" parent="end_of_level_layer" instance=ExtResource("3_tsawe")]
-
-[node name="ExitLevelButton" type="TextureButton" parent="end_of_level_layer"]
-offset_left = 648.0
-offset_top = 745.0
-offset_right = 724.0
-offset_bottom = 826.0
-texture_normal = ExtResource("14_nqeqg")
-stretch_mode = 0
-
-[node name="NextLevelButton" type="TextureButton" parent="end_of_level_layer"]
-offset_left = 1233.0
-offset_top = 738.0
-offset_right = 1330.0
-offset_bottom = 826.0
-texture_normal = ExtResource("5_f6fyx")
-stretch_mode = 0
 
 [node name="guidebook_layer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -175,41 +165,51 @@ offset_left = 236.0
 offset_top = 3.0
 offset_right = 458.0
 offset_bottom = 79.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_skcim")
-script = ExtResource("9_1rouu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0l01m")
 
-[node name="MoneyLabel" type="Label" parent="MoneyContainer"]
-unique_name_in_owner = true
+[node name="ImageFrame" type="Panel" parent="MoneyContainer"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.5
+offset_top = -27.5
+offset_right = 65.5
+offset_bottom = 27.5
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_61usj")
 
-[node name="MoneyIcon" type="TextureRect" parent="MoneyContainer"]
+[node name="MoneyIcon" type="TextureRect" parent="MoneyContainer/ImageFrame"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -91.0
+offset_left = -22.0
 offset_top = -22.0
-offset_right = -47.0
+offset_right = 22.0
 offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("13_6px4r")
+
+[node name="MoneyLabel" type="Label" parent="MoneyContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_4qq85")
 
 [node name="Counter" parent="." instance=ExtResource("11_nyi6s")]
 unique_name_in_owner = true
-z_index = -5
 position = Vector2(210, 980)
 
 [node name="BottomPanel" type="Panel" parent="."]
@@ -388,7 +388,6 @@ texture_filter = 1
 position = Vector2(1280, 659)
 
 [node name="GroupHandle" parent="Machines" instance=ExtResource("23_61ggs")]
-unique_name_in_owner = true
 z_index = 2
 position = Vector2(1492, 721)
 
@@ -423,8 +422,6 @@ offset_right = 100.0
 offset_bottom = 180.0
 scale = Vector2(6, 6)
 
-[connection signal="pressed" from="end_of_level_layer/ExitLevelButton" to="end_of_level_layer/end_of_level" method="_on_exit_level_button_pressed"]
-[connection signal="pressed" from="end_of_level_layer/NextLevelButton" to="end_of_level_layer/end_of_level" method="_on_next_level_button_pressed"]
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="open_settings"]
 [connection signal="pressed" from="GuideBookButton" to="GuideBookButton" method="open_guideBook"]

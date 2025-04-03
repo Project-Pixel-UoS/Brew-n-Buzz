@@ -37,21 +37,21 @@ func check_valid_drop(body: Node2D) -> bool:
 	return false
 			
 func _on_area_2d_area_entered(body: Node2D) -> void:
-	if check_valid_drop(body) && being_dragged:
-		print("s")
-		is_inside_valid_drop = true
-		body_ref = body  
-		print(is_inside_valid_drop)
+	if being_dragged:
+		if check_valid_drop(body):
+			is_inside_valid_drop = true
+			body_ref = body  
 
-	elif body.is_in_group('bin'):
-		is_inside_bin = true
-		body_ref = body
+		elif body.is_in_group('bin'):
+			is_inside_bin = true
+			body_ref = body
 		
 func _on_area_2d_area_exited(body: Node2D) -> void:
-	if not being_dragged:
-		is_inside_valid_drop = false
-		is_inside_grinder = false
-		is_inside_bin = false
+	if body_ref:
+		if body.get_parent() == body_ref.get_parent():
+			is_inside_valid_drop = false
+			is_inside_grinder = false
+			is_inside_bin = false
 
 func replenish_ingredient(ingredient_name) -> void:
 	var ingredient_scene = load(scene_file_path) 
@@ -59,42 +59,24 @@ func replenish_ingredient(ingredient_name) -> void:
 	new_ingredient.global_position = respawnPos
 	get_parent().add_child(new_ingredient)
 	new_ingredient.name = ingredient_name
-		
-func get_node_at_touch_position(position: Vector2) -> Node:
-	var query = PhysicsPointQueryParameters2D.new()
-	query.position = position
-	query.collide_with_areas = true
-	query.collide_with_bodies = true
-	
-	var space_state = get_world_2d().direct_space_state
-	
-	var result = space_state.intersect_point(query)
-	
-	if result.size() > 0:
-		return result[0]["collider"]
-	return null
-
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			offset = global_position - event.position
-			GameManager.is_dragging = true
-			scale = Vector2(1.05,1.05)  
+			GameManager.is_dragging = true 
 			being_dragged = true
 			AudioManager.set_stream(select_sound)
 			AudioManager.play()
 		elif not event.pressed: 
 			being_dragged = false
 			GameManager.is_dragging = false
-			scale = Vector2(1,1)
 			AudioManager.set_stream(deselect_sound)
 			AudioManager.play()
+
+			await get_tree().physics_frame
 			var tween = get_tree().create_tween()
-			print(is_inside_valid_drop)
-			print(body_ref)
-			if is_inside_valid_drop and body_ref:
-				print("h")
+			if is_inside_valid_drop and body_ref and not is_inside_bin:
 				if body_ref.get_parent().name == 'Grinder':
 					body_ref.get_parent().fill_grinder()
 				else:
@@ -111,9 +93,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				queue_free()  
 				replenish_ingredient(name)
 			else:
-				print("hi3")
-				
-				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "global_position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
+					
 								
 	elif event is InputEventScreenDrag and being_dragged:
 		global_position = event.position - offset

@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://scenes/ingredient_logic.gd" id="1_rsemr"]
 [ext_resource type="Texture2D" uid="uid://c8uo4vwkrjvxa" path="res://images/kitchen panel/ingredients/caramel.PNG" id="2_yrx8b"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhuou"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t285i"]
+size = Vector2(33.5, 34.5)
 
 [node name="Caramel" type="Node2D"]
 script = ExtResource("1_rsemr")
@@ -16,11 +17,9 @@ texture = ExtResource("2_yrx8b")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-unique_name_in_owner = true
 scale = Vector2(4, 4)
-shape = SubResource("RectangleShape2D_hhuou")
+shape = SubResource("RectangleShape2D_t285i")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
