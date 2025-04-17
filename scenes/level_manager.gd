@@ -29,6 +29,9 @@ func add_payment(payment):
 	
 func get_level_money():
 	return level_money
+
+func get_drinks_served():
+	return (correct_recipes + incorrect_recipes)
 	
 func turn_inactive(object_name):
 	var obj = get_node_or_null(object_name)

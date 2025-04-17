@@ -1,0 +1,19 @@
+extends RichTextLabel
+
+@onready var levelManager = get_tree().root.get_node("Level1")
+var machine
+@onready var parent_node = get_parent().get_parent()
+var buyButton
+var upgrades = 0
+func _ready() -> void:
+	var machine_name = name.split('_')[0]
+	machine = levelManager.get_node('Machines/' + machine_name)
+	print(machine.name)
+	buyButton = parent_node.get_node('Buy')
+	upgrades = GameManager.get_number_upgrades(machine_name)
+		
+func _process(delta: float) -> void:
+	var beginning_time = machine.get_current_time()
+
+	self.text = str(beginning_time) + " -> " + str(beginning_time-0.25)
+	buyButton.get_node('Price').text = str(10 + (2*upgrades))

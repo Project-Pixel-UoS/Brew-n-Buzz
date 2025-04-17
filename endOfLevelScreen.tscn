@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://1bqnftirnc5q"]
+[gd_scene load_steps=15 format=3 uid="uid://1bqnftirnc5q"]
 
 [ext_resource type="Script" path="res://end_of_level_screen.gd" id="1_kjc0s"]
 [ext_resource type="Texture2D" uid="uid://ctox1u5bql1w3" path="res://images/buttons/bnb_pause.PNG" id="1_r2p63"]
@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://dl5mgyycaevkj" path="res://images/menu/notice_board/border_right.png" id="5_jxxab"]
 [ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://images/kitchen panel/misc/bnb_clockbg.PNG" id="10_ijxju"]
 [ext_resource type="Texture2D" uid="uid://g0ereql6bnq1" path="res://images/kitchen panel/machines/bnb_grinder_5.png" id="11_0ti4w"]
+[ext_resource type="Script" path="res://upgrade_amount.gd" id="11_dv0nk"]
+[ext_resource type="Texture2D" uid="uid://cxdh5en4j141i" path="res://images/buttons/bnb_play.PNG" id="13_o5hg1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xi6wx"]
+bg_color = Color(0.203922, 0.203922, 0.203922, 0.654902)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -20,6 +25,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kjc0s")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xi6wx")
 
 [node name="BgNoticeBoard" type="Control" parent="."]
 layout_mode = 1
@@ -109,7 +123,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_dwit8")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="money_made"]
+[node name="money_label" type="RichTextLabel" parent="money_made"]
 layout_mode = 0
 offset_left = 52.0
 offset_top = 1.0
@@ -132,7 +146,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("3_lwdr7")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="drinks_served"]
+[node name="drinks_label" type="RichTextLabel" parent="drinks_served"]
 layout_mode = 0
 offset_left = 52.0
 offset_top = 1.0
@@ -161,30 +175,20 @@ theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "Shop"
 
-[node name="SteamerButton" type="TextureButton" parent="shop"]
-layout_mode = 0
-offset_left = 470.0
-offset_top = 144.0
-offset_right = 630.0
-offset_bottom = 196.0
-texture_normal = ExtResource("1_r2p63")
-stretch_mode = 0
-script = ExtResource("2_e36be")
-
-[node name="FrotherButton" type="TextureButton" parent="shop"]
-layout_mode = 0
-offset_left = 717.0
-offset_top = 99.0
-offset_right = 877.0
-offset_bottom = 151.0
-texture_normal = ExtResource("1_r2p63")
-stretch_mode = 0
-script = ExtResource("2_e36be")
-
 [node name="grinder_item" type="Control" parent="shop"]
 anchors_preset = 0
 offset_right = 204.0
 offset_bottom = 180.0
+
+[node name="TextureRect" type="TextureRect" parent="shop/grinder_item"]
+layout_mode = 0
+offset_left = -38.0
+offset_top = 30.0
+offset_right = 2.0
+offset_bottom = 102.0
+scale = Vector2(2.65, 2.65)
+texture = ExtResource("11_0ti4w")
+stretch_mode = 2
 
 [node name="Buy" type="TextureButton" parent="shop/grinder_item"]
 layout_mode = 0
@@ -214,46 +218,64 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 30
 text = "10"
 
-[node name="TextureRect" type="TextureRect" parent="shop/grinder_item"]
-layout_mode = 0
-offset_left = -38.0
-offset_top = 30.0
-offset_right = 2.0
-offset_bottom = 102.0
-scale = Vector2(2.65, 2.65)
-texture = ExtResource("11_0ti4w")
-stretch_mode = 2
-
-[node name="Control" type="Control" parent="shop/grinder_item"]
+[node name="upgrade_amount" type="Control" parent="shop/grinder_item"]
 anchors_preset = 0
 offset_left = 51.0
 offset_top = 75.0
 offset_right = 207.0
 offset_bottom = 130.0
 
-[node name="TextureRect" type="TextureRect" parent="shop/grinder_item/Control"]
+[node name="TextureRect" type="TextureRect" parent="shop/grinder_item/upgrade_amount"]
 layout_mode = 1
 offset_right = 156.0
 offset_bottom = 55.0
 texture = ExtResource("10_ijxju")
 
-[node name="Upgrade" type="RichTextLabel" parent="shop/grinder_item/Control"]
+[node name="Grinder_upgrade" type="RichTextLabel" parent="shop/grinder_item/upgrade_amount"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.5
-offset_top = -16.5
-offset_right = 36.5
-offset_bottom = 16.5
+offset_left = -36.0
+offset_top = -13.5
+offset_right = 69.0
+offset_bottom = 14.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 20
 text = "3 -> 2s"
+script = ExtResource("11_dv0nk")
 
-[connection signal="pressed" from="shop/SteamerButton" to="shop/SteamerButton" method="_on_pressed"]
-[connection signal="pressed" from="shop/FrotherButton" to="shop/FrotherButton" method="_on_pressed"]
+[node name="ExitLevelButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 791.0
+offset_top = 775.0
+offset_right = 867.0
+offset_bottom = 856.0
+texture_normal = ExtResource("1_r2p63")
+stretch_mode = 0
+
+[node name="NextLevelButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 768.0
+offset_right = 1137.0
+offset_bottom = 856.0
+texture_normal = ExtResource("13_o5hg1")
+stretch_mode = 0
+
+[node name="ReplayLevelButton" type="TextureButton" parent="."]
+offset_left = 906.0
+offset_top = 772.0
+offset_right = 1003.0
+offset_bottom = 860.0
+texture_normal = ExtResource("13_o5hg1")
+stretch_mode = 0
+
 [connection signal="pressed" from="shop/grinder_item/Buy" to="shop/grinder_item/Buy" method="_on_pressed"]
+[connection signal="pressed" from="ExitLevelButton" to="." method="_on_exit_level_button_pressed"]
+[connection signal="pressed" from="NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="ReplayLevelButton" to="." method="_on_replay_level_button_pressed"]
