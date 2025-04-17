@@ -234,7 +234,7 @@ texture_normal = ExtResource("10_ijxju")
 stretch_mode = 0
 script = ExtResource("2_e36be")
 
-[node name="TextureRect" type="TextureRect" parent="shop/grinder_item/Buy"]
+[node name="Coins" type="TextureRect" parent="shop/grinder_item/Buy"]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 5.0
