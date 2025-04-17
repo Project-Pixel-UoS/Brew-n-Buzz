@@ -15,5 +15,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var beginning_time = machine.get_current_time()
 
-	self.text = str(beginning_time) + " -> " + str(beginning_time-0.25)
-	buyButton.get_node('Price').text = str(10 + (2*upgrades))
+	self.text = '[center]' + str(beginning_time) + " -> " + str(beginning_time-0.25)
+	buyButton.get_node('Price').text = '[center]' + str(10 + (2*upgrades))
