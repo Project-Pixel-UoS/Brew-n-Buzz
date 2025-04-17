@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://1bqnftirnc5q"]
+[gd_scene load_steps=12 format=3 uid="uid://1bqnftirnc5q"]
 
 [ext_resource type="Script" path="res://end_of_level_screen.gd" id="1_kjc0s"]
 [ext_resource type="Texture2D" uid="uid://ctox1u5bql1w3" path="res://images/buttons/bnb_pause.PNG" id="1_r2p63"]
+[ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://images/customer panel/bnb_money_pile.png" id="2_dwit8"]
 [ext_resource type="Script" path="res://upgradeButton.gd" id="2_e36be"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wclvn"]
-bg_color = Color(0.80127, 0.465444, 0.725853, 1)
+[ext_resource type="Texture2D" uid="uid://cfr5y2legycov" path="res://images/menu/notice_board/cork.png" id="2_peoc2"]
+[ext_resource type="Texture2D" uid="uid://bu7w5ne2tplwm" path="res://images/menu/notice_board/border_centre.png" id="3_14nhf"]
+[ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://images/kitchen panel/mug sprites/bnb_espresso.png" id="3_lwdr7"]
+[ext_resource type="Texture2D" uid="uid://cns3adku4b2x4" path="res://images/menu/notice_board/border_left.png" id="4_qyvqk"]
+[ext_resource type="Texture2D" uid="uid://dl5mgyycaevkj" path="res://images/menu/notice_board/border_right.png" id="5_jxxab"]
+[ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://images/kitchen panel/misc/bnb_clockbg.PNG" id="10_ijxju"]
+[ext_resource type="Texture2D" uid="uid://g0ereql6bnq1" path="res://images/kitchen panel/machines/bnb_grinder_5.png" id="11_0ti4w"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -16,41 +21,239 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kjc0s")
 
-[node name="Background" type="Panel" parent="."]
+[node name="BgNoticeBoard" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -760.0
+offset_top = -440.0
+offset_right = 760.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cork" type="TextureRect" parent="BgNoticeBoard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_right = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_peoc2")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="BorderCentre" type="TextureRect" parent="BgNoticeBoard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 82.0
+offset_right = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_14nhf")
+expand_mode = 1
+
+[node name="BorderLeft" type="TextureRect" parent="BgNoticeBoard"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 87.0171
+grow_vertical = 2
+texture = ExtResource("4_qyvqk")
+expand_mode = 3
+
+[node name="BorderRight" type="TextureRect" parent="BgNoticeBoard"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -87.0171
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(87, 0)
+texture = ExtResource("5_jxxab")
+expand_mode = 3
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -145.0
+offset_top = 194.0
+offset_right = 167.0
+offset_bottom = 296.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "End of level"
+
+[node name="money_made" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 521.0
+offset_top = 337.0
+offset_right = 826.0
+offset_bottom = 391.0
+
+[node name="TextureRect" type="TextureRect" parent="money_made"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_dwit8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="money_made"]
 layout_mode = 0
-offset_left = 480.0
-offset_top = 135.0
-offset_right = 1440.0
-offset_bottom = 945.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_wclvn")
+offset_left = 52.0
+offset_top = 1.0
+offset_right = 291.0
+offset_bottom = 52.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Money made: X"
 
-[node name="GrinderButton" type="TextureButton" parent="."]
-offset_left = 570.0
-offset_top = 312.0
-offset_right = 730.0
-offset_bottom = 364.0
+[node name="drinks_served" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 520.0
+offset_top = 385.0
+offset_right = 825.0
+offset_bottom = 439.0
+
+[node name="TextureRect" type="TextureRect" parent="drinks_served"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_lwdr7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="drinks_served"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 1.0
+offset_right = 291.0
+offset_bottom = 52.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Drinks served: X"
+
+[node name="shop" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 482.0
+offset_top = 469.0
+offset_right = 1442.0
+offset_bottom = 855.0
+
+[node name="Title" type="RichTextLabel" parent="shop"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_right = 77.0
+offset_bottom = 92.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "Shop"
+
+[node name="SteamerButton" type="TextureButton" parent="shop"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 144.0
+offset_right = 630.0
+offset_bottom = 196.0
 texture_normal = ExtResource("1_r2p63")
 stretch_mode = 0
 script = ExtResource("2_e36be")
 
-[node name="SteamerButton" type="TextureButton" parent="."]
-offset_left = 858.0
-offset_top = 486.0
-offset_right = 1018.0
-offset_bottom = 538.0
+[node name="FrotherButton" type="TextureButton" parent="shop"]
+layout_mode = 0
+offset_left = 717.0
+offset_top = 99.0
+offset_right = 877.0
+offset_bottom = 151.0
 texture_normal = ExtResource("1_r2p63")
 stretch_mode = 0
 script = ExtResource("2_e36be")
 
-[node name="FrotherButton" type="TextureButton" parent="."]
-offset_left = 1126.0
-offset_top = 367.0
-offset_right = 1286.0
-offset_bottom = 419.0
-texture_normal = ExtResource("1_r2p63")
+[node name="grinder_item" type="Control" parent="shop"]
+anchors_preset = 0
+offset_right = 204.0
+offset_bottom = 180.0
+
+[node name="Buy" type="TextureButton" parent="shop/grinder_item"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 144.0
+offset_right = 213.0
+offset_bottom = 196.0
+texture_normal = ExtResource("10_ijxju")
 stretch_mode = 0
 script = ExtResource("2_e36be")
 
-[connection signal="pressed" from="GrinderButton" to="GrinderButton" method="_on_pressed"]
-[connection signal="pressed" from="SteamerButton" to="SteamerButton" method="_on_pressed"]
-[connection signal="pressed" from="FrotherButton" to="FrotherButton" method="_on_pressed"]
+[node name="TextureRect" type="TextureRect" parent="shop/grinder_item/Buy"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 5.0
+offset_right = 55.0
+offset_bottom = 45.0
+texture = ExtResource("2_dwit8")
+
+[node name="Price" type="RichTextLabel" parent="shop/grinder_item/Buy"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 4.0
+offset_right = 116.0
+offset_bottom = 47.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "10"
+
+[node name="TextureRect" type="TextureRect" parent="shop/grinder_item"]
+layout_mode = 0
+offset_left = -38.0
+offset_top = 30.0
+offset_right = 2.0
+offset_bottom = 102.0
+scale = Vector2(2.65, 2.65)
+texture = ExtResource("11_0ti4w")
+stretch_mode = 2
+
+[node name="Control" type="Control" parent="shop/grinder_item"]
+anchors_preset = 0
+offset_left = 51.0
+offset_top = 75.0
+offset_right = 207.0
+offset_bottom = 130.0
+
+[node name="TextureRect" type="TextureRect" parent="shop/grinder_item/Control"]
+layout_mode = 1
+offset_right = 156.0
+offset_bottom = 55.0
+texture = ExtResource("10_ijxju")
+
+[node name="Upgrade" type="RichTextLabel" parent="shop/grinder_item/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -16.5
+offset_right = 36.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "3 -> 2s"
+
+[connection signal="pressed" from="shop/SteamerButton" to="shop/SteamerButton" method="_on_pressed"]
+[connection signal="pressed" from="shop/FrotherButton" to="shop/FrotherButton" method="_on_pressed"]
+[connection signal="pressed" from="shop/grinder_item/Buy" to="shop/grinder_item/Buy" method="_on_pressed"]
