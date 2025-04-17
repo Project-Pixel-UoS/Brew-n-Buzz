@@ -422,7 +422,7 @@ offset_right = 100.0
 offset_bottom = 180.0
 scale = Vector2(6, 6)
 
-[node name="CustomerQueueManager" type="Node2D" parent="."]
+[node name="CustomerQueueManager" type="Node" parent="."]
 script = ExtResource("52_mca8j")
 
 [connection signal="pressed" from="end_of_level_layer/ExitLevelButton" to="end_of_level_layer/end_of_level" method="_on_exit_level_button_pressed"]
