@@ -13,13 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://images/kitchen panel/misc/bnb_clockbg.PNG" id="6_uiqnr"]
 [ext_resource type="Script" path="res://scenes/settings_button.gd" id="7_7my2j"]
 [ext_resource type="Script" path="res://scenes/money_container.gd" id="9_1rouu"]
-[ext_resource type="Texture2D" uid="uid://cjjsydugbmk1b" path="res://images/kitchen panel/misc/bnb_barbg_side_update.PNG" id="10_qu227"]
-[ext_resource type="Texture2D" uid="uid://crlfoajba4cwi" path="res://images/kitchen panel/misc/bnb_bgbar_top.PNG" id="11_eudfb"]
 [ext_resource type="PackedScene" uid="uid://cy2b17h1cvyh0" path="res://scenes/Counter.tscn" id="11_nyi6s"]
 [ext_resource type="Script" path="res://scenes/pause_button.gd" id="11_oodk7"]
+[ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="11_y72f4"]
 [ext_resource type="Texture2D" uid="uid://drhr6fyawp2hy" path="res://images/buttons/bnb_settings.PNG" id="12_yiwqt"]
 [ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://images/customer panel/bnb_money_pile.png" id="13_6px4r"]
 [ext_resource type="Texture2D" uid="uid://ctox1u5bql1w3" path="res://images/buttons/bnb_pause.PNG" id="14_nqeqg"]
+[ext_resource type="Texture2D" uid="uid://bg8lbig0x5h82" path="res://images/kitchen panel/misc/bnb_side_newest.PNG" id="15_p41ds"]
 [ext_resource type="PackedScene" uid="uid://xnigc2lo1y6n" path="res://scenes/machine_scenes/steam_wand.tscn" id="16_4e4bv"]
 [ext_resource type="PackedScene" uid="uid://cikh8xovd5wod" path="res://scenes/machine_scenes/milk_jug.tscn" id="16_fnp02"]
 [ext_resource type="Script" path="res://scripts/bin.gd" id="17_14wim"]
@@ -62,7 +62,7 @@ texture = ExtResource("6_uiqnr")
 texture = ExtResource("6_uiqnr")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxl8e"]
-texture = ExtResource("10_qu227")
+texture = ExtResource("15_p41ds")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3h4qw"]
 texture = ExtResource("47_73nat")
@@ -134,40 +134,38 @@ visible = false
 unique_name_in_owner = true
 
 [node name="TimerContainer" type="Panel" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
 offset_left = 1368.0
 offset_top = 192.0
 offset_right = 1728.0
 offset_bottom = 348.0
-grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_4sqfi")
+
+[node name="TimeRemaining" type="RichTextLabel" parent="TimerContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -31.0
+offset_right = 180.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("11_y72f4")
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]00:00"
+fit_content = true
 
 [node name="Timer" type="Timer" parent="TimerContainer"]
 unique_name_in_owner = true
 process_callback = 0
 one_shot = true
 script = ExtResource("3_sh0uv")
-
-[node name="TimeRemaining" type="Label" parent="TimerContainer"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -38.5
-offset_top = -21.0
-offset_right = 38.5
-offset_bottom = 21.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 70
-text = "00:00"
-horizontal_alignment = 1
 
 [node name="MoneyContainer" type="Panel" parent="."]
 offset_left = 216.0
@@ -177,20 +175,6 @@ offset_bottom = 96.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_skcim")
 script = ExtResource("9_1rouu")
 
-[node name="MoneyLabel" type="Label" parent="MoneyContainer"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="MoneyIcon" type="TextureRect" parent="MoneyContainer"]
 layout_mode = 1
 anchors_preset = 8
@@ -198,13 +182,33 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -91.0
-offset_top = -22.0
-offset_right = -47.0
-offset_bottom = 22.0
+offset_left = -84.0
+offset_top = -26.0
+offset_right = -40.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("13_6px4r")
+
+[node name="MoneyLabel" type="RichTextLabel" parent="MoneyContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -13.0
+offset_right = 86.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("11_y72f4")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]0"
 
 [node name="Counter" parent="." instance=ExtResource("11_nyi6s")]
 unique_name_in_owner = true
@@ -228,7 +232,7 @@ offset_right = 1920.0
 offset_bottom = 858.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("10_qu227")
+texture = ExtResource("15_p41ds")
 
 [node name="HorizontalPanel" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -239,7 +243,7 @@ offset_right = 1920.0
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_eudfb")
+texture = ExtResource("15_p41ds")
 
 [node name="SettingsButton" type="TextureButton" parent="."]
 texture_filter = 1
