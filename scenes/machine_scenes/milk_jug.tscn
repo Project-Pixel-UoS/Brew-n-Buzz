@@ -4,21 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://cehcerwxdn810" path="res://images/kitchen panel/machines/bnb_milk_jug.png" id="2_iyqvh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_po6pa"]
-size = Vector2(129, 134)
+size = Vector2(140, 141)
 
 [node name="MilkJug" type="Node2D" groups=["milkJug"]]
 script = ExtResource("1_ijaby")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-5, -3.5)
-scale = Vector2(5.8, 5.8)
+scale = Vector2(6, 6)
 texture = ExtResource("2_iyqvh")
 
 [node name="Area2D" type="Area2D" parent="." groups=["milkJug"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-3.5, -6)
+position = Vector2(2, -2.5)
 shape = SubResource("RectangleShape2D_po6pa")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
