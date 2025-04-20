@@ -2,19 +2,21 @@
 extends TextureButton
 
 @onready var pullOutButton = %DrawerButton
-var new_position = Vector2(1380,341)
-var old_position = Vector2(0,0)
+var new_position
+var old_position
 var been_pressed = false
 var children = []
 
 func _ready() -> void:
-	children = get_children()
+	children = get_child(0).get_children()
 	for i in children:
 		i.visible = false
+		i.set_respawn_position()
 	old_position = pullOutButton.position
-	new_position = Vector2(old_position.x - 511.996, old_position.y)
+	new_position = Vector2(old_position.x - get_child(0).size.x, old_position.y)
 
 func drawer_press() -> void:
+	children = get_child(0).get_children()
 	if !been_pressed:
 		been_pressed = true
 		for i in children:
