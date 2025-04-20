@@ -1,11 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://dxtsd31kpgpvb"]
+[gd_scene load_steps=20 format=3 uid="uid://dxtsd31kpgpvb"]
 
+[ext_resource type="Texture2D" uid="uid://cwhb32383si0o" path="res://images/customer panel/Background.png" id="1_14pq6"]
 [ext_resource type="Texture2D" uid="uid://b2hvsg7q311wr" path="res://images/NPC sprites/Jasmine.png" id="1_54jym"]
 [ext_resource type="PackedScene" uid="uid://dbplx5axo07pj" path="res://prototype/doll.tscn" id="2_aajm0"]
 [ext_resource type="Texture2D" uid="uid://f46riariqn3d" path="res://images/customer panel/Counter (positioned for 100x180).png" id="3_hf0r0"]
 [ext_resource type="Texture2D" uid="uid://dgjhj680dtatb" path="res://images/customer panel/Shelf (positioned for 100x180).png" id="4_pfvda"]
 [ext_resource type="Texture2D" uid="uid://bpwjb63grcivj" path="res://images/customer panel/Leaves  (positioned for 100x180).png" id="5_0ijvf"]
-[ext_resource type="Texture2D" uid="uid://68ohys6rwqnn" path="res://images/customer panel/Till (positioned for 100x180).png" id="6_rjibo"]
+[ext_resource type="Texture2D" uid="uid://c4x2sf7jodeed" path="res://images/customer panel/Fixed till (positioned).png" id="6_1m27n"]
 [ext_resource type="Texture2D" uid="uid://d3xbyqbaelprj" path="res://images/customer panel/Bell (isolated).png" id="7_m51nf"]
 [ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="8_r2lhv"]
 [ext_resource type="Script" path="res://scenes/patience_meter.gd" id="9_vxukn"]
@@ -99,6 +100,11 @@ scale = Vector2(5.8, 5.8)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(50, 90)
+scale = Vector2(1, 1)
+texture = ExtResource("1_14pq6")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_54jym")
 centered = false
@@ -120,12 +126,11 @@ texture = ExtResource("4_pfvda")
 centered = false
 
 [node name="Leaves" type="Sprite2D" parent="BackgroundElements"]
-visible = false
 texture = ExtResource("5_0ijvf")
 centered = false
 
 [node name="Till" type="Sprite2D" parent="BackgroundElements"]
-texture = ExtResource("6_rjibo")
+texture = ExtResource("6_1m27n")
 centered = false
 
 [node name="Bell" type="Sprite2D" parent="."]
@@ -157,7 +162,7 @@ text = "TEXT"
 script = ExtResource("9_vxukn")
 
 [node name="Sprite2D" type="Sprite2D" parent="PatienceMeter"]
-position = Vector2(55, 82)
+position = Vector2(12.931, 53.2759)
 texture = ExtResource("9_w44ji")
 hframes = 3
 
@@ -193,7 +198,7 @@ justification_flags = 160
 script = ExtResource("11_4vyp6")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="DialogueBox/DialogueLabel"]
-z_index = -1
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
