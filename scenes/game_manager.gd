@@ -2,7 +2,7 @@ extends Node
 
 @onready var levelManager: Node2D = get_tree().root.get_node("Level1")
 var total_money = 10
-var upgrades = [['Grinder', 0]]
+var upgrades = [['Grinder',0,1]]
 var shop_upgrade_dictionary = {'A': "Grinder", 'B': "CoffeeMachine"}
 var level_upgrade_dictionary = {1: ['A']}
 
@@ -33,4 +33,6 @@ func add_upgrade(machineName):
 
 func get_number_upgrades(machineName):
 	return upgrades[upgrades.find(machineName)][1]
-	
+
+func get_max_upgrades(machineName):
+	return upgrades[upgrades.find(machineName)][2]
