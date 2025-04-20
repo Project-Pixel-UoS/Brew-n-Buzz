@@ -14,6 +14,6 @@ func _process(delta: float) -> void:
 	upgrades = GameManager.get_number_upgrades(machine.name)
 	var beginning_time = machine.get_current_time()
 
-	self.text = '[center]' + str(beginning_time) + " -> " + str(beginning_time-0.25)
+	self.text = "[center]" + str(beginning_time) + " -> " + str(beginning_time-(0.25*(upgrades+1))) + "s"
 	buyButton.get_node('Price').text = '[center]' + str(10 + (2*upgrades))
 	buyButton.set_price(10+(2*upgrades))
