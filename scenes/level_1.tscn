@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://d0tmn2yr7n018"]
+[gd_scene load_steps=59 format=3 uid="uid://d0tmn2yr7n018"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="PackedScene" uid="uid://cf0ya1o4m6ooe" path="res://scenes/guidebook_menu.tscn" id="2_5lu8m"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://scripts/bin.gd" id="17_14wim"]
 [ext_resource type="PackedScene" uid="uid://ekoyd5v80o3n" path="res://scenes/machine_scenes/bin.tscn" id="17_47q0w"]
 [ext_resource type="PackedScene" uid="uid://de18hqi3hvdur" path="res://scenes/machine_scenes/frother.tscn" id="18_f5kmt"]
+[ext_resource type="Texture2D" uid="uid://b3lqedpdkdg6m" path="res://images/buttons/bnb_pausenew.PNG" id="21_o4rvh"]
 [ext_resource type="PackedScene" uid="uid://codola8g3qlei" path="res://scenes/ingredient_scenes/caramel.tscn" id="21_qs7as"]
 [ext_resource type="PackedScene" uid="uid://c22hnkdgad2kf" path="res://scenes/ingredient_scenes/fruit_tea.tscn" id="22_o036c"]
 [ext_resource type="PackedScene" uid="uid://boqghshkws7xv" path="res://scenes/ingredient_scenes/black_tea.tscn" id="22_ykq7m"]
@@ -272,7 +273,7 @@ offset_left = 1576.0
 offset_top = 902.545
 offset_right = 1720.0
 offset_bottom = 1046.54
-texture_normal = ExtResource("14_nqeqg")
+texture_normal = ExtResource("21_o4rvh")
 stretch_mode = 0
 flip_v = true
 script = ExtResource("11_oodk7")

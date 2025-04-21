@@ -102,7 +102,6 @@ size_flags_vertical = 3
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(50, 90)
-scale = Vector2(1, 1)
 texture = ExtResource("1_14pq6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -162,7 +161,7 @@ text = "TEXT"
 script = ExtResource("9_vxukn")
 
 [node name="Sprite2D" type="Sprite2D" parent="PatienceMeter"]
-position = Vector2(12.931, 53.2759)
+position = Vector2(78.4483, 98.4483)
 texture = ExtResource("9_w44ji")
 hframes = 3
 
