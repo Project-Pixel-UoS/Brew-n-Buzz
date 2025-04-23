@@ -1,6 +1,7 @@
 extends Node2D
 
-@export var customer_scene: PackedScene
+@export var customer: Customer
+@onready var customer_scene = get_tree().root.get_node(".")
 @export var spawn_position: Vector2
 @export var max_customers: int = 5
 @export var possible_heads: Array[Texture2D]
@@ -30,20 +31,9 @@ func _ready():
 		push_error("Customer scene is not assigned!")
 		return
 	for i in range(max_customers):
-		customer_queue.append(customer_scene)
+		#potentially append seed for customer? TODO
+		customer_queue.append("1")
 	spawn_next_customer()
-
-func create_customer() -> Customer:
-	var new_customer = Customer.new(
-		randf_range(15.0, 30.0),  # Random patience between 15–30s
-		null,
-		get_random_drink(),     
-		possible_heads.pick_random(),
-		possible_bodies.pick_random(),
-		possible_faces.pick_random(),
-		possible_hairs.pick_random()
-	)
-	return new_customer
 
 func spawn_next_customer():
 	if is_spawning:
@@ -52,13 +42,12 @@ func spawn_next_customer():
 	is_spawning = true
 
 	if customer_scene:
-		var customer_instance = customer_scene.instantiate()
-		add_child(customer_instance)
-		customer_instance.position = spawn_position
-		current_customer = customer_instance
-		current_customer.customer = create_customer()
-
-		var patience_meter = current_customer.get_node("PatienceMeter")
+		customer = create_customer()
+		#customer.positon = Vector2(0.0,0.0)
+		var doll = %Doll
+		doll.set_customer(customer)
+		var patience_meter = %PatienceMeter
+		
 		patience_meter.connect("customer_angry", Callable(self, "_on_customer_angry"))
 		patience_meter.call_deferred("start_meter", self)
 	else:
@@ -67,6 +56,19 @@ func spawn_next_customer():
 	is_spawning = false
 
 
+func create_customer() -> Customer:
+	var new_customer = Customer.new(
+		randf_range(15.0, 30.0),  # Random patience between 15–30s
+		null,
+		get_random_drink(),    
+		#TODO could modulate the colours? 
+		possible_heads.pick_random(),
+		possible_bodies.pick_random(),
+		possible_faces.pick_random(),
+		possible_hairs.pick_random()
+	)
+	return new_customer
+	
 func _on_customer_angry():
 	if current_customer:
 		current_customer.get_node("Doll").react_to_drink(false)
