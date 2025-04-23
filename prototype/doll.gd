@@ -14,6 +14,12 @@ func update_customer_appearance():
 
 func react_to_drink(correct: bool):
 	if correct:
-		$AnimationPlayer.play("happy")
+		%AnimationPlayer.play("happy")
 	else:
-		$AnimationPlayer.play("angry")
+		%AnimationPlayer.play("angry")
+		
+func reset_sprites():
+	$head.texture = null
+	$body.texture = null
+	$face.texture = null
+	$hair.texture = null

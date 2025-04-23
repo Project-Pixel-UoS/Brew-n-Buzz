@@ -70,19 +70,19 @@ func create_customer() -> Customer:
 	return new_customer
 	
 func _on_customer_angry():
-	if current_customer:
-		current_customer.get_node("Doll").react_to_drink(false)
-		await get_tree().create_timer(1.0).timeout
-		remove_customer()
+	%Doll.react_to_drink(false)
+	await get_tree().create_timer(1.0).timeout
+	remove_customer()
 
 func customer_served(correct: bool):
-	if current_customer:
-		current_customer.get_node("Doll").react_to_drink(correct)
-		await get_tree().create_timer(1.0).timeout
-		remove_customer()
+	%Doll.react_to_drink(correct)
+	await get_tree().create_timer(1.0).timeout
+	remove_customer()
 
 func remove_customer():
-	if current_customer:
-		current_customer.queue_free()
-		current_customer = null
-		spawn_next_customer()
+	#TODO a walk away animation will need to be put in
+	%Doll.reset_sprites()
+	#current_customer.queue_free()
+	customer = null
+	await get_tree().create_timer(1.0).timeout
+	spawn_next_customer()
