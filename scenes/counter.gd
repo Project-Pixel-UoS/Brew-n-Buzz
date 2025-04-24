@@ -25,7 +25,7 @@ func check_recipe():
 	print("Created drink:", drink_name)
 
 	# Check if the drink name is valid and whether the recipe is correct
-	var is_correct = drink_name != ""
+	var is_correct = drink_name != "" and drink_name != "unknown"
 	var customerManager = levelManager.find_child("CustomerQueueManager", true, false)
 
 	print("Ingredients in mug: ", ingredients)

@@ -31,23 +31,27 @@ func _ready():
 		push_error("Customer scene is not assigned!")
 		return
 	for i in range(max_customers):
-		#potentially append seed for customer? TODO
-		customer_queue.append("1")
-	spawn_next_customer()
+		customer_queue.append(create_customer())  # Now appending actual customers
+	spawn_next_customer()  # Start spawning the first customer
 
 func spawn_next_customer():
 	if is_spawning:
 		return
 
+	if customer_queue.is_empty():
+		print("No more customers in queue!")
+		return  # No more customers to spawn
+
 	is_spawning = true
 
 	if customer_scene:
-		customer = create_customer()
-		#customer.positon = Vector2(0.0,0.0)
+		# Pop the next customer from the queue
+		customer = customer_queue.pop_front()
 		var doll = %Doll
-		doll.set_customer(customer)
-		var patience_meter = %PatienceMeter
+		doll.set_customer(customer)  # Set the customer data to the doll
+		print("successfully popped new customer")
 		
+		var patience_meter = %PatienceMeter
 		patience_meter.connect("customer_angry", Callable(self, "_on_customer_angry"))
 		patience_meter.call_deferred("start_meter", self)
 	else:
@@ -75,6 +79,12 @@ func _on_customer_angry():
 	remove_customer()
 
 func customer_served(correct: bool):
+	if not correct:
+		%PatienceMeter.timer.stop()
+		%PatienceMeter.out_of_patience = true
+		%PatienceMeter.animationPlayer.play("angry")
+		await get_tree().create_timer(0.5).timeout
+
 	%Doll.react_to_drink(correct)
 	await get_tree().create_timer(1.0).timeout
 	remove_customer()
