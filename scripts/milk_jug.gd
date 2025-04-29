@@ -21,8 +21,8 @@ func add_ingredient(name):
 	print("added milk to milk jug")
 
 func _process(delta: float) -> void:
-	for child in get_parent().get_children():
-		if child.name.begins_with("Mug"):
+	for child in get_parent().get_parent().get_children():
+		if child.name == ("Mug"):
 			mugObject = child
 	if draggable:
 		if Input.is_action_just_pressed("click"):

@@ -17,5 +17,5 @@ func replenish_mug():
 	var mug_scene = load("res://scenes/ingredient_scenes/Mug.tscn") 
 	var new_mug = mug_scene.instantiate()
 	new_mug.global_position = position
-	get_parent().add_child(new_mug)
+	get_parent().get_parent().add_child(new_mug)
 	new_mug.name = "Mug"
