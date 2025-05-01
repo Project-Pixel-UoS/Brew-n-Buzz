@@ -11,9 +11,11 @@ extends Resource
 @export var face_texture: Texture2D
 @export var hair_texture: Texture2D
 
+@export var order_line: String
+
 func _init(p_patience = 20, p_body = null, p_drink = null, 
 		  p_head: Texture2D = null, p_body_tex: Texture2D = null,
-		  p_face: Texture2D = null, p_hair: Texture2D = null):
+		  p_face: Texture2D = null, p_hair: Texture2D = null, p_order: String = ""):
 	patience = p_patience
 	body = p_body
 	drink = p_drink if p_drink != null else "espresso"
@@ -21,4 +23,4 @@ func _init(p_patience = 20, p_body = null, p_drink = null,
 	body_texture = p_body_tex
 	face_texture = p_face
 	hair_texture = p_hair
-	
+	order_line = p_order

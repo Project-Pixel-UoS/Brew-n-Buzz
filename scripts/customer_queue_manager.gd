@@ -11,6 +11,8 @@ extends Node2D
 @export var vip_customers: Array[PackedScene]
 @export var named_customers: Array[PackedScene]
 
+@export var possible_order_lines: Array[String]
+
 var customer_queue: Array = []
 var current_customer: Node = null
 var is_spawning: bool = false
@@ -75,7 +77,8 @@ func create_customer() -> Customer:
 		possible_heads.pick_random(),
 		possible_bodies.pick_random(),
 		possible_faces.pick_random(),
-		possible_hairs.pick_random()
+		possible_hairs.pick_random(),
+		possible_order_lines.pick_random()
 	)
 	return new_customer
 

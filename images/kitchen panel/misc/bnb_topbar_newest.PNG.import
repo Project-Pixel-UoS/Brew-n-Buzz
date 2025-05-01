@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://68ohys6rwqnn"
-path="res://.godot/imported/Till (positioned for 100x180).png-62ebeb499d40c8ad9e24231e1484cc99.ctex"
+uid="uid://bdktvt6ty53db"
+path="res://.godot/imported/bnb_topbar_newest.PNG-fd2a74c4a6b4a8256e9e07c8b5cf8af6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/customer panel/Till (positioned for 100x180).png"
-dest_files=["res://.godot/imported/Till (positioned for 100x180).png-62ebeb499d40c8ad9e24231e1484cc99.ctex"]
+source_file="res://images/kitchen panel/misc/bnb_topbar_newest.PNG"
+dest_files=["res://.godot/imported/bnb_topbar_newest.PNG-fd2a74c4a6b4a8256e9e07c8b5cf8af6.ctex"]
 
 [params]
 

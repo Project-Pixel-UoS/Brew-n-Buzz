@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crlfoajba4cwi"
-path="res://.godot/imported/bnb_bgbar_top.PNG-50b8ddf38a5efdbbf607b1249026927d.ctex"
+uid="uid://c4x2sf7jodeed"
+path="res://.godot/imported/Fixed till (positioned).png-b068f7a9bc44d4f90898658c04cdfe29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/kitchen panel/misc/bnb_bgbar_top.PNG"
-dest_files=["res://.godot/imported/bnb_bgbar_top.PNG-50b8ddf38a5efdbbf607b1249026927d.ctex"]
+source_file="res://images/customer panel/Fixed till (positioned).png"
+dest_files=["res://.godot/imported/Fixed till (positioned).png-b068f7a9bc44d4f90898658c04cdfe29.ctex"]
 
 [params]
 

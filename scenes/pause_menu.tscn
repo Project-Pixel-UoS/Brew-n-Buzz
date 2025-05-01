@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_gkmwg"]
 [ext_resource type="Texture2D" uid="uid://0m7hc17rio08" path="res://images/kitchen panel/ingredients/marshmallows.PNG" id="2_ng8xj"]
 [ext_resource type="Texture2D" uid="uid://chhg3bdelfhie" path="res://images/kitchen panel/ingredients/honey.PNG" id="3_girbc"]
-[ext_resource type="Texture2D" uid="uid://cxdh5en4j141i" path="res://images/buttons/bnb_play.PNG" id="4_pnkfm"]
+[ext_resource type="Texture2D" uid="uid://1iroxuglugmu" path="res://images/buttons/bnb_playnew.PNG" id="4_mv0p4"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ujdu7"]
 
@@ -67,7 +67,7 @@ offset_left = 1485.0
 offset_top = 764.0
 offset_right = 1623.64
 offset_bottom = 902.636
-texture_normal = ExtResource("4_pnkfm")
+texture_normal = ExtResource("4_mv0p4")
 stretch_mode = 0
 
 [connection signal="pressed" from="ExitWithoutSavingButton" to="." method="exit_without_saving_pressed"]
