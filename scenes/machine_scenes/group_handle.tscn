@@ -11,7 +11,7 @@ script = ExtResource("1_3m80d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(6.3, 6.3)
+scale = Vector2(6, 6)
 texture = ExtResource("2_cwk3t")
 
 [node name="Area2D" type="Area2D" parent="." groups=["groupHandle"]]

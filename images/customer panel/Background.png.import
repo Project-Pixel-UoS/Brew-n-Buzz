@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjjsydugbmk1b"
-path="res://.godot/imported/bnb_barbg_side_update.PNG-0ef92b41aff77a4603a987ec0ec86cfa.ctex"
+uid="uid://cwhb32383si0o"
+path="res://.godot/imported/Background.png-cd7761ba878b034c0e825d40b522697c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/kitchen panel/misc/bnb_barbg_side_update.PNG"
-dest_files=["res://.godot/imported/bnb_barbg_side_update.PNG-0ef92b41aff77a4603a987ec0ec86cfa.ctex"]
+source_file="res://images/customer panel/Background.png"
+dest_files=["res://.godot/imported/Background.png-cd7761ba878b034c0e825d40b522697c.ctex"]
 
 [params]
 

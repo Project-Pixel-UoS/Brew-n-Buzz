@@ -111,7 +111,7 @@ script = ExtResource("1_gqequ")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(5, 5)
+scale = Vector2(6, 6)
 texture = ExtResource("2_d1nvq")
 hframes = 9
 vframes = 3
@@ -126,5 +126,5 @@ speed_scale = 0.75
 [node name="Area2D" type="Area2D" parent="." groups=["grinder"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-5.75, 3.25)
+scale = Vector2(1.15, 1.15)
 shape = SubResource("RectangleShape2D_0nf8t")

@@ -4,7 +4,6 @@ var draggable = false
 var is_inside_valid_drop = false
 var is_inside_bin = false
 var body_ref
-var initialPos: Vector2 
 var being_dragged = false
 var mugObject: Node2D
 var select_sound
@@ -16,7 +15,6 @@ var is_inside_grinder = true
 func _ready() -> void:
 	select_sound = load('res://audio/sfx/pick_up_select.wav')
 	deselect_sound = load('res://audio/sfx/put_down_deselect.wav')
-	initialPos = global_position
 	respawnPos = global_position
 	Input.set_use_accumulated_input(false)
 
@@ -26,7 +24,9 @@ func _process(delta: float) -> void:
 		if child.name == ("Mug"):
 			mugObject = child
 
-		
+func set_respawn_position():
+	respawnPos = Vector2(self.position.x, self.position.y)
+	
 func check_valid_drop(body: Node2D) -> bool:
 	if name.contains('Coffee'):
 		if body.is_in_group('grinder'):
@@ -56,9 +56,14 @@ func _on_area_2d_area_exited(body: Node2D) -> void:
 func replenish_ingredient(ingredient_name) -> void:
 	var ingredient_scene = load(scene_file_path) 
 	var new_ingredient = ingredient_scene.instantiate()
-	new_ingredient.global_position = respawnPos
 	get_parent().add_child(new_ingredient)
 	new_ingredient.name = ingredient_name
+	if new_ingredient.get_parent().name == 'TeaDrawer':
+		new_ingredient.position = respawnPos
+		new_ingredient.set_respawn_position()
+	else:
+		new_ingredient.global_position = respawnPos
+		new_ingredient.set_respawn_position()
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventScreenTouch:
@@ -86,14 +91,13 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				await tween.finished
 				queue_free()
 				replenish_ingredient(name)
-				initialPos = body_ref.global_position
 			elif is_inside_bin and body_ref:
 				print("hi2")
 				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				queue_free()  
 				replenish_ingredient(name)
 			else:
-				tween.tween_property(self, "global_position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
 					
 								
 	elif event is InputEventScreenDrag and being_dragged:
