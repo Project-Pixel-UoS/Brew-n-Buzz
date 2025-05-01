@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://d03fr1us0v31y"]
+
+[ext_resource type="Script" path="res://scripts/vip.gd" id="1_f2u1q"]
+[ext_resource type="Resource" uid="uid://cdguncabps42r" path="res://resources/mr_thompson.tres" id="2_f6d6t"]
+[ext_resource type="Texture2D" uid="uid://dxipm30rpjo0r" path="res://images/NPC sprites/Mr_Thompson.png" id="2_mf0pl"]
+
+[node name="MrThompson" type="Node2D"]
+script = ExtResource("1_f2u1q")
+customer = ExtResource("2_f6d6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mf0pl")

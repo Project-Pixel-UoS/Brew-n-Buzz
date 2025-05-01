@@ -8,11 +8,12 @@ extends Node2D
 @export var possible_bodies: Array[Texture2D]
 @export var possible_faces: Array[Texture2D]
 @export var possible_hairs: Array[Texture2D]
+@export var vip_customers: Array[PackedScene]
+@export var named_customers: Array[PackedScene]
 
 var customer_queue: Array = []
 var current_customer: Node = null
 var is_spawning: bool = false
-
 
 var drinks = [
 	"espresso",
@@ -22,57 +23,62 @@ var drinks = [
 	"cappuccino"
 ]
 
-#  Function to pick a random drink
 func get_random_drink() -> String:
 	return drinks[randi() % drinks.size()]
 
 func _ready():
-	if customer_scene == null:
-		push_error("Customer scene is not assigned!")
-		return
-	for i in range(max_customers):
-		customer_queue.append(create_customer())  # Now appending actual customers
-	spawn_next_customer()  # Start spawning the first customer
+	var vip_named_count = 0
+	
+	# Add VIP
+	if vip_customers.size() > 0:
+		var vip_instance = vip_customers[0].instantiate()
+		customer_queue.append(vip_instance)
+		vip_named_count += 1
+	
+	# Add named
+	if named_customers.size() > 0:
+		var named_instance = named_customers[0].instantiate()
+		customer_queue.append(named_instance)
+		vip_named_count += 1
+	
+	# Fill rest with random customers
+	for i in range(max_customers - vip_named_count):
+		customer_queue.append(create_customer())
+
+	spawn_next_customer()
 
 func spawn_next_customer():
-	if is_spawning:
+	if is_spawning or customer_queue.is_empty():
 		return
-
-	if customer_queue.is_empty():
-		print("No more customers in queue!")
-		return  # No more customers to spawn
-
+	
 	is_spawning = true
+	var next = customer_queue.pop_front()
+	
+	if next is Node:  # VIP or Named customer scene
+		add_child(next)
+		customer = next.get("customer")  # assumes node has exported Customer resource
+		%Doll.set_customer(customer, true)  # true = is special
+	else:  # Normal customer
+		customer = next
+		%Doll.set_customer(customer, false)
 
-	if customer_scene:
-		# Pop the next customer from the queue
-		customer = customer_queue.pop_front()
-		var doll = %Doll
-		doll.set_customer(customer)  # Set the customer data to the doll
-		print("successfully popped new customer")
-		
-		var patience_meter = %PatienceMeter
-		patience_meter.connect("customer_angry", Callable(self, "_on_customer_angry"))
-		patience_meter.call_deferred("start_meter", self)
-	else:
-		push_error("Customer scene is not assigned!")
+	%PatienceMeter.connect("customer_angry", Callable(self, "_on_customer_angry"))
+	%PatienceMeter.call_deferred("start_meter", self)
 
 	is_spawning = false
 
-
 func create_customer() -> Customer:
 	var new_customer = Customer.new(
-		randf_range(15.0, 30.0),  # Random patience between 15–30s
+		randf_range(15.0, 30.0),
 		null,
-		get_random_drink(),    
-		#TODO could modulate the colours? 
+		get_random_drink(),
 		possible_heads.pick_random(),
 		possible_bodies.pick_random(),
 		possible_faces.pick_random(),
 		possible_hairs.pick_random()
 	)
 	return new_customer
-	
+
 func _on_customer_angry():
 	%Doll.react_to_drink(false)
 	await get_tree().create_timer(1.0).timeout
@@ -90,9 +96,7 @@ func customer_served(correct: bool):
 	remove_customer()
 
 func remove_customer():
-	#TODO a walk away animation will need to be put in
 	%Doll.reset_sprites()
-	#current_customer.queue_free()
 	customer = null
 	await get_tree().create_timer(1.0).timeout
 	spawn_next_customer()

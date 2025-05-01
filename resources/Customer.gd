@@ -16,7 +16,7 @@ func _init(p_patience = 20, p_body = null, p_drink = null,
 		  p_face: Texture2D = null, p_hair: Texture2D = null):
 	patience = p_patience
 	body = p_body
-	drink = p_drink
+	drink = p_drink if p_drink != null else "espresso"
 	head_texture = p_head
 	body_texture = p_body_tex
 	face_texture = p_face
