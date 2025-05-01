@@ -35,7 +35,7 @@ func is_mug_in_machine(truth_value):
 
 func get_mug_object():
 	for child in get_parent().get_parent().get_children():
-		if child.name.begins_with("Mug"):
+		if child.name == ("Mug"):
 			mugObject = child 
 			
 func make_coffee():

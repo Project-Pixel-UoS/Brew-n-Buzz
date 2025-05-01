@@ -20,8 +20,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var tween = get_tree().create_tween()
-	for child in get_parent().get_children():
-		if child.name.begins_with("Mug"):
+	for child in get_tree().root.get_children():
+		if child.name == ("Mug"):
 			mugObject = child
 
 func set_respawn_position():

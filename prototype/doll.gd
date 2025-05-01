@@ -2,26 +2,38 @@ extends Node2D
 
 @export var customer: Customer
 
-func _ready() -> void:
-	if customer:
-		# Set all body part textures
-		$head.texture = customer.head_texture
-		$body.texture = customer.body_texture
-		$face.texture = customer.face_texture
-		$hair.texture = customer.hair_texture
-		
-		# If you want to keep the random button functionality
-		randomize_appearance()
-
-func randomize_appearance():
-	# This can be called manually if you want randomization
-	$head._on_button_pressed()
-	$body._on_button_pressed()
-	$face._on_button_pressed()
-	$hair._on_button_pressed()
+func set_customer(new_customer):
+	customer = new_customer
+	update_customer_appearance()
+	say_dialogue()
+	
+	
+func update_customer_appearance():
+	$head.texture = customer.head_texture
+	$body.texture = customer.body_texture
+	$face.texture = customer.face_texture
+	$hair.texture = customer.hair_texture
+	
+func say_dialogue():
+	# format dialogue
+	var drink = customer.drink
+	var order_line = customer.order_line
+	var article = "a"
+	if drink[0] == "a" or drink[0] == "e" or drink[0] == "i" or drink[0] == "o" or drink[0] == "u":
+		article = "an"
+	order_line = order_line.replace("ORDER", customer.drink)
+	order_line = order_line.replace("ART", article)
+	# set text
+	%DialogueLabel.text = order_line
 
 func react_to_drink(correct: bool):
 	if correct:
-		$AnimationPlayer.play("happy")
+		%AnimationPlayer.play("happy")
 	else:
-		$AnimationPlayer.play("angry")
+		%AnimationPlayer.play("angry")
+		
+func reset_sprites():
+	$head.texture = null
+	$body.texture = null
+	$face.texture = null
+	$hair.texture = null

@@ -52,7 +52,6 @@
 [ext_resource type="PackedScene" uid="uid://g4b5i07s3qtn" path="res://mug_ring.tscn" id="46_asyge"]
 [ext_resource type="PackedScene" uid="uid://c67pq8jw0ro0q" path="res://mug_area.tscn" id="46_mxk6h"]
 [ext_resource type="Texture2D" uid="uid://broplvxjdtq3i" path="res://images/kitchen panel/misc/bnb_kitchen_bg_spill.png" id="47_73nat"]
-[ext_resource type="Script" path="res://scripts/customer_queue_manager.gd" id="52_mca8j"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8bbxd"]
 
@@ -410,9 +409,6 @@ z_index = -10
 offset_right = 100.0
 offset_bottom = 180.0
 scale = Vector2(6, 6)
-
-[node name="CustomerQueueManager" type="Node2D" parent="."]
-script = ExtResource("52_mca8j")
 
 [connection signal="pressed" from="end_of_level_layer/ExitLevelButton" to="end_of_level_layer/end_of_level" method="_on_exit_level_button_pressed"]
 [connection signal="pressed" from="end_of_level_layer/NextLevelButton" to="end_of_level_layer/end_of_level" method="_on_next_level_button_pressed"]

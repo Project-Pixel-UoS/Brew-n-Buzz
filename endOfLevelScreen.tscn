@@ -25,6 +25,7 @@ offset_bottom = 945.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wclvn")
 
 [node name="GrinderButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 570.0
 offset_top = 312.0
 offset_right = 730.0
@@ -34,6 +35,7 @@ stretch_mode = 0
 script = ExtResource("2_e36be")
 
 [node name="SteamerButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 858.0
 offset_top = 486.0
 offset_right = 1018.0
@@ -43,6 +45,7 @@ stretch_mode = 0
 script = ExtResource("2_e36be")
 
 [node name="FrotherButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 1126.0
 offset_top = 367.0
 offset_right = 1286.0
