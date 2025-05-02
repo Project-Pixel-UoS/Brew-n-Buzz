@@ -39,6 +39,7 @@ func _ready():
 		customer_queue.append(vip_customers[i])
 	customer_queue.shuffle()
 	spawn_next_customer()
+	
 func create_NPC_data():
 	var new_customer_data = CustomerData.new()
 	new_customer_data.patience = randf_range(15.0, 30.0)
@@ -57,11 +58,11 @@ func spawn_next_customer():
 	is_spawning = true
 	var next = customer_queue.pop_front()
 	%Doll.customer = next 
-	%Doll.update_customer_appearance()
 	%PatienceMeter.connect("customer_angry", Callable(self, "_on_customer_angry"))
 	%PatienceMeter.call_deferred("start_meter", self)
 	is_spawning = false
-
+	%Doll.set_customer()
+	
 func create_customer() -> Customer:
 	var new_customer = Customer.new(
 		randf_range(15.0, 30.0),

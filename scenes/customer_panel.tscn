@@ -199,6 +199,7 @@ alignment = 2
 
 [node name="DialogueLabel" type="Label" parent="DialogueBox"]
 unique_name_in_owner = true
+z_index = 1
 custom_minimum_size = Vector2(96, 16)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -212,7 +213,7 @@ autowrap_mode = 2
 justification_flags = 160
 
 [node name="NinePatchRect" type="NinePatchRect" parent="DialogueBox/DialogueLabel"]
-z_index = 1
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

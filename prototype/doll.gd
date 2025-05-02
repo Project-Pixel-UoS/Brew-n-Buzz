@@ -2,10 +2,7 @@ extends Node2D
 
 @export var customer: CustomerData
 
-func set_customer(new_customer, is_special):
-	customer = new_customer
-	if is_special:
-		pass
+func set_customer():
 	update_customer_appearance()
 	say_dialogue()
 	
