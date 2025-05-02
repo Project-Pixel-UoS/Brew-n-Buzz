@@ -14,6 +14,8 @@ func update_customer_appearance():
 	if customer == null:
 		push_warning("Customer is null in Doll.gd!")
 		return
+	print("in")
+	print(customer.head_texture)
 	$head.texture = customer.head_texture
 	$body.texture = customer.body_texture
 	$face.texture = customer.face_texture

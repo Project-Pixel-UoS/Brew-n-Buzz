@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="CustomerData" load_steps=3 format=3 uid="uid://hl4v8ysuyvm"]
 
 [ext_resource type="Script" path="res://CustomerData.gd" id="1_c2fgt"]
-[ext_resource type="Texture2D" uid="uid://8ootx5sed62j" path="res://images/NPC sprites/Sarah.png" id="1_ffstt"]
+[ext_resource type="Texture2D" uid="uid://8ootx5sed62j" path="res://images/customer sprites/VIPs/Sarah.png" id="1_ocjyc"]
 
 [resource]
 script = ExtResource("1_c2fgt")
 patience = 30.0
 drink = "Latte"
-fullbody_texture = ExtResource("1_ffstt")
+fullbody_texture = ExtResource("1_ocjyc")
 tip_value = 10
 order_line = "No small talk. I'll take ART ORDER"
