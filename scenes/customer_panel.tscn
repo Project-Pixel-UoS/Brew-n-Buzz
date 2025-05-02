@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bk7qk78osl531" path="res://prototype/body2.png" id="15_d2ikh"]
 [ext_resource type="Texture2D" uid="uid://pnpu4oh4oshf" path="res://prototype/face2.png" id="16_x7tlw"]
 [ext_resource type="Texture2D" uid="uid://chcj8ar6mnyxv" path="res://prototype/hair1.png" id="17_6nefp"]
-[ext_resource type="PackedScene" uid="uid://d03fr1us0v31y" path="res://scenes/customer_scenes/Mr_Thompson.tscn" id="18_1vi60"]
+[ext_resource type="Resource" uid="uid://hl4v8ysuyvm" path="res://resources/sarah.tres" id="18_vspjy"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fqnyi"]
 size = Vector2(50, 30)
@@ -229,5 +229,7 @@ possible_heads = Array[Texture2D]([ExtResource("14_k4xoa")])
 possible_bodies = Array[Texture2D]([ExtResource("15_d2ikh")])
 possible_faces = Array[Texture2D]([ExtResource("16_x7tlw")])
 possible_hairs = Array[Texture2D]([ExtResource("17_6nefp")])
+named_customers = Array[Resource]([ExtResource("18_vspjy")])
+possible_order_lines = Array[String](["No small talk. I'll take ART ORDER", "Hi!! Oh, my order? Hmm... Let's do ART ORDER", "Awful weather, truly. Anyway, I'll get ART ORDER", "Lovely weather we're having. I'd like ART ORDER, duck", "Hey bro, gimme ART ORDER. Make sure it's hot!", "One ORDER, please. Nice shirt, by the way!", "One ORDER. And just so you know, I'm in a rush", "What should I get this time? Oh, what about ART ORDER?", "You still got that ORDER? I'll get one of those", "I want to get a... What was it called again? ORDER!", "Just ART ORDER", "Business looks good! I'll get my regular ORDER", "I need caffeine, stat. ORDER. Now!", "It's gonna be a long day, bud. Gimme ART ORDER", "You don't recognise me? Ugh. Fine. My drink's ART ORDER", "I'm trying something new today - ORDER, please", "My buddy recommended this one - I'll get ART ORDER", "Ooo, so many options! I guess I'll get ART ORDER", "Can't remember what my friends wanted. I'll get ART ORDER though", "Busy day! I hope you still have ART ORDER", "You got ART ORDER ready for me? No? Chop chop, then!", "I heard the best drink to order here is ART ORDER", "Another ORDER today. Thanks!", "Okay, I think I'll finally try ART ORDER", "I'll take my regular ORDER. Cheers!"])
 
 [connection signal="timeout" from="PatienceMeter/Timer" to="PatienceMeter" method="_on_timer_timeout"]

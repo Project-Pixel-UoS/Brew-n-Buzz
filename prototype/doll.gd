@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var customer: Customer
+@export var customer: CustomerData
 
 func set_customer(new_customer, is_special):
 	customer = new_customer
@@ -18,6 +18,7 @@ func update_customer_appearance():
 	$body.texture = customer.body_texture
 	$face.texture = customer.face_texture
 	$hair.texture = customer.hair_texture
+	$full_body.texture = customer.fullbody_texture
 	
 func say_dialogue():
 	# format dialogue

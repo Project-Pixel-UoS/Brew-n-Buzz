@@ -20,3 +20,5 @@ script = ExtResource("2_aqjws")
 
 [node name="hair" type="Sprite2D" parent="."]
 script = ExtResource("2_aqjws")
+
+[node name="full_body" type="Sprite2D" parent="."]

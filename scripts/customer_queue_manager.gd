@@ -9,14 +9,14 @@ extends Node2D
 @export var possible_faces: Array[Texture2D]
 @export var possible_hairs: Array[Texture2D]
 @export var vip_customers: Array[PackedScene]
-@export var named_customers: Array[PackedScene]
+@export var named_customers: Array[Resource]
 
 @export var possible_order_lines: Array[String]
 
 var customer_queue: Array = []
 var current_customer: Node = null
 var is_spawning: bool = false
-
+var queue_numbers
 var drinks = [
 	"espresso",
 	"latte",
@@ -29,44 +29,37 @@ func get_random_drink() -> String:
 	return drinks[randi() % drinks.size()]
 
 func _ready():
+	queue_numbers = GameManager.get_level_queue(1)
 	var vip_named_count = 0
-	
-	# Add VIP
-	if vip_customers.size() > 0:
-		var vip_instance = vip_customers[0].instantiate()
-		customer_queue.append(vip_instance)
-		vip_named_count += 1
-	
-	# Add named
-	if named_customers.size() > 0:
-		var named_instance = named_customers[0].instantiate()
-		customer_queue.append(named_instance)
-		vip_named_count += 1
-	
-	# Fill rest with random customers
-	for i in range(max_customers - vip_named_count):
-		customer_queue.append(create_customer())
-
+	for i in range(0,queue_numbers[0]):
+		customer_queue.append(create_NPC_data())
+	for i in range(0,queue_numbers[1]):
+		customer_queue.append(named_customers[i])
+	for i in range(0,queue_numbers[2]):
+		customer_queue.append(vip_customers[i])
+	customer_queue.shuffle()
 	spawn_next_customer()
-
+func create_NPC_data():
+	var new_customer_data = CustomerData.new()
+	new_customer_data.patience = randf_range(15.0, 30.0)
+	new_customer_data.drink = get_random_drink()
+	new_customer_data.head_texture = possible_heads.pick_random()
+	new_customer_data.body_texture = possible_bodies.pick_random()
+	new_customer_data.face_texture = possible_faces.pick_random()
+	new_customer_data.hair_texture = possible_hairs.pick_random()
+	new_customer_data.order_line = possible_order_lines.pick_random()
+	new_customer_data.tip_value = 0
+	return new_customer_data
 func spawn_next_customer():
 	if is_spawning or customer_queue.is_empty():
 		return
 	
 	is_spawning = true
 	var next = customer_queue.pop_front()
-	
-	if next is Node:  # VIP or Named customer scene
-		add_child(next)
-		customer = next.get("customer")  # assumes node has exported Customer resource
-		%Doll.set_customer(customer, true)  # true = is special
-	else:  # Normal customer
-		customer = next
-		%Doll.set_customer(customer, false)
-
+	%Doll.customer = next 
+	%Doll.update_customer_appearance()
 	%PatienceMeter.connect("customer_angry", Callable(self, "_on_customer_angry"))
 	%PatienceMeter.call_deferred("start_meter", self)
-
 	is_spawning = false
 
 func create_customer() -> Customer:
