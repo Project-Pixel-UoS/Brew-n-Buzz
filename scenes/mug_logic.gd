@@ -3,7 +3,7 @@ extends Node2D
 @onready var animationPlayer = %AnimationPlayer
 
 
-var ingredients = []
+var ingredients: Array[String] = []
 var draggable = true
 var is_inside_valid_drop = false
 var body_ref
@@ -45,7 +45,7 @@ func add_ingredient(ingredient: String) -> void:
 	ingredients.append(remove_numbers(ingredient))
 	print("added " + remove_numbers(ingredient))
 	
-func get_ingredients() -> Array:
+func get_ingredients() -> Array[String]:
 	return ingredients
 	
 func determine_animation(x_change) -> void:

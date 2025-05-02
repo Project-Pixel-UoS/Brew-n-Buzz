@@ -16,16 +16,10 @@ var current_customer: Node = null
 var is_spawning: bool = false
 
 
-var drinks = [
-	"espresso",
-	"latte",
-	"americano",
-	"mocha",
-	"cappuccino"
-]
+@export var drinks: Array[Drink]
 
 #  Function to pick a random drink
-func get_random_drink() -> String:
+func get_random_drink() -> Drink:
 	return drinks[randi() % drinks.size()]
 
 func _ready():
@@ -49,8 +43,7 @@ func spawn_next_customer():
 	if customer_scene:
 		# Pop the next customer from the queue
 		customer = customer_queue.pop_front()
-		var doll = %Doll
-		doll.set_customer(customer)  # Set the customer data to the doll
+		%Doll.set_customer(customer)
 		print("successfully popped new customer")
 		
 		var patience_meter = %PatienceMeter
@@ -66,7 +59,7 @@ func create_customer() -> Customer:
 	var new_customer = Customer.new(
 		randf_range(15.0, 30.0),  # Random patience between 15–30s
 		null,
-		get_random_drink(),    
+		get_random_drink(),
 		#TODO could modulate the colours? 
 		possible_heads.pick_random(),
 		possible_bodies.pick_random(),

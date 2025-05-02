@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dxtsd31kpgpvb"]
+[gd_scene load_steps=27 format=3 uid="uid://dxtsd31kpgpvb"]
 
 [ext_resource type="Texture2D" uid="uid://cwhb32383si0o" path="res://images/customer panel/Background.png" id="1_14pq6"]
 [ext_resource type="Texture2D" uid="uid://b2hvsg7q311wr" path="res://images/NPC sprites/Jasmine.png" id="1_54jym"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://bk7qk78osl531" path="res://prototype/body2.png" id="15_d2ikh"]
 [ext_resource type="Texture2D" uid="uid://pnpu4oh4oshf" path="res://prototype/face2.png" id="16_x7tlw"]
 [ext_resource type="Texture2D" uid="uid://chcj8ar6mnyxv" path="res://prototype/hair1.png" id="17_6nefp"]
+[ext_resource type="Script" path="res://resources/drinks/Drink.gd" id="18_xde5o"]
+[ext_resource type="Resource" uid="uid://cthfpxtgxya7a" path="res://resources/drinks/espresso.tres" id="19_exsli"]
+[ext_resource type="Resource" uid="uid://df2bpg5715cbl" path="res://resources/drinks/americano.tres" id="20_okruu"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fqnyi"]
 size = Vector2(50, 30)
@@ -191,6 +194,7 @@ alignment = 2
 
 [node name="DialogueLabel" type="Label" parent="DialogueBox"]
 unique_name_in_owner = true
+z_index = 1
 custom_minimum_size = Vector2(96, 16)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -204,7 +208,7 @@ autowrap_mode = 2
 justification_flags = 160
 
 [node name="NinePatchRect" type="NinePatchRect" parent="DialogueBox/DialogueLabel"]
-z_index = 1
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -229,5 +233,6 @@ possible_bodies = Array[Texture2D]([ExtResource("15_d2ikh")])
 possible_faces = Array[Texture2D]([ExtResource("16_x7tlw")])
 possible_hairs = Array[Texture2D]([ExtResource("17_6nefp")])
 possible_order_lines = Array[String](["No small talk. I'll take ART ORDER", "Hi!! Oh, my order? Hmm... Let's do ART ORDER", "Awful weather, truly. Anyway, I'll get ART ORDER", "Lovely weather we're having. I'd like ART ORDER, duck", "Hey bro, gimme ART ORDER. Make sure it's hot!", "One ORDER, please. Nice shirt, by the way!", "One ORDER. And just so you know, I'm in a rush", "What should I get this time? Oh, what about ART ORDER?", "You still got that ORDER? I'll get one of those", "I want to get a... What was it called again? ORDER!", "Just ART ORDER", "Business looks good! I'll get my regular ORDER", "I need caffeine, stat. ORDER. Now!", "It's gonna be a long day, bud. Gimme ART ORDER", "You don't recognise me? Ugh. Fine. My drink's ART ORDER", "I'm trying something new today - ORDER, please", "My buddy recommended this one - I'll get ART ORDER", "Ooo, so many options! I guess I'll get ART ORDER", "Can't remember what my friends wanted. I'll get ART ORDER though", "Busy day! I hope you still have ART ORDER", "You got ART ORDER ready for me? No? Chop chop, then!", "I heard the best drink to order here is ART ORDER", "Another ORDER today. Thanks!", "Okay, I think I'll finally try ART ORDER", "I'll take my regular ORDER. Cheers!"])
+drinks = Array[ExtResource("18_xde5o")]([ExtResource("19_exsli"), ExtResource("20_okruu")])
 
 [connection signal="timeout" from="PatienceMeter/Timer" to="PatienceMeter" method="_on_timer_timeout"]
