@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var customer: Customer
+@export var customer: CustomerData
 @onready var customer_scene = get_tree().root.get_node(".")
 @export var spawn_position: Vector2
 @export var max_customers: int = 5
@@ -8,7 +8,7 @@ extends Node2D
 @export var possible_bodies: Array[Texture2D]
 @export var possible_faces: Array[Texture2D]
 @export var possible_hairs: Array[Texture2D]
-@export var vip_customers: Array[PackedScene]
+@export var vip_customers: Array[Resource]
 @export var named_customers: Array[Resource]
 
 @export var possible_order_lines: Array[String]
@@ -18,7 +18,7 @@ var current_customer: Node = null
 var is_spawning: bool = false
 var queue_numbers
 
-@export var drinks: Array[Drink]
+@export var drinks: Array[Resource]
 
 #  Function to pick a random drink
 func get_random_drink() -> Drink:
@@ -58,20 +58,6 @@ func spawn_next_customer():
 	%PatienceMeter.call_deferred("start_meter", self)
 	is_spawning = false
 	%Doll.set_customer()
-	
-func create_customer() -> Customer:
-	var new_customer = Customer.new(
-		randf_range(15.0, 30.0),
-		null,
-		get_random_drink(),
-		#TODO could modulate the colours? 
-		possible_heads.pick_random(),
-		possible_bodies.pick_random(),
-		possible_faces.pick_random(),
-		possible_hairs.pick_random(),
-		possible_order_lines.pick_random()
-	)
-	return new_customer
 
 func _on_customer_angry():
 	%Doll.react_to_drink(false)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dxtsd31kpgpvb"]
+[gd_scene load_steps=27 format=3 uid="uid://dxtsd31kpgpvb"]
 
 [ext_resource type="Texture2D" uid="uid://cwhb32383si0o" path="res://images/customer panel/Background.png" id="1_14pq6"]
 [ext_resource type="Texture2D" path="res://images/NPC sprites/Jasmine.png" id="1_54jym"]
@@ -13,21 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bai52bbgw5fyq" path="res://images/customer panel/bnb_customer_patience_emojis.png" id="9_w44ji"]
 [ext_resource type="Texture2D" uid="uid://cbfoqwwoska4x" path="res://images/customer panel/dialogue_box_9patch.png" id="12_gbijp"]
 [ext_resource type="Script" path="res://scripts/customer_queue_manager.gd" id="13_4m3qs"]
-[ext_resource type="Texture2D" uid="uid://bfrgnfd3ffuan" path="res://images/customer sprites/NPC sprites/Head 1.png" id="14_xs3i7"]
-[ext_resource type="Texture2D" uid="uid://bhg5rt0fs4yvj" path="res://images/customer sprites/NPC sprites/Head 3.png" id="15_tra5b"]
-[ext_resource type="Texture2D" uid="uid://djefuuw4pj2n0" path="res://images/customer sprites/NPC sprites/Head 2.png" id="16_nsqmp"]
-[ext_resource type="Texture2D" uid="uid://brkv3vu5qtvkj" path="res://images/customer sprites/NPC sprites/Hoodie 1.png" id="17_8br4y"]
-[ext_resource type="Texture2D" uid="uid://uotoyvg3rac2" path="res://images/customer sprites/NPC sprites/Hoodie 2.png" id="18_f50xm"]
-[ext_resource type="Texture2D" uid="uid://b3062okusdy32" path="res://images/customer sprites/NPC sprites/Hoodie 3.png" id="19_4i6on"]
 [ext_resource type="Resource" uid="uid://cthfpxtgxya7a" path="res://resources/drinks/espresso.tres" id="19_exsli"]
-[ext_resource type="Texture2D" uid="uid://1eycxi4bu2r5" path="res://images/customer sprites/NPC sprites/Face 1.png" id="20_agls0"]
 [ext_resource type="Resource" uid="uid://df2bpg5715cbl" path="res://resources/drinks/americano.tres" id="20_okruu"]
-[ext_resource type="Texture2D" uid="uid://qnwqj7r3v52n" path="res://images/customer sprites/NPC sprites/Face 2.png" id="21_1syul"]
-[ext_resource type="Texture2D" uid="uid://b2g6uaxvukl05" path="res://images/customer sprites/NPC sprites/Face 3.png" id="22_ml340"]
-[ext_resource type="Texture2D" uid="uid://b3ksb8i1xdax4" path="res://images/customer sprites/NPC sprites/Hair 1.png" id="23_lhmik"]
-[ext_resource type="Texture2D" uid="uid://2h7yhaw6r50i" path="res://images/customer sprites/NPC sprites/Hair 2.png" id="24_a4ul4"]
-[ext_resource type="Texture2D" uid="uid://dnn07c44qf1xa" path="res://images/customer sprites/NPC sprites/Hair 3.png" id="25_qj4l0"]
-[ext_resource type="Texture2D" uid="uid://8ootx5sed62j" path="res://images/customer sprites/VIPs/Sarah.png" id="26_mw607"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fqnyi"]
 size = Vector2(50, 30)
@@ -100,6 +87,47 @@ _data = {
 "ok": SubResource("Animation_pmf3v")
 }
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g4xf6"]
+load_path = "res://.godot/imported/head1.png-8799a3ad4f287765e5bf5e0db33a5098.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_432jq"]
+load_path = "res://.godot/imported/body2.png-9ebb3fefa8f885f2adaa8d796de38639.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rv5en"]
+load_path = "res://.godot/imported/face2.png-1ddfb05515c4ca124b20576012a532f5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0i5b7"]
+load_path = "res://.godot/imported/hair1.png-cba4c0c42dc17790c3563f1b5a7028d7.ctex"
+
+[sub_resource type="GDScript" id="GDScript_jmp65"]
+script/source = "class_name Drink
+extends Resource
+
+@export var name: String
+@export var recipe: Dictionary
+@export var image: Texture2D
+
+func isValidIngredients(ingredients: Array[String]) -> bool:
+	if ingredients.size() == 0:
+		return false
+	var currentIngredientIndex = 0
+	# Making copy so I can remove from it during this function
+	var recipeCopy = recipe.duplicate(true)
+	for ingredient in ingredients:
+		if !recipeCopy.has(ingredient):
+			print(\"This ingredient isn't needed in this recipe\")
+			return false
+		if recipeCopy[ingredient] > currentIngredientIndex:
+			print(\"You need other ingredients first\")
+			return false
+		# Removing ingredient as its been used up
+		recipeCopy.erase(ingredient)
+		# Checking for if there are any other ingredients with this index
+		if !(currentIngredientIndex in recipeCopy.values()):
+			currentIngredientIndex += 1
+	return true
+"
+
 [node name="CustomerPanel2" type="Control"]
 clip_contents = true
 custom_minimum_size = Vector2(100, 180)
@@ -126,7 +154,8 @@ centered = false
 
 [node name="Doll" parent="." instance=ExtResource("2_aajm0")]
 unique_name_in_owner = true
-position = Vector2(55, 90)
+position = Vector2(35, 97)
+scale = Vector2(0.05, 0.05)
 
 [node name="BackgroundElements" type="Node2D" parent="."]
 texture_filter = 1
@@ -235,12 +264,11 @@ patch_margin_bottom = 6
 [node name="CustomerQueueManager" type="Node2D" parent="."]
 position = Vector2(30.6897, 105.862)
 script = ExtResource("13_4m3qs")
-possible_heads = Array[Texture2D]([ExtResource("14_xs3i7"), ExtResource("16_nsqmp"), ExtResource("15_tra5b")])
-possible_bodies = Array[Texture2D]([ExtResource("17_8br4y"), ExtResource("18_f50xm"), ExtResource("19_4i6on")])
-possible_faces = Array[Texture2D]([ExtResource("20_agls0"), ExtResource("22_ml340"), ExtResource("21_1syul")])
-possible_hairs = Array[Texture2D]([ExtResource("23_lhmik"), ExtResource("24_a4ul4"), ExtResource("25_qj4l0")])
-vip_customers = Array[Resource]([ExtResource("26_mw607")])
+possible_heads = Array[Texture2D]([SubResource("CompressedTexture2D_g4xf6")])
+possible_bodies = Array[Texture2D]([SubResource("CompressedTexture2D_432jq")])
+possible_faces = Array[Texture2D]([SubResource("CompressedTexture2D_rv5en")])
+possible_hairs = Array[Texture2D]([SubResource("CompressedTexture2D_0i5b7")])
 possible_order_lines = Array[String](["No small talk. I'll take ART ORDER", "Hi!! Oh, my order? Hmm... Let's do ART ORDER", "Awful weather, truly. Anyway, I'll get ART ORDER", "Lovely weather we're having. I'd like ART ORDER, duck", "Hey bro, gimme ART ORDER. Make sure it's hot!", "One ORDER, please. Nice shirt, by the way!", "One ORDER. And just so you know, I'm in a rush", "What should I get this time? Oh, what about ART ORDER?", "You still got that ORDER? I'll get one of those", "I want to get a... What was it called again? ORDER!", "Just ART ORDER", "Business looks good! I'll get my regular ORDER", "I need caffeine, stat. ORDER. Now!", "It's gonna be a long day, bud. Gimme ART ORDER", "You don't recognise me? Ugh. Fine. My drink's ART ORDER", "I'm trying something new today - ORDER, please", "My buddy recommended this one - I'll get ART ORDER", "Ooo, so many options! I guess I'll get ART ORDER", "Can't remember what my friends wanted. I'll get ART ORDER though", "Busy day! I hope you still have ART ORDER", "You got ART ORDER ready for me? No? Chop chop, then!", "I heard the best drink to order here is ART ORDER", "Another ORDER today. Thanks!", "Okay, I think I'll finally try ART ORDER", "I'll take my regular ORDER. Cheers!"])
-drinks = Array[Resource]([ExtResource("19_exsli"), ExtResource("20_okruu")])
+drinks = Array[SubResource("GDScript_jmp65")]([ExtResource("19_exsli"), ExtResource("20_okruu")])
 
 [connection signal="timeout" from="PatienceMeter/Timer" to="PatienceMeter" method="_on_timer_timeout"]
