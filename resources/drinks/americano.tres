@@ -7,7 +7,7 @@
 script = ExtResource("1_205mj")
 name = "americano"
 recipe = {
-"coffee": 0,
-"water": 1
+"Coffee": 0,
+"Water": 1
 }
 image = ExtResource("1_y7vwd")

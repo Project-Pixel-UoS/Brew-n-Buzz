@@ -17,14 +17,14 @@ func _on_area_2d_area_entered(body: Node2D) -> void:
 	# Get the ingredients of the drink and determine its name
 	print("Mug landed on counter")
 	# Find the mug object in the parent node
-	var ingredients
+	var ingredients: Array[String]
 	for child in get_parent().get_children():
 		if child.name.begins_with("Mug"):
-			ingredients = child.get_ingredients
+			ingredients = child.get_ingredients()
 			
-	var doll = %Doll
-	print(doll)
-	var drink = %Doll.get_customer().drink
+	var customer_panel = %CustomerPanel
+	print(customer_panel)
+	var drink = customer_panel.get_doll().get_customer().drink
 	print("Created drink:", drink.name)
 
 	var is_correct = drink.isValidIngredients(ingredients)

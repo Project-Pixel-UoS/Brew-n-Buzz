@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://d0tmn2yr7n018"]
+[gd_scene load_steps=59 format=3 uid="uid://d0tmn2yr7n018"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="PackedScene" uid="uid://cf0ya1o4m6ooe" path="res://scenes/guidebook_menu.tscn" id="2_5lu8m"]
@@ -66,6 +66,19 @@ texture = ExtResource("15_p41ds")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3h4qw"]
 texture = ExtResource("47_73nat")
+
+[sub_resource type="GDScript" id="GDScript_nqnjm"]
+script/source = "extends Control
+
+var doll
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	doll = %Doll
+
+func get_doll() -> Node2D:
+	return doll
+"
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("2_q7cu4")
@@ -404,11 +417,13 @@ offset_bottom = 583.0
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxTexture_3h4qw")
 
-[node name="CustomerPanel2" parent="." instance=ExtResource("6_qcswm")]
+[node name="CustomerPanel" parent="." instance=ExtResource("6_qcswm")]
+unique_name_in_owner = true
 z_index = -10
 offset_right = 100.0
 offset_bottom = 180.0
 scale = Vector2(6, 6)
+script = SubResource("GDScript_nqnjm")
 
 [connection signal="pressed" from="end_of_level_layer/ExitLevelButton" to="end_of_level_layer/end_of_level" method="_on_exit_level_button_pressed"]
 [connection signal="pressed" from="end_of_level_layer/NextLevelButton" to="end_of_level_layer/end_of_level" method="_on_next_level_button_pressed"]
