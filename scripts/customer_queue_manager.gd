@@ -16,16 +16,12 @@ extends Node2D
 var customer_queue: Array = []
 var current_customer: Node = null
 var is_spawning: bool = false
-var queue_numbers
-var drinks = [
-	"espresso",
-	"latte",
-	"americano",
-	"mocha",
-	"cappuccino"
-]
 
-func get_random_drink() -> String:
+
+@export var drinks: Array[Drink]
+
+#  Function to pick a random drink
+func get_random_drink() -> Drink:
 	return drinks[randi() % drinks.size()]
 
 func _ready():
@@ -68,6 +64,7 @@ func create_customer() -> Customer:
 		randf_range(15.0, 30.0),
 		null,
 		get_random_drink(),
+		#TODO could modulate the colours? 
 		possible_heads.pick_random(),
 		possible_bodies.pick_random(),
 		possible_faces.pick_random(),
