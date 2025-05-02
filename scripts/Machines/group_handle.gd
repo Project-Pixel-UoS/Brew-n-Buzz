@@ -38,7 +38,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			await get_tree().physics_frame
 			var tween = get_tree().create_tween()
 			if is_inside_valid_drop and body_ref and has_ground_coffee:
-				print('in')
+				print("group handle good !")
 				if body_ref.get_parent().name == "CoffeeMachine":
 					tween.tween_property(self, "global_position", Vector2(730,377), 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished 

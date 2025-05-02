@@ -1,4 +1,3 @@
-# counter.gd
 extends Node2D
 
 var mugObject: Node2D
@@ -10,39 +9,41 @@ func _ready() -> void:
 	modulate = Color(Color.MEDIUM_PURPLE, 0.7)
 	mugObject = get_parent().get_node("Mug")
 	var area2d = counter.get_node("Area2D")
-
+	
+	
 ## @brief Compares the ingredients in the mug with the correct recipe, and determines whether the drink is correct.
 ## @details This function is called when the mug is placed on the counter. It checks the drink ingredients and notifies the customer manager.
-func check_recipe():
+func _on_area_2d_area_entered(body: Node2D) -> void:
+	# Get the ingredients of the drink and determine its name
+	print("Mug landed on counter")
 	# Find the mug object in the parent node
+	var ingredients
 	for child in get_parent().get_children():
 		if child.name.begins_with("Mug"):
-			mugObject = child
+			ingredients = child.get_ingredients
+			
+	var doll = %Doll
+	print(doll)
+	var drink = %Doll.get_customer().drink
+	print("Created drink:", drink.name)
 
-	# Get the ingredients of the drink and determine its name
-	var ingredients = mugObject.get_ingredients()
-	var drink_name = levelManager.get_drink_name(ingredients)
-	print("Created drink:", drink_name)
-
-	# Check if the drink name is valid and whether the recipe is correct
-	var is_correct = drink_name != "" and drink_name != "unknown"
+	var is_correct = drink.isValidIngredients(ingredients)
 	var customerManager = levelManager.find_child("CustomerQueueManager", true, false)
 
 	print("Ingredients in mug: ", ingredients)
-	print("Detected drink: ", drink_name)
+	print("Is drink correct: ", is_correct)
 
 	# Handle correct and incorrect recipes
 	if is_correct:
-		levelManager.add_correct_recipe()
+		levelManager.increment_correct_recipe()
 		levelManager.add_payment(2)
-		print("correct recipe: ", drink_name)
 		mugObject.stop_animation()
 		mugObject.get_node('Sprite2D').hframes = 1
 		mugObject.get_node('Sprite2D').vframes = 1
 		await get_tree().process_frame
-		mugObject.get_node("Sprite2D").texture = load('res://images/kitchen panel/mug sprites/bnb_' + drink_name + ".png")
+		mugObject.get_node("Sprite2D").texture = drink.image
 	else:
-		levelManager.add_incorrect_recipe()
+		levelManager.increment_incorrect_recipe()
 		print("incorrect recipe")
 
 	# Tell the customer manager that a drink was served
@@ -54,8 +55,3 @@ func check_recipe():
 
 	# Free the mug object after serving the customer
 	mugObject.queue_free()
-
-## @brief Called when a body enters the Area2D node on the counter.
-## @param body The body that entered the area. This is used to trigger the recipe check.
-func _on_area_2d_area_entered(body: Node2D) -> void:
-	check_recipe()

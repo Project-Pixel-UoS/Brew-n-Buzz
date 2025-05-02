@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=3 format=3 uid="uid://cthfpxtgxya7a"]
+
+[ext_resource type="Script" path="res://resources/drinks/Drink.gd" id="1_o6c16"]
+[ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://images/kitchen panel/mug sprites/bnb_espresso.png" id="1_pyp6w"]
+
+[resource]
+script = ExtResource("1_o6c16")
+name = "espresso"
+recipe = {
+"coffee": 0
+}
+image = ExtResource("1_pyp6w")
