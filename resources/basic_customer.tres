@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Customer" load_steps=3 format=3 uid="uid://byfovq6w6kbyh"]
-
-[ext_resource type="Script" path="res://resources/customer.gd" id="1_e6m8a"]
-[ext_resource type="Resource" uid="uid://bw2xq3s614tol" path="res://resources/basic_body.tres" id="1_v4oj3"]
-
-[resource]
-script = ExtResource("1_e6m8a")
-patience = 25.0
-body = ExtResource("1_v4oj3")

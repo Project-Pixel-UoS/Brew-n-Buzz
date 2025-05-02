@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbplx5axo07pj"]
+[gd_scene load_steps=3 format=3 uid="uid://dbplx5axo07pj"]
 
-[ext_resource type="Script" path="res://prototype/doll.gd" id="1_us47g"]
-[ext_resource type="Script" path="res://prototype/randomFeature.gd" id="2_aqjws"]
+[ext_resource type="Script" path="res://resources/customers/doll.gd" id="1_us47g"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7huyy"]
 
@@ -10,16 +9,12 @@ texture_filter = 1
 script = ExtResource("1_us47g")
 
 [node name="body" type="Sprite2D" parent="."]
-script = ExtResource("2_aqjws")
 
 [node name="head" type="Sprite2D" parent="."]
-script = ExtResource("2_aqjws")
 
 [node name="face" type="Sprite2D" parent="."]
-script = ExtResource("2_aqjws")
 
 [node name="hair" type="Sprite2D" parent="."]
-script = ExtResource("2_aqjws")
 
 [node name="full_body" type="Sprite2D" parent="."]
 texture = SubResource("CompressedTexture2D_7huyy")

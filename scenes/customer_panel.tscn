@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cwhb32383si0o" path="res://images/customer panel/Background.png" id="1_14pq6"]
 [ext_resource type="Texture2D" path="res://images/NPC sprites/Jasmine.png" id="1_54jym"]
-[ext_resource type="PackedScene" uid="uid://dbplx5axo07pj" path="res://prototype/doll.tscn" id="2_aajm0"]
+[ext_resource type="PackedScene" uid="uid://dbplx5axo07pj" path="res://resources/customers/doll.tscn" id="2_aajm0"]
 [ext_resource type="Texture2D" uid="uid://f46riariqn3d" path="res://images/customer panel/Counter (positioned for 100x180).png" id="3_hf0r0"]
 [ext_resource type="Texture2D" uid="uid://dgjhj680dtatb" path="res://images/customer panel/Shelf (positioned for 100x180).png" id="4_pfvda"]
 [ext_resource type="Texture2D" uid="uid://bpwjb63grcivj" path="res://images/customer panel/Leaves  (positioned for 100x180).png" id="5_0ijvf"]
@@ -13,10 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bai52bbgw5fyq" path="res://images/customer panel/bnb_customer_patience_emojis.png" id="9_w44ji"]
 [ext_resource type="Texture2D" uid="uid://cbfoqwwoska4x" path="res://images/customer panel/dialogue_box_9patch.png" id="12_gbijp"]
 [ext_resource type="Script" path="res://scripts/customer_queue_manager.gd" id="13_4m3qs"]
-[ext_resource type="Texture2D" uid="uid://th4n66o2surt" path="res://prototype/head1.png" id="14_k4xoa"]
-[ext_resource type="Texture2D" uid="uid://bk7qk78osl531" path="res://prototype/body2.png" id="15_d2ikh"]
-[ext_resource type="Texture2D" uid="uid://pnpu4oh4oshf" path="res://prototype/face2.png" id="16_x7tlw"]
-[ext_resource type="Texture2D" uid="uid://chcj8ar6mnyxv" path="res://prototype/hair1.png" id="17_6nefp"]
 [ext_resource type="Script" path="res://resources/drinks/Drink.gd" id="18_xde5o"]
 [ext_resource type="Resource" uid="uid://cthfpxtgxya7a" path="res://resources/drinks/espresso.tres" id="19_exsli"]
 [ext_resource type="Resource" uid="uid://df2bpg5715cbl" path="res://resources/drinks/americano.tres" id="20_okruu"]
@@ -91,6 +87,18 @@ _data = {
 "happy": SubResource("Animation_7f8f7"),
 "ok": SubResource("Animation_pmf3v")
 }
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g4xf6"]
+load_path = "res://.godot/imported/head1.png-8799a3ad4f287765e5bf5e0db33a5098.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_432jq"]
+load_path = "res://.godot/imported/body2.png-9ebb3fefa8f885f2adaa8d796de38639.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rv5en"]
+load_path = "res://.godot/imported/face2.png-1ddfb05515c4ca124b20576012a532f5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0i5b7"]
+load_path = "res://.godot/imported/hair1.png-cba4c0c42dc17790c3563f1b5a7028d7.ctex"
 
 [node name="CustomerPanel2" type="Control"]
 clip_contents = true
@@ -228,10 +236,10 @@ patch_margin_bottom = 6
 [node name="CustomerQueueManager" type="Node2D" parent="."]
 position = Vector2(30.6897, 105.862)
 script = ExtResource("13_4m3qs")
-possible_heads = Array[Texture2D]([ExtResource("14_k4xoa")])
-possible_bodies = Array[Texture2D]([ExtResource("15_d2ikh")])
-possible_faces = Array[Texture2D]([ExtResource("16_x7tlw")])
-possible_hairs = Array[Texture2D]([ExtResource("17_6nefp")])
+possible_heads = Array[Texture2D]([SubResource("CompressedTexture2D_g4xf6")])
+possible_bodies = Array[Texture2D]([SubResource("CompressedTexture2D_432jq")])
+possible_faces = Array[Texture2D]([SubResource("CompressedTexture2D_rv5en")])
+possible_hairs = Array[Texture2D]([SubResource("CompressedTexture2D_0i5b7")])
 possible_order_lines = Array[String](["No small talk. I'll take ART ORDER", "Hi!! Oh, my order? Hmm... Let's do ART ORDER", "Awful weather, truly. Anyway, I'll get ART ORDER", "Lovely weather we're having. I'd like ART ORDER, duck", "Hey bro, gimme ART ORDER. Make sure it's hot!", "One ORDER, please. Nice shirt, by the way!", "One ORDER. And just so you know, I'm in a rush", "What should I get this time? Oh, what about ART ORDER?", "You still got that ORDER? I'll get one of those", "I want to get a... What was it called again? ORDER!", "Just ART ORDER", "Business looks good! I'll get my regular ORDER", "I need caffeine, stat. ORDER. Now!", "It's gonna be a long day, bud. Gimme ART ORDER", "You don't recognise me? Ugh. Fine. My drink's ART ORDER", "I'm trying something new today - ORDER, please", "My buddy recommended this one - I'll get ART ORDER", "Ooo, so many options! I guess I'll get ART ORDER", "Can't remember what my friends wanted. I'll get ART ORDER though", "Busy day! I hope you still have ART ORDER", "You got ART ORDER ready for me? No? Chop chop, then!", "I heard the best drink to order here is ART ORDER", "Another ORDER today. Thanks!", "Okay, I think I'll finally try ART ORDER", "I'll take my regular ORDER. Cheers!"])
 drinks = Array[ExtResource("18_xde5o")]([ExtResource("19_exsli"), ExtResource("20_okruu")])
 
