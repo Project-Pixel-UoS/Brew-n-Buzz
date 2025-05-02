@@ -16,7 +16,7 @@ extends Node2D
 var customer_queue: Array = []
 var current_customer: Node = null
 var is_spawning: bool = false
-
+var queue_numbers
 
 @export var drinks: Array[Drink]
 

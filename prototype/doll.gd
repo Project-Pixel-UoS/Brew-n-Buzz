@@ -6,7 +6,7 @@ func set_customer():
 	update_customer_appearance()
 	say_dialogue()
 	
-func get_customer() -> Customer:
+func get_customer() -> CustomerData:
 	return customer
 	
 	
@@ -14,8 +14,6 @@ func update_customer_appearance():
 	if customer == null:
 		push_warning("Customer is null in Doll.gd!")
 		return
-	print("in")
-	print(customer.head_texture)
 	$head.texture = customer.head_texture
 	$body.texture = customer.body_texture
 	$face.texture = customer.face_texture

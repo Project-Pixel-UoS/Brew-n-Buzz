@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://prototype/randomFeature.gd" id="2_aqjws"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7huyy"]
-load_path = "res://.godot/imported/IMG_0048.png-2ba513977da5f9ba0c4320c86f996521.ctex"
 
 [node name="Doll" type="Node2D"]
 texture_filter = 1
