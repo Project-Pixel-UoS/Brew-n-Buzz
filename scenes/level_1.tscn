@@ -392,6 +392,7 @@ position = Vector2(755, 324)
 position = Vector2(950, 391)
 
 [node name="MilkJug" parent="Machines" instance=ExtResource("16_fnp02")]
+unique_name_in_owner = true
 z_index = -2
 position = Vector2(1340, 523)
 
