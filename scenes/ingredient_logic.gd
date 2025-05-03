@@ -11,7 +11,7 @@ var deselect_sound
 var offset: Vector2
 var respawnPos
 var is_inside_grinder = true
-
+var touchpos
 func _ready() -> void:
 	select_sound = load('res://audio/sfx/pick_up_select.wav')
 	deselect_sound = load('res://audio/sfx/put_down_deselect.wav')
@@ -23,7 +23,14 @@ func _process(delta: float) -> void:
 	for child in get_tree().root.get_children():
 		if child.name == ("Mug"):
 			mugObject = child
-
+	if being_dragged:
+		global_position = touchpos
+		
+func _unhandled_input(event):
+	if being_dragged and event is InputEventScreenTouch and not event.pressed:
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "global_position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
+		being_dragged = false
 func set_respawn_position():
 	respawnPos = Vector2(self.position.x, self.position.y)
 	
@@ -71,6 +78,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			offset = global_position - event.position
 			GameManager.is_dragging = true 
 			being_dragged = true
+			touchpos = event.position
 			AudioManager.set_stream(select_sound)
 			AudioManager.play()
 		elif not event.pressed: 
@@ -101,4 +109,5 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					
 								
 	elif event is InputEventScreenDrag and being_dragged:
-		global_position = event.position - offset
+		touchpos = event.position
+		#global_position = event.position - offset

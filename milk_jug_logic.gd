@@ -10,11 +10,22 @@ var initialPos: Vector2
 var is_inside_bin = false
 var respawnPos
 var being_dragged = false
+var touchpos
 
 func _ready() -> void:
 	respawnPos = global_position
 	initialPos = global_position
 	
+func _unhandled_input(event):
+	if being_dragged and event is InputEventScreenTouch and not event.pressed:
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+		being_dragged = false
+		
+func _process(delta: float) -> void:
+	if being_dragged:
+		global_position = touchpos
+		
 func add_ingredient(name):
 	has_milk = true
 	print("added milk to milk jug")
@@ -53,10 +64,10 @@ func _on_area_2d_area_exited(body: Node2D) -> void:
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed:
-			offset = global_position - event.position
 			GameManager.is_dragging = true
 			scale = Vector2(1.05,1.05)  
 			being_dragged = true
+			touchpos = event.position
 		elif not event.pressed: 
 			being_dragged = false
 			GameManager.is_dragging = false
@@ -93,4 +104,4 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 								
 	elif event is InputEventScreenDrag and being_dragged:
-		global_position = event.position - offset
+		touchpos = event.position
