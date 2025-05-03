@@ -1,6 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbplx5axo07pj"]
+[gd_scene load_steps=10 format=3 uid="uid://dbplx5axo07pj"]
 
 [ext_resource type="Script" path="res://resources/customers/doll.gd" id="1_mqid1"]
+[ext_resource type="Texture2D" uid="uid://brkv3vu5qtvkj" path="res://images/customer sprites/NPC sprites/Hoodie 1.png" id="2_u45ti"]
+[ext_resource type="Texture2D" uid="uid://djefuuw4pj2n0" path="res://images/customer sprites/NPC sprites/Head 2.png" id="3_ku06t"]
+[ext_resource type="Texture2D" uid="uid://qnwqj7r3v52n" path="res://images/customer sprites/NPC sprites/Face 2.png" id="4_abjyq"]
+[ext_resource type="Texture2D" uid="uid://dnn07c44qf1xa" path="res://images/customer sprites/NPC sprites/Hair 3.png" id="5_whjkm"]
 
 [sub_resource type="Animation" id="Animation_trpf1"]
 resource_name = "idle"
@@ -61,12 +65,16 @@ texture_filter = 1
 script = ExtResource("1_mqid1")
 
 [node name="body" type="Sprite2D" parent="."]
+texture = ExtResource("2_u45ti")
 
 [node name="head" type="Sprite2D" parent="."]
+texture = ExtResource("3_ku06t")
 
 [node name="face" type="Sprite2D" parent="."]
+texture = ExtResource("4_abjyq")
 
 [node name="hair" type="Sprite2D" parent="."]
+texture = ExtResource("5_whjkm")
 
 [node name="full_body" type="Sprite2D" parent="."]
 position = Vector2(-19, 18)

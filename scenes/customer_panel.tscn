@@ -125,7 +125,7 @@ centered = false
 
 [node name="Doll" parent="." instance=ExtResource("2_aajm0")]
 unique_name_in_owner = true
-position = Vector2(55, 90)
+position = Vector2(55, 95)
 
 [node name="BackgroundElements" type="Node2D" parent="."]
 texture_filter = 1
