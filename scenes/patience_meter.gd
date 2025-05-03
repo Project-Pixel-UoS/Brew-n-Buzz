@@ -11,12 +11,12 @@ var index = 1
 var out_of_patience = false
 var parent_manager: Node = null
 
-func start_meter(manager: Node):
+func start_meter(manager: Node, patience_value):
 	parent_manager = manager
 	index = 1
 	out_of_patience = false
 	animationPlayer.play(emotions[0])
-	timer.wait_time = 5  # Adjust timing as needed
+	timer.wait_time = patience_value / 3.0
 	timer.start()
 
 func _on_timer_timeout() -> void:
