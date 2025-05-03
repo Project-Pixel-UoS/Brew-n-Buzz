@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8ootx5sed62j"
-path="res://.godot/imported/Sarah.png-f8de41a6bd1f45f57938a277a6d7b0c3.ctex"
+uid="uid://b8m3var2x0iwq"
+path="res://.godot/imported/Sarah Idle Spritesheet.png-e6631e26e1daa19cfc9afa304f7fabb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/customer sprites/VIPs/Sarah.png"
-dest_files=["res://.godot/imported/Sarah.png-f8de41a6bd1f45f57938a277a6d7b0c3.ctex"]
+source_file="res://images/customer sprites/VIPs/idle sprites/Sarah Idle Spritesheet.png"
+dest_files=["res://.godot/imported/Sarah Idle Spritesheet.png-e6631e26e1daa19cfc9afa304f7fabb6.ctex"]
 
 [params]
 

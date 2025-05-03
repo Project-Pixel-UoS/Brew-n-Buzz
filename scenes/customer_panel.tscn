@@ -25,8 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://b2g6uaxvukl05" path="res://images/customer sprites/NPC sprites/Face 3.png" id="22_ml340"]
 [ext_resource type="Texture2D" uid="uid://b3ksb8i1xdax4" path="res://images/customer sprites/NPC sprites/Hair 1.png" id="23_lhmik"]
 [ext_resource type="Texture2D" uid="uid://2h7yhaw6r50i" path="res://images/customer sprites/NPC sprites/Hair 2.png" id="24_a4ul4"]
+[ext_resource type="Resource" uid="uid://dxqvhldqgq0x5" path="res://resources/customers/sarah.tres" id="25_bdbav"]
 [ext_resource type="Texture2D" uid="uid://dnn07c44qf1xa" path="res://images/customer sprites/NPC sprites/Hair 3.png" id="25_qj4l0"]
-[ext_resource type="Texture2D" uid="uid://8ootx5sed62j" path="res://images/customer sprites/VIPs/Sarah.png" id="26_mw607"]
 [ext_resource type="Resource" uid="uid://c15e3cvb5n81l" path="res://resources/customers/chef_bruno.tres" id="27_knri8"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fqnyi"]
@@ -238,7 +238,7 @@ possible_heads = Array[Texture2D]([ExtResource("14_xs3i7"), ExtResource("16_nsqm
 possible_bodies = Array[Texture2D]([ExtResource("17_8br4y"), ExtResource("18_f50xm"), ExtResource("19_4i6on")])
 possible_faces = Array[Texture2D]([ExtResource("20_agls0"), ExtResource("22_ml340"), ExtResource("21_1syul")])
 possible_hairs = Array[Texture2D]([ExtResource("23_lhmik"), ExtResource("24_a4ul4"), ExtResource("25_qj4l0")])
-vip_customers = Array[Resource]([ExtResource("26_mw607")])
+vip_customers = Array[Resource]([ExtResource("25_bdbav")])
 named_customers = Array[Resource]([ExtResource("27_knri8")])
 possible_order_lines = Array[String](["No small talk. I'll take ART ORDER", "Hi!! Oh, my order? Hmm... Let's do ART ORDER", "Awful weather, truly. Anyway, I'll get ART ORDER", "Lovely weather we're having. I'd like ART ORDER, duck", "Hey bro, gimme ART ORDER. Make sure it's hot!", "One ORDER, please. Nice shirt, by the way!", "One ORDER. And just so you know, I'm in a rush", "What should I get this time? Oh, what about ART ORDER?", "You still got that ORDER? I'll get one of those", "I want to get a... What was it called again? ORDER!", "Just ART ORDER", "Business looks good! I'll get my regular ORDER", "I need caffeine, stat. ORDER. Now!", "It's gonna be a long day, bud. Gimme ART ORDER", "You don't recognise me? Ugh. Fine. My drink's ART ORDER", "I'm trying something new today - ORDER, please", "My buddy recommended this one - I'll get ART ORDER", "Ooo, so many options! I guess I'll get ART ORDER", "Can't remember what my friends wanted. I'll get ART ORDER though", "Busy day! I hope you still have ART ORDER", "You got ART ORDER ready for me? No? Chop chop, then!", "I heard the best drink to order here is ART ORDER", "Another ORDER today. Thanks!", "Okay, I think I'll finally try ART ORDER", "I'll take my regular ORDER. Cheers!"])
 drinks = Array[Resource]([ExtResource("19_exsli"), ExtResource("20_okruu")])

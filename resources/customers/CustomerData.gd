@@ -8,6 +8,7 @@ extends Resource
 @export var body_texture: Texture2D
 @export var face_texture: Texture2D
 @export var hair_texture: Texture2D
-@export var fullbody_texture: Texture2D
+@export var idle_body_texture: Texture2D
+@export var special_body_texture: Texture2D
 @export var tip_value: int
 @export var order_line: String

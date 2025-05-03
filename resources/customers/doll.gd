@@ -5,6 +5,11 @@ extends Node2D
 func set_customer():
 	update_customer_appearance()
 	say_dialogue()
+	if customer.idle_body_texture == null:
+		pass
+		#do NPC lerping animation
+	else:
+		%AnimationPlayer.play('special')
 	
 func get_customer() -> CustomerData:
 	return customer
@@ -18,7 +23,7 @@ func update_customer_appearance():
 	$body.texture = customer.body_texture
 	$face.texture = customer.face_texture
 	$hair.texture = customer.hair_texture
-	$full_body.texture = customer.fullbody_texture
+	$full_body.texture = customer.special_body_texture
 	
 func say_dialogue():
 	# format dialogue
