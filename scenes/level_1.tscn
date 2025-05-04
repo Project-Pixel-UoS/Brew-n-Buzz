@@ -403,13 +403,13 @@ position = Vector2(1340, 523)
 unique_name_in_owner = true
 position = Vector2(1541, 626)
 
-[node name="GroupHandle" parent="Machines" instance=ExtResource("23_61ggs")]
-unique_name_in_owner = true
-position = Vector2(1492, 721)
-
 [node name="CoffeeMachine" parent="Machines" instance=ExtResource("24_ykd68")]
 unique_name_in_owner = true
 position = Vector2(755, 324)
+
+[node name="GroupHandle" parent="Machines" instance=ExtResource("23_61ggs")]
+unique_name_in_owner = true
+position = Vector2(1492, 721)
 
 [node name="SteamWand" parent="Machines" instance=ExtResource("16_4e4bv")]
 position = Vector2(950, 391)

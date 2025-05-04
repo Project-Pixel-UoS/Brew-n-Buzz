@@ -96,6 +96,10 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 						frothed_milk = true
 						initialPos = body_ref.global_position
 				elif !steamed_milk:
+					print(body_ref.get_parent().name)
+					print(body_ref.global_position)
+					tween.tween_property(self, "global_position",Vector2(1149,472), 0.2).set_ease(Tween.EASE_OUT)
+					await tween.finished
 					body_ref.get_parent().steam_milk(self)
 					initialPos = body_ref.global_position
 			elif is_inside_bin and body_ref:

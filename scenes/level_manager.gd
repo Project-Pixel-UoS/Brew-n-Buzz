@@ -4,7 +4,7 @@ extends Node
 @onready var endOfLevel = %end_of_level_layer
 var correct_recipes = 0
 var incorrect_recipes = 0
-var inactive_objects = ["Ingredients/Seasonal", "Machines/Grinder", "Machines/MilkJug", "Ingredients/Coffee", "Ingredients/Milk"]
+var inactive_objects = ["Ingredients/Seasonal", "Machines/Grinder"] #"Machines/MilkJug", "Ingredients/Coffee", "Ingredients/Milk"
 var shader
 var level_money = 0
 

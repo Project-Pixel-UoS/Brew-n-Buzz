@@ -49,7 +49,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if is_inside_valid_drop and body_ref and has_ground_coffee:
 				print("group handle good !")
 				if body_ref.get_parent().name == "CoffeeMachine":
-					tween.tween_property(self, "global_position", Vector2(730,377), 0.2).set_ease(Tween.EASE_OUT)
+					var new_position = Vector2(695,360)
+					print(new_position)
+					tween.tween_property(self, "global_position", new_position, 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished 
 					grinder.remove_coffee()
 					coffeeMachine.is_group_handle_in_machine(true)
