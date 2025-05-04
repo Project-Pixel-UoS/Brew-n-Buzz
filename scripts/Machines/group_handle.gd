@@ -54,9 +54,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					grinder.remove_coffee()
 					coffeeMachine.is_group_handle_in_machine(true)
 			elif is_inside_bin and body_ref:
-				print("hi2")
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-				await tween.finished
 				queue_free()  
 				replenish_group_handle()
 			else:

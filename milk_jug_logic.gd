@@ -99,8 +99,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					body_ref.get_parent().steam_milk(self)
 					initialPos = body_ref.global_position
 			elif is_inside_bin and body_ref:
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-				await tween.finished
 				queue_free()  
 				replenish_milk_jug()
 			else:

@@ -95,15 +95,10 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					body_ref.get_parent().fill_grinder()
 				else:
 					body_ref.get_parent().add_ingredient(name)
-				print("hi1")
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-				await tween.finished
 				queue_free()
 				replenish_ingredient(name)
 			elif is_inside_bin and body_ref:
-				print("hi2")
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-				queue_free()  
+				queue_free() 
 				replenish_ingredient(name)
 			else:
 				tween.tween_property(self, "position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
@@ -111,4 +106,3 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 								
 	elif event is InputEventScreenDrag and being_dragged:
 		touchpos = event.position
-		#global_position = event.position - offset
