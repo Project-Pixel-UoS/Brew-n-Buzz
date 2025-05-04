@@ -39,7 +39,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			scale = Vector2(1.05,1.05)  
 			being_dragged = true
 			touchpos = event.position
-		elif not event.pressed: 
+			z_index = 20
+		elif not event.pressed:
 			being_dragged = false
 			GameManager.is_dragging = false
 			scale = Vector2(1,1)
@@ -61,7 +62,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			else:
 				print("hi3")
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
-								
+			z_index = 0				
 	elif event is InputEventScreenDrag and being_dragged:
 		touchpos = event.position
 		

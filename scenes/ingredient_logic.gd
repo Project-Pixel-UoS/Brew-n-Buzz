@@ -79,9 +79,10 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			GameManager.is_dragging = true 
 			being_dragged = true
 			touchpos = event.position
+			z_index = 20
 			AudioManager.set_stream(select_sound)
 			AudioManager.play()
-		elif not event.pressed: 
+		elif not event.pressed:
 			being_dragged = false
 			GameManager.is_dragging = false
 			AudioManager.set_stream(deselect_sound)
@@ -106,7 +107,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				replenish_ingredient(name)
 			else:
 				tween.tween_property(self, "position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
-					
+			z_index = 0	
 								
 	elif event is InputEventScreenDrag and being_dragged:
 		touchpos = event.position

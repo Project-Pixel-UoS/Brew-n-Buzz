@@ -68,6 +68,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			scale = Vector2(1.05,1.05)  
 			being_dragged = true
 			touchpos = event.position
+			z_index = 2
 		elif not event.pressed: 
 			being_dragged = false
 			GameManager.is_dragging = false
@@ -89,9 +90,11 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					print("Dropping into object at position: ", body_ref.global_position)
 					tween.tween_property(self, "global_position",body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished
-					body_ref.get_parent().froth_milk()
-					frothed_milk = true
-					initialPos = body_ref.global_position
+					z_index = 0
+					if !frothed_milk:
+						body_ref.get_parent().froth_milk()
+						frothed_milk = true
+						initialPos = body_ref.global_position
 				elif !steamed_milk:
 					body_ref.get_parent().steam_milk(self)
 					initialPos = body_ref.global_position
