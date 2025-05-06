@@ -47,12 +47,15 @@ func create_NPC_data():
 	new_customer_data.order_line = possible_order_lines.pick_random()
 	new_customer_data.tip_value = 0
 	return new_customer_data
+	
 func spawn_next_customer():
 	if is_spawning or customer_queue.is_empty():
 		return
 	
 	is_spawning = true
 	var next = customer_queue.pop_front()
+	%PatienceMeter.get_node('Sprite2D').visible = true
+	%DialogueLabel.visible = true
 	%Doll.customer = next 
 	%PatienceMeter.connect("customer_angry", Callable(self, "_on_customer_angry"))
 	%PatienceMeter.call_deferred("start_meter", self, next.patience)
@@ -69,14 +72,24 @@ func customer_served(correct: bool):
 		%PatienceMeter.timer.stop()
 		%PatienceMeter.out_of_patience = true
 		%PatienceMeter.animationPlayer.play("angry")
-		await get_tree().create_timer(0.5).timeout
-
-	%Doll.react_to_drink(correct)
-	await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.0).timeout
+	else:
+		react_to_drink(correct)
+		await get_tree().create_timer(1.0).timeout
 	remove_customer()
 
 func remove_customer():
-	%Doll.reset_sprites()
+	##TODO update with final line!
+	%PatienceMeter.get_node('Sprite2D').visible = false
+	%DialogueLabel.visible = false
+	%Doll.exit_queue()
+	
 	customer = null
 	await get_tree().create_timer(1.0).timeout
 	spawn_next_customer()
+	
+func react_to_drink(correct: bool):
+	if correct:
+		%PatienceMeter.animationPlayer.play("happy")
+	else:
+		%PatienceMeter.animationPlayer.play("angry")

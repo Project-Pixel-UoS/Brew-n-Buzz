@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbplx5axo07pj"]
+[gd_scene load_steps=10 format=3 uid="uid://dbplx5axo07pj"]
 
 [ext_resource type="Script" path="res://resources/customers/doll.gd" id="1_mqid1"]
-[ext_resource type="Texture2D" uid="uid://btfm7d2tcffxw" path="res://images/customer sprites/VIPs/special sprites/Sarah Special Spritesheet.png" id="2_tf1lm"]
+[ext_resource type="Texture2D" uid="uid://brkv3vu5qtvkj" path="res://images/customer sprites/NPC sprites/Hoodie 1.png" id="2_de3tw"]
+[ext_resource type="Texture2D" uid="uid://bfrgnfd3ffuan" path="res://images/customer sprites/NPC sprites/Head 1.png" id="3_anrew"]
+[ext_resource type="Texture2D" uid="uid://1eycxi4bu2r5" path="res://images/customer sprites/NPC sprites/Face 1.png" id="4_bwu7p"]
+[ext_resource type="Texture2D" uid="uid://b3ksb8i1xdax4" path="res://images/customer sprites/NPC sprites/Hair 1.png" id="5_ykt2f"]
 
 [sub_resource type="Animation" id="Animation_ou6rw"]
 length = 0.001
@@ -62,16 +65,19 @@ texture_filter = 1
 script = ExtResource("1_mqid1")
 
 [node name="body" type="Sprite2D" parent="."]
+texture = ExtResource("2_de3tw")
 
 [node name="head" type="Sprite2D" parent="."]
+texture = ExtResource("3_anrew")
 
 [node name="face" type="Sprite2D" parent="."]
+texture = ExtResource("4_bwu7p")
 
 [node name="hair" type="Sprite2D" parent="."]
+texture = ExtResource("5_ykt2f")
 
 [node name="full_body" type="Sprite2D" parent="."]
 position = Vector2(-19, 17)
-texture = ExtResource("2_tf1lm")
 hframes = 4
 vframes = 3
 

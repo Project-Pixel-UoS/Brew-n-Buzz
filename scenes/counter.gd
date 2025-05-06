@@ -54,4 +54,4 @@ func _on_area_2d_area_entered(body: Node2D) -> void:
 		print("Customer manager not found!")
 
 	# Free the mug object after serving the customer
-	mugObject.queue_free()
+	#mugObject.queue_free()
