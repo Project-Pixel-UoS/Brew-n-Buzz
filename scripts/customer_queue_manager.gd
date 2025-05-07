@@ -55,13 +55,16 @@ func spawn_next_customer():
 	is_spawning = true
 	%Doll.reset_pos()
 	var next = customer_queue.pop_front()
-	%PatienceMeter.get_node('Sprite2D').visible = true
-	%DialogueLabel.visible = true
 	%Doll.customer = next 
 	%PatienceMeter.connect("customer_angry", Callable(self, "_on_customer_angry"))
 	%PatienceMeter.call_deferred("start_meter", self, next.patience)
 	is_spawning = false
-	%Doll.set_customer()
+	%Doll.update_customer_appearance()
+	await %Doll.enter_queue()
+	%PatienceMeter.get_node('Sprite2D').visible = true
+	%DialogueLabel.visible = true
+	%Doll.say_dialogue()
+	
 
 func _on_customer_angry():
 	%Doll.react_to_drink(false)
@@ -84,9 +87,7 @@ func remove_customer():
 	%PatienceMeter.get_node('Sprite2D').visible = false
 	%DialogueLabel.visible = false
 	await %Doll.exit_queue()
-	print('resp')
 	customer = null
-	#await get_tree().create_timer(1.0).timeout
 	spawn_next_customer()
 	
 func react_to_drink(correct: bool):
