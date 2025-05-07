@@ -73,7 +73,7 @@ func spawn_next_customer():
 	
 
 func _on_customer_angry():
-	%Doll.react_to_drink(false)
+	react_to_drink(false)
 	await get_tree().create_timer(1.0).timeout
 	remove_customer()
 
