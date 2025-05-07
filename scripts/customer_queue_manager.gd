@@ -81,11 +81,8 @@ func customer_served(correct: bool):
 	if not correct:
 		%PatienceMeter.timer.stop()
 		%PatienceMeter.out_of_patience = true
-		%PatienceMeter.animationPlayer.play("angry")
-		await get_tree().create_timer(1.0).timeout
-	else:
-		react_to_drink(correct)
-		await get_tree().create_timer(1.0).timeout
+	react_to_drink(correct)
+	await get_tree().create_timer(1.0).timeout
 	customer_ready = false
 	remove_customer()
 
@@ -98,7 +95,10 @@ func remove_customer():
 	spawn_next_customer()
 	
 func react_to_drink(correct: bool):
+	#TODO this will be updated with actual lines!
 	if correct:
 		%PatienceMeter.animationPlayer.play("happy")
+		%DialogueLabel.text = 'CORRECT!'
 	else:
 		%PatienceMeter.animationPlayer.play("angry")
+		%DialogueLabel.text = 'WRONG!'

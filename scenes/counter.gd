@@ -17,7 +17,6 @@ func _ready() -> void:
 func _on_area_2d_area_entered(body: Node2D) -> void:
 	print(customer_panel.get_node('CustomerQueueManager').is_customer_ready())
 	if !body.is_in_group('counter') or !customer_panel.get_node('CustomerQueueManager').is_customer_ready():
-		print('h')
 		return
 	# Get the ingredients of the drink and determine its name
 	# Find the mug object in the parent node
