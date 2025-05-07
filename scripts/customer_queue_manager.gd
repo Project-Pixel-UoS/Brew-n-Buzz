@@ -17,6 +17,7 @@ var customer_queue: Array = []
 var current_customer: Node = null
 var is_spawning: bool = false
 var queue_numbers
+var customer_ready
 
 @export var drinks: Array[Resource]
 
@@ -24,7 +25,11 @@ var queue_numbers
 func get_random_drink() -> Drink:
 	return drinks[randi() % drinks.size()]
 
+func is_customer_ready():
+	return customer_ready
+	
 func _ready():
+	customer_ready = false
 	queue_numbers = GameManager.get_level_queue(1)
 	var vip_named_count = 0
 	for i in range(0,queue_numbers[0]):
@@ -64,6 +69,7 @@ func spawn_next_customer():
 	%PatienceMeter.get_node('Sprite2D').visible = true
 	%DialogueLabel.visible = true
 	%Doll.say_dialogue()
+	customer_ready = true
 	
 
 func _on_customer_angry():
@@ -80,6 +86,7 @@ func customer_served(correct: bool):
 	else:
 		react_to_drink(correct)
 		await get_tree().create_timer(1.0).timeout
+	customer_ready = false
 	remove_customer()
 
 func remove_customer():

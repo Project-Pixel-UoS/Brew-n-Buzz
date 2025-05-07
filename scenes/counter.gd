@@ -3,6 +3,7 @@ extends Node2D
 var mugObject: Node2D
 @onready var levelManager: Node2D = get_tree().root.get_node("Level1")
 @onready var counter = %Counter
+@onready var customer_panel = %CustomerPanel
 
 ## @brief Called when the scene is ready. Initializes the counter and mug object.
 func _ready() -> void:
@@ -14,16 +15,18 @@ func _ready() -> void:
 ## @brief Compares the ingredients in the mug with the correct recipe, and determines whether the drink is correct.
 ## @details This function is called when the mug is placed on the counter. It checks the drink ingredients and notifies the customer manager.
 func _on_area_2d_area_entered(body: Node2D) -> void:
+	print(customer_panel.get_node('CustomerQueueManager').is_customer_ready())
+	if !body.is_in_group('counter') or !customer_panel.get_node('CustomerQueueManager').is_customer_ready():
+		print('h')
+		return
 	# Get the ingredients of the drink and determine its name
-	print("Mug landed on counter")
 	# Find the mug object in the parent node
 	var ingredients: Array[String]
 	for child in get_parent().get_children():
 		if child.name.begins_with("Mug"):
+			mugObject = child
 			ingredients = child.get_ingredients()
 			
-	var customer_panel = %CustomerPanel
-	print(customer_panel)
 	var drink = customer_panel.get_doll().get_customer().drink
 	print("Created drink:", drink.name)
 
@@ -52,6 +55,6 @@ func _on_area_2d_area_entered(body: Node2D) -> void:
 		customerManager.customer_served(is_correct)
 	else:
 		print("Customer manager not found!")
-
+	await get_tree().create_timer(1.0).timeout
 	# Free the mug object after serving the customer
-	#mugObject.queue_free()
+	mugObject.queue_free()
