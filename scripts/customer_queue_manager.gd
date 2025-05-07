@@ -53,6 +53,7 @@ func spawn_next_customer():
 		return
 	
 	is_spawning = true
+	%Doll.reset_pos()
 	var next = customer_queue.pop_front()
 	%PatienceMeter.get_node('Sprite2D').visible = true
 	%DialogueLabel.visible = true
@@ -82,10 +83,10 @@ func remove_customer():
 	##TODO update with final line!
 	%PatienceMeter.get_node('Sprite2D').visible = false
 	%DialogueLabel.visible = false
-	%Doll.exit_queue()
-	
+	await %Doll.exit_queue()
+	print('resp')
 	customer = null
-	await get_tree().create_timer(1.0).timeout
+	#await get_tree().create_timer(1.0).timeout
 	spawn_next_customer()
 	
 func react_to_drink(correct: bool):

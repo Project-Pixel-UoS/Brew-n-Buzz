@@ -6,7 +6,14 @@ var new_position
 var finished_animation = false
 var leaving_queue = false
 var end_position 
+var reset_position
 
+func _ready() -> void:
+	reset_position = Vector2(-20,90)
+	
+func reset_pos():
+	self.position = reset_position
+	
 func set_customer():
 	update_customer_appearance()
 	old_position = self.position
@@ -18,6 +25,15 @@ func set_customer():
 	else:
 		%AnimationPlayer.play('special')
 		
+func enter_animation():
+	var tween = get_tree().create_tween()
+	old_position = self.position
+	new_position = Vector2(old_position.x+10, old_position.y+2)
+	end_position = Vector2(old_position.x+20, old_position.y)
+	tween.tween_property(self, "position", new_position, 0.3).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", end_position, 0.3).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	
 func exit_animation():
 	var tween = get_tree().create_tween()
 	old_position = self.position
@@ -29,9 +45,8 @@ func exit_animation():
 
 func NPC_animation():
 	var tween = get_tree().create_tween()
-	if leaving_queue:
-		old_position = self.position
-		new_position = Vector2(old_position.x, old_position.y+2)
+	old_position = self.position
+	new_position = Vector2(old_position.x, old_position.y+2)
 	tween.tween_property(self, "position", new_position, 1).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "position", old_position, 1).set_ease(Tween.EASE_OUT)
 	await tween.finished
@@ -60,7 +75,9 @@ func say_dialogue():
 	order_line = order_line.replace("ART", article)
 	# set text
 	%DialogueLabel.text = order_line
-	
+func enter_queue():
+	while old_position.x < 150:
+		await exit_animation()
 func exit_queue():
 	leaving_queue = true
 	while old_position.x < 150:

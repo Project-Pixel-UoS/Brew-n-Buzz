@@ -3,7 +3,7 @@ extends Node
 @onready var levelManager: Node2D = get_tree().root.get_node("Level1")
 var total_money = 0
 var upgrades = [['Grinder', 0]]
-var level_queue = [[1,0,0]]
+var level_queue = [[2,0,0]]
 ## @brief for when an object is in a 'dragging state'
 var is_dragging = false
 
