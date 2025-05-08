@@ -4,7 +4,6 @@ var draggable = false
 var is_inside_valid_drop = false
 var is_inside_bin = false
 var body_ref
-var initialPos: Vector2 
 var being_dragged = false
 var mugObject: Node2D
 var select_sound
@@ -12,21 +11,29 @@ var deselect_sound
 var offset: Vector2
 var respawnPos
 var is_inside_grinder = true
-
+var touchpos
 func _ready() -> void:
 	select_sound = load('res://audio/sfx/pick_up_select.wav')
 	deselect_sound = load('res://audio/sfx/put_down_deselect.wav')
-	initialPos = global_position
 	respawnPos = global_position
 	Input.set_use_accumulated_input(false)
 
 func _process(delta: float) -> void:
 	var tween = get_tree().create_tween()
-	for child in get_parent().get_children():
-		if child.name.begins_with("Mug"):
+	for child in get_tree().root.get_children():
+		if child.name == ("Mug"):
 			mugObject = child
-
+	if being_dragged:
+		global_position = touchpos
 		
+func _unhandled_input(event):
+	if being_dragged and event is InputEventScreenTouch and not event.pressed:
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "global_position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
+		being_dragged = false
+func set_respawn_position():
+	respawnPos = Vector2(self.position.x, self.position.y)
+	
 func check_valid_drop(body: Node2D) -> bool:
 	if name.contains('Coffee'):
 		if body.is_in_group('grinder'):
@@ -56,9 +63,14 @@ func _on_area_2d_area_exited(body: Node2D) -> void:
 func replenish_ingredient(ingredient_name) -> void:
 	var ingredient_scene = load(scene_file_path) 
 	var new_ingredient = ingredient_scene.instantiate()
-	new_ingredient.global_position = respawnPos
 	get_parent().add_child(new_ingredient)
 	new_ingredient.name = ingredient_name
+	if new_ingredient.get_parent().name == 'TeaDrawer':
+		new_ingredient.position = respawnPos
+		new_ingredient.set_respawn_position()
+	else:
+		new_ingredient.global_position = respawnPos
+		new_ingredient.set_respawn_position()
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventScreenTouch:
@@ -66,9 +78,11 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			offset = global_position - event.position
 			GameManager.is_dragging = true 
 			being_dragged = true
+			touchpos = event.position
+			z_index = 20
 			AudioManager.set_stream(select_sound)
 			AudioManager.play()
-		elif not event.pressed: 
+		elif not event.pressed:
 			being_dragged = false
 			GameManager.is_dragging = false
 			AudioManager.set_stream(deselect_sound)
@@ -81,20 +95,14 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					body_ref.get_parent().fill_grinder()
 				else:
 					body_ref.get_parent().add_ingredient(name)
-				print("hi1")
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-				await tween.finished
 				queue_free()
 				replenish_ingredient(name)
-				initialPos = body_ref.global_position
 			elif is_inside_bin and body_ref:
-				print("hi2")
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-				queue_free()  
+				queue_free() 
 				replenish_ingredient(name)
 			else:
-				tween.tween_property(self, "global_position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
-					
+				tween.tween_property(self, "position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
+			z_index = 0	
 								
 	elif event is InputEventScreenDrag and being_dragged:
-		global_position = event.position - offset
+		touchpos = event.position

@@ -228,10 +228,18 @@ offset_bottom = 160.0
 
 [node name="ExitLevelButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 791.0
-offset_top = 775.0
-offset_right = 867.0
-offset_bottom = 856.0
+offset_left = 480.0
+offset_top = 135.0
+offset_right = 1440.0
+offset_bottom = 945.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wclvn")
+
+[node name="GrinderButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 570.0
+offset_top = 312.0
+offset_right = 730.0
+offset_bottom = 364.0
 texture_normal = ExtResource("1_r2p63")
 stretch_mode = 0
 
@@ -242,6 +250,14 @@ offset_top = 768.0
 offset_right = 1137.0
 offset_bottom = 856.0
 texture_normal = ExtResource("13_o5hg1")
+
+[node name="SteamerButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 858.0
+offset_top = 486.0
+offset_right = 1018.0
+offset_bottom = 538.0
+texture_normal = ExtResource("1_r2p63")
 stretch_mode = 0
 
 [node name="ReplayLevelButton" type="TextureButton" parent="."]
@@ -251,6 +267,14 @@ offset_top = 772.0
 offset_right = 1003.0
 offset_bottom = 860.0
 texture_normal = ExtResource("13_o5hg1")
+
+[node name="FrotherButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1126.0
+offset_top = 367.0
+offset_right = 1286.0
+offset_bottom = 419.0
+texture_normal = ExtResource("1_r2p63")
 stretch_mode = 0
 
 [connection signal="pressed" from="ExitLevelButton" to="." method="_on_exit_level_button_pressed"]

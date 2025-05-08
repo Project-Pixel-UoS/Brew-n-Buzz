@@ -1,25 +1,31 @@
+# patience_meter.gd
 extends Node2D
+
+signal customer_angry
 
 @onready var animationPlayer = %AnimationPlayer
 @onready var timer = %Timer
-var out_of_patience = false
-var emotions = ['happy','ok','angry']
+
+var emotions = ['happy', 'ok', 'angry']
 var index = 1
+var out_of_patience = false
+var parent_manager: Node = null
 
-func _ready() -> void:
-	timer.wait_time = 5
+func start_meter(manager: Node, patience_value):
+	parent_manager = manager
+	index = 1
+	out_of_patience = false
+	animationPlayer.play(emotions[0])
+	timer.wait_time = patience_value / 3.0
 	timer.start()
-
-func get_out_of_patience():
-	return out_of_patience
 
 func _on_timer_timeout() -> void:
 	if index > 2:
-		print("out of patience")
 		out_of_patience = true
+		animationPlayer.play("angry")
 		timer.stop()
-		# customer will leave
+		emit_signal("customer_angry")
 	else:
 		animationPlayer.play(emotions[index])
-		index+= 1
+		index += 1
 		timer.start()

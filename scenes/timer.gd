@@ -1,10 +1,10 @@
 extends Timer
 @onready var timer: Timer = %Timer
-@onready var time_remaining: Label = %TimeRemaining
+@onready var time_remaining: RichTextLabel = %TimeRemaining
 
 var game_time_scale = 2 #Every real second is two in-game
 var round_time_hours = 1 #How many hours is a shift from 12pm
-var game_time_seconds = 2#round_time_hours * 60
+var game_time_seconds = round_time_hours * 60
 var finished = false 
 
 func out_of_time():
@@ -12,7 +12,7 @@ func out_of_time():
 	
 func _ready() -> void:
 	timer.wait_time = 1/float(game_time_scale)
-	time_remaining.text= "12:00"
+	time_remaining.text= "[center]12:00"
 	timer.start()
 
 func _format_time()-> String:
@@ -26,7 +26,7 @@ func _format_time()-> String:
 			times[1] = "0" + str(int(times[1]) + 1)
 		else:
 			times[1] = str(int(times[1]) + 1)
-	return times[0] + ":" + times[1]
+	return "[center]" + times[0] + ":" + times[1]
 
 func _on_timeout() -> void:
 	game_time_seconds -= 1

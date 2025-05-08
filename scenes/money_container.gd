@@ -7,4 +7,4 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:
-	money_label.text = str(levelManager.get_level_money())
+	money_label.text = '[center]' + str(levelManager.get_level_money())

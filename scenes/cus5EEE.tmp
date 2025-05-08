@@ -1,0 +1,274 @@
+[gd_scene load_steps=27 format=3 uid="uid://dxtsd31kpgpvb"]
+
+[ext_resource type="Texture2D" uid="uid://cwhb32383si0o" path="res://images/customer panel/Background.png" id="1_14pq6"]
+[ext_resource type="Texture2D" path="res://images/NPC sprites/Jasmine.png" id="1_54jym"]
+[ext_resource type="PackedScene" uid="uid://dbplx5axo07pj" path="res://resources/customers/doll.tscn" id="2_aajm0"]
+[ext_resource type="Texture2D" uid="uid://f46riariqn3d" path="res://images/customer panel/Counter (positioned for 100x180).png" id="3_hf0r0"]
+[ext_resource type="Texture2D" uid="uid://dgjhj680dtatb" path="res://images/customer panel/Shelf (positioned for 100x180).png" id="4_pfvda"]
+[ext_resource type="Texture2D" uid="uid://bpwjb63grcivj" path="res://images/customer panel/Leaves  (positioned for 100x180).png" id="5_0ijvf"]
+[ext_resource type="Texture2D" uid="uid://c4x2sf7jodeed" path="res://images/customer panel/Fixed till (positioned).png" id="6_1m27n"]
+[ext_resource type="Texture2D" uid="uid://d3xbyqbaelprj" path="res://images/customer panel/Bell (isolated).png" id="7_m51nf"]
+[ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="8_r2lhv"]
+[ext_resource type="Script" path="res://scenes/patience_meter.gd" id="9_vxukn"]
+[ext_resource type="Texture2D" uid="uid://bai52bbgw5fyq" path="res://images/customer panel/bnb_customer_patience_emojis.png" id="9_w44ji"]
+[ext_resource type="Texture2D" uid="uid://cbfoqwwoska4x" path="res://images/customer panel/dialogue_box_9patch.png" id="12_gbijp"]
+[ext_resource type="Script" path="res://scripts/customer_queue_manager.gd" id="13_4m3qs"]
+[ext_resource type="Resource" uid="uid://cthfpxtgxya7a" path="res://resources/drinks/espresso.tres" id="19_exsli"]
+[ext_resource type="Resource" uid="uid://df2bpg5715cbl" path="res://resources/drinks/americano.tres" id="20_okruu"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fqnyi"]
+size = Vector2(50, 30)
+
+[sub_resource type="Animation" id="Animation_7pxyo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_oriwa"]
+resource_name = "angry"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_7f8f7"]
+resource_name = "happy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_pmf3v"]
+resource_name = "ok"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2tl2o"]
+_data = {
+"RESET": SubResource("Animation_7pxyo"),
+"angry": SubResource("Animation_oriwa"),
+"happy": SubResource("Animation_7f8f7"),
+"ok": SubResource("Animation_pmf3v")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g4xf6"]
+load_path = "res://.godot/imported/head1.png-8799a3ad4f287765e5bf5e0db33a5098.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_432jq"]
+load_path = "res://.godot/imported/body2.png-9ebb3fefa8f885f2adaa8d796de38639.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rv5en"]
+load_path = "res://.godot/imported/face2.png-1ddfb05515c4ca124b20576012a532f5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0i5b7"]
+load_path = "res://.godot/imported/hair1.png-cba4c0c42dc17790c3563f1b5a7028d7.ctex"
+
+[sub_resource type="GDScript" id="GDScript_jmp65"]
+script/source = "class_name Drink 
+extends Resource
+
+@export var name: String
+@export var recipe: Dictionary
+@export var image: Texture2D
+
+func isValidIngredients(ingredients: Array[String]) -> bool:
+	if ingredients.size() == 0:
+		return false
+	var currentIngredientIndex = 0
+	# Making copy so I can remove from it during this function
+	var recipeCopy = recipe.duplicate(true)
+	for ingredient in ingredients:
+		if !recipeCopy.has(ingredient):
+			print(\"This ingredient isn't needed in this recipe\")
+			return false
+		if recipeCopy[ingredient] > currentIngredientIndex:
+			print(\"You need other ingredients first\")
+			return false
+		# Removing ingredient as its been used up
+		recipeCopy.erase(ingredient)
+		# Checking for if there are any other ingredients with this index
+		if !(currentIngredientIndex in recipeCopy.values()):
+			currentIngredientIndex += 1
+	return true
+"
+
+[node name="CustomerPanel2" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 180)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1820.0
+offset_bottom = -900.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.8, 5.8)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(50, 90)
+texture = ExtResource("1_14pq6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_54jym")
+centered = false
+
+[node name="Doll" parent="." instance=ExtResource("2_aajm0")]
+unique_name_in_owner = true
+position = Vector2(35, 97)
+scale = Vector2(0.05, 0.05)
+
+[node name="BackgroundElements" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="Counter" type="Sprite2D" parent="BackgroundElements"]
+texture = ExtResource("3_hf0r0")
+centered = false
+
+[node name="Shelf" type="Sprite2D" parent="BackgroundElements"]
+texture = ExtResource("4_pfvda")
+centered = false
+
+[node name="Leaves" type="Sprite2D" parent="BackgroundElements"]
+texture = ExtResource("5_0ijvf")
+centered = false
+
+[node name="Till" type="Sprite2D" parent="BackgroundElements"]
+texture = ExtResource("6_1m27n")
+centered = false
+
+[node name="Bell" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(11.5, 150)
+texture = ExtResource("7_m51nf")
+
+[node name="SpeechBox" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(74, 44)
+texture = SubResource("PlaceholderTexture2D_fqnyi")
+
+[node name="Label" type="Label" parent="SpeechBox"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -15.0
+offset_right = -25.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("8_r2lhv")
+theme_override_font_sizes/font_size = 8
+text = "TEXT"
+
+[node name="PatienceMeter" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_vxukn")
+
+[node name="Sprite2D" type="Sprite2D" parent="PatienceMeter"]
+position = Vector2(78.4483, 98.4483)
+texture = ExtResource("9_w44ji")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PatienceMeter/Sprite2D"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_2tl2o")
+}
+
+[node name="Timer" type="Timer" parent="PatienceMeter"]
+unique_name_in_owner = true
+
+[node name="DialogueBox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 14.0
+offset_right = 144.0
+offset_bottom = 94.0
+scale = Vector2(0.5, 0.5)
+alignment = 2
+
+[node name="DialogueLabel" type="Label" parent="DialogueBox"]
+unique_name_in_owner = true
+z_index = 1
+custom_minimum_size = Vector2(96, 16)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("8_r2lhv")
+theme_override_font_sizes/font_size = 8
+text = "My buddy recommended this one - I'll get a ORDER."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 160
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogueBox/DialogueLabel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_gbijp")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="CustomerQueueManager" type="Node2D" parent="."]
+position = Vector2(30.6897, 105.862)
+script = ExtResource("13_4m3qs")
+possible_heads = Array[Texture2D]([SubResource("CompressedTexture2D_g4xf6")])
+possible_bodies = Array[Texture2D]([SubResource("CompressedTexture2D_432jq")])
+possible_faces = Array[Texture2D]([SubResource("CompressedTexture2D_rv5en")])
+possible_hairs = Array[Texture2D]([SubResource("CompressedTexture2D_0i5b7")])
+possible_order_lines = Array[String](["No small talk. I'll take ART ORDER", "Hi!! Oh, my order? Hmm... Let's do ART ORDER", "Awful weather, truly. Anyway, I'll get ART ORDER", "Lovely weather we're having. I'd like ART ORDER, duck", "Hey bro, gimme ART ORDER. Make sure it's hot!", "One ORDER, please. Nice shirt, by the way!", "One ORDER. And just so you know, I'm in a rush", "What should I get this time? Oh, what about ART ORDER?", "You still got that ORDER? I'll get one of those", "I want to get a... What was it called again? ORDER!", "Just ART ORDER", "Business looks good! I'll get my regular ORDER", "I need caffeine, stat. ORDER. Now!", "It's gonna be a long day, bud. Gimme ART ORDER", "You don't recognise me? Ugh. Fine. My drink's ART ORDER", "I'm trying something new today - ORDER, please", "My buddy recommended this one - I'll get ART ORDER", "Ooo, so many options! I guess I'll get ART ORDER", "Can't remember what my friends wanted. I'll get ART ORDER though", "Busy day! I hope you still have ART ORDER", "You got ART ORDER ready for me? No? Chop chop, then!", "I heard the best drink to order here is ART ORDER", "Another ORDER today. Thanks!", "Okay, I think I'll finally try ART ORDER", "I'll take my regular ORDER. Cheers!"])
+drinks = Array[SubResource("GDScript_jmp65")]([ExtResource("19_exsli"), ExtResource("20_okruu")])
+
+[connection signal="timeout" from="PatienceMeter/Timer" to="PatienceMeter" method="_on_timer_timeout"]
