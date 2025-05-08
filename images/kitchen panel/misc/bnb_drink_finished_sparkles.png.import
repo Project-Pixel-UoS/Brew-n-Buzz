@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1iroxuglugmu"
-path="res://.godot/imported/bnb_playnew.PNG-f66db8097024c84e546d5ef93764cc6e.ctex"
+uid="uid://ccmrqfmjxrl4p"
+path="res://.godot/imported/bnb_drink_finished_sparkles.png-114591b015b157388ee2556ca02740bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/buttons/bnb_playnew.PNG"
-dest_files=["res://.godot/imported/bnb_playnew.PNG-f66db8097024c84e546d5ef93764cc6e.ctex"]
+source_file="res://images/kitchen panel/misc/bnb_drink_finished_sparkles.png"
+dest_files=["res://.godot/imported/bnb_drink_finished_sparkles.png-114591b015b157388ee2556ca02740bf.ctex"]
 
 [params]
 

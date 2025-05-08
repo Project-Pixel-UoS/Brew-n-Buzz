@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3lqedpdkdg6m"
-path="res://.godot/imported/bnb_pause.PNG-625a51e8aba5bcd762d4e5cf7ea02479.ctex"
+uid="uid://ccpl84w827ciu"
+path="res://.godot/imported/bnb_exit.PNG-a59abd7f158920efe8ff8ff2a4702329.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/buttons/bnb_pause.PNG"
-dest_files=["res://.godot/imported/bnb_pause.PNG-625a51e8aba5bcd762d4e5cf7ea02479.ctex"]
+source_file="res://images/buttons/bnb_exit.PNG"
+dest_files=["res://.godot/imported/bnb_exit.PNG-a59abd7f158920efe8ff8ff2a4702329.ctex"]
 
 [params]
 

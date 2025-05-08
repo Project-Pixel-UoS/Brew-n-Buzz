@@ -12,6 +12,7 @@ var starting_time = 3
 func _ready() -> void:
 	amount_in = 0
 	time_waiting = starting_time - (0.25*upgrades)
+	
 func remove_coffee():
 	amount_in-= 1
 	animationPlayer.play_backwards('grinding' + str(amount_in + 1))
@@ -42,3 +43,6 @@ func get_amount() -> int:
 
 func is_coffee_grinded() -> bool:
 	return coffee_grinded
+	
+func get_current_time():
+	return time_waiting

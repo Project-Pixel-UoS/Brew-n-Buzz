@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://bovip2tokkw0e"]
+
+[ext_resource type="Texture2D" uid="uid://g0ereql6bnq1" path="res://images/kitchen panel/machines/bnb_grinder_5.png" id="1_opg2w"]
+[ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://images/kitchen panel/misc/bnb_clockbg.PNG" id="2_dqu3c"]
+[ext_resource type="Script" path="res://upgradeButton.gd" id="3_uxy54"]
+[ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://images/customer panel/bnb_money_pile.png" id="4_8j5he"]
+[ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="5_100v2"]
+[ext_resource type="Script" path="res://upgrade_amount.gd" id="6_kc3iw"]
+
+[node name="Grinder_upgrade" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -169.0
+offset_top = -97.0
+offset_right = -129.0
+offset_bottom = -25.0
+scale = Vector2(2.65, 2.65)
+texture = ExtResource("1_opg2w")
+stretch_mode = 2
+
+[node name="Buy" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 60.0
+texture_normal = ExtResource("2_dqu3c")
+stretch_mode = 0
+script = ExtResource("3_uxy54")
+
+[node name="Coins" type="TextureRect" parent="Buy"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 5.0
+offset_right = 55.0
+offset_bottom = 45.0
+texture = ExtResource("4_8j5he")
+
+[node name="Price" type="RichTextLabel" parent="Buy"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 13.0
+offset_right = 132.0
+offset_bottom = 53.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_100v2")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]0"
+
+[node name="upgrade_amount" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -80.0
+offset_top = -76.0
+offset_right = 76.0
+offset_bottom = -21.0
+
+[node name="TextureRect" type="TextureRect" parent="upgrade_amount"]
+layout_mode = 1
+offset_right = 156.0
+offset_bottom = 55.0
+texture = ExtResource("2_dqu3c")
+
+[node name="Grinder_upgrade_text" type="RichTextLabel" parent="upgrade_amount"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -10.0
+offset_right = 78.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_100v2")
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "[center] upgrade"
+script = ExtResource("6_kc3iw")
+
+[connection signal="pressed" from="Buy" to="Buy" method="_on_pressed"]

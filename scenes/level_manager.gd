@@ -16,7 +16,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if timer.out_of_time():
-		endOfLevel.visible = false
+		#@TODO SAVE LEVEL HERE
+		Engine.time_scale = 0
+		endOfLevel.visible = true
+		
 		GameManager.update_level()
 
 func increment_correct_recipe():
@@ -31,6 +34,9 @@ func add_payment(payment):
 func get_level_money():
 	return level_money
 
+func get_drinks_served():
+	return (correct_recipes + incorrect_recipes)
+	
 func turn_inactive(object_name):
 	var obj = get_node_or_null(object_name)
 	turn_greyscale(obj)

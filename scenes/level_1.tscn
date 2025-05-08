@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://d0tmn2yr7n018"]
+[gd_scene load_steps=57 format=3 uid="uid://d0tmn2yr7n018"]
 
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://assets/main_menu/settings_menu.tscn" id="1_4f0ye"]
 [ext_resource type="PackedScene" uid="uid://cf0ya1o4m6ooe" path="res://scenes/guidebook_menu.tscn" id="2_5lu8m"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_sh0uv"]
 [ext_resource type="PackedScene" uid="uid://1bqnftirnc5q" path="res://endOfLevelScreen.tscn" id="3_tsawe"]
 [ext_resource type="PackedScene" uid="uid://cor4f38g6u27x" path="res://scenes/pause_menu.tscn" id="4_cm10t"]
-[ext_resource type="Texture2D" uid="uid://cxdh5en4j141i" path="res://images/buttons/bnb_play.PNG" id="5_f6fyx"]
 [ext_resource type="Script" path="res://scenes/tea_drawer.gd" id="6_7ydoj"]
 [ext_resource type="PackedScene" uid="uid://dxtsd31kpgpvb" path="res://scenes/customer_panel.tscn" id="6_qcswm"]
 [ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://images/kitchen panel/misc/bnb_clockbg.PNG" id="6_uiqnr"]
@@ -18,14 +17,13 @@
 [ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="11_y72f4"]
 [ext_resource type="Texture2D" uid="uid://drhr6fyawp2hy" path="res://images/buttons/bnb_settings.PNG" id="12_yiwqt"]
 [ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://images/customer panel/bnb_money_pile.png" id="13_6px4r"]
-[ext_resource type="Texture2D" uid="uid://ctox1u5bql1w3" path="res://images/buttons/bnb_pause.PNG" id="14_nqeqg"]
 [ext_resource type="Texture2D" uid="uid://bg8lbig0x5h82" path="res://images/kitchen panel/misc/bnb_side_newest.PNG" id="15_p41ds"]
 [ext_resource type="PackedScene" uid="uid://xnigc2lo1y6n" path="res://scenes/machine_scenes/steam_wand.tscn" id="16_4e4bv"]
 [ext_resource type="PackedScene" uid="uid://cikh8xovd5wod" path="res://scenes/machine_scenes/milk_jug.tscn" id="16_fnp02"]
 [ext_resource type="Script" path="res://scripts/bin.gd" id="17_14wim"]
 [ext_resource type="PackedScene" uid="uid://ekoyd5v80o3n" path="res://scenes/machine_scenes/bin.tscn" id="17_47q0w"]
 [ext_resource type="PackedScene" uid="uid://de18hqi3hvdur" path="res://scenes/machine_scenes/frother.tscn" id="18_f5kmt"]
-[ext_resource type="Texture2D" uid="uid://b3lqedpdkdg6m" path="res://images/buttons/bnb_pausenew.PNG" id="21_o4rvh"]
+[ext_resource type="Texture2D" uid="uid://b3lqedpdkdg6m" path="res://images/buttons/bnb_pause.PNG" id="21_o4rvh"]
 [ext_resource type="PackedScene" uid="uid://codola8g3qlei" path="res://scenes/ingredient_scenes/caramel.tscn" id="21_qs7as"]
 [ext_resource type="PackedScene" uid="uid://c22hnkdgad2kf" path="res://scenes/ingredient_scenes/fruit_tea.tscn" id="22_o036c"]
 [ext_resource type="PackedScene" uid="uid://boqghshkws7xv" path="res://scenes/ingredient_scenes/black_tea.tscn" id="22_ykq7m"]
@@ -96,22 +94,6 @@ unique_name_in_owner = true
 visible = false
 
 [node name="end_of_level" parent="end_of_level_layer" instance=ExtResource("3_tsawe")]
-
-[node name="ExitLevelButton" type="TextureButton" parent="end_of_level_layer"]
-offset_left = 648.0
-offset_top = 745.0
-offset_right = 724.0
-offset_bottom = 826.0
-texture_normal = ExtResource("14_nqeqg")
-stretch_mode = 0
-
-[node name="NextLevelButton" type="TextureButton" parent="end_of_level_layer"]
-offset_left = 1233.0
-offset_top = 738.0
-offset_right = 1330.0
-offset_bottom = 826.0
-texture_normal = ExtResource("5_f6fyx")
-stretch_mode = 0
 
 [node name="guidebook_layer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -439,8 +421,6 @@ offset_bottom = 583.0
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxTexture_3h4qw")
 
-[connection signal="pressed" from="end_of_level_layer/ExitLevelButton" to="end_of_level_layer/end_of_level" method="_on_exit_level_button_pressed"]
-[connection signal="pressed" from="end_of_level_layer/NextLevelButton" to="end_of_level_layer/end_of_level" method="_on_next_level_button_pressed"]
 [connection signal="timeout" from="TimerContainer/Timer" to="TimerContainer/Timer" method="_on_timeout"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="open_settings"]
 [connection signal="pressed" from="GuideBookButton" to="GuideBookButton" method="open_guideBook"]

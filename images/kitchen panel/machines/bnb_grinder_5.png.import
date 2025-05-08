@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3lqedpdkdg6m"
-path="res://.godot/imported/bnb_pause.PNG-625a51e8aba5bcd762d4e5cf7ea02479.ctex"
+uid="uid://g0ereql6bnq1"
+path="res://.godot/imported/bnb_grinder_5.png-e29177106c73aaa1c70c7ad335a316dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/buttons/bnb_pause.PNG"
-dest_files=["res://.godot/imported/bnb_pause.PNG-625a51e8aba5bcd762d4e5cf7ea02479.ctex"]
+source_file="res://images/kitchen panel/machines/bnb_grinder_5.png"
+dest_files=["res://.godot/imported/bnb_grinder_5.png-e29177106c73aaa1c70c7ad335a316dc.ctex"]
 
 [params]
 
