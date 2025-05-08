@@ -73,7 +73,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhmh3"]
 size = Vector2(116, 121.75)
 
-[node name="Mug" type="Node2D" groups=["ingredient"]]
+[node name="Mug" type="Node2D" groups=["counter", "ingredient"]]
 position = Vector2(200, 20)
 script = ExtResource("1_7mphb")
 
@@ -92,7 +92,7 @@ libraries = {
 }
 speed_scale = 0.7
 
-[node name="Area2D" type="Area2D" parent="." groups=["ingredient"]]
+[node name="Area2D" type="Area2D" parent="." groups=["counter", "ingredient"]]
 script = ExtResource("1_7mphb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

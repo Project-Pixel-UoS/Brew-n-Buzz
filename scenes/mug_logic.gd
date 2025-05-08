@@ -2,7 +2,6 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 @onready var animationPlayer = %AnimationPlayer
 
-
 var ingredients: Array[String] = []
 var draggable = true
 var is_inside_valid_drop = false
@@ -18,6 +17,8 @@ var deselect_sound
 var respawnPos
 var being_dragged = false
 var x_change
+var customer_panel
+
 func _ready() -> void:
 	select_sound = load('res://audio/sfx/pick_up_select.wav')
 	deselect_sound = load('res://audio/sfx/put_down_deselect.wav')
@@ -25,7 +26,8 @@ func _ready() -> void:
 	respawnPos = global_position
 	last_frame_x = global_position.x
 	Input.set_use_accumulated_input(false)
-
+	customer_panel = get_node("../CustomerPanel")
+	
 func _process(delta: float) -> void: 
 	x_change = global_position.x - last_frame_x
 	last_frame_x = global_position.x
@@ -105,9 +107,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			GameManager.is_dragging = false
 			scale = Vector2(1,1)
 			await get_tree().physics_frame
+			
 			var tween = get_tree().create_tween()
 			if is_inside_valid_drop and body_ref:
-				print('in')
 				if body_ref.get_parent().name == "CoffeeMachine":
 					if has_child_with_name(body_ref, "MugWaterCollision") and self.position.x > 900:
 						tween.tween_property(self, "global_position", Vector2(974,482), 0.2).set_ease(Tween.EASE_OUT)
@@ -118,7 +120,12 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 						body_ref.get_parent().is_mug_in_machine(true)
 						tween.tween_property(self, "global_position", Vector2(756,482), 0.2).set_ease(Tween.EASE_OUT)
 				elif body_ref.get_parent().name == "Counter":
-					tween.tween_property(self, "global_position", Vector2(210,980), 0.2).set_ease(Tween.EASE_OUT)
+					if customer_panel.get_node('CustomerQueueManager').is_customer_ready():
+						tween.tween_property(self, "global_position", Vector2(210,980), 0.2).set_ease(Tween.EASE_OUT)
+					else:
+						tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+						determine_animation(x_change)
+						animationPlayer.play("idle")
 				elif body_ref.get_parent().name == "MugRing":
 					tween.tween_property(self, "global_position", Vector2(1064,771), 0.2).set_ease(Tween.EASE_OUT)
 				else:

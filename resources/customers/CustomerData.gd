@@ -1,0 +1,14 @@
+class_name CustomerData
+extends Resource
+
+@export var patience: float
+@export var drink: Drink
+# Texture properties for the doll customization
+@export var head_texture: Texture2D
+@export var body_texture: Texture2D
+@export var face_texture: Texture2D
+@export var hair_texture: Texture2D
+@export var idle_body_texture: Texture2D
+@export var special_body_texture: Texture2D
+@export var tip_value: int
+@export var order_line: String
