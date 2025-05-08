@@ -6,6 +6,7 @@ var new_position
 var old_position
 var been_pressed = false
 var children = []
+@onready var milkJug = %MilkJug
 
 func _ready() -> void:
 	children = get_child(0).get_children()
@@ -21,9 +22,15 @@ func drawer_press() -> void:
 		been_pressed = true
 		for i in children:
 			i.visible = true
-		pullOutButton.position = old_position.lerp(new_position,1)
+		milkJug.get_node('Area2D').input_pickable = false
+		var tween = get_tree().create_tween()
+		tween.tween_property(pullOutButton, "position", new_position, 0.2).set_ease(Tween.EASE_OUT)
+		await tween.finished
 	else:
 		been_pressed = false
-		pullOutButton.position = new_position.lerp(old_position,1)
+		var tween = get_tree().create_tween()
+		tween.tween_property(pullOutButton, "position", old_position, 0.2).set_ease(Tween.EASE_OUT)
+		await tween.finished
 		for i in children:
 			i.visible = false
+		milkJug.get_node('Area2D').input_pickable = true

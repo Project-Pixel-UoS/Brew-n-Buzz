@@ -11,7 +11,7 @@ var deselect_sound
 var offset: Vector2
 var respawnPos
 var is_inside_grinder = true
-
+var touchpos
 func _ready() -> void:
 	select_sound = load('res://audio/sfx/pick_up_select.wav')
 	deselect_sound = load('res://audio/sfx/put_down_deselect.wav')
@@ -23,7 +23,14 @@ func _process(delta: float) -> void:
 	for child in get_tree().root.get_children():
 		if child.name == ("Mug"):
 			mugObject = child
-
+	if being_dragged:
+		global_position = touchpos
+		
+func _unhandled_input(event):
+	if being_dragged and event is InputEventScreenTouch and not event.pressed:
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "global_position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
+		being_dragged = false
 func set_respawn_position():
 	respawnPos = Vector2(self.position.x, self.position.y)
 	
@@ -71,9 +78,11 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			offset = global_position - event.position
 			GameManager.is_dragging = true 
 			being_dragged = true
+			touchpos = event.position
+			z_index = 20
 			AudioManager.set_stream(select_sound)
 			AudioManager.play()
-		elif not event.pressed: 
+		elif not event.pressed:
 			being_dragged = false
 			GameManager.is_dragging = false
 			AudioManager.set_stream(deselect_sound)
@@ -86,19 +95,14 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					body_ref.get_parent().fill_grinder()
 				else:
 					body_ref.get_parent().add_ingredient(name)
-				print("hi1")
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-				await tween.finished
 				queue_free()
 				replenish_ingredient(name)
 			elif is_inside_bin and body_ref:
-				print("hi2")
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-				queue_free()  
+				queue_free() 
 				replenish_ingredient(name)
 			else:
 				tween.tween_property(self, "position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
-					
+			z_index = 0	
 								
 	elif event is InputEventScreenDrag and being_dragged:
-		global_position = event.position - offset
+		touchpos = event.position

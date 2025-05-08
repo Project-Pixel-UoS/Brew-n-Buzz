@@ -4,12 +4,12 @@ var draggable = false
 var is_inside_valid_drop = false
 var is_inside_bin = false
 var body_ref
-var offset: Vector2
 var initialPos: Vector2
 var being_dragged = false
 var has_ground_coffee = false
 var respawnPos
 var can_be_dragged = true
+var touchpos
 @onready var grinder = get_node_or_null("../Grinder")
 @onready var coffeeMachine = get_node_or_null("../CoffeeMachine")
 
@@ -21,17 +21,26 @@ func _ready() -> void:
 	respawnPos = global_position
 	Input.set_use_accumulated_input(false)
 	
+func _unhandled_input(event):
+	if being_dragged and event is InputEventScreenTouch and not event.pressed:
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+		being_dragged = false	
+		
 func _process(delta: float) -> void:
 	has_ground_coffee = grinder.is_coffee_grinded()
+	if being_dragged:
+		global_position = touchpos
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventScreenTouch and can_be_dragged:
 		if event.pressed:
-			offset = global_position - event.position
 			GameManager.is_dragging = true
 			scale = Vector2(1.05,1.05)  
 			being_dragged = true
-		elif not event.pressed: 
+			touchpos = event.position
+			z_index = 20
+		elif not event.pressed:
 			being_dragged = false
 			GameManager.is_dragging = false
 			scale = Vector2(1,1)
@@ -40,22 +49,21 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if is_inside_valid_drop and body_ref and has_ground_coffee:
 				print("group handle good !")
 				if body_ref.get_parent().name == "CoffeeMachine":
-					tween.tween_property(self, "global_position", Vector2(730,377), 0.2).set_ease(Tween.EASE_OUT)
+					var new_position = Vector2(695,360)
+					print(new_position)
+					tween.tween_property(self, "global_position", new_position, 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished 
 					grinder.remove_coffee()
 					coffeeMachine.is_group_handle_in_machine(true)
 			elif is_inside_bin and body_ref:
-				print("hi2")
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
-				await tween.finished
 				queue_free()  
 				replenish_group_handle()
 			else:
 				print("hi3")
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
-								
+			z_index = 0				
 	elif event is InputEventScreenDrag and being_dragged:
-		global_position = event.position - offset	
+		touchpos = event.position
 		
 
 func _on_area_2d_area_entered(body: Node2D) -> void:
