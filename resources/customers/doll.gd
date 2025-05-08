@@ -4,21 +4,44 @@ extends Node2D
 var old_position 
 var new_position
 var finished_animation = false
+var leaving_queue = false
+var end_position 
+var reset_position
+signal movement_finished
+var finished_moving
 
-func set_customer():
-	update_customer_appearance()
-	say_dialogue()
-	if customer.idle_body_texture == null:
-		new_position = Vector2(old_position.x, old_position.y -2)
-		while not finished_animation:
-			await NPC_animation()
-	else:
-		%AnimationPlayer.play('special')
+func _ready() -> void:
+	reset_position = Vector2(-22,90)
+	
+func reset_pos():
+	self.position = reset_position
+		
+func enter_animation():
+	var tween = get_tree().create_tween()
+	old_position = self.position
+	new_position = Vector2(old_position.x+7, old_position.y+2)
+	end_position = Vector2(old_position.x+14, old_position.y)
+	tween.tween_property(self, "position", new_position, 0.3).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", end_position, 0.3).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	
+func exit_animation():
+	var tween = get_tree().create_tween()
+	old_position = self.position
+	new_position = Vector2(old_position.x+10, old_position.y+2)
+	end_position = Vector2(old_position.x+20, old_position.y)
+	tween.tween_property(self, "position", new_position, 0.3).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", end_position, 0.3).set_ease(Tween.EASE_OUT)
+	await tween.finished
+
 func NPC_animation():
 	var tween = get_tree().create_tween()
+	old_position = self.position
+	new_position = Vector2(old_position.x, old_position.y+2)
 	tween.tween_property(self, "position", new_position, 1).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "position", old_position, 0.9).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", old_position, 1).set_ease(Tween.EASE_OUT)
 	await tween.finished
+	
 func get_customer() -> CustomerData:
 	return customer
 
@@ -31,7 +54,6 @@ func update_customer_appearance():
 	$face.texture = customer.face_texture
 	$hair.texture = customer.hair_texture
 	$full_body.texture = customer.special_body_texture
-	old_position = self.position
 	
 func say_dialogue():
 	# format dialogue
@@ -44,16 +66,39 @@ func say_dialogue():
 	order_line = order_line.replace("ART", article)
 	# set text
 	%DialogueLabel.text = order_line
-
-func react_to_drink(correct: bool):
-	if correct:
-		%AnimationPlayer.play("happy")
+	old_position = self.position
+	if customer.idle_body_texture == null:
+		new_position = Vector2(old_position.x, old_position.y +2)
+		while not finished_animation and not leaving_queue:
+			await NPC_animation()
+		finished_moving = true
+		emit_signal("movement_finished")
 	else:
-		%AnimationPlayer.play("angry")
-	finished_animation = true
+		%AnimationPlayer.play('special')
+		leaving_queue = true
+		finished_moving = true
+	
+func enter_queue():
+	leaving_queue = false
+	var counter = 0
+	while counter != 4:
+		await exit_animation()
+		counter += 1
+		
+func exit_queue():
+	leaving_queue = true
+	if not finished_moving:
+		await self.movement_finished
+		finished_moving = true
+	var counter = 0
+	while counter != 6:
+		await exit_animation()
+		counter += 1
+	reset_sprites()
 		
 func reset_sprites():
 	$head.texture = null
 	$body.texture = null
 	$face.texture = null
 	$hair.texture = null
+	$full_body.texture = null

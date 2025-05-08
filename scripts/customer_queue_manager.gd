@@ -17,6 +17,7 @@ var customer_queue: Array = []
 var current_customer: Node = null
 var is_spawning: bool = false
 var queue_numbers
+var customer_ready
 
 @export var drinks: Array[Resource]
 
@@ -24,7 +25,11 @@ var queue_numbers
 func get_random_drink() -> Drink:
 	return drinks[randi() % drinks.size()]
 
+func is_customer_ready():
+	return customer_ready
+	
 func _ready():
+	customer_ready = false
 	queue_numbers = GameManager.get_level_queue(1)
 	var vip_named_count = 0
 	for i in range(0,queue_numbers[0]):
@@ -47,20 +52,28 @@ func create_NPC_data():
 	new_customer_data.order_line = possible_order_lines.pick_random()
 	new_customer_data.tip_value = 0
 	return new_customer_data
+	
 func spawn_next_customer():
 	if is_spawning or customer_queue.is_empty():
 		return
 	
 	is_spawning = true
+	%Doll.reset_pos()
 	var next = customer_queue.pop_front()
 	%Doll.customer = next 
 	%PatienceMeter.connect("customer_angry", Callable(self, "_on_customer_angry"))
 	%PatienceMeter.call_deferred("start_meter", self, next.patience)
 	is_spawning = false
-	%Doll.set_customer()
+	%Doll.update_customer_appearance()
+	await %Doll.enter_queue()
+	%PatienceMeter.get_node('Sprite2D').visible = true
+	%DialogueLabel.visible = true
+	%Doll.say_dialogue()
+	customer_ready = true
+	
 
 func _on_customer_angry():
-	%Doll.react_to_drink(false)
+	react_to_drink(false)
 	await get_tree().create_timer(1.0).timeout
 	remove_customer()
 
@@ -68,15 +81,24 @@ func customer_served(correct: bool):
 	if not correct:
 		%PatienceMeter.timer.stop()
 		%PatienceMeter.out_of_patience = true
-		%PatienceMeter.animationPlayer.play("angry")
-		await get_tree().create_timer(0.5).timeout
-
-	%Doll.react_to_drink(correct)
+	react_to_drink(correct)
 	await get_tree().create_timer(1.0).timeout
+	customer_ready = false
 	remove_customer()
 
 func remove_customer():
-	%Doll.reset_sprites()
+	##TODO update with final line!
+	%PatienceMeter.get_node('Sprite2D').visible = false
+	%DialogueLabel.visible = false
+	await %Doll.exit_queue()
 	customer = null
-	await get_tree().create_timer(1.0).timeout
 	spawn_next_customer()
+	
+func react_to_drink(correct: bool):
+	#TODO this will be updated with actual lines!
+	if correct:
+		%PatienceMeter.animationPlayer.play("happy")
+		%DialogueLabel.text = 'CORRECT!'
+	else:
+		%PatienceMeter.animationPlayer.play("angry")
+		%DialogueLabel.text = 'WRONG!'

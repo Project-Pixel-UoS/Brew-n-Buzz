@@ -125,7 +125,7 @@ centered = false
 
 [node name="Doll" parent="." instance=ExtResource("2_aajm0")]
 unique_name_in_owner = true
-position = Vector2(55, 95)
+position = Vector2(52, 90)
 
 [node name="BackgroundElements" type="Node2D" parent="."]
 texture_filter = 1
@@ -176,6 +176,7 @@ unique_name_in_owner = true
 script = ExtResource("9_vxukn")
 
 [node name="Sprite2D" type="Sprite2D" parent="PatienceMeter"]
+visible = false
 position = Vector2(78.4483, 98.4483)
 texture = ExtResource("9_w44ji")
 hframes = 3
@@ -200,6 +201,7 @@ alignment = 2
 
 [node name="DialogueLabel" type="Label" parent="DialogueBox"]
 unique_name_in_owner = true
+visible = false
 z_index = 1
 custom_minimum_size = Vector2(96, 16)
 layout_mode = 2

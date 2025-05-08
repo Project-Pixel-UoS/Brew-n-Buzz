@@ -1,26 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://dbplx5axo07pj"]
 
 [ext_resource type="Script" path="res://resources/customers/doll.gd" id="1_mqid1"]
-[ext_resource type="Texture2D" uid="uid://brkv3vu5qtvkj" path="res://images/customer sprites/NPC sprites/Hoodie 1.png" id="2_u45ti"]
-[ext_resource type="Texture2D" uid="uid://djefuuw4pj2n0" path="res://images/customer sprites/NPC sprites/Head 2.png" id="3_ku06t"]
-[ext_resource type="Texture2D" uid="uid://qnwqj7r3v52n" path="res://images/customer sprites/NPC sprites/Face 2.png" id="4_abjyq"]
-[ext_resource type="Texture2D" uid="uid://dnn07c44qf1xa" path="res://images/customer sprites/NPC sprites/Hair 3.png" id="5_whjkm"]
-
-[sub_resource type="Animation" id="Animation_trpf1"]
-resource_name = "idle"
-length = 2.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333, 0.666667, 0.8, 0.933333, 1.06667, 1.2, 1.33333, 1.46667, 1.6, 1.73333, 1.86667, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 3]
-}
+[ext_resource type="Texture2D" uid="uid://brkv3vu5qtvkj" path="res://images/customer sprites/NPC sprites/Hoodie 1.png" id="2_de3tw"]
+[ext_resource type="Texture2D" uid="uid://bfrgnfd3ffuan" path="res://images/customer sprites/NPC sprites/Head 1.png" id="3_anrew"]
+[ext_resource type="Texture2D" uid="uid://1eycxi4bu2r5" path="res://images/customer sprites/NPC sprites/Face 1.png" id="4_bwu7p"]
+[ext_resource type="Texture2D" uid="uid://b3ksb8i1xdax4" path="res://images/customer sprites/NPC sprites/Hair 1.png" id="5_ykt2f"]
 
 [sub_resource type="Animation" id="Animation_ou6rw"]
 length = 0.001
@@ -37,9 +21,9 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_c4ktv"]
-resource_name = "special"
-length = 1.55
+[sub_resource type="Animation" id="Animation_trpf1"]
+resource_name = "idle"
+length = 3.55
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -47,7 +31,23 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333, 0.666667, 0.8, 0.933333, 1.06667, 1.2, 1.33333, 1.46667),
+"times": PackedFloat32Array(0, 0.250169, 0.5, 0.750168, 1, 1.25039, 1.50011, 1.75049, 2, 2.25095, 2.50067, 2.75029, 3, 3.25027, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+}
+
+[sub_resource type="Animation" id="Animation_c4ktv"]
+resource_name = "special"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.248377, 0.501212, 0.751631, 1, 1.25042, 1.50261, 1.75238, 2, 2.25525, 2.50298, 2.75275),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
@@ -65,19 +65,19 @@ texture_filter = 1
 script = ExtResource("1_mqid1")
 
 [node name="body" type="Sprite2D" parent="."]
-texture = ExtResource("2_u45ti")
+texture = ExtResource("2_de3tw")
 
 [node name="head" type="Sprite2D" parent="."]
-texture = ExtResource("3_ku06t")
+texture = ExtResource("3_anrew")
 
 [node name="face" type="Sprite2D" parent="."]
-texture = ExtResource("4_abjyq")
+texture = ExtResource("4_bwu7p")
 
 [node name="hair" type="Sprite2D" parent="."]
-texture = ExtResource("5_whjkm")
+texture = ExtResource("5_ykt2f")
 
 [node name="full_body" type="Sprite2D" parent="."]
-position = Vector2(-19, 18)
+position = Vector2(-19, 17)
 hframes = 4
 vframes = 3
 
@@ -86,4 +86,3 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_3wm8h")
 }
-speed_scale = 0.5

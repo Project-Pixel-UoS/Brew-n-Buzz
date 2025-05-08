@@ -12,12 +12,16 @@ var is_inside_bin = false
 var respawnPos
 var being_dragged = false
 var x_change
+var customer_panel
+
 var touchpos
 func _ready() -> void:
 	initialPos = global_position
 	respawnPos = global_position
 	last_frame_x = global_position.x
 	Input.set_use_accumulated_input(false)
+	customer_panel = get_node("../CustomerPanel")
+	
 	
 func _unhandled_input(event):
 	if being_dragged and event is InputEventScreenTouch and not event.pressed:
@@ -63,6 +67,7 @@ func has_child_with_name(parent: Node, child_name: String) -> bool:
 		if child.name == child_name:
 			return true
 	return false
+
 
 func check_valid_drop(body: Node2D) -> bool:
 	for shape in body.get_children():
@@ -116,7 +121,12 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 						body_ref.get_parent().is_mug_in_machine(true)
 						tween.tween_property(self, "global_position", Vector2(719,497), 0.2).set_ease(Tween.EASE_OUT)
 				elif body_ref.get_parent().name == "Counter":
-					tween.tween_property(self, "global_position", Vector2(210,980), 0.2).set_ease(Tween.EASE_OUT)
+					if customer_panel.get_node('CustomerQueueManager').is_customer_ready():
+						tween.tween_property(self, "global_position", Vector2(210,980), 0.2).set_ease(Tween.EASE_OUT)
+					else:
+						tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+						determine_animation(x_change)
+						animationPlayer.play("idle")
 				elif body_ref.get_parent().name == "MugRing":
 					tween.tween_property(self, "global_position", Vector2(1064,771), 0.2).set_ease(Tween.EASE_OUT)
 				else:
