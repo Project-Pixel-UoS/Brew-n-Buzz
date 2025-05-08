@@ -98,11 +98,11 @@ func _on_area_2d_area_exited(body: Node2D) -> void:
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed:
-			print('yo')
 			GameManager.is_dragging = true
 			scale = Vector2(1.05,1.05)  
 			being_dragged = true
 			touchpos = event.position
+			determine_animation(x_change)
 		elif not event.pressed: 
 			being_dragged = false
 			GameManager.is_dragging = false
