@@ -17,7 +17,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if timer.out_of_time():
 		#@TODO SAVE LEVEL HERE
+		Engine.time_scale = 0
 		endOfLevel.visible = true
+		
 		GameManager.update_level()
 
 func increment_correct_recipe():

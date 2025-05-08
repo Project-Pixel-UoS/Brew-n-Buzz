@@ -9,7 +9,7 @@
 [ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="6_1ibgr"]
 [ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://images/kitchen panel/mug sprites/bnb_espresso.png" id="6_5yo77"]
 [ext_resource type="Texture2D" uid="uid://b6nab1daylfuw" path="res://images/kitchen panel/ingredients/bnb_water_drop_a.png" id="7_07k52"]
-[ext_resource type="Texture2D" uid="uid://1iroxuglugmu" path="res://images/buttons/bnb_playnew.PNG" id="9_gqnwh"]
+[ext_resource type="Texture2D" uid="uid://1iroxuglugmu" path="res://images/buttons/bnb_play.PNG" id="9_gqnwh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_468d8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -149,6 +149,7 @@ bbcode_enabled = true
 text = "[center]Coffee"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Pages/Page1/Americano/Panel2"]
+layout_mode = 0
 offset_left = 163.0
 offset_top = 115.0
 offset_right = 463.0
@@ -184,6 +185,7 @@ offset_bottom = 109.0
 texture = ExtResource("6_5yo77")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page1/Espresso/Panel"]
+layout_mode = 0
 offset_left = 102.0
 offset_top = 24.0
 offset_right = 502.0
@@ -210,6 +212,7 @@ offset_bottom = 91.0
 texture = ExtResource("2_ch34b")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page1/Espresso/Panel2"]
+layout_mode = 0
 offset_left = 163.0
 offset_top = 35.0
 offset_right = 363.0
