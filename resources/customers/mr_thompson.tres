@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Customer" load_steps=3 format=3 uid="uid://cdguncabps42r"]
 
 [ext_resource type="Script" path="res://resources/Customer.gd" id="1_3dptf"]
-[ext_resource type="Texture2D" uid="uid://dxipm30rpjo0r" path="res://images/NPC sprites/Mr_Thompson.png" id="1_tbl6f"]
+[ext_resource type="Texture2D" uid="uid://dxipm30rpjo0r" path="res://assets/images/customer sprites/VIPs/Mr_Thompson.png" id="1_tbl6f"]
 
 [resource]
 script = ExtResource("1_3dptf")

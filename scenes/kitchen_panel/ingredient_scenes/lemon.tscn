@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccfltk5xsbiqq"]
+
+[ext_resource type="Script" path="res://scripts/kitchen_panel/ingredient_logic.gd" id="1_b8f13"]
+[ext_resource type="Texture2D" uid="uid://cd65qjd357183" path="res://assets/images/kitchen panel/ingredients/lemon.PNG" id="2_xihge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n2gy"]
+size = Vector2(33.5, 34.5)
+
+[node name="Lemon" type="Node2D"]
+script = ExtResource("1_b8f13")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+texture = ExtResource("2_xihge")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_7n2gy")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

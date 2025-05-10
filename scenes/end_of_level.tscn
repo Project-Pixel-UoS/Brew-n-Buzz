@@ -1,0 +1,259 @@
+[gd_scene load_steps=13 format=3 uid="uid://1bqnftirnc5q"]
+
+[ext_resource type="Script" path="res://scripts/ui/end_of_level_screen.gd" id="1_kjc0s"]
+[ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://assets/images/customer panel/bnb_money_pile.png" id="2_dwit8"]
+[ext_resource type="Texture2D" uid="uid://cfr5y2legycov" path="res://assets/images/menu/notice_board/cork.png" id="2_peoc2"]
+[ext_resource type="Texture2D" uid="uid://bu7w5ne2tplwm" path="res://assets/images/menu/notice_board/border_centre.png" id="3_14nhf"]
+[ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://assets/images/kitchen panel/mug sprites/bnb_espresso.png" id="3_lwdr7"]
+[ext_resource type="Texture2D" uid="uid://cns3adku4b2x4" path="res://assets/images/menu/notice_board/border_left.png" id="4_qyvqk"]
+[ext_resource type="Texture2D" uid="uid://dl5mgyycaevkj" path="res://assets/images/menu/notice_board/border_right.png" id="5_jxxab"]
+[ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="6_5xqyn"]
+[ext_resource type="Texture2D" uid="uid://ccpl84w827ciu" path="res://assets/images/buttons/bnb_exit.PNG" id="9_fs7j7"]
+[ext_resource type="Texture2D" uid="uid://1iroxuglugmu" path="res://assets/images/buttons/bnb_play.PNG" id="10_v1bn2"]
+[ext_resource type="Texture2D" uid="uid://dya82bx3hoiov" path="res://assets/images/buttons/bnb_replay.PNG" id="11_3spde"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xi6wx"]
+bg_color = Color(0.203922, 0.203922, 0.203922, 0.654902)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kjc0s")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xi6wx")
+
+[node name="BgNoticeBoard" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -760.0
+offset_top = -440.0
+offset_right = 760.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cork" type="TextureRect" parent="BgNoticeBoard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_right = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_peoc2")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="BorderCentre" type="TextureRect" parent="BgNoticeBoard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 82.0
+offset_right = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_14nhf")
+expand_mode = 1
+
+[node name="BorderLeft" type="TextureRect" parent="BgNoticeBoard"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 87.0171
+grow_vertical = 2
+texture = ExtResource("4_qyvqk")
+expand_mode = 3
+
+[node name="BorderRight" type="TextureRect" parent="BgNoticeBoard"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -87.0171
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(87, 0)
+texture = ExtResource("5_jxxab")
+expand_mode = 3
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -760.0
+offset_top = 191.0
+offset_right = 760.0
+offset_bottom = 298.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("6_5xqyn")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]End of level"
+
+[node name="money_made" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 415.0
+offset_top = 326.0
+offset_right = 720.0
+offset_bottom = 380.0
+
+[node name="TextureRect" type="TextureRect" parent="money_made"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_dwit8")
+
+[node name="money_label" type="RichTextLabel" parent="money_made"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 1.0
+offset_right = 414.0
+offset_bottom = 39.0
+theme_override_fonts/normal_font = ExtResource("6_5xqyn")
+theme_override_font_sizes/normal_font_size = 30
+text = "Total money: X"
+
+[node name="money_left" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 369.0
+offset_top = 820.0
+offset_right = 674.0
+offset_bottom = 874.0
+
+[node name="TextureRect" type="TextureRect" parent="money_left"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_dwit8")
+
+[node name="money_left_label" type="RichTextLabel" parent="money_left"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 1.0
+offset_right = 414.0
+offset_bottom = 39.0
+theme_override_fonts/normal_font = ExtResource("6_5xqyn")
+theme_override_font_sizes/normal_font_size = 30
+text = "Money left: X"
+
+[node name="drinks_served" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 413.0
+offset_top = 382.0
+offset_right = 718.0
+offset_bottom = 436.0
+
+[node name="TextureRect" type="TextureRect" parent="drinks_served"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_lwdr7")
+
+[node name="drinks_label" type="RichTextLabel" parent="drinks_served"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 1.0
+offset_right = 462.0
+offset_bottom = 42.0
+theme_override_fonts/normal_font = ExtResource("6_5xqyn")
+theme_override_font_sizes/normal_font_size = 30
+text = "Drinks served: X"
+
+[node name="shop" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 200.0
+offset_top = 469.0
+offset_right = 1720.0
+offset_bottom = 969.0
+
+[node name="Title" type="RichTextLabel" parent="shop"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -760.0
+offset_top = -3.0
+offset_right = 760.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("6_5xqyn")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Shop"
+
+[node name="upgrade_1" type="Control" parent="shop"]
+anchors_preset = 0
+offset_left = 346.0
+offset_top = 146.0
+offset_right = 386.0
+offset_bottom = 186.0
+
+[node name="upgrade_2" type="Control" parent="shop"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 748.0
+offset_top = 138.0
+offset_right = 788.0
+offset_bottom = 178.0
+
+[node name="upgrade_3" type="Control" parent="shop"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1158.0
+offset_top = 120.0
+offset_right = 1198.0
+offset_bottom = 160.0
+
+[node name="ExitLevelButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 796.0
+offset_top = 770.0
+offset_right = 892.0
+offset_bottom = 866.0
+texture_normal = ExtResource("9_fs7j7")
+stretch_mode = 0
+
+[node name="NextLevelButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1124.0
+offset_top = 770.0
+offset_right = 1220.0
+offset_bottom = 866.0
+texture_normal = ExtResource("10_v1bn2")
+stretch_mode = 0
+
+[node name="ReplayLevelButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 770.0
+offset_right = 1056.0
+offset_bottom = 866.0
+texture_normal = ExtResource("11_3spde")
+stretch_mode = 0
+
+[connection signal="pressed" from="ExitLevelButton" to="." method="_on_exit_level_button_pressed"]
+[connection signal="pressed" from="NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="ReplayLevelButton" to="." method="_on_replay_level_button_pressed"]

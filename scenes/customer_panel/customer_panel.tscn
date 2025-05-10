@@ -1,0 +1,248 @@
+[gd_scene load_steps=35 format=3 uid="uid://dxtsd31kpgpvb"]
+
+[ext_resource type="Texture2D" uid="uid://cwhb32383si0o" path="res://assets/images/customer panel/Background.png" id="1_14pq6"]
+[ext_resource type="PackedScene" uid="uid://dbplx5axo07pj" path="res://scenes/customer_panel/doll.tscn" id="2_aajm0"]
+[ext_resource type="Texture2D" uid="uid://f46riariqn3d" path="res://assets/images/customer panel/Counter (positioned for 100x180).png" id="3_hf0r0"]
+[ext_resource type="Texture2D" uid="uid://dgjhj680dtatb" path="res://assets/images/customer panel/Shelf (positioned for 100x180).png" id="4_pfvda"]
+[ext_resource type="Texture2D" uid="uid://bpwjb63grcivj" path="res://assets/images/customer panel/Leaves  (positioned for 100x180).png" id="5_0ijvf"]
+[ext_resource type="Texture2D" uid="uid://c4x2sf7jodeed" path="res://assets/images/customer panel/Fixed till (positioned).png" id="6_1m27n"]
+[ext_resource type="Texture2D" uid="uid://d3xbyqbaelprj" path="res://assets/images/customer panel/Bell (isolated).png" id="7_m51nf"]
+[ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="8_r2lhv"]
+[ext_resource type="Script" path="res://scripts/customer_panel/patience_meter.gd" id="9_vxukn"]
+[ext_resource type="Texture2D" uid="uid://bai52bbgw5fyq" path="res://assets/images/customer panel/bnb_customer_patience_emojis.png" id="9_w44ji"]
+[ext_resource type="Texture2D" uid="uid://cbfoqwwoska4x" path="res://assets/images/customer panel/dialogue_box_9patch.png" id="12_gbijp"]
+[ext_resource type="Script" path="res://scripts/customer_panel/customer_queue_manager.gd" id="13_4m3qs"]
+[ext_resource type="Texture2D" uid="uid://bfrgnfd3ffuan" path="res://assets/images/customer sprites/NPC sprites/Head 1.png" id="14_xs3i7"]
+[ext_resource type="Texture2D" uid="uid://bhg5rt0fs4yvj" path="res://assets/images/customer sprites/NPC sprites/Head 3.png" id="15_tra5b"]
+[ext_resource type="Texture2D" uid="uid://djefuuw4pj2n0" path="res://assets/images/customer sprites/NPC sprites/Head 2.png" id="16_nsqmp"]
+[ext_resource type="Texture2D" uid="uid://brkv3vu5qtvkj" path="res://assets/images/customer sprites/NPC sprites/Hoodie 1.png" id="17_8br4y"]
+[ext_resource type="Texture2D" uid="uid://uotoyvg3rac2" path="res://assets/images/customer sprites/NPC sprites/Hoodie 2.png" id="18_f50xm"]
+[ext_resource type="Texture2D" uid="uid://b3062okusdy32" path="res://assets/images/customer sprites/NPC sprites/Hoodie 3.png" id="19_4i6on"]
+[ext_resource type="Resource" uid="uid://cthfpxtgxya7a" path="res://resources/drinks/espresso.tres" id="19_exsli"]
+[ext_resource type="Texture2D" uid="uid://1eycxi4bu2r5" path="res://assets/images/customer sprites/NPC sprites/Face 1.png" id="20_agls0"]
+[ext_resource type="Resource" uid="uid://df2bpg5715cbl" path="res://resources/drinks/americano.tres" id="20_okruu"]
+[ext_resource type="Texture2D" uid="uid://qnwqj7r3v52n" path="res://assets/images/customer sprites/NPC sprites/Face 2.png" id="21_1syul"]
+[ext_resource type="Texture2D" uid="uid://b2g6uaxvukl05" path="res://assets/images/customer sprites/NPC sprites/Face 3.png" id="22_ml340"]
+[ext_resource type="Texture2D" uid="uid://b3ksb8i1xdax4" path="res://assets/images/customer sprites/NPC sprites/Hair 1.png" id="23_lhmik"]
+[ext_resource type="Texture2D" uid="uid://2h7yhaw6r50i" path="res://assets/images/customer sprites/NPC sprites/Hair 2.png" id="24_a4ul4"]
+[ext_resource type="Resource" uid="uid://dxqvhldqgq0x5" path="res://resources/customers/sarah.tres" id="25_bdbav"]
+[ext_resource type="Texture2D" uid="uid://dnn07c44qf1xa" path="res://assets/images/customer sprites/NPC sprites/Hair 3.png" id="25_qj4l0"]
+[ext_resource type="Resource" uid="uid://c15e3cvb5n81l" path="res://resources/customers/chef_bruno.tres" id="27_knri8"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fqnyi"]
+size = Vector2(50, 30)
+
+[sub_resource type="Animation" id="Animation_7pxyo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_oriwa"]
+resource_name = "angry"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_7f8f7"]
+resource_name = "happy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_pmf3v"]
+resource_name = "ok"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2tl2o"]
+_data = {
+"RESET": SubResource("Animation_7pxyo"),
+"angry": SubResource("Animation_oriwa"),
+"happy": SubResource("Animation_7f8f7"),
+"ok": SubResource("Animation_pmf3v")
+}
+
+[node name="CustomerPanel2" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 180)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1820.0
+offset_bottom = -900.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.8, 5.8)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(50, 90)
+texture = ExtResource("1_14pq6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+centered = false
+
+[node name="Doll" parent="." instance=ExtResource("2_aajm0")]
+unique_name_in_owner = true
+position = Vector2(52, 90)
+
+[node name="BackgroundElements" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="Counter" type="Sprite2D" parent="BackgroundElements"]
+texture = ExtResource("3_hf0r0")
+centered = false
+
+[node name="Shelf" type="Sprite2D" parent="BackgroundElements"]
+texture = ExtResource("4_pfvda")
+centered = false
+
+[node name="Leaves" type="Sprite2D" parent="BackgroundElements"]
+texture = ExtResource("5_0ijvf")
+centered = false
+
+[node name="Till" type="Sprite2D" parent="BackgroundElements"]
+texture = ExtResource("6_1m27n")
+centered = false
+
+[node name="Bell" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(11.5, 150)
+texture = ExtResource("7_m51nf")
+
+[node name="SpeechBox" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(74, 44)
+texture = SubResource("PlaceholderTexture2D_fqnyi")
+
+[node name="Label" type="Label" parent="SpeechBox"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -15.0
+offset_right = -25.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("8_r2lhv")
+theme_override_font_sizes/font_size = 8
+text = "TEXT"
+
+[node name="PatienceMeter" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_vxukn")
+
+[node name="Sprite2D" type="Sprite2D" parent="PatienceMeter"]
+visible = false
+position = Vector2(78.4483, 98.4483)
+texture = ExtResource("9_w44ji")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PatienceMeter/Sprite2D"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_2tl2o")
+}
+
+[node name="Timer" type="Timer" parent="PatienceMeter"]
+unique_name_in_owner = true
+
+[node name="DialogueBox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 14.0
+offset_right = 144.0
+offset_bottom = 94.0
+scale = Vector2(0.5, 0.5)
+alignment = 2
+
+[node name="DialogueLabel" type="Label" parent="DialogueBox"]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(96, 16)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("8_r2lhv")
+theme_override_font_sizes/font_size = 8
+text = "My buddy recommended this one - I'll get a ORDER."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 160
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogueBox/DialogueLabel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_gbijp")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="CustomerQueueManager" type="Node2D" parent="."]
+position = Vector2(30.6897, 105.862)
+script = ExtResource("13_4m3qs")
+possible_heads = Array[Texture2D]([ExtResource("14_xs3i7"), ExtResource("16_nsqmp"), ExtResource("15_tra5b")])
+possible_bodies = Array[Texture2D]([ExtResource("17_8br4y"), ExtResource("18_f50xm"), ExtResource("19_4i6on")])
+possible_faces = Array[Texture2D]([ExtResource("20_agls0"), ExtResource("22_ml340"), ExtResource("21_1syul")])
+possible_hairs = Array[Texture2D]([ExtResource("23_lhmik"), ExtResource("24_a4ul4"), ExtResource("25_qj4l0")])
+vip_customers = Array[Resource]([ExtResource("25_bdbav")])
+named_customers = Array[Resource]([ExtResource("27_knri8")])
+possible_order_lines = Array[String](["No small talk. I'll take ART ORDER", "Hi!! Oh, my order? Hmm... Let's do ART ORDER", "Awful weather, truly. Anyway, I'll get ART ORDER", "Lovely weather we're having. I'd like ART ORDER, duck", "Hey bro, gimme ART ORDER. Make sure it's hot!", "One ORDER, please. Nice shirt, by the way!", "One ORDER. And just so you know, I'm in a rush", "What should I get this time? Oh, what about ART ORDER?", "You still got that ORDER? I'll get one of those", "I want to get a... What was it called again? ORDER!", "Just ART ORDER", "Business looks good! I'll get my regular ORDER", "I need caffeine, stat. ORDER. Now!", "It's gonna be a long day, bud. Gimme ART ORDER", "You don't recognise me? Ugh. Fine. My drink's ART ORDER", "I'm trying something new today - ORDER, please", "My buddy recommended this one - I'll get ART ORDER", "Ooo, so many options! I guess I'll get ART ORDER", "Can't remember what my friends wanted. I'll get ART ORDER though", "Busy day! I hope you still have ART ORDER", "You got ART ORDER ready for me? No? Chop chop, then!", "I heard the best drink to order here is ART ORDER", "Another ORDER today. Thanks!", "Okay, I think I'll finally try ART ORDER", "I'll take my regular ORDER. Cheers!"])
+drinks = Array[Resource]([ExtResource("19_exsli"), ExtResource("20_okruu")])
+
+[connection signal="timeout" from="PatienceMeter/Timer" to="PatienceMeter" method="_on_timer_timeout"]

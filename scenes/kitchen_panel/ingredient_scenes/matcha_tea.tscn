@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://6xqcmsoeb0ot"]
+
+[ext_resource type="Script" path="res://scripts/kitchen_panel/ingredient_logic.gd" id="1_7427y"]
+[ext_resource type="Texture2D" uid="uid://0mqegeimatcy" path="res://assets/images/kitchen panel/ingredients/matcha.PNG" id="2_co0yc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2tjq"]
+size = Vector2(33.5, 34.5)
+
+[node name="MatchaTea" type="Node2D"]
+script = ExtResource("1_7427y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+texture = ExtResource("2_co0yc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_e2tjq")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

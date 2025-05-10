@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Brew-n-buzz"
-run/main_scene="res://scenes/main_menu.tscn"
+run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://scenes/game_manager.gd"
-AudioManager="*res://audioManager.gd"
+GameManager="*res://scripts/general/game_manager.gd"
+AudioManager="*res://scripts/general/audio_manager.gd"
 
 [display]
 
