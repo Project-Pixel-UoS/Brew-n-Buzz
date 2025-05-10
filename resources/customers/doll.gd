@@ -65,19 +65,31 @@ func say_dialogue():
 	order_line = order_line.replace("ORDER", drink_name)
 	order_line = order_line.replace("ART", article)
 	# set text
-	%DialogueLabel.text = order_line
+	
 	old_position = self.position
 	if customer.idle_body_texture == null:
 		new_position = Vector2(old_position.x, old_position.y +2)
+		%DialogueLabel.text = order_line
 		while not finished_animation and not leaving_queue:
 			await NPC_animation()
 		finished_moving = true
 		emit_signal("movement_finished")
 	else:
+		say_special_dialogue()
 		%AnimationPlayer.play('special')
 		leaving_queue = true
 		finished_moving = true
-	
+
+func say_special_dialogue():
+	var time = 0
+	for line in customer.special_order_lines:
+		%DialogueLabel.text = line
+		if line.length() > 60:
+			time = 3
+		else:
+			time = 2
+		await get_tree().create_timer(time).timeout
+		
 func enter_queue():
 	leaving_queue = false
 	var counter = 0

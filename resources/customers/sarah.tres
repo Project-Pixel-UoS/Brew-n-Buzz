@@ -13,3 +13,4 @@ idle_body_texture = ExtResource("2_sn20g")
 special_body_texture = ExtResource("4_wssp8")
 tip_value = 10
 order_line = "No small talk. I'll take ART ORDER"
+special_order_lines = Array[String](["Wait, are you..? OMG, you are! It's been so long!", "You don't remember me? It's Sarah, I sat next to you all the time in high school. ", "No time to catch up now, but lunch this weekend?", "Oh, right, my usual order. Give me your best Espresso!"])
