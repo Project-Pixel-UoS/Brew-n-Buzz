@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Drink" load_steps=3 format=3 uid="uid://cthfpxtgxya7a"]
 
-[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="1_o6c16"]
+[ext_resource type="Script" path="res://resources/drinks/Drink.gd" id="1_o6c16"]
 [ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://assets/images/kitchen panel/mug sprites/bnb_espresso.png" id="1_pyp6w"]
 
 [resource]
