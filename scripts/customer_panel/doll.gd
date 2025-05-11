@@ -3,7 +3,6 @@ extends Node2D
 @export var customer: CustomerData
 var old_position 
 var new_position
-var finished_animation = false
 var leaving_queue = false
 var end_position 
 var reset_position
@@ -71,15 +70,27 @@ func say_dialogue():
 	if customer.idle_body_texture == null:
 		new_position = Vector2(old_position.x, old_position.y +2)
 		%DialogueLabel.text = order_line
-		while not finished_animation and not leaving_queue:
+		while not leaving_queue:
 			await NPC_animation()
 		finished_moving = true
 		emit_signal("movement_finished")
 	else:
 		say_special_dialogue()
 		%AnimationPlayer.play('special')
-		leaving_queue = true
+		await %AnimationPlayer.animation_finished
+		while not leaving_queue:
+			var random_val = randi() % 100
+			if random_val < 80:
+				$full_body.texture = customer.idle_body_texture
+				$full_body.hframes = 5
+				%AnimationPlayer.play('idle')
+			else:
+				$full_body.texture = customer.special_body_texture
+				$full_body.hframes = 4
+				%AnimationPlayer.play('special')
+			await %AnimationPlayer.animation_finished
 		finished_moving = true
+		emit_signal("movement_finished")
 		
 func repeat_order_line():
 	%DialogueLabel.text = order_line

@@ -11,6 +11,9 @@ var index = 1
 var out_of_patience = false
 var parent_manager: Node = null
 
+func is_out_of_patience():
+	return out_of_patience
+	
 func start_meter(manager: Node, patience_value):
 	parent_manager = manager
 	index = 1

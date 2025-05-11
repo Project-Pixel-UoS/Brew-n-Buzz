@@ -76,18 +76,19 @@ func spawn_next_customer():
 	var next = customer_queue.pop_front()
 	%Doll.customer = next 
 	%PatienceMeter.connect("customer_angry", Callable(self, "_on_customer_angry"))
-	%PatienceMeter.call_deferred("start_meter", self, next.patience)
 	is_spawning = false
 	%Doll.update_customer_appearance()
 	await %Doll.enter_queue()
 	%PatienceMeter.get_node('Sprite2D').visible = true
 	%DialogueLabel.visible = true
+	%PatienceMeter.call_deferred("start_meter", self, next.patience)
 	%Doll.say_dialogue()
 	customer_ready = true
 
 func _on_customer_angry():
 	react_to_drink(false)
 	await get_tree().create_timer(1.0).timeout
+	print('mhm')
 	remove_customer()
 
 func customer_served(correct: bool):
@@ -95,7 +96,7 @@ func customer_served(correct: bool):
 		%PatienceMeter.timer.stop()
 		%PatienceMeter.out_of_patience = true
 	await react_to_drink(correct)
-	if strikes == 3 or correct:
+	if strikes == 3 or correct or %PatienceMeter.is_out_of_patience():
 		customer_ready = false
 		%PatienceMeter.get_node('Timer').stop()
 		%PatienceMeter.animationPlayer.play("angry")
@@ -117,6 +118,11 @@ func react_to_drink(correct: bool):
 		var time = %Doll.get_dialogue_time(%Doll.customer.correct_drink_line)
 		%DialogueLabel.text =  %Doll.customer.correct_drink_line
 		await get_tree().create_timer(1.5).timeout
+	elif %PatienceMeter.is_out_of_patience():
+		var line = %Doll.customer.incorrect_drink_lines[2]
+		var time = %Doll.get_dialogue_time(line)
+		%DialogueLabel.text = line
+		await get_tree().create_timer(time).timeout
 	else:
 		var line = %Doll.customer.incorrect_drink_lines[strikes]
 		var time = %Doll.get_dialogue_time(line)
