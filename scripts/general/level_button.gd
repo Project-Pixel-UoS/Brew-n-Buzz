@@ -8,7 +8,7 @@ func _ready() -> void:
 	#level_filename = level_filename % level_number
 	$Label.text = "level %d" % level_number
 	name = "LevelButton%d" % level_number
-	level_filename = "scenes/level_%d.tscn" % level_number
+	level_filename = "scenes/levels/level_%d.tscn" % level_number
 
 
 ## @brief Loads levelscne

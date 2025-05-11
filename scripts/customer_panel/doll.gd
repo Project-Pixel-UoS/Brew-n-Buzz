@@ -3,12 +3,12 @@ extends Node2D
 @export var customer: CustomerData
 var old_position 
 var new_position
-var finished_animation = false
 var leaving_queue = false
 var end_position 
 var reset_position
 signal movement_finished
 var finished_moving
+var order_line
 
 func _ready() -> void:
 	reset_position = Vector2(-22,90)
@@ -58,26 +58,57 @@ func update_customer_appearance():
 func say_dialogue():
 	# format dialogue
 	var drink_name = customer.drink.name
-	var order_line = customer.order_line
+	order_line = customer.order_line
 	var article = "a"
 	if drink_name[0] == "a" or drink_name[0] == "e" or drink_name[0] == "i" or drink_name[0] == "o" or drink_name[0] == "u":
 		article = "an"
 	order_line = order_line.replace("ORDER", drink_name)
 	order_line = order_line.replace("ART", article)
 	# set text
-	%DialogueLabel.text = order_line
+	
 	old_position = self.position
 	if customer.idle_body_texture == null:
 		new_position = Vector2(old_position.x, old_position.y +2)
-		while not finished_animation and not leaving_queue:
+		%DialogueLabel.text = order_line
+		while not leaving_queue:
 			await NPC_animation()
 		finished_moving = true
 		emit_signal("movement_finished")
 	else:
+		say_special_dialogue()
 		%AnimationPlayer.play('special')
-		leaving_queue = true
+		await %AnimationPlayer.animation_finished
+		while not leaving_queue:
+			var random_val = randi() % 100
+			if random_val < 80:
+				$full_body.texture = customer.idle_body_texture
+				$full_body.hframes = 5
+				%AnimationPlayer.play('idle')
+			else:
+				$full_body.texture = customer.special_body_texture
+				$full_body.hframes = 4
+				%AnimationPlayer.play('special')
+			await %AnimationPlayer.animation_finished
 		finished_moving = true
+		emit_signal("movement_finished")
+		
+func repeat_order_line():
+	%DialogueLabel.text = order_line
+
+func get_dialogue_time(line):
+	var time = 0
+	if line.length() > 60:
+		time = 3
+	else:
+		time = 2
+	return time
 	
+func say_special_dialogue():
+	for line in customer.special_order_lines:
+		var time = get_dialogue_time(line)
+		%DialogueLabel.text = line
+		await get_tree().create_timer(time).timeout
+		
 func enter_queue():
 	leaving_queue = false
 	var counter = 0
