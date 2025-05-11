@@ -2,6 +2,7 @@ extends Node
 
 @onready var timer: Timer = %Timer
 @onready var endOfLevel = %end_of_level_layer
+@onready var customerPanel = %CustomerPanel
 var correct_recipes = 0
 var incorrect_recipes = 0
 var inactive_objects = ["Ingredients/Seasonal", "Machines/Grinder"] #"Machines/MilkJug", "Ingredients/Coffee", "Ingredients/Milk"
@@ -15,7 +16,7 @@ func _ready() -> void:
 		turn_inactive(object)
 
 func _process(delta: float) -> void:
-	if timer.out_of_time():
+	if timer.out_of_time() or customerPanel.get_node('CustomerQueueManager').is_queue_empty():
 		#@TODO SAVE LEVEL HERE
 		Engine.time_scale = 0
 		endOfLevel.visible = true

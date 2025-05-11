@@ -18,10 +18,10 @@ extends Node2D
 @export var possible_order_lines: Array[String]
 
 var customer_queue: Array = []
-var is_spawning: bool = false
 var queue_numbers
 var customer_ready
 var strikes = 0
+var queue_empty = false
 
 @export var drinks: Array[Resource]
 
@@ -66,17 +66,18 @@ func pick_incorrect_drink_lines():
 	line_array.append(possible_third_incorrect_drink_lines.pick_random())
 	return line_array
 	
-func spawn_next_customer():
-	if is_spawning or customer_queue.is_empty():
-		return
+func is_queue_empty():
+	return queue_empty	
 	
-	is_spawning = true
+func spawn_next_customer():
+	if customer_queue.is_empty():
+		queue_empty = true
+	
 	strikes = 0
 	%Doll.reset_pos()
 	var next = customer_queue.pop_front()
 	%Doll.customer = next 
 	%PatienceMeter.connect("customer_angry", Callable(self, "_on_customer_angry"))
-	is_spawning = false
 	%Doll.update_customer_appearance()
 	await %Doll.enter_queue()
 	%PatienceMeter.get_node('Sprite2D').visible = true
@@ -88,13 +89,9 @@ func spawn_next_customer():
 func _on_customer_angry():
 	react_to_drink(false)
 	await get_tree().create_timer(1.0).timeout
-	print('mhm')
 	remove_customer()
 
 func customer_served(correct: bool):
-	if not correct:
-		%PatienceMeter.timer.stop()
-		%PatienceMeter.out_of_patience = true
 	await react_to_drink(correct)
 	if strikes == 3 or correct or %PatienceMeter.is_out_of_patience():
 		customer_ready = false
