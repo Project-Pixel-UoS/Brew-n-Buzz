@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6p8tde7gf4ur"]
+
+[ext_resource type="Script" path="res://scripts/kitchen_panel/Machines/coffee_machine.gd" id="1_ugxt8"]
+[ext_resource type="Texture2D" uid="uid://cugn5sv1t5mop" path="res://assets/images/kitchen panel/machines/bnb_coffee_machine_all.png" id="2_dfvj3"]
+
+[sub_resource type="Animation" id="Animation_a4m57"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [21]
+}
+
+[sub_resource type="Animation" id="Animation_jyrjr"]
+resource_name = "coffee"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21]
+}
+
+[sub_resource type="Animation" id="Animation_mnd28"]
+resource_name = "water"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667, 0.733333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p2b12"]
+_data = {
+"RESET": SubResource("Animation_a4m57"),
+"coffee": SubResource("Animation_jyrjr"),
+"water": SubResource("Animation_mnd28")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74vpx"]
+size = Vector2(13.9655, 6.20689)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfbmk"]
+size = Vector2(138.75, 155.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i071q"]
+size = Vector2(143.5, 154)
+
+[node name="CoffeeMachine" type="Node2D" groups=["coffeeMachine"]]
+script = ExtResource("1_ugxt8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(186, 116)
+scale = Vector2(6, 6)
+texture = ExtResource("2_dfvj3")
+hframes = 5
+vframes = 5
+frame = 21
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_p2b12")
+}
+speed_scale = 0.25
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="GroupHandleCollision" type="CollisionShape2D" parent="Area2D" groups=["groupHandle"]]
+position = Vector2(-31, 14)
+scale = Vector2(5.8, 5.8)
+shape = SubResource("RectangleShape2D_74vpx")
+
+[node name="MugCoffeeCollision" type="CollisionShape2D" parent="Area2D" groups=["mug"]]
+position = Vector2(-35, 177)
+shape = SubResource("RectangleShape2D_nfbmk")
+
+[node name="MugWaterCollision" type="CollisionShape2D" parent="Area2D" groups=["mug"]]
+position = Vector2(220.25, 177)
+shape = SubResource("RectangleShape2D_i071q")

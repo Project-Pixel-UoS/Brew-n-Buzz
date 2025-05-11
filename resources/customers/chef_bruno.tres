@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CustomerData" load_steps=3 format=3 uid="uid://c15e3cvb5n81l"]
 
 [ext_resource type="Resource" uid="uid://cthfpxtgxya7a" path="res://resources/drinks/espresso.tres" id="1_c7fbo"]
-[ext_resource type="Script" path="res://resources/customers/CustomerData.gd" id="2_aedkv"]
+[ext_resource type="Script" path="res://resources/customers/customer_data.gd" id="2_aedkv"]
 
 [resource]
 script = ExtResource("2_aedkv")

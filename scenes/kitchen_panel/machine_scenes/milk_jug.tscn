@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cikh8xovd5wod"]
+
+[ext_resource type="Script" path="res://scripts/kitchen_panel/milk_jug_logic.gd" id="1_ijaby"]
+[ext_resource type="Texture2D" uid="uid://cehcerwxdn810" path="res://assets/images/kitchen panel/machines/bnb_milk_jug.png" id="2_iyqvh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_po6pa"]
+size = Vector2(140, 141)
+
+[node name="MilkJug" type="Node2D" groups=["milkJug"]]
+script = ExtResource("1_ijaby")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+texture = ExtResource("2_iyqvh")
+
+[node name="Area2D" type="Area2D" parent="." groups=["milkJug"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -2.5)
+shape = SubResource("RectangleShape2D_po6pa")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
