@@ -9,6 +9,7 @@ var end_position
 var reset_position
 signal movement_finished
 var finished_moving
+var order_line
 
 func _ready() -> void:
 	reset_position = Vector2(-22,90)
@@ -58,7 +59,7 @@ func update_customer_appearance():
 func say_dialogue():
 	# format dialogue
 	var drink_name = customer.drink.name
-	var order_line = customer.order_line
+	order_line = customer.order_line
 	var article = "a"
 	if drink_name[0] == "a" or drink_name[0] == "e" or drink_name[0] == "i" or drink_name[0] == "o" or drink_name[0] == "u":
 		article = "an"
@@ -79,15 +80,22 @@ func say_dialogue():
 		%AnimationPlayer.play('special')
 		leaving_queue = true
 		finished_moving = true
+		
+func repeat_order_line():
+	%DialogueLabel.text = order_line
 
-func say_special_dialogue():
+func get_dialogue_time(line):
 	var time = 0
+	if line.length() > 60:
+		time = 3
+	else:
+		time = 2
+	return time
+	
+func say_special_dialogue():
 	for line in customer.special_order_lines:
+		var time = get_dialogue_time(line)
 		%DialogueLabel.text = line
-		if line.length() > 60:
-			time = 3
-		else:
-			time = 2
 		await get_tree().create_timer(time).timeout
 		
 func enter_queue():

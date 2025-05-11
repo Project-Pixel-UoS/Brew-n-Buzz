@@ -11,4 +11,6 @@ extends Resource
 @export var special_body_texture: Texture2D
 @export var tip_value: int
 @export var order_line: String
+@export var correct_drink_line: String
+@export var incorrect_drink_lines: Array[String]
 @export var special_order_lines: Array[String]

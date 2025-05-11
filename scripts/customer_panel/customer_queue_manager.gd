@@ -11,13 +11,17 @@ extends Node2D
 @export var vip_customers: Array[Resource]
 @export var named_customers: Array[Resource]
 
+@export var possible_correct_drink_lines: Array[String]
+@export var possible_first_incorrect_drink_lines: Array[String]
+@export var possible_second_incorrect_drink_lines: Array[String]
+@export var possible_third_incorrect_drink_lines: Array[String]
 @export var possible_order_lines: Array[String]
 
 var customer_queue: Array = []
-var current_customer: Node = null
 var is_spawning: bool = false
 var queue_numbers
 var customer_ready
+var strikes = 0
 
 @export var drinks: Array[Resource]
 
@@ -50,14 +54,24 @@ func create_NPC_data():
 	new_customer_data.face_texture = possible_faces.pick_random()
 	new_customer_data.hair_texture = possible_hairs.pick_random()
 	new_customer_data.order_line = possible_order_lines.pick_random()
+	new_customer_data.correct_drink_line = possible_correct_drink_lines.pick_random()
+	new_customer_data.incorrect_drink_lines = pick_incorrect_drink_lines()
 	new_customer_data.tip_value = 0
 	return new_customer_data
+
+func pick_incorrect_drink_lines():
+	var line_array: Array[String] = []
+	line_array.append(possible_first_incorrect_drink_lines.pick_random())
+	line_array.append(possible_second_incorrect_drink_lines.pick_random())
+	line_array.append(possible_third_incorrect_drink_lines.pick_random())
+	return line_array
 	
 func spawn_next_customer():
 	if is_spawning or customer_queue.is_empty():
 		return
 	
 	is_spawning = true
+	strikes = 0
 	%Doll.reset_pos()
 	var next = customer_queue.pop_front()
 	%Doll.customer = next 
@@ -70,7 +84,6 @@ func spawn_next_customer():
 	%DialogueLabel.visible = true
 	%Doll.say_dialogue()
 	customer_ready = true
-	
 
 func _on_customer_angry():
 	react_to_drink(false)
@@ -81,13 +94,16 @@ func customer_served(correct: bool):
 	if not correct:
 		%PatienceMeter.timer.stop()
 		%PatienceMeter.out_of_patience = true
-	react_to_drink(correct)
-	await get_tree().create_timer(1.0).timeout
-	customer_ready = false
-	remove_customer()
+	await react_to_drink(correct)
+	if strikes == 3 or correct:
+		customer_ready = false
+		%PatienceMeter.get_node('Timer').stop()
+		%PatienceMeter.animationPlayer.play("angry")
+		remove_customer()
+	else:
+		%Doll.repeat_order_line()
 
 func remove_customer():
-	##TODO update with final line!
 	%PatienceMeter.get_node('Sprite2D').visible = false
 	%DialogueLabel.visible = false
 	await %Doll.exit_queue()
@@ -95,10 +111,15 @@ func remove_customer():
 	spawn_next_customer()
 	
 func react_to_drink(correct: bool):
-	#TODO this will be updated with actual lines!
 	if correct:
+		%PatienceMeter.get_node('Timer').stop()
 		%PatienceMeter.animationPlayer.play("happy")
-		%DialogueLabel.text = 'CORRECT!'
+		var time = %Doll.get_dialogue_time(%Doll.customer.correct_drink_line)
+		%DialogueLabel.text =  %Doll.customer.correct_drink_line
+		await get_tree().create_timer(1.5).timeout
 	else:
-		%PatienceMeter.animationPlayer.play("angry")
-		%DialogueLabel.text = 'WRONG!'
+		var line = %Doll.customer.incorrect_drink_lines[strikes]
+		var time = %Doll.get_dialogue_time(line)
+		%DialogueLabel.text = line
+		strikes += 1
+		await get_tree().create_timer(1.5).timeout
