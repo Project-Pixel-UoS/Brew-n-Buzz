@@ -74,7 +74,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			GameManager.is_dragging = false
 			scale = Vector2(1,1)
 			await get_tree().physics_frame
-			var tween = get_tree().create_tween()
 			if is_inside_valid_drop and body_ref and has_milk and not is_inside_bin:
 				if steamed_milk && body_ref.is_in_group("ingredient"):
 					queue_free()
@@ -88,6 +87,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					body_ref.get_parent().add_ingredient("Frothed Milk")
 				elif body_ref.is_in_group("frother"):
 					print("Dropping into object at position: ", body_ref.global_position)
+					var tween = get_tree().create_tween()
 					tween.tween_property(self, "global_position",body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished
 					z_index = 0
@@ -98,6 +98,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				elif !steamed_milk:
 					print(body_ref.get_parent().name)
 					print(body_ref.global_position)
+					var tween = get_tree().create_tween()
 					tween.tween_property(self, "global_position",Vector2(1149,472), 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished
 					body_ref.get_parent().steam_milk(self)
@@ -106,6 +107,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				queue_free()  
 				replenish_milk_jug()
 			else:
+				var tween = get_tree().create_tween()
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 								
 	elif event is InputEventScreenDrag and being_dragged:

@@ -38,12 +38,12 @@ func _process(delta: float) -> void:
 			being_dragged = true
 		elif Input.is_action_just_released("click"):
 			GameManager.is_dragging = false
-			var tween = get_tree().create_tween()
 			AudioManager.set_stream(deselect_sound)
 			AudioManager.play()
 			if is_inside_valid_drop and body_ref:
 				## @brief if object is dropped in box then move item to box
 				print("Dropping into mug at position: ", body_ref.global_position)
+				var tween = get_tree().create_tween()
 				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				await tween.finished  # Wait until the animation finishes
 				queue_free()
@@ -52,12 +52,14 @@ func _process(delta: float) -> void:
 				  # Remove the old ingredient from the scene
 			elif is_inside_bin and body_ref:
 				print("Ingredient dropped into bin! Destroying...")
+				var tween = get_tree().create_tween()
 				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				queue_free()  
 				replenish_ingredient(name)
 				# Remove the ingredient from the scene
 			else:
 				## @brief if object is dropped in an invalid position then return back to original position
+				var tween = get_tree().create_tween()
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 			being_dragged = false
 

@@ -19,7 +19,6 @@ func _ready() -> void:
 	Input.set_use_accumulated_input(false)
 
 func _process(delta: float) -> void:
-	var tween = get_tree().create_tween()
 	for child in get_tree().root.get_children():
 		if child.name == ("Mug"):
 			mugObject = child
@@ -89,7 +88,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			AudioManager.play()
 
 			await get_tree().physics_frame
-			var tween = get_tree().create_tween()
 			if is_inside_valid_drop and body_ref and not is_inside_bin:
 				if body_ref.get_parent().name == 'Grinder':
 					body_ref.get_parent().fill_grinder()
@@ -101,6 +99,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				queue_free() 
 				replenish_ingredient(name)
 			else:
+				var tween = get_tree().create_tween()
 				tween.tween_property(self, "position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
 			z_index = 0	
 								

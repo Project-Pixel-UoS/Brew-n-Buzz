@@ -112,36 +112,42 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			GameManager.is_dragging = false
 			scale = Vector2(1,1)
 			await get_tree().physics_frame
-			var tween = get_tree().create_tween()
 			if is_inside_valid_drop and body_ref:
 	
 				if body_ref.get_parent().name == "CoffeeMachine":
 					if has_child_with_name(body_ref, "MugWaterCollision") and self.position.x > 900:
+						var tween = get_tree().create_tween()
 						tween.tween_property(self, "global_position", Vector2(973,502), 0.2).set_ease(Tween.EASE_OUT)
 						body_ref.get_parent().add_water()
 						is_inside_valid_drop = false
 						initialPos = global_position
 					else:
 						body_ref.get_parent().is_mug_in_machine(true)
+						var tween = get_tree().create_tween()
 						tween.tween_property(self, "global_position", Vector2(719,497), 0.2).set_ease(Tween.EASE_OUT)
 				elif body_ref.get_parent().name == "Counter":
 					if customer_panel.get_node('CustomerQueueManager').is_customer_ready():
+						var tween = get_tree().create_tween()
 						tween.tween_property(self, "global_position", Vector2(210,980), 0.2).set_ease(Tween.EASE_OUT)
 						await tween.finished
 						emit_signal('entered_counter')
 					else:
+						var tween = get_tree().create_tween()
 						tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 						determine_animation(x_change)
 						animationPlayer.play("idle")
 				elif body_ref.get_parent().name == "MugRing":
+					var tween = get_tree().create_tween()
 					tween.tween_property(self, "global_position", Vector2(1064,771), 0.2).set_ease(Tween.EASE_OUT)
 				else:
+					var tween = get_tree().create_tween()
 					tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				animationPlayer.play("idle")
 				initialPos = body_ref.global_position
 			elif is_inside_bin and body_ref:
 				queue_free()  
 			else:
+				var tween = get_tree().create_tween()
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 				determine_animation(x_change)
 				animationPlayer.play("idle")

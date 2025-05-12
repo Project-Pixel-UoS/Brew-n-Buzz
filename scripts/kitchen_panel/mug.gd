@@ -53,23 +53,26 @@ func _process(delta: float) -> void:
 			determine_animation(x_change)
 		elif Input.is_action_just_released("click"):
 			GameManager.is_dragging = false
-			var tween = get_tree().create_tween()
 			if is_inside_object and body_ref:
 				## @brief if object is dropped in box then move item to box
 				print("Dropping into object at position: ", body_ref.global_position)
 				
 				if body_ref.get_parent().name == "CoffeeMachine":
 					if has_child_with_name(body_ref, "MugWaterCollision") and self.position.x > 900:
+						var tween = get_tree().create_tween()
 						tween.tween_property(self, "global_position", Vector2(974,482), 0.2).set_ease(Tween.EASE_OUT)
 						body_ref.get_parent().add_water()
 					else:
 						body_ref.get_parent().is_mug_in_machine(true)
+						var tween = get_tree().create_tween()
 						tween.tween_property(self, "global_position", Vector2(756,482), 0.2).set_ease(Tween.EASE_OUT)
 				else:
+					var tween = get_tree().create_tween()
 					tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				animationPlayer.play("idle")
 			elif is_inside_bin and body_ref:
 				print("Mug dropped into bin! Destroying...")
+				var tween = get_tree().create_tween()
 				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				body_ref.get_parent().play_sound()
 				queue_free()
@@ -77,6 +80,7 @@ func _process(delta: float) -> void:
 			else:
 				## @brief if object is dropped in an invalid position then return back to original position
 				print("Invalid drop, returning to initial position")
+				var tween = get_tree().create_tween()
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 				
 				determine_animation(x_change)

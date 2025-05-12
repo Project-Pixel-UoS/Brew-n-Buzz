@@ -36,7 +36,6 @@ func _process(delta: float) -> void:
 			global_position = get_global_mouse_position() - offset
 		elif Input.is_action_just_released("click"):
 			GameManager.is_dragging = false
-			var tween = get_tree().create_tween()
 			if is_inside_valid_drop and body_ref && has_milk:
 				## @brief if object is dropped in box then move item to box
 				if steamed_milk && body_ref.is_in_group("ingredient"):
@@ -51,6 +50,7 @@ func _process(delta: float) -> void:
 					body_ref.get_parent().add_ingredient("Frothed Milk")
 				elif body_ref.get_parent().name == "Frother":
 					print("Dropping into object at position: ", body_ref.global_position)
+					var tween = get_tree().create_tween()
 					tween.tween_property(self, "global_position",body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 					body_ref.get_parent().froth_milk()
 					frothed_milk = true
@@ -59,12 +59,14 @@ func _process(delta: float) -> void:
 					body_ref.get_parent().steam_milk(self)
 			elif is_inside_bin and body_ref:
 				print("Mug dropped into bin! Destroying...")
+				var tween = get_tree().create_tween()
 				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				queue_free()
 				replenish_milk_jug()
 			else:
 				## @brief if object is dropped in an invalid position then return back to original position
 				print("Invalid drop, returning to initial position")
+				var tween = get_tree().create_tween()
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 
 func replenish_milk_jug():

@@ -45,12 +45,12 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			GameManager.is_dragging = false
 			scale = Vector2(1,1)
 			await get_tree().physics_frame
-			var tween = get_tree().create_tween()
 			if is_inside_valid_drop and body_ref and has_ground_coffee:
 				print("group handle good !")
 				if body_ref.get_parent().name == "CoffeeMachine":
 					var new_position = Vector2(695,360)
 					print(new_position)
+					var tween = get_tree().create_tween()
 					tween.tween_property(self, "global_position", new_position, 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished 
 					grinder.remove_coffee()
@@ -60,6 +60,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				replenish_group_handle()
 			else:
 				print("hi3")
+				var tween = get_tree().create_tween()
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 			z_index = 0				
 	elif event is InputEventScreenDrag and being_dragged:
