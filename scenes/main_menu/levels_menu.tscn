@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/general/levels_populator.gd" id="1_e6vc0"]
 [ext_resource type="PackedScene" uid="uid://h4hjt0fkwmrq" path="res://scenes/main_menu/components/level_button.tscn" id="2_2isbr"]
-[ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://scenes/main_menu/components/title_label.tscn" id="3_vrv7c"]
+[ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="3_ik3w7"]
 
 [node name="levels_menu" type="Control"]
 layout_mode = 3
@@ -28,11 +28,21 @@ grow_vertical = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 script = ExtResource("1_e6vc0")
-number_of_levels = 15
+number_of_levels = 9
 level_button = ExtResource("2_2isbr")
 
-[node name="TitleLabel" parent="." instance=ExtResource("3_vrv7c")]
+[node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 1
-offset_top = 60.0
-offset_bottom = 160.0
-text = "Levels"
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_top = 191.0
+offset_right = 960.0
+offset_bottom = 298.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_ik3w7")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]Levels"

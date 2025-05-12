@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bwovlnl5bfqtr"]
+[gd_scene load_steps=28 format=3 uid="uid://bwovlnl5bfqtr"]
 
 [ext_resource type="PackedScene" uid="uid://o08kpm1g2d1a" path="res://scenes/main_menu/components/bg_stretch.tscn" id="1_2a4e5"]
 [ext_resource type="Script" path="res://scripts/ui/menu_manager.gd" id="1_r2aoh"]
@@ -18,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://scenes/main_menu/components/title_label.tscn" id="13_h33pi"]
 [ext_resource type="Texture2D" uid="uid://ctiw86b4ohhhi" path="res://assets/images/menu/logo.png" id="14_ishto"]
 [ext_resource type="Texture2D" uid="uid://1iroxuglugmu" path="res://assets/images/buttons/bnb_play.PNG" id="15_v2tpv"]
+[ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://assets/images/kitchen panel/misc/bnb_clockbg.PNG" id="17_52fwj"]
+[ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://assets/images/customer panel/bnb_money_pile.png" id="18_gglst"]
+[ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="19_d2nob"]
 
 [sub_resource type="Theme" id="Theme_id8kp"]
 
@@ -27,25 +30,8 @@
 
 [sub_resource type="Theme" id="Theme_7ldcs"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2jiu"]
-bg_color = Color(0.448437, 0.608589, 0.342772, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 13
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fybge"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31p7v"]
+texture = ExtResource("17_52fwj")
 
 [sub_resource type="Resource" id="Resource_kliah"]
 script = ExtResource("9_08i8y")
@@ -206,7 +192,14 @@ theme = SubResource("Theme_acqyv")
 [node name="Audo_Slider_Settings3" parent="MenuCanvas/SettingsMenu/ScrollContainer/VBoxContainer" index="2"]
 theme = SubResource("Theme_7ldcs")
 
-[node name="BackButton" type="TextureButton" parent="MenuCanvas/SettingsMenu"]
+[node name="BackButton" parent="MenuCanvas/SettingsMenu" index="2"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 24.0
+offset_bottom = 24.0
+
+[node name="BackButton2" type="TextureButton" parent="MenuCanvas/SettingsMenu"]
 layout_mode = 0
 offset_left = 1640.0
 offset_top = 867.0
@@ -215,7 +208,7 @@ offset_bottom = 891.0
 scale = Vector2(6, 6)
 texture_normal = ExtResource("15_v2tpv")
 
-[node name="AnimationComponent" type="Node" parent="MenuCanvas/SettingsMenu/BackButton"]
+[node name="AnimationComponent" type="Node" parent="MenuCanvas/SettingsMenu/BackButton2"]
 script = ExtResource("7_4kjcu")
 transition_type = 1
 
@@ -224,6 +217,11 @@ offset_left = 1280.0
 offset_right = 1280.0
 script = ExtResource("3_70rn2")
 start_position = 1
+
+[node name="HFlowContainer" parent="MenuCanvas/LevelsMenu" index="0"]
+offset_left = -210.0
+offset_right = 234.0
+offset_bottom = 130.0
 
 [node name="BackButton" type="TextureButton" parent="MenuCanvas/LevelsMenu"]
 layout_mode = 0
@@ -239,51 +237,47 @@ script = ExtResource("7_4kjcu")
 transition_type = 1
 
 [node name="MoneyContainer" type="Panel" parent="MenuCanvas/LevelsMenu"]
-layout_mode = 1
-offset_left = 800.0
-offset_top = 80.0
-offset_right = 1022.0
-offset_bottom = 156.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_p2jiu")
+layout_mode = 0
+offset_left = 1241.0
+offset_top = 194.0
+offset_right = 1463.0
+offset_bottom = 270.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_31p7v")
 
-[node name="ImageFrame" type="Panel" parent="MenuCanvas/LevelsMenu/MoneyContainer"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 10.5
-offset_top = -27.5
-offset_right = 65.5
-offset_bottom = 27.5
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fybge")
-
-[node name="MoneyIcon" type="TextureRect" parent="MenuCanvas/LevelsMenu/MoneyContainer/ImageFrame"]
+[node name="MoneyIcon" type="TextureRect" parent="MenuCanvas/LevelsMenu/MoneyContainer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.0
-offset_top = -22.0
-offset_right = 22.0
-offset_bottom = 22.0
+offset_left = -84.0
+offset_top = -26.0
+offset_right = -40.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("18_gglst")
 
-[node name="MoneyLabel" type="Label" parent="MenuCanvas/LevelsMenu/MoneyContainer"]
+[node name="MoneyLabel" type="RichTextLabel" parent="MenuCanvas/LevelsMenu/MoneyContainer"]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -13.0
+offset_right = 86.0
+offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "0
-"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("19_d2nob")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]0"
 script = ExtResource("11_n08fg")
 
 [node name="SaverLoader" type="Node" parent="."]
@@ -296,8 +290,8 @@ saved_game = SubResource("Resource_kliah")
 [connection signal="pressed" from="MenuCanvas/TitleMenu/StartButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["LevelsMenu"]]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/SettingsButton" to="MenuCanvas/TitleMenu/SettingsButton/AnimationComponent" method="button_press"]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/SettingsButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["SettingsMenu"]]
-[connection signal="pressed" from="MenuCanvas/SettingsMenu/BackButton" to="MenuCanvas/SettingsMenu/BackButton/AnimationComponent" method="button_press"]
-[connection signal="pressed" from="MenuCanvas/SettingsMenu/BackButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]
+[connection signal="pressed" from="MenuCanvas/SettingsMenu/BackButton2" to="MenuCanvas/SettingsMenu/BackButton2/AnimationComponent" method="button_press"]
+[connection signal="pressed" from="MenuCanvas/SettingsMenu/BackButton2" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]
 [connection signal="pressed" from="MenuCanvas/LevelsMenu/BackButton" to="MenuCanvas/LevelsMenu/BackButton/AnimationComponent" method="button_press"]
 [connection signal="pressed" from="MenuCanvas/LevelsMenu/BackButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]
 

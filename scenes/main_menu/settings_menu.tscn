@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bek4j2yvgcwn8"]
+[gd_scene load_steps=5 format=3 uid="uid://bek4j2yvgcwn8"]
 
 [ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="1_shxqk"]
+[ext_resource type="Texture2D" uid="uid://1iroxuglugmu" path="res://assets/images/buttons/bnb_play.PNG" id="3_jdcpg"]
 [ext_resource type="PackedScene" uid="uid://y8ooru7ypjo1" path="res://scenes/options_menu/audo_slider_settings.tscn" id="3_nq5i0"]
+[ext_resource type="Script" path="res://scripts/general/animation_component.gd" id="4_ltvw4"]
 
 [node name="settings_menu" type="Control"]
 layout_mode = 3
@@ -58,3 +60,17 @@ bus_name = "Music"
 [node name="Audo_Slider_Settings3" parent="ScrollContainer/VBoxContainer" instance=ExtResource("3_nq5i0")]
 layout_mode = 2
 bus_name = "SFX"
+
+[node name="BackButton" type="TextureButton" parent="."]
+offset_left = 1640.0
+offset_top = 867.0
+offset_right = 1664.0
+offset_bottom = 891.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("3_jdcpg")
+
+[node name="AnimationComponent" type="Node" parent="BackButton"]
+script = ExtResource("4_ltvw4")
+transition_type = 1
+
+[connection signal="pressed" from="BackButton" to="BackButton/AnimationComponent" method="button_press"]
