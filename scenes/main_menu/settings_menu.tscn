@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bek4j2yvgcwn8"]
 
-[ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://scenes/main_menu/components/title_label.tscn" id="2_s0r7p"]
+[ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="1_shxqk"]
 [ext_resource type="PackedScene" uid="uid://y8ooru7ypjo1" path="res://scenes/options_menu/audo_slider_settings.tscn" id="3_nq5i0"]
 
 [node name="settings_menu" type="Control"]
@@ -11,30 +11,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TitleLabel" parent="." instance=ExtResource("2_s0r7p")]
+[node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 1
-offset_top = 60.0
-offset_bottom = 160.0
-text = "Settings
-"
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_top = 191.0
+offset_right = 960.0
+offset_bottom = 298.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("1_shxqk")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]Settings"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(960, 380)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -323.0
-offset_top = -161.0
-offset_right = 323.0
-offset_bottom = 161.0
+offset_left = -480.0
+offset_top = -150.0
+offset_right = 480.0
+offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(678, 322)
 layout_mode = 2
 theme_override_constants/separation = 96
+alignment = 1
 
 [node name="Audo_Slider_Settings" parent="ScrollContainer/VBoxContainer" instance=ExtResource("3_nq5i0")]
 layout_mode = 2

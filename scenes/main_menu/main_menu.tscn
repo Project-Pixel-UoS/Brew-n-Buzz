@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bwovlnl5bfqtr"]
+[gd_scene load_steps=26 format=3 uid="uid://bwovlnl5bfqtr"]
 
 [ext_resource type="PackedScene" uid="uid://o08kpm1g2d1a" path="res://scenes/main_menu/components/bg_stretch.tscn" id="1_2a4e5"]
 [ext_resource type="Script" path="res://scripts/ui/menu_manager.gd" id="1_r2aoh"]
@@ -20,25 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://1iroxuglugmu" path="res://assets/images/buttons/bnb_play.PNG" id="15_v2tpv"]
 
 [sub_resource type="Theme" id="Theme_id8kp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exptb"]
-bg_color = Color(0.94902, 0.643137, 0.34902, 0.392157)
-border_width_left = 20
-border_width_top = 20
-border_width_right = 20
-border_width_bottom = 20
-border_color = Color(0.882353, 0.588235, 0.301961, 0.392157)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-shadow_color = Color(0, 0, 0, 0.392157)
-shadow_size = 10
-shadow_offset = Vector2(0, 10)
 
 [sub_resource type="Theme" id="Theme_t31c4"]
 
@@ -212,15 +193,12 @@ start_position = 3
 
 [node name="ScrollContainer" parent="MenuCanvas/SettingsMenu" index="1"]
 clip_contents = false
-offset_left = -329.0
-offset_top = -130.01
-offset_right = 347.0
-offset_bottom = 110.435
-theme_override_styles/panel = SubResource("StyleBoxFlat_exptb")
+custom_minimum_size = Vector2(678, 322)
+offset_top = -180.0
+offset_bottom = 180.0
 
 [node name="VBoxContainer" parent="MenuCanvas/SettingsMenu/ScrollContainer" index="0"]
 theme = SubResource("Theme_t31c4")
-theme_override_constants/separation = 80
 
 [node name="Audo_Slider_Settings" parent="MenuCanvas/SettingsMenu/ScrollContainer/VBoxContainer" index="0"]
 theme = SubResource("Theme_acqyv")
