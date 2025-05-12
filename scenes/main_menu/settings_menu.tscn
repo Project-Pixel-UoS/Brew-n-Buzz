@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://bek4j2yvgcwn8"]
+[gd_scene load_steps=3 format=3 uid="uid://bek4j2yvgcwn8"]
 
-[ext_resource type="PackedScene" uid="uid://4r5vd3qgx1g6" path="res://scenes/main_menu/components/back_button.tscn" id="1_q6b7t"]
 [ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://scenes/main_menu/components/title_label.tscn" id="2_s0r7p"]
 [ext_resource type="PackedScene" uid="uid://y8ooru7ypjo1" path="res://scenes/options_menu/audo_slider_settings.tscn" id="3_nq5i0"]
 
@@ -11,20 +10,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="BackButton" parent="." instance=ExtResource("1_q6b7t")]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -202.0
-offset_top = -118.0
-offset_right = -51.0
-offset_bottom = -41.0
-grow_horizontal = 0
-grow_vertical = 0
 
 [node name="TitleLabel" parent="." instance=ExtResource("2_s0r7p")]
 layout_mode = 1
