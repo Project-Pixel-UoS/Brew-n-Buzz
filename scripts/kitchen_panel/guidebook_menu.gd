@@ -17,7 +17,7 @@ func _ready() -> void:
 			var loaded_resource = load(path + file)
 			page_sounds.append(loaded_resource)
 	var button = guidebook_menu.get_node("TextureButton")
-	button.connect("pressed", Callable(self, "_on_button_pressed"))	
+	#button.connect("pressed", Callable(self, "_on_button_pressed"))	
 	pages = get_node("Pages").get_children()
 	for child in pages:
 		child.visible = false
