@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://d0tmn2yr7n018"]
+[gd_scene load_steps=61 format=3 uid="uid://d0tmn2yr7n018"]
 
 [ext_resource type="Script" path="res://scripts/general/level_manager.gd" id="1_p2g6v"]
 [ext_resource type="Texture2D" uid="uid://b2j4wjwo5o67o" path="res://assets/images/kitchen panel/misc/bnb_kitchen_bg_base.png" id="2_i5lbq"]
@@ -7,9 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://scenes/main_menu/settings_menu.tscn" id="5_5uegq"]
 [ext_resource type="Script" path="res://scripts/ui/settings_menu_level.gd" id="6_u1a7f"]
 [ext_resource type="PackedScene" uid="uid://cor4f38g6u27x" path="res://scenes/pause_menu.tscn" id="7_5lwwb"]
+[ext_resource type="Texture2D" uid="uid://cfr5y2legycov" path="res://assets/images/menu/notice_board/cork.png" id="7_agin5"]
 [ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://assets/images/kitchen panel/misc/bnb_clockbg.PNG" id="8_bcdoe"]
+[ext_resource type="Texture2D" uid="uid://bu7w5ne2tplwm" path="res://assets/images/menu/notice_board/border_centre.png" id="8_qs34t"]
+[ext_resource type="Texture2D" uid="uid://cns3adku4b2x4" path="res://assets/images/menu/notice_board/border_left.png" id="9_1i1gk"]
 [ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="9_xnvvl"]
 [ext_resource type="Script" path="res://scripts/kitchen_panel/timer.gd" id="10_6vkhq"]
+[ext_resource type="Texture2D" uid="uid://dl5mgyycaevkj" path="res://assets/images/menu/notice_board/border_right.png" id="10_wqkp0"]
 [ext_resource type="Script" path="res://scripts/customer_panel/money_container.gd" id="11_spih7"]
 [ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://assets/images/customer panel/bnb_money_pile.png" id="12_btdww"]
 [ext_resource type="PackedScene" uid="uid://cy2b17h1cvyh0" path="res://scenes/customer_panel/counter.tscn" id="13_gvvpr"]
@@ -51,7 +55,8 @@
 [ext_resource type="PackedScene" uid="uid://c67pq8jw0ro0q" path="res://scenes/kitchen_panel/mug_area.tscn" id="49_ufobs"]
 [ext_resource type="Texture2D" uid="uid://broplvxjdtq3i" path="res://assets/images/kitchen panel/misc/bnb_kitchen_bg_spill.png" id="50_bnue1"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_8bbxd"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wktt8"]
+bg_color = Color(0.203922, 0.203922, 0.203922, 0.654902)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4sqfi"]
 texture = ExtResource("8_bcdoe")
@@ -104,14 +109,75 @@ unique_name_in_owner = true
 
 [node name="SettingsLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-visible = false
 
-[node name="TextureRect" type="TextureRect" parent="SettingsLayer"]
-offset_left = 240.0
-offset_top = 135.0
-offset_right = 1680.0
-offset_bottom = 945.0
-texture = SubResource("CanvasTexture_8bbxd")
+[node name="Panel" type="Panel" parent="SettingsLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wktt8")
+
+[node name="BgNoticeBoard" type="Control" parent="SettingsLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -760.0
+offset_top = -440.0
+offset_right = 760.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cork" type="TextureRect" parent="SettingsLayer/BgNoticeBoard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_right = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_agin5")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="BorderCentre" type="TextureRect" parent="SettingsLayer/BgNoticeBoard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 82.0
+offset_right = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_qs34t")
+expand_mode = 1
+
+[node name="BorderLeft" type="TextureRect" parent="SettingsLayer/BgNoticeBoard"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 87.0171
+grow_vertical = 2
+texture = ExtResource("9_1i1gk")
+expand_mode = 3
+
+[node name="BorderRight" type="TextureRect" parent="SettingsLayer/BgNoticeBoard"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -87.0171
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(87, 0)
+texture = ExtResource("10_wqkp0")
+expand_mode = 3
 
 [node name="settings_menu" parent="SettingsLayer" instance=ExtResource("5_5uegq")]
 unique_name_in_owner = true

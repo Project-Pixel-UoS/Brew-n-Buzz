@@ -6,7 +6,7 @@ var target : Control
 var default_scale : Vector2
 
 @export var from_center : bool = true
-@export var shrink_scale : Vector2 = Vector2(1.4,1.4)
+var shrink_scale : Vector2
 @export var time : float = 0.2
 @export var transition_type: Tween.TransitionType
 
@@ -17,6 +17,7 @@ func _ready() -> void:
 	if from_center:
 		target.pivot_offset = target.size / 2
 	default_scale = target.scale
+	shrink_scale = Vector2(default_scale[0] * 5/6, default_scale[1] * 5/6)
 
 func add_tween(property : String, value, seconds: float) -> Tween:
 	var tween = get_tree().create_tween()

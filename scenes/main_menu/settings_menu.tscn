@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bek4j2yvgcwn8"]
+[gd_scene load_steps=5 format=3 uid="uid://bek4j2yvgcwn8"]
 
-[ext_resource type="PackedScene" uid="uid://4r5vd3qgx1g6" path="res://scenes/main_menu/components/back_button.tscn" id="1_q6b7t"]
-[ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://scenes/main_menu/components/title_label.tscn" id="2_s0r7p"]
+[ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="1_shxqk"]
+[ext_resource type="Texture2D" uid="uid://1iroxuglugmu" path="res://assets/images/buttons/bnb_play.PNG" id="3_jdcpg"]
 [ext_resource type="PackedScene" uid="uid://y8ooru7ypjo1" path="res://scenes/options_menu/audo_slider_settings.tscn" id="3_nq5i0"]
+[ext_resource type="Script" path="res://scripts/general/animation_component.gd" id="4_ltvw4"]
 
 [node name="settings_menu" type="Control"]
 layout_mode = 3
@@ -12,44 +13,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackButton" parent="." instance=ExtResource("1_q6b7t")]
+[node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -202.0
-offset_top = -118.0
-offset_right = -51.0
-offset_bottom = -41.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="TitleLabel" parent="." instance=ExtResource("2_s0r7p")]
-layout_mode = 1
-offset_top = 60.0
-offset_bottom = 160.0
-text = "Settings
-"
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_top = 191.0
+offset_right = 960.0
+offset_bottom = 298.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("1_shxqk")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]Settings"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(960, 380)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -323.0
-offset_top = -161.0
-offset_right = 323.0
-offset_bottom = 161.0
+offset_left = -480.0
+offset_top = -150.0
+offset_right = 480.0
+offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(678, 322)
 layout_mode = 2
 theme_override_constants/separation = 96
+alignment = 1
 
 [node name="Audo_Slider_Settings" parent="ScrollContainer/VBoxContainer" instance=ExtResource("3_nq5i0")]
 layout_mode = 2
@@ -61,3 +60,18 @@ bus_name = "Music"
 [node name="Audo_Slider_Settings3" parent="ScrollContainer/VBoxContainer" instance=ExtResource("3_nq5i0")]
 layout_mode = 2
 bus_name = "SFX"
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1640.0
+offset_top = 867.0
+offset_right = 1664.0
+offset_bottom = 891.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("3_jdcpg")
+
+[node name="AnimationComponent" type="Node" parent="BackButton"]
+script = ExtResource("4_ltvw4")
+transition_type = 1
+
+[connection signal="pressed" from="BackButton" to="BackButton/AnimationComponent" method="button_press"]

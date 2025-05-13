@@ -9,3 +9,6 @@ patience = 0.0
 drink = ExtResource("1_c7fbo")
 tip_value = 2
 order_line = "My buddy recommended this one - I'll get a ORDER."
+correct_drink_line = ""
+incorrect_drink_lines = Array[String]([])
+special_order_lines = Array[String]([])

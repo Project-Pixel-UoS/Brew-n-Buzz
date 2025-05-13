@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://4r5vd3qgx1g6"]
-
-[ext_resource type="Theme" uid="uid://bl05s12fg23o3" path="res://assets/themes/main_menu_theme.tres" id="1_00lo3"]
-
-[node name="BackButton" type="Button"]
-offset_right = 8.0
-offset_bottom = 8.0
-theme = ExtResource("1_00lo3")
-text = "Back"
