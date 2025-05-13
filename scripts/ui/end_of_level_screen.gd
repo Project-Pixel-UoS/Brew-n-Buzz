@@ -18,11 +18,11 @@ func _ready() -> void:
 	#TODO create each upgrade and position them on the right spot
 	
 func _on_exit_level_button_pressed() -> void:
-	get_tree().change_scene_to_file("scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("scenes/main_menu/main_menu.tscn")
 	Engine.time_scale = 1
 
 func _on_next_level_button_pressed() -> void:
-	get_tree().change_scene_to_file("scenes/level_2.tscn")
+	get_tree().change_scene_to_file("scenes/levels/level_2.tscn")
 	Engine.time_scale = 1
 
 func _process(delta: float) -> void:
