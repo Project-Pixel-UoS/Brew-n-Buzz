@@ -177,7 +177,7 @@ pivot_offset = Vector2(1200, 0)
 script = ExtResource("3_70rn2")
 start_position = 3
 
-[node name="ScrollContainer" parent="MenuCanvas/SettingsMenu" index="2"]
+[node name="ScrollContainer" parent="MenuCanvas/SettingsMenu" index="1"]
 clip_contents = false
 custom_minimum_size = Vector2(678, 322)
 offset_top = -180.0
@@ -192,8 +192,12 @@ theme = SubResource("Theme_acqyv")
 [node name="Audo_Slider_Settings3" parent="MenuCanvas/SettingsMenu/ScrollContainer/VBoxContainer" index="2"]
 theme = SubResource("Theme_7ldcs")
 
-[node name="BackButton" parent="MenuCanvas/SettingsMenu" index="3"]
+[node name="BackButton" parent="MenuCanvas/SettingsMenu" index="2"]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 24.0
+offset_bottom = 24.0
 
 [node name="LevelsMenu" parent="MenuCanvas" instance=ExtResource("4_qvo6n")]
 offset_left = 1280.0

@@ -1,7 +1,5 @@
 extends Node
 
-@onready var levelManager: Node2D = get_tree().root.get_node("Level1")
-
 var total_money = 10
 var upgrades = [['Grinder',0,1]] 
 var shop_upgrade_dictionary = {'A': "grinder", 'B': "coffee_machine"} #Changed naming to work better with scene finding
