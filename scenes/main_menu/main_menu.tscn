@@ -193,7 +193,6 @@ theme = SubResource("Theme_acqyv")
 theme = SubResource("Theme_7ldcs")
 
 [node name="BackButton" parent="MenuCanvas/SettingsMenu" index="2"]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 24.0
@@ -206,9 +205,9 @@ script = ExtResource("3_70rn2")
 start_position = 1
 
 [node name="HFlowContainer" parent="MenuCanvas/LevelsMenu" index="0"]
-offset_left = -210.0
-offset_right = 234.0
-offset_bottom = 130.0
+offset_top = -10.0
+offset_right = 308.0
+offset_bottom = 170.0
 
 [node name="BackButton" type="TextureButton" parent="MenuCanvas/LevelsMenu"]
 layout_mode = 0

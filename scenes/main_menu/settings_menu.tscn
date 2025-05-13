@@ -62,6 +62,7 @@ layout_mode = 2
 bus_name = "SFX"
 
 [node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 1640.0
 offset_top = 867.0
 offset_right = 1664.0
