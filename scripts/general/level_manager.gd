@@ -5,10 +5,10 @@ extends Node
 @onready var customerPanel = %CustomerPanel
 var correct_recipes = 0
 var incorrect_recipes = 0
-var inactive_objects = ["Ingredients/Seasonal", "Machines/Grinder"] #"Machines/MilkJug", "Ingredients/Coffee", "Ingredients/Milk"
+var inactive_objects = ["KitchenPanel/Ingredients/Seasonal", "KitchenPanel/Machines/Grinder", "KitchenPanel/Machines/MilkJug", 
+"KitchenPanel/Ingredients/Coffee", "KitchenPanel/Ingredients/Milk"]
 var shader
 var level_money = 0
-
 func _ready() -> void:
 	endOfLevel.visible = false
 	shader = preload("res://scenes/kitchen_panel/ingredient_scenes/greyscale.gdshader") 
@@ -16,7 +16,7 @@ func _ready() -> void:
 		turn_inactive(object)
 
 func _process(delta: float) -> void:
-	if timer.out_of_time() or customerPanel.get_node('CustomerQueueManager').is_queue_empty():
+	if timer.out_of_time() or customerPanel.get_node('Panel/CustomerQueueManager').is_queue_empty():
 		#@TODO SAVE LEVEL HERE
 		Engine.time_scale = 0
 		endOfLevel.visible = true

@@ -1,7 +1,7 @@
 extends Node2D
 
 var mugObject: Node2D
-@onready var levelManager: Node2D = get_tree().root.get_node("Level1")
+@onready var levelManager: Control = get_tree().root.get_node("Level1")
 @onready var counter = %Counter
 @onready var customer_panel = %CustomerPanel
 var entered = true
@@ -9,7 +9,7 @@ var entered = true
 ## @brief Called when the scene is ready. Initializes the counter and mug object.
 func _ready() -> void:
 	modulate = Color(Color.MEDIUM_PURPLE, 0.7)
-	mugObject = get_parent().get_node("Mug")
+	mugObject = get_parent().get_node('KitchenPanel').get_node("Mug")
 	var area2d = counter.get_node("Area2D")
 
 ## @brief Compares the ingredients in the mug with the correct recipe, and determines whether the drink is correct.
@@ -18,7 +18,7 @@ func _check_recipe():
 	# Get the ingredients of the drink and determine its name
 	# Find the mug object in the parent node
 	var ingredients: Array[String]
-	for child in get_parent().get_children():
+	for child in get_parent().get_node('KitchenPanel').get_children():
 		if child.name.begins_with("Mug"):
 			mugObject = child
 			ingredients = child.get_ingredients()

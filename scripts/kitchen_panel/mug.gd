@@ -37,11 +37,11 @@ func determine_animation(x_change) -> void:
 		animationPlayer.play("move_right")
 		
 func _process(delta: float) -> void:
-	var initial_x = global_position.x
+	var initial_x = position.x
 	var x_change = initial_x - last_frame_x
 	if draggable:
 		if Input.is_action_just_pressed("click"):
-			initialPos = global_position
+			initialPos = position
 			## @brief maintain position of where mouse clicked on object through using an offset
 			## @brief if i hold object from bottom left it will maintain that
 			offset = get_global_mouse_position() - global_position
@@ -55,25 +55,25 @@ func _process(delta: float) -> void:
 			GameManager.is_dragging = false
 			if is_inside_object and body_ref:
 				## @brief if object is dropped in box then move item to box
-				print("Dropping into object at position: ", body_ref.global_position)
+				print("Dropping into object at position: ", body_ref.position)
 				
 				if body_ref.get_parent().name == "CoffeeMachine":
 					if has_child_with_name(body_ref, "MugWaterCollision") and self.position.x > 900:
 						var tween = get_tree().create_tween()
-						tween.tween_property(self, "global_position", Vector2(974,482), 0.2).set_ease(Tween.EASE_OUT)
+						tween.tween_property(self, "position", Vector2(974,482), 0.2).set_ease(Tween.EASE_OUT)
 						body_ref.get_parent().add_water()
 					else:
 						body_ref.get_parent().is_mug_in_machine(true)
 						var tween = get_tree().create_tween()
-						tween.tween_property(self, "global_position", Vector2(756,482), 0.2).set_ease(Tween.EASE_OUT)
+						tween.tween_property(self, "position", Vector2(756,482), 0.2).set_ease(Tween.EASE_OUT)
 				else:
 					var tween = get_tree().create_tween()
-					tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+					tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
 				animationPlayer.play("idle")
 			elif is_inside_bin and body_ref:
 				print("Mug dropped into bin! Destroying...")
 				var tween = get_tree().create_tween()
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
 				body_ref.get_parent().play_sound()
 				queue_free()
 				replenish_mug()
@@ -81,7 +81,7 @@ func _process(delta: float) -> void:
 				## @brief if object is dropped in an invalid position then return back to original position
 				print("Invalid drop, returning to initial position")
 				var tween = get_tree().create_tween()
-				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 				
 				determine_animation(x_change)
 				animationPlayer.play("idle")
@@ -97,7 +97,7 @@ func replenish_mug():
 	if scene_file_path != "":
 		var mug_scene = load(scene_file_path) 
 		var new_mug = mug_scene.instantiate()
-		new_mug.global_position = initial_mug_position
+		new_mug.position = initial_mug_position
 		get_parent().add_child(new_mug)
 		new_mug.name = "Mug"
 	else:

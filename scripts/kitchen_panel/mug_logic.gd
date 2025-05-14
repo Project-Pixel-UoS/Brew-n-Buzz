@@ -19,9 +19,9 @@ var counter
 signal entered_counter
 
 func _ready() -> void:
-	initialPos = global_position
-	respawnPos = global_position
-	last_frame_x = global_position.x
+	initialPos = position
+	respawnPos = position
+	last_frame_x = position.x
 	Input.set_use_accumulated_input(false)
 	print(get_tree().root.get_children())
 	customer_panel = get_tree().root.get_child(2).get_node("CustomerPanel")
@@ -31,7 +31,7 @@ func _ready() -> void:
 func _unhandled_input(event):
 	if being_dragged and event is InputEventScreenTouch and not event.pressed:
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+		tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 		determine_animation(x_change)
 		animationPlayer.play('idle')
 		being_dragged = false
@@ -117,38 +117,38 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				if body_ref.get_parent().name == "CoffeeMachine":
 					if has_child_with_name(body_ref, "MugWaterCollision") and self.position.x > 900:
 						var tween = get_tree().create_tween()
-						tween.tween_property(self, "global_position", Vector2(973,502), 0.2).set_ease(Tween.EASE_OUT)
+						tween.tween_property(self, "position", Vector2(673,502), 0.2).set_ease(Tween.EASE_OUT)
 						body_ref.get_parent().add_water()
 						is_inside_valid_drop = false
-						initialPos = global_position
+						initialPos = position
 					else:
 						body_ref.get_parent().is_mug_in_machine(true)
 						var tween = get_tree().create_tween()
-						tween.tween_property(self, "global_position", Vector2(719,497), 0.2).set_ease(Tween.EASE_OUT)
+						tween.tween_property(self, "position", Vector2(119,497), 0.2).set_ease(Tween.EASE_OUT)
 				elif body_ref.get_parent().name == "Counter":
-					if customer_panel.get_node('CustomerQueueManager').is_customer_ready():
+					if customer_panel.get_node('Panel/CustomerQueueManager').is_customer_ready():
 						var tween = get_tree().create_tween()
-						tween.tween_property(self, "global_position", Vector2(210,980), 0.2).set_ease(Tween.EASE_OUT)
+						tween.tween_property(self, "position", Vector2(-410,980), 0.2).set_ease(Tween.EASE_OUT)
 						await tween.finished
 						emit_signal('entered_counter')
 					else:
 						var tween = get_tree().create_tween()
-						tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+						tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 						determine_animation(x_change)
 						animationPlayer.play("idle")
 				elif body_ref.get_parent().name == "MugRing":
 					var tween = get_tree().create_tween()
-					tween.tween_property(self, "global_position", Vector2(1064,771), 0.2).set_ease(Tween.EASE_OUT)
+					tween.tween_property(self, "position", Vector2(464,771), 0.2).set_ease(Tween.EASE_OUT)
 				else:
 					var tween = get_tree().create_tween()
-					tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+					tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
 				animationPlayer.play("idle")
-				initialPos = body_ref.global_position
+				initialPos = body_ref.position
 			elif is_inside_bin and body_ref:
 				queue_free()  
 			else:
 				var tween = get_tree().create_tween()
-				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 				determine_animation(x_change)
 				animationPlayer.play("idle")
 							

@@ -15,7 +15,7 @@ var touchpos
 func _ready() -> void:
 	select_sound = load('res://assets/audio/sfx/pick_up_select.wav')
 	deselect_sound = load('res://assets/audio/sfx/put_down_deselect.wav')
-	respawnPos = global_position
+	respawnPos = position
 	Input.set_use_accumulated_input(false)
 
 func _process(delta: float) -> void:
@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 func _unhandled_input(event):
 	if being_dragged and event is InputEventScreenTouch and not event.pressed:
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "global_position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
+		tween.tween_property(self, "position", respawnPos, 0.2).set_ease(Tween.EASE_OUT)
 		being_dragged = false
 func set_respawn_position():
 	respawnPos = Vector2(self.position.x, self.position.y)
@@ -68,7 +68,7 @@ func replenish_ingredient(ingredient_name) -> void:
 		new_ingredient.position = respawnPos
 		new_ingredient.set_respawn_position()
 	else:
-		new_ingredient.global_position = respawnPos
+		new_ingredient.position = respawnPos
 		new_ingredient.set_respawn_position()
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

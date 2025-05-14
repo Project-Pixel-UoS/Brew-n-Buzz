@@ -7,7 +7,7 @@ var buyButton
 var upgrades = 0
 func _ready() -> void:
 	var machine_name = name.split('_')[0]
-	machine = levelManager.get_node('Machines/' + machine_name)
+	machine = levelManager.get_node('KitchenPanel/Machines/' + machine_name)
 	buyButton = parent_node.get_node('Buy')
 		
 func _process(delta: float) -> void:

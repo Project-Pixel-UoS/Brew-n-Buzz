@@ -22,6 +22,7 @@ var queue_numbers
 var customer_ready
 var strikes = 0
 var queue_empty = false
+var doll
 
 @export var drinks: Array[Resource]
 
@@ -34,6 +35,7 @@ func is_customer_ready():
 	
 func _ready():
 	customer_ready = false
+	doll = get_parent().get_node('Doll')
 	queue_numbers = GameManager.get_level_queue(1)
 	var vip_named_count = 0
 	for i in range(0,queue_numbers[0]):
@@ -74,16 +76,16 @@ func spawn_next_customer():
 		queue_empty = true
 	
 	strikes = 0
-	%Doll.reset_pos()
+	doll.reset_pos()
 	var next = customer_queue.pop_front()
-	%Doll.customer = next 
+	doll.customer = next 
 	%PatienceMeter.connect("customer_angry", Callable(self, "_on_customer_angry"))
-	%Doll.update_customer_appearance()
-	await %Doll.enter_queue()
+	doll.update_customer_appearance()
+	await doll.enter_queue()
 	%PatienceMeter.get_node('Sprite2D').visible = true
 	%DialogueLabel.visible = true
 	%PatienceMeter.call_deferred("start_meter", self, next.patience)
-	%Doll.say_dialogue()
+	doll.say_dialogue()
 	customer_ready = true
 
 func _on_customer_angry():
@@ -99,12 +101,12 @@ func customer_served(correct: bool):
 		%PatienceMeter.animationPlayer.play("angry")
 		remove_customer()
 	else:
-		%Doll.repeat_order_line()
+		doll.repeat_order_line()
 
 func remove_customer():
 	%PatienceMeter.get_node('Sprite2D').visible = false
 	%DialogueLabel.visible = false
-	await %Doll.exit_queue()
+	await doll.exit_queue()
 	customer = null
 	spawn_next_customer()
 	
@@ -112,17 +114,17 @@ func react_to_drink(correct: bool):
 	if correct:
 		%PatienceMeter.get_node('Timer').stop()
 		%PatienceMeter.animationPlayer.play("happy")
-		var time = %Doll.get_dialogue_time(%Doll.customer.correct_drink_line)
-		%DialogueLabel.text =  %Doll.customer.correct_drink_line
+		var time = doll.get_dialogue_time(doll.customer.correct_drink_line)
+		%DialogueLabel.text =  doll.customer.correct_drink_line
 		await get_tree().create_timer(1.5).timeout
 	elif %PatienceMeter.is_out_of_patience():
-		var line = %Doll.customer.incorrect_drink_lines[2]
-		var time = %Doll.get_dialogue_time(line)
+		var line = doll.customer.incorrect_drink_lines[2]
+		var time = doll.get_dialogue_time(line)
 		%DialogueLabel.text = line
 		await get_tree().create_timer(time).timeout
 	else:
-		var line = %Doll.customer.incorrect_drink_lines[strikes]
-		var time = %Doll.get_dialogue_time(line)
+		var line = doll.customer.incorrect_drink_lines[strikes]
+		var time = doll.get_dialogue_time(line)
 		%DialogueLabel.text = line
 		strikes += 1
 		await get_tree().create_timer(1.5).timeout

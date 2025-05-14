@@ -17,14 +17,14 @@ func set_dragged(value):
 	can_be_dragged = value
 	
 func _ready() -> void:
-	initialPos = global_position
-	respawnPos = global_position
+	initialPos = position
+	respawnPos = position
 	Input.set_use_accumulated_input(false)
 	
 func _unhandled_input(event):
 	if being_dragged and event is InputEventScreenTouch and not event.pressed:
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+		tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 		being_dragged = false	
 		
 func _process(delta: float) -> void:
@@ -48,10 +48,10 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if is_inside_valid_drop and body_ref and has_ground_coffee:
 				print("group handle good !")
 				if body_ref.get_parent().name == "CoffeeMachine":
-					var new_position = Vector2(695,360)
+					var new_position = Vector2(95,360)
 					print(new_position)
 					var tween = get_tree().create_tween()
-					tween.tween_property(self, "global_position", new_position, 0.2).set_ease(Tween.EASE_OUT)
+					tween.tween_property(self, "position", new_position, 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished 
 					grinder.remove_coffee()
 					coffeeMachine.is_group_handle_in_machine(true)
@@ -61,7 +61,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			else:
 				print("hi3")
 				var tween = get_tree().create_tween()
-				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 			z_index = 0				
 	elif event is InputEventScreenDrag and being_dragged:
 		touchpos = event.position
@@ -91,6 +91,6 @@ func _on_area_2d_area_exited(body: Node2D) -> void:
 func replenish_group_handle() -> void:
 	var handle_scene = load(scene_file_path)
 	var new_handle= handle_scene.instantiate()
-	new_handle.global_position = respawnPos
+	new_handle.position = respawnPos
 	get_parent().add_child(new_handle)
 	new_handle.name = "GroupHandle"

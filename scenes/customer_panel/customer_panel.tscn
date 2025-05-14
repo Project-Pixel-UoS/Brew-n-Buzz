@@ -101,62 +101,51 @@ _data = {
 }
 
 [node name="CustomerPanel2" type="Control"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 180)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1820.0
-offset_bottom = -900.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5.8, 5.8)
+anchors_preset = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(50, 90)
-texture = ExtResource("1_14pq6")
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 180.0
+scale = Vector2(6, 6)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
+[node name="Background" type="Sprite2D" parent="Panel"]
+texture = ExtResource("1_14pq6")
 centered = false
 
-[node name="Doll" parent="." instance=ExtResource("2_aajm0")]
+[node name="Doll" parent="Panel" instance=ExtResource("2_aajm0")]
 unique_name_in_owner = true
 position = Vector2(52, 90)
 
-[node name="BackgroundElements" type="Node2D" parent="."]
+[node name="BackgroundElements" type="Node2D" parent="Panel"]
 texture_filter = 1
 
-[node name="Counter" type="Sprite2D" parent="BackgroundElements"]
+[node name="Counter" type="Sprite2D" parent="Panel/BackgroundElements"]
 texture = ExtResource("3_hf0r0")
 centered = false
 
-[node name="Shelf" type="Sprite2D" parent="BackgroundElements"]
+[node name="Shelf" type="Sprite2D" parent="Panel/BackgroundElements"]
 texture = ExtResource("4_pfvda")
 centered = false
 
-[node name="Leaves" type="Sprite2D" parent="BackgroundElements"]
+[node name="Leaves" type="Sprite2D" parent="Panel/BackgroundElements"]
 texture = ExtResource("5_0ijvf")
 centered = false
 
-[node name="Till" type="Sprite2D" parent="BackgroundElements"]
+[node name="Till" type="Sprite2D" parent="Panel/BackgroundElements"]
 texture = ExtResource("6_1m27n")
 centered = false
 
-[node name="Bell" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(11.5, 150)
-texture = ExtResource("7_m51nf")
-
-[node name="SpeechBox" type="Sprite2D" parent="."]
+[node name="SpeechBox" type="Sprite2D" parent="Panel"]
 visible = false
-position = Vector2(74, 44)
+position = Vector2(12.3333, 7.33333)
+scale = Vector2(0.166667, 0.166667)
 texture = SubResource("PlaceholderTexture2D_fqnyi")
 
-[node name="Label" type="Label" parent="SpeechBox"]
+[node name="Label" type="Label" parent="Panel/SpeechBox"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -171,37 +160,17 @@ theme_override_fonts/font = ExtResource("8_r2lhv")
 theme_override_font_sizes/font_size = 8
 text = "TEXT"
 
-[node name="PatienceMeter" type="Node2D" parent="."]
-unique_name_in_owner = true
-script = ExtResource("9_vxukn")
-
-[node name="Sprite2D" type="Sprite2D" parent="PatienceMeter"]
-visible = false
-position = Vector2(78.4483, 98.4483)
-texture = ExtResource("9_w44ji")
-hframes = 3
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PatienceMeter/Sprite2D"]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_2tl2o")
-}
-
-[node name="Timer" type="Timer" parent="PatienceMeter"]
-unique_name_in_owner = true
-
-[node name="DialogueBox" type="VBoxContainer" parent="."]
+[node name="DialogueBox" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 14.0
-offset_right = 144.0
-offset_bottom = 94.0
+offset_left = 47.5
+offset_top = 43.1667
+offset_right = 143.5
+offset_bottom = 75.1667
 scale = Vector2(0.5, 0.5)
 alignment = 2
 
-[node name="DialogueLabel" type="Label" parent="DialogueBox"]
+[node name="DialogueLabel" type="Label" parent="Panel/DialogueBox"]
 unique_name_in_owner = true
-visible = false
 z_index = 1
 custom_minimum_size = Vector2(96, 16)
 layout_mode = 2
@@ -215,7 +184,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 justification_flags = 160
 
-[node name="NinePatchRect" type="NinePatchRect" parent="DialogueBox/DialogueLabel"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel/DialogueBox/DialogueLabel"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -233,8 +202,35 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="CustomerQueueManager" type="Node2D" parent="."]
-position = Vector2(30.6897, 105.862)
+[node name="PatienceMeter" type="Node2D" parent="Panel"]
+unique_name_in_owner = true
+script = ExtResource("9_vxukn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/PatienceMeter"]
+position = Vector2(78.4483, 98.4483)
+texture = ExtResource("9_w44ji")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/PatienceMeter/Sprite2D"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_2tl2o")
+}
+
+[node name="Timer" type="Timer" parent="Panel/PatienceMeter"]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+centered = false
+
+[node name="Bell" type="Sprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(13.6667, 149.167)
+texture = ExtResource("7_m51nf")
+
+[node name="CustomerQueueManager" type="Node2D" parent="Panel"]
+position = Vector2(5.11495, 17.6437)
+scale = Vector2(0.166667, 0.166667)
 script = ExtResource("13_4m3qs")
 possible_heads = Array[Texture2D]([ExtResource("14_xs3i7"), ExtResource("16_nsqmp"), ExtResource("15_tra5b")])
 possible_bodies = Array[Texture2D]([ExtResource("17_8br4y"), ExtResource("18_f50xm"), ExtResource("19_4i6on")])
@@ -249,4 +245,4 @@ possible_third_incorrect_drink_lines = Array[String](["Ugh, forget it!", "Never 
 possible_order_lines = Array[String](["No small talk. I'll take ART ORDER", "Hi!! Oh, my order? Hmm... Let's do ART ORDER", "Awful weather, truly. Anyway, I'll get ART ORDER", "Lovely weather we're having. I'd like ART ORDER, duck", "Hey bro, gimme ART ORDER. Make sure it's hot!", "One ORDER, please. Nice shirt, by the way!", "One ORDER. And just so you know, I'm in a rush", "What should I get this time? Oh, what about ART ORDER?", "You still got that ORDER? I'll get one of those", "I want to get a... What was it called again? ORDER!", "Just ART ORDER", "Business looks good! I'll get my regular ORDER", "I need caffeine, stat. ORDER. Now!", "It's gonna be a long day, bud. Gimme ART ORDER", "You don't recognise me? Ugh. Fine. My drink's ART ORDER", "I'm trying something new today - ORDER, please", "My buddy recommended this one - I'll get ART ORDER", "Ooo, so many options! I guess I'll get ART ORDER", "Can't remember what my friends wanted. I'll get ART ORDER though", "Busy day! I hope you still have ART ORDER", "You got ART ORDER ready for me? No? Chop chop, then!", "I heard the best drink to order here is ART ORDER", "Another ORDER today. Thanks!", "Okay, I think I'll finally try ART ORDER", "I'll take my regular ORDER. Cheers!"])
 drinks = Array[Resource]([ExtResource("19_exsli"), ExtResource("20_okruu")])
 
-[connection signal="timeout" from="PatienceMeter/Timer" to="PatienceMeter" method="_on_timer_timeout"]
+[connection signal="timeout" from="Panel/PatienceMeter/Timer" to="Panel/PatienceMeter" method="_on_timer_timeout"]

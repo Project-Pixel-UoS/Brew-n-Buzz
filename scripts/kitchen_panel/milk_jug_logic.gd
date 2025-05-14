@@ -13,13 +13,13 @@ var being_dragged = false
 var touchpos
 
 func _ready() -> void:
-	respawnPos = global_position
-	initialPos = global_position
+	respawnPos = position
+	initialPos = position
 	
 func _unhandled_input(event):
 	if being_dragged and event is InputEventScreenTouch and not event.pressed:
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+		tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 		being_dragged = false
 		
 func _process(delta: float) -> void:
@@ -33,7 +33,7 @@ func add_ingredient(name):
 func replenish_milk_jug():
 		var milk_jug_scene = load(scene_file_path)
 		var new_milk_jug = milk_jug_scene.instantiate()
-		new_milk_jug.global_position = respawnPos
+		new_milk_jug.position = respawnPos
 		get_parent().add_child(new_milk_jug)
 		new_milk_jug.name = "MilkJug"
 		print("replenished milk jug!")
@@ -86,29 +86,29 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					print("Dropping frothed milk into milk jug")
 					body_ref.get_parent().add_ingredient("Frothed Milk")
 				elif body_ref.is_in_group("frother"):
-					print("Dropping into object at position: ", body_ref.global_position)
+					print("Dropping into object at position: ", body_ref.position)
 					var tween = get_tree().create_tween()
-					tween.tween_property(self, "global_position",body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+					tween.tween_property(self, "position",body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished
 					z_index = 0
 					if !frothed_milk:
 						body_ref.get_parent().froth_milk()
 						frothed_milk = true
-						initialPos = body_ref.global_position
+						initialPos = body_ref.position
 				elif !steamed_milk:
 					print(body_ref.get_parent().name)
-					print(body_ref.global_position)
+					print(body_ref.position)
 					var tween = get_tree().create_tween()
-					tween.tween_property(self, "global_position",Vector2(1149,472), 0.2).set_ease(Tween.EASE_OUT)
+					tween.tween_property(self, "position",Vector2(549,472), 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished
 					body_ref.get_parent().steam_milk(self)
-					initialPos = body_ref.global_position
+					initialPos = body_ref.position
 			elif is_inside_bin and body_ref:
 				queue_free()  
 				replenish_milk_jug()
 			else:
 				var tween = get_tree().create_tween()
-				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 								
 	elif event is InputEventScreenDrag and being_dragged:
 		touchpos = event.position

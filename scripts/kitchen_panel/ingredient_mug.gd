@@ -26,15 +26,15 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("click"):
 			## @brief maintain position of where mouse clicked on object through using an offset
 			## @brief if i hold object from bottom left it will maintain that
-			initialPos = global_position
-			offset = get_global_mouse_position() - global_position
+			initialPos = position
+			offset = get_global_mouse_position() - position
 			GameManager.is_dragging = true
 			being_dragged = true
 			AudioManager.set_stream(select_sound)
 			AudioManager.play()
 		if Input.is_action_pressed("click"):
 			## @brief when clicked on object make object pos same as cursor
-			global_position = get_global_mouse_position() - offset
+			position = get_global_mouse_position() - offset
 			being_dragged = true
 		elif Input.is_action_just_released("click"):
 			GameManager.is_dragging = false
@@ -42,9 +42,9 @@ func _process(delta: float) -> void:
 			AudioManager.play()
 			if is_inside_valid_drop and body_ref:
 				## @brief if object is dropped in box then move item to box
-				print("Dropping into mug at position: ", body_ref.global_position)
+				print("Dropping into mug at position: ", body_ref.position)
 				var tween = get_tree().create_tween()
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
 				await tween.finished  # Wait until the animation finishes
 				queue_free()
 				
@@ -53,14 +53,14 @@ func _process(delta: float) -> void:
 			elif is_inside_bin and body_ref:
 				print("Ingredient dropped into bin! Destroying...")
 				var tween = get_tree().create_tween()
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
 				queue_free()  
 				replenish_ingredient(name)
 				# Remove the ingredient from the scene
 			else:
 				## @brief if object is dropped in an invalid position then return back to original position
 				var tween = get_tree().create_tween()
-				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 			being_dragged = false
 
 func check_valid_drop(body: Node2D) -> bool:
@@ -104,7 +104,7 @@ func replenish_ingredient(ingredient_name) -> void:
 	if scene_file_path != "":
 		var ingredient_scene = load(scene_file_path)  # Dynamically load the correct ingredient scene
 		var new_ingredient = ingredient_scene.instantiate()
-		new_ingredient.global_position = initialPos
+		new_ingredient.position = initialPos
 		get_parent().add_child(new_ingredient)
 		new_ingredient.name = ingredient_name
 	else:

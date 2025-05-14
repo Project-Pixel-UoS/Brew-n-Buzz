@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 				## @brief if object is dropped in box then move item to box
 				print("Dropping into grinder at position: ", body_ref.global_position)
 				var tween = get_tree().create_tween()
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
 				await tween.finished  # Wait until the animation finishes
 				queue_free()
 				replenish_ingredient(name)  # Recreate the ingredient at the original position
@@ -38,14 +38,14 @@ func _process(delta: float) -> void:
 			elif is_inside_bin and body_ref:
 				print("Ingredient dropped into bin! Destroying...")
 				var tween = get_tree().create_tween()
-				tween.tween_property(self, "global_position", body_ref.global_position, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
 				queue_free()  
 				replenish_ingredient(name)
 				# Remove the ingredient from the scene
 			else:
 				## @brief if object is dropped in an invalid position then return back to original position
 				var tween = get_tree().create_tween()
-				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 			being_dragged = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -94,7 +94,7 @@ func replenish_ingredient(ingredient_name) -> void:
 	if scene_file_path != "":
 		var ingredient_scene = load(scene_file_path)  # Dynamically load the correct ingredient scene
 		var new_ingredient = ingredient_scene.instantiate()
-		new_ingredient.global_position = initialPos
+		new_ingredient.position = initialPos
 		get_parent().add_child(new_ingredient)
 		new_ingredient.name = ingredient_name
 	else:
