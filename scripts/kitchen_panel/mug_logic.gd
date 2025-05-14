@@ -19,7 +19,7 @@ var counter
 signal entered_counter
 
 func _ready() -> void:
-	initialPos = position
+	initialPos = Vector2(464,771)
 	respawnPos = position
 	last_frame_x = position.x
 	Input.set_use_accumulated_input(false)
