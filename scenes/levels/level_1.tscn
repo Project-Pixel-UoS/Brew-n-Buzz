@@ -508,6 +508,7 @@ scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxTexture_3h4qw")
 
 [node name="TimerContainer" type="Panel" parent="KitchenPanel"]
+z_index = 3
 layout_mode = 0
 offset_left = 768.0
 offset_top = 190.0
