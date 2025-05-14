@@ -23,9 +23,8 @@ func _ready() -> void:
 	respawnPos = position
 	last_frame_x = position.x
 	Input.set_use_accumulated_input(false)
-	print(get_tree().root.get_children())
 	customer_panel = get_tree().root.get_child(2).get_node("CustomerPanel")
-	counter = customer_panel.get_child(0)
+	counter = customer_panel.get_child(1)
 	self.connect("entered_counter", Callable(counter, "_check_recipe"))
 	
 func _unhandled_input(event):
