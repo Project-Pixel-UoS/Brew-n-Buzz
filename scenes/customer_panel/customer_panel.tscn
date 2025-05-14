@@ -107,20 +107,26 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Panel" type="Panel" parent="."]
+z_as_relative = false
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 180.0
 scale = Vector2(6, 6)
 
 [node name="Background" type="Sprite2D" parent="Panel"]
+z_index = 1
 texture = ExtResource("1_14pq6")
 centered = false
 
 [node name="Doll" parent="Panel" instance=ExtResource("2_aajm0")]
 unique_name_in_owner = true
+z_index = 2
+z_as_relative = false
 position = Vector2(52, 90)
 
 [node name="BackgroundElements" type="Node2D" parent="Panel"]
+z_index = 2
+z_as_relative = false
 texture_filter = 1
 
 [node name="Counter" type="Sprite2D" parent="Panel/BackgroundElements"]
@@ -138,6 +144,12 @@ centered = false
 [node name="Till" type="Sprite2D" parent="Panel/BackgroundElements"]
 texture = ExtResource("6_1m27n")
 centered = false
+
+[node name="Bell" type="Sprite2D" parent="Panel"]
+z_index = 2
+texture_filter = 1
+position = Vector2(13.6667, 149.167)
+texture = ExtResource("7_m51nf")
 
 [node name="SpeechBox" type="Sprite2D" parent="Panel"]
 visible = false
@@ -161,6 +173,7 @@ theme_override_font_sizes/font_size = 8
 text = "TEXT"
 
 [node name="DialogueBox" type="VBoxContainer" parent="Panel"]
+z_index = 9
 layout_mode = 0
 offset_left = 47.5
 offset_top = 43.1667
@@ -171,6 +184,7 @@ alignment = 2
 
 [node name="DialogueLabel" type="Label" parent="Panel/DialogueBox"]
 unique_name_in_owner = true
+visible = false
 z_index = 1
 custom_minimum_size = Vector2(96, 16)
 layout_mode = 2
@@ -204,6 +218,7 @@ patch_margin_bottom = 6
 
 [node name="PatienceMeter" type="Node2D" parent="Panel"]
 unique_name_in_owner = true
+z_index = 1
 script = ExtResource("9_vxukn")
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel/PatienceMeter"]
@@ -219,14 +234,6 @@ libraries = {
 
 [node name="Timer" type="Timer" parent="Panel/PatienceMeter"]
 unique_name_in_owner = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel"]
-centered = false
-
-[node name="Bell" type="Sprite2D" parent="Panel"]
-texture_filter = 1
-position = Vector2(13.6667, 149.167)
-texture = ExtResource("7_m51nf")
 
 [node name="CustomerQueueManager" type="Node2D" parent="Panel"]
 position = Vector2(5.11495, 17.6437)

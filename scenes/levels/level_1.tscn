@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://d0tmn2yr7n018"]
+[gd_scene load_steps=64 format=3 uid="uid://d0tmn2yr7n018"]
 
 [ext_resource type="Script" path="res://scripts/general/level_manager.gd" id="1_p2g6v"]
 [ext_resource type="Texture2D" uid="uid://b2j4wjwo5o67o" path="res://assets/images/kitchen panel/misc/bnb_kitchen_bg_base.png" id="2_i5lbq"]
@@ -56,11 +56,10 @@
 [ext_resource type="PackedScene" uid="uid://c67pq8jw0ro0q" path="res://scenes/kitchen_panel/mug_area.tscn" id="49_ufobs"]
 [ext_resource type="Texture2D" uid="uid://broplvxjdtq3i" path="res://assets/images/kitchen panel/misc/bnb_kitchen_bg_spill.png" id="50_bnue1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dk2m"]
-bg_color = Color(0.923669, 0.395774, 0.543845, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wktt8"]
 bg_color = Color(0.203922, 0.203922, 0.203922, 0.654902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dk2m"]
 
 [sub_resource type="GDScript" id="GDScript_nqnjm"]
 script/source = "extends Control
@@ -75,6 +74,11 @@ func get_doll() -> Node2D:
 	return doll
 "
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1par"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skcim"]
+texture = ExtResource("8_bcdoe")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxl8e"]
 texture = ExtResource("14_2ujls")
 
@@ -82,9 +86,6 @@ texture = ExtResource("14_2ujls")
 texture = ExtResource("50_bnue1")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4sqfi"]
-texture = ExtResource("8_bcdoe")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skcim"]
 texture = ExtResource("8_bcdoe")
 
 [node name="Level1" type="Control"]
@@ -96,16 +97,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_p2g6v")
-
-[node name="Panel" type="Panel" parent="."]
-z_index = -10
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5dk2m")
 
 [node name="end_of_level_layer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -208,9 +199,18 @@ visible = false
 [node name="pause_menu" parent="PauseLayer" instance=ExtResource("7_5lwwb")]
 unique_name_in_owner = true
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5dk2m")
+
 [node name="CustomerPanel" parent="." instance=ExtResource("39_vtvvj")]
 unique_name_in_owner = true
-z_index = -10
+z_as_relative = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -224,8 +224,71 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_nqnjm")
 
+[node name="MovementPanel" type="Panel" parent="CustomerPanel"]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -915.0
+offset_right = -770.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1par")
+
+[node name="MoneyContainer" type="Panel" parent="CustomerPanel"]
+z_index = 5
+layout_mode = 0
+offset_left = 216.0
+offset_top = 50.0
+offset_right = 438.0
+offset_bottom = 126.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_skcim")
+script = ExtResource("11_spih7")
+
+[node name="MoneyIcon" type="TextureRect" parent="CustomerPanel/MoneyContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -26.0
+offset_right = -40.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_btdww")
+
+[node name="MoneyLabel" type="RichTextLabel" parent="CustomerPanel/MoneyContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -13.0
+offset_right = 86.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("9_xnvvl")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]0"
+
 [node name="Counter" parent="CustomerPanel" instance=ExtResource("13_gvvpr")]
 unique_name_in_owner = true
+z_index = 5
 position = Vector2(208, 983)
 
 [node name="KitchenPanel" type="Control" parent="."]
@@ -480,56 +543,12 @@ one_shot = true
 script = ExtResource("10_6vkhq")
 
 [node name="backGround" type="TextureRect" parent="KitchenPanel"]
-z_index = -10
+z_index = 2
 layout_mode = 0
 offset_top = 192.0
 offset_right = 1128.0
 offset_bottom = 858.0
 texture = ExtResource("2_i5lbq")
-
-[node name="MoneyContainer" type="Panel" parent="KitchenPanel"]
-layout_mode = 0
-offset_left = -384.0
-offset_top = 50.0
-offset_right = -162.0
-offset_bottom = 126.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_skcim")
-script = ExtResource("11_spih7")
-
-[node name="MoneyIcon" type="TextureRect" parent="KitchenPanel/MoneyContainer"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -84.0
-offset_top = -26.0
-offset_right = -40.0
-offset_bottom = 18.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("12_btdww")
-
-[node name="MoneyLabel" type="RichTextLabel" parent="KitchenPanel/MoneyContainer"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -56.0
-offset_top = -13.0
-offset_right = 86.0
-offset_bottom = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("9_xnvvl")
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "[center]0"
 
 [connection signal="pressed" from="KitchenPanel/DrawerButton" to="KitchenPanel/DrawerButton" method="drawer_press"]
 [connection signal="pressed" from="KitchenPanel/PauseButton" to="KitchenPanel/PauseButton" method="_on_pressed"]
