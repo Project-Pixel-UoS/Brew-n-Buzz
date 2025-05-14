@@ -114,9 +114,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if is_inside_valid_drop and body_ref:
 	
 				if body_ref.get_parent().name == "CoffeeMachine":
-					if has_child_with_name(body_ref, "MugWaterCollision") and self.position.x > 900:
+					if has_child_with_name(body_ref, "MugWaterCollision") and self.position.x > 300:
 						var tween = get_tree().create_tween()
-						tween.tween_property(self, "position", Vector2(673,502), 0.2).set_ease(Tween.EASE_OUT)
+						tween.tween_property(self, "position", Vector2(366,497), 0.2).set_ease(Tween.EASE_OUT)
 						body_ref.get_parent().add_water()
 						is_inside_valid_drop = false
 						initialPos = position
@@ -124,25 +124,29 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 						body_ref.get_parent().is_mug_in_machine(true)
 						var tween = get_tree().create_tween()
 						tween.tween_property(self, "position", Vector2(119,497), 0.2).set_ease(Tween.EASE_OUT)
+						initialPos = position
 				elif body_ref.get_parent().name == "Counter":
 					if customer_panel.get_node('Panel/CustomerQueueManager').is_customer_ready():
 						var tween = get_tree().create_tween()
 						tween.tween_property(self, "position", Vector2(-410,980), 0.2).set_ease(Tween.EASE_OUT)
 						await tween.finished
+						initialPos = body_ref.position
 						emit_signal('entered_counter')
 					else:
 						var tween = get_tree().create_tween()
 						tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 						determine_animation(x_change)
 						animationPlayer.play("idle")
+						initialPos = body_ref.position
 				elif body_ref.get_parent().name == "MugRing":
 					var tween = get_tree().create_tween()
 					tween.tween_property(self, "position", Vector2(464,771), 0.2).set_ease(Tween.EASE_OUT)
+					initialPos = body_ref.position
 				else:
 					var tween = get_tree().create_tween()
 					tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
+					initialPos = body_ref.position
 				animationPlayer.play("idle")
-				initialPos = body_ref.position
 			elif is_inside_bin and body_ref:
 				queue_free()  
 			else:
