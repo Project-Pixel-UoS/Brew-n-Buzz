@@ -2,7 +2,7 @@ extends Timer
 @onready var timer: Timer = %Timer
 @onready var time_remaining: RichTextLabel = %TimeRemaining
 
-var game_time_scale = 2 #Every real second is two in-game
+var game_time_scale = 0.5 #Every real second is two in-game
 var round_time_hours = 1 #How many hours is a shift from 12pm
 var game_time_seconds = 600 #round_time_hours * 60
 var finished = false
