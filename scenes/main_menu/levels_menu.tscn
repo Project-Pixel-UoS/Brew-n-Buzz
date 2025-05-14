@@ -28,7 +28,7 @@ grow_vertical = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 script = ExtResource("1_e6vc0")
-number_of_levels = 9
+number_of_levels = 1
 level_button = ExtResource("2_2isbr")
 
 [node name="Title" type="RichTextLabel" parent="."]
