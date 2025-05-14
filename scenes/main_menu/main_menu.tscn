@@ -134,6 +134,7 @@ script = ExtResource("7_4kjcu")
 transition_type = 1
 
 [node name="SettingsButton" parent="MenuCanvas/TitleMenu" index="1"]
+visible = false
 offset_top = 310.0
 offset_bottom = 350.0
 
