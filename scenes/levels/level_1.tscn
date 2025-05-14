@@ -208,11 +208,6 @@ visible = false
 [node name="pause_menu" parent="PauseLayer" instance=ExtResource("7_5lwwb")]
 unique_name_in_owner = true
 
-[node name="Counter" parent="." instance=ExtResource("13_gvvpr")]
-unique_name_in_owner = true
-z_index = -5
-position = Vector2(210, 980)
-
 [node name="CustomerPanel" parent="." instance=ExtResource("39_vtvvj")]
 unique_name_in_owner = true
 z_index = -10
@@ -228,6 +223,10 @@ offset_bottom = -540.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_nqnjm")
+
+[node name="Counter" parent="CustomerPanel" instance=ExtResource("13_gvvpr")]
+unique_name_in_owner = true
+position = Vector2(208, 983)
 
 [node name="KitchenPanel" type="Control" parent="."]
 layout_mode = 1

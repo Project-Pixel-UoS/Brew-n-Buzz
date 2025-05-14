@@ -31,5 +31,5 @@ func _process(delta: float) -> void:
 	get_node('money_left/money_left_label').text = 'Total money: ' + str(GameManager.get_money())
 
 func _on_replay_level_button_pressed() -> void:
-	get_tree().change_scene_to_file("scenes/level_1.tscn")
+	get_tree().change_scene_to_file("scenes/levels/level_1.tscn")
 	Engine.time_scale = 1
