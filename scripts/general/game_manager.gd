@@ -4,7 +4,7 @@ var total_money = 10
 var upgrades = [['Grinder',0,1]] 
 var shop_upgrade_dictionary = {'A': "grinder", 'B': "coffee_machine"} #Changed naming to work better with scene finding
 var level_upgrade_dictionary = {1: ['A']}
-var level_queue = [[2,0,0]]
+var level_queue = [[4,1,1]]
 var is_dragging = false
 
 func get_level_upgrades(level_number):

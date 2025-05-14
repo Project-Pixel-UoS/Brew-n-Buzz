@@ -54,6 +54,12 @@ func update_customer_appearance():
 	$face.texture = customer.face_texture
 	$hair.texture = customer.hair_texture
 	$full_body.texture = customer.special_body_texture
+	if customer.name == 'Chef Bruno':
+		$full_body.hframes = 4
+		$full_body.vframes = 2
+	else:
+		$full_body.hframes = 4
+		$full_body.vframes = 3
 	
 func say_dialogue():
 	# format dialogue
@@ -76,17 +82,33 @@ func say_dialogue():
 		emit_signal("movement_finished")
 	else:
 		say_special_dialogue()
+		if customer.name == 'Chef Bruno':
+			$full_body.hframes = 4
+			$full_body.vframes = 2
+		else:
+			$full_body.hframes = 4
+			$full_body.vframes = 3
 		%AnimationPlayer.play('special')
 		await %AnimationPlayer.animation_finished
 		while not leaving_queue:
 			var random_val = randi() % 100
 			if random_val < 80:
 				$full_body.texture = customer.idle_body_texture
-				$full_body.hframes = 5
+				if customer.name == 'Chef Bruno':
+					$full_body.hframes = 4
+					$full_body.vframes = 2
+				else:
+					$full_body.hframes = 5
+					$full_body.vframes = 3
 				%AnimationPlayer.play('idle')
 			else:
 				$full_body.texture = customer.special_body_texture
-				$full_body.hframes = 4
+				if customer.name == 'Chef Bruno':
+					$full_body.hframes = 4
+					$full_body.vframes = 2
+				else:
+					$full_body.hframes = 4
+					$full_body.vframes = 3
 				%AnimationPlayer.play('special')
 			await %AnimationPlayer.animation_finished
 		finished_moving = true

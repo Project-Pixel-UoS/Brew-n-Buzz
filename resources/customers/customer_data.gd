@@ -1,6 +1,7 @@
 class_name CustomerData
 extends Resource
 
+@export var name: String
 @export var patience: float
 @export var drink: Drink
 @export var head_texture: Texture2D

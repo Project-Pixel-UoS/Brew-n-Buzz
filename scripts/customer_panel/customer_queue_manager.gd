@@ -80,7 +80,7 @@ func spawn_next_customer():
 	var next = customer_queue.pop_front()
 	doll.customer = next 
 	%PatienceMeter.connect("customer_angry", Callable(self, "_on_customer_angry"))
-	doll.update_customer_appearance()
+	await doll.update_customer_appearance()
 	await doll.enter_queue()
 	%PatienceMeter.get_node('Sprite2D').visible = true
 	%DialogueLabel.visible = true

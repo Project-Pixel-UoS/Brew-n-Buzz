@@ -1,14 +1,18 @@
-[gd_resource type="Resource" script_class="CustomerData" load_steps=3 format=3 uid="uid://c15e3cvb5n81l"]
+[gd_resource type="Resource" script_class="CustomerData" load_steps=4 format=3 uid="uid://c15e3cvb5n81l"]
 
 [ext_resource type="Resource" uid="uid://cthfpxtgxya7a" path="res://resources/drinks/espresso.tres" id="1_c7fbo"]
 [ext_resource type="Script" path="res://resources/customers/customer_data.gd" id="2_aedkv"]
+[ext_resource type="Texture2D" uid="uid://bci3sen5btsdf" path="res://assets/images/customer sprites/named NPCs/bruno_idle.png" id="2_x8csn"]
 
 [resource]
 script = ExtResource("2_aedkv")
-patience = 0.0
+name = "Chef Bruno"
+patience = 30.0
 drink = ExtResource("1_c7fbo")
-tip_value = 2
-order_line = "My buddy recommended this one - I'll get a ORDER."
-correct_drink_line = ""
-incorrect_drink_lines = Array[String]([])
-special_order_lines = Array[String]([])
+idle_body_texture = ExtResource("2_x8csn")
+special_body_texture = ExtResource("2_x8csn")
+tip_value = 0
+order_line = "Name’s Bruno. I’ll take an Espresso. Be quick about it, hmm?"
+correct_drink_line = "Delicious, thank you."
+incorrect_drink_lines = Array[String](["Nope, nope. Not right. Try again.", "Look, if you can’t make this drink, I’ll go elsewhere! Oh, you can? Prove it!", "Do you even know what coffee is?"])
+special_order_lines = Array[String](["Huh, so you’re the new owner. Good enough. ", "Name’s Bruno. I’ll take an Espresso. Be quick about it, hmm?"])
