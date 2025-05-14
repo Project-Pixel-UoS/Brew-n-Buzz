@@ -3,7 +3,7 @@ extends Node2D
 @export var customer: CustomerData
 @onready var customer_scene = get_tree().root.get_node(".")
 @export var spawn_position: Vector2
-@export var max_customers: int = 5
+@export var max_customers: int = 40
 @export var possible_heads: Array[Texture2D]
 @export var possible_bodies: Array[Texture2D]
 @export var possible_faces: Array[Texture2D]
@@ -45,6 +45,9 @@ func _ready():
 	for i in range(0,queue_numbers[2]):
 		customer_queue.append(vip_customers[i])
 	customer_queue.shuffle()
+	# To fill out rest of level with NPCs
+	while customer_queue.size() < max_customers:
+		customer_queue.append(create_NPC_data())
 	spawn_next_customer()
 	
 func create_NPC_data():
