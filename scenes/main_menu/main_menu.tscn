@@ -224,11 +224,18 @@ script = ExtResource("7_4kjcu")
 transition_type = 1
 
 [node name="MoneyContainer" type="Panel" parent="MenuCanvas/LevelsMenu"]
-layout_mode = 0
-offset_left = 1241.0
-offset_top = 194.0
-offset_right = 1463.0
-offset_bottom = 270.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 282.0
+offset_top = -346.0
+offset_right = 504.0
+offset_bottom = -270.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_31p7v")
 
 [node name="MoneyIcon" type="TextureRect" parent="MenuCanvas/LevelsMenu/MoneyContainer"]
