@@ -19,3 +19,7 @@ mono_crash.*.json
 
 #macOS
 .DS_Store
+
+# build stuff
+/android
+/builds
