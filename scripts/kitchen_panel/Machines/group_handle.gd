@@ -9,7 +9,7 @@ var being_dragged = false
 var has_ground_coffee = false
 var respawnPos
 var can_be_dragged = true
-var touchpos
+
 @onready var grinder = get_node_or_null("../Grinder")
 @onready var coffeeMachine = get_node_or_null("../CoffeeMachine")
 
@@ -22,15 +22,15 @@ func _ready() -> void:
 	Input.set_use_accumulated_input(false)
 	
 func _unhandled_input(event):
-	if being_dragged and event is InputEventScreenTouch and not event.pressed:
+	if being_dragged and event is InputEventScreenDrag:
+		global_position = event.position
+	elif being_dragged and event is InputEventScreenTouch and not event.pressed:
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 		being_dragged = false	
 		
 func _process(delta: float) -> void:
 	has_ground_coffee = grinder.is_coffee_grinded()
-	if being_dragged:
-		global_position = touchpos
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventScreenTouch and can_be_dragged:
@@ -38,7 +38,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			GameManager.is_dragging = true
 			scale = Vector2(1.05,1.05)  
 			being_dragged = true
-			touchpos = event.position
+			global_position = event.position
 			z_index = 20
 		elif not event.pressed:
 			being_dragged = false
@@ -64,7 +64,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 			z_index = 0				
 	elif event is InputEventScreenDrag and being_dragged:
-		touchpos = event.position
+		global_position = event.position
 		
 
 func _on_area_2d_area_entered(body: Node2D) -> void:

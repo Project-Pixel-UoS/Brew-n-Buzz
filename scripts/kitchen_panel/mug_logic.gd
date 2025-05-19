@@ -13,8 +13,7 @@ var respawnPos
 var being_dragged = false
 var x_change
 var customer_panel
-var touchpos
-var counter 
+var counter
 
 signal entered_counter
 
@@ -28,7 +27,10 @@ func _ready() -> void:
 	self.connect("entered_counter", Callable(counter, "_check_recipe"))
 	
 func _unhandled_input(event):
-	if being_dragged and event is InputEventScreenTouch and not event.pressed:
+	if being_dragged and event is InputEventScreenDrag:
+		global_position = event.position
+		determine_animation(x_change)
+	elif being_dragged and event is InputEventScreenTouch and not event.pressed:
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 		determine_animation(x_change)
@@ -38,9 +40,7 @@ func _unhandled_input(event):
 func _process(delta: float) -> void: 
 	x_change = global_position.x - last_frame_x
 	last_frame_x = global_position.x
-	if being_dragged:
-		global_position = touchpos
-		
+	
 func stop_animation():
 	animationPlayer.set_process(false)
 	
@@ -99,12 +99,14 @@ func _on_area_2d_area_exited(body: Node2D) -> void:
 			is_inside_bin = false
 			
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	print("Mug touched: " + event.to_string())
+		
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			GameManager.is_dragging = true
 			scale = Vector2(1.05,1.05)  
 			being_dragged = true
-			touchpos = event.position
+			global_position = event.position
 			determine_animation(x_change)
 		elif not event.pressed: 
 			being_dragged = false
@@ -156,5 +158,5 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				animationPlayer.play("idle")
 							
 	elif event is InputEventScreenDrag and being_dragged:
-		touchpos = event.position
+		global_position = event.position
 		determine_animation(x_change)
