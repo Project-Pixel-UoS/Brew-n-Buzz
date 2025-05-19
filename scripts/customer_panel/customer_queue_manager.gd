@@ -48,6 +48,7 @@ func _ready():
 	# To fill out rest of level with NPCs
 	while customer_queue.size() < max_customers:
 		customer_queue.append(create_NPC_data())
+	%PatienceMeter.connect("customer_angry", Callable(self, "_on_customer_angry"))
 	spawn_next_customer()
 	
 func create_NPC_data():
@@ -82,7 +83,6 @@ func spawn_next_customer():
 	doll.reset_pos()
 	var next = customer_queue.pop_front()
 	doll.customer = next 
-	%PatienceMeter.connect("customer_angry", Callable(self, "_on_customer_angry"))
 	await doll.update_customer_appearance()
 	await doll.enter_queue()
 	%PatienceMeter.get_node('Sprite2D').visible = true
