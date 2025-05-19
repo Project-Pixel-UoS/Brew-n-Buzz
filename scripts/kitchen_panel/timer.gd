@@ -4,7 +4,7 @@ extends Timer
 
 var game_time_scale = 0.5 #Every real second is two in-game
 var round_time_hours = 1 #How many hours is a shift from 12pm
-var game_time_seconds = 600 #round_time_hours * 60
+var game_time_seconds = 120 #round_time_hours * 60
 var finished = false
 
 func out_of_time():
