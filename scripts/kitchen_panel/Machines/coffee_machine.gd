@@ -40,6 +40,8 @@ func get_mug_object():
 			
 func make_coffee():
 	get_mug_object()
+	if not mugObject:
+		return
 	print("making coffee")
 	mugObject.set_draggable(false)
 	groupHandleObject.replenish_group_handle()
