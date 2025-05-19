@@ -99,8 +99,6 @@ func _on_area_2d_area_exited(body: Node2D) -> void:
 			is_inside_bin = false
 			
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	print("Mug touched: " + event.to_string())
-		
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			GameManager.is_dragging = true
@@ -114,37 +112,38 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			scale = Vector2(1,1)
 			await get_tree().physics_frame
 			if is_inside_valid_drop and body_ref:
-	
+				print("intial" + "(%s,%s)" % [initialPos.x, initialPos.y])
 				if body_ref.get_parent().name == "CoffeeMachine":
 					if has_child_with_name(body_ref, "MugWaterCollision") and self.position.x > 300:
 						var tween = get_tree().create_tween()
 						tween.tween_property(self, "position", Vector2(366,497), 0.2).set_ease(Tween.EASE_OUT)
 						body_ref.get_parent().add_water()
 						is_inside_valid_drop = false
-						initialPos = position
+						initialPos = Vector2(366, 497)
 					else:
 						body_ref.get_parent().is_mug_in_machine(true)
 						var tween = get_tree().create_tween()
 						tween.tween_property(self, "position", Vector2(119,497), 0.2).set_ease(Tween.EASE_OUT)
-						initialPos = position
+						initialPos = Vector2(119, 497)
 				elif body_ref.get_parent().name == "Counter":
 					if customer_panel.get_node('Panel/CustomerQueueManager').is_customer_ready():
 						var tween = get_tree().create_tween()
-						tween.tween_property(self, "position", Vector2(-410,980), 0.2).set_ease(Tween.EASE_OUT)
+						tween.tween_property(self, "position", Vector2(-390,960), 0.2).set_ease(Tween.EASE_OUT)
 						await tween.finished
-						initialPos = body_ref.position
+						initialPos = Vector2(-390, 960)
 						emit_signal('entered_counter')
 					else:
 						var tween = get_tree().create_tween()
 						tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 						determine_animation(x_change)
 						animationPlayer.play("idle")
-						initialPos = body_ref.position
+						#initialPos = body_ref.position
 				elif body_ref.get_parent().name == "MugRing":
 					var tween = get_tree().create_tween()
 					tween.tween_property(self, "position", Vector2(464,771), 0.2).set_ease(Tween.EASE_OUT)
-					initialPos = body_ref.position
+					initialPos = Vector2(464, 771)
 				else:
+					print("body ref: " + body_ref.to_string())
 					var tween = get_tree().create_tween()
 					tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
 					initialPos = body_ref.position
