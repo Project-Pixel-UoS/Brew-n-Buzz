@@ -75,6 +75,7 @@ func get_doll() -> Node2D:
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1par"]
+bg_color = Color(0.933333, 0.6, 0.6, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skcim"]
 texture = ExtResource("8_bcdoe")
