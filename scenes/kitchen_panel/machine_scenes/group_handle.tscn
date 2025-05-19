@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bce8wdr8esqjy" path="res://assets/images/kitchen panel/machines/bnb_group_handle.png" id="2_cwk3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fc41"]
-size = Vector2(110, 39)
+size = Vector2(168, 80)
 
 [node name="GroupHandle" type="Node2D" groups=["groupHandle"]]
 script = ExtResource("1_3m80d")
