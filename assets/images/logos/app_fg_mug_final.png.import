@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7shovdrqo2vb"
-path="res://.godot/imported/app_fg_logo_final.png-6337fff7262566fba2f7da87f7d5db9d.ctex"
+uid="uid://ceuun7p7yhey0"
+path="res://.godot/imported/app_fg_mug_final.png-711825768830a8496c090f63b8909305.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/logos/app_fg_logo_final.png"
-dest_files=["res://.godot/imported/app_fg_logo_final.png-6337fff7262566fba2f7da87f7d5db9d.ctex"]
+source_file="res://assets/images/logos/app_fg_mug_final.png"
+dest_files=["res://.godot/imported/app_fg_mug_final.png-711825768830a8496c090f63b8909305.ctex"]
 
 [params]
 

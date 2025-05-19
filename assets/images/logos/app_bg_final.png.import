@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clnllh8ke3t4q"
-path="res://.godot/imported/logo_accscale.PNG-f950eda6e77c97d8a3eb059adf07f9fa.ctex"
+uid="uid://qh0cmxupwsra"
+path="res://.godot/imported/app_bg_final.png-75f28ad5630be8a1455b58bf48d6f03b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/logos/logo_accscale.PNG"
-dest_files=["res://.godot/imported/logo_accscale.PNG-f950eda6e77c97d8a3eb059adf07f9fa.ctex"]
+source_file="res://assets/images/logos/app_bg_final.png"
+dest_files=["res://.godot/imported/app_bg_final.png-75f28ad5630be8a1455b58bf48d6f03b.ctex"]
 
 [params]
 

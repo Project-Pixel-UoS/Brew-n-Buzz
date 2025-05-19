@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpy52aarqu1ms"
-path="res://.godot/imported/app_bg_cork_final.png-8f202fe348ab3b4a7872a5f7e683f17e.ctex"
+uid="uid://4ldn1x6gc3wd"
+path="res://.godot/imported/app_icon_final.png-4397a2a485c94800def97f6b37ca064d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/logos/app_bg_cork_final.png"
-dest_files=["res://.godot/imported/app_bg_cork_final.png-8f202fe348ab3b4a7872a5f7e683f17e.ctex"]
+source_file="res://assets/images/logos/app_icon_final.png"
+dest_files=["res://.godot/imported/app_icon_final.png-4397a2a485c94800def97f6b37ca064d.ctex"]
 
 [params]
 
