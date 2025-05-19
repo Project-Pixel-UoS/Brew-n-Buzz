@@ -72,23 +72,23 @@ func has_child_with_name(parent: Node, child_name: String) -> bool:
 			return true
 	return false
 
-func check_valid_drop(body: Node2D) -> bool:
+func is_valid_drop(body: Node2D) -> bool:
 	for shape in body.get_children():
 		if shape.is_in_group("mug"):
-			is_inside_valid_drop = true
-			body_ref = body
 			return true
 	return false
 	
 func _on_area_2d_area_entered(body: Node2D) -> void:
+	print("just entered: " + body.to_string())
 	if being_dragged:
-		if check_valid_drop(body):
+		if is_valid_drop(body):
 			is_inside_valid_drop = true
 			body_ref = body  
 		elif (body.get_parent()).name == 'Counter':
 			is_inside_valid_drop = true
 			body_ref = body
 		elif body.is_in_group('bin'):
+			is_inside_valid_drop = false
 			is_inside_bin = true
 			body_ref = body
 		
@@ -137,19 +137,18 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 						tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 						determine_animation(x_change)
 						animationPlayer.play("idle")
-						#initialPos = body_ref.position
 				elif body_ref.get_parent().name == "MugRing":
 					var tween = get_tree().create_tween()
 					tween.tween_property(self, "position", Vector2(464,771), 0.2).set_ease(Tween.EASE_OUT)
 					initialPos = Vector2(464, 771)
 				else:
-					print("body ref: " + body_ref.to_string())
+					printerr("Unrecognised area2d, body: " + body_ref.to_string())
 					var tween = get_tree().create_tween()
 					tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
 					initialPos = body_ref.position
 				animationPlayer.play("idle")
 			elif is_inside_bin and body_ref:
-				queue_free()  
+				queue_free()
 			else:
 				var tween = get_tree().create_tween()
 				tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
