@@ -7,7 +7,7 @@ var leaving_queue = false
 var end_position 
 var reset_position
 signal movement_finished
-var finished_moving
+var finished_moving =  false
 var order_line
 
 func _ready() -> void:
@@ -78,7 +78,6 @@ func say_dialogue():
 		%DialogueLabel.text = order_line
 		while not leaving_queue:
 			await NPC_animation()
-		finished_moving = true
 		emit_signal("movement_finished")
 	else:
 		say_special_dialogue()
@@ -111,7 +110,6 @@ func say_dialogue():
 					$full_body.vframes = 3
 				%AnimationPlayer.play('special')
 			await %AnimationPlayer.animation_finished
-		finished_moving = true
 		emit_signal("movement_finished")
 		
 func repeat_order_line():
@@ -133,6 +131,7 @@ func say_special_dialogue():
 		
 func enter_queue():
 	leaving_queue = false
+	finished_moving = false
 	var counter = 0
 	while counter != 4:
 		await exit_animation()
