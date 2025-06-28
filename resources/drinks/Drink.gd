@@ -5,11 +5,12 @@ class_name Drink extends Resource
 @export var image: Texture2D
 
 func isValidIngredients(ingredients: Array[String]) -> bool:
-	if ingredients.size() == 0:
+	if ingredients.is_empty() or ingredients.size() != recipe.size():
 		return false
 	var currentIngredientIndex = 0
 	# Making copy so I can remove from it during this function
 	var recipeCopy = recipe.duplicate(true)
+	
 	for ingredient in ingredients:
 		if !recipeCopy.has(ingredient):
 			print("This ingredient isn't needed in this recipe")
