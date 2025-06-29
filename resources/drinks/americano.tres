@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=3 format=3 uid="uid://df2bpg5715cbl"]
+[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://df2bpg5715cbl"]
 
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="1_476uj"]
 [ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_m7wnm"]
+[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="2_tqie4"]
+[ext_resource type="Resource" uid="uid://f2078y8fhvl8" path="res://resources/ingredients/coffee.tres" id="3_pqif2"]
+[ext_resource type="Resource" uid="uid://w8tidfxytv0d" path="res://resources/ingredients/water.tres" id="4_h2d1y"]
 
 [resource]
 script = ExtResource("1_476uj")
 name = "americano"
-recipe = {
-"Coffee": 0,
-"Water": 1
-}
+recipe = Array[ExtResource("2_tqie4")]([ExtResource("3_pqif2"), ExtResource("4_h2d1y")])
 image = ExtResource("1_m7wnm")

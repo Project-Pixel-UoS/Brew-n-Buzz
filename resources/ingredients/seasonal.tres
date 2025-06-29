@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://3emc3uo0looj"]
+
+[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="1_5s4ij"]
+
+[resource]
+script = ExtResource("1_5s4ij")
+name = "pumpkin"
+description = ""

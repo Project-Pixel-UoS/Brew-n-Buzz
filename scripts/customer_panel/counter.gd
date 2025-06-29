@@ -18,7 +18,7 @@ func _ready() -> void:
 func _check_recipe():
 	# Get the ingredients of the drink and determine its name
 	# Find the mug object in the parent node
-	var ingredients: Array[String]
+	var ingredients: Array[Ingredient]
 	for child in get_parent().get_parent().get_node('KitchenPanel').get_children():
 		if child.name.begins_with("Mug"):
 			mugObject = child

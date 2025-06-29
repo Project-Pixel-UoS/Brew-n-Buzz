@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdfqj4iadnovk"]
+[gd_scene load_steps=5 format=3 uid="uid://bdfqj4iadnovk"]
 
 [ext_resource type="Script" path="res://scripts/kitchen_panel/ingredient_logic.gd" id="1_6g5xc"]
 [ext_resource type="Texture2D" uid="uid://c3vgqimow5qnu" path="res://assets/images/kitchen panel/ingredients/whippedcream.PNG" id="1_d37br"]
+[ext_resource type="Resource" uid="uid://v270o3nir5ax" path="res://resources/ingredients/whipped_cream.tres" id="2_43die"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rbdd"]
 size = Vector2(33.5, 34.5)
 
 [node name="WhippedCream" type="Node2D"]
 script = ExtResource("1_6g5xc")
+ingredient = ExtResource("2_43die")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

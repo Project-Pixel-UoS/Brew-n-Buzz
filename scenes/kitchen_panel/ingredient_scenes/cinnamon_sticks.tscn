@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpbkfwvjt5smt"]
+[gd_scene load_steps=5 format=3 uid="uid://bpbkfwvjt5smt"]
 
 [ext_resource type="Script" path="res://scripts/kitchen_panel/ingredient_logic.gd" id="1_bktny"]
 [ext_resource type="Texture2D" uid="uid://cra7ey65ac01n" path="res://assets/images/kitchen panel/ingredients/cinnamonsticks.PNG" id="2_db1lr"]
+[ext_resource type="Resource" uid="uid://bvqnj37vusvjm" path="res://resources/ingredients/cinnamon_sticks.tres" id="2_wubh1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3k70"]
 size = Vector2(33.5, 34.5)
 
 [node name="CinnamonSticks" type="Node2D"]
 script = ExtResource("1_bktny")
+ingredient = ExtResource("2_wubh1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://daoj33obkgehj"]
+[gd_scene load_steps=5 format=3 uid="uid://daoj33obkgehj"]
 
 [ext_resource type="Texture2D" uid="uid://cholgudtx35vj" path="res://assets/images/kitchen panel/ingredients/coffeebean.PNG" id="1_r426r"]
 [ext_resource type="Script" path="res://scripts/kitchen_panel/ingredient_logic.gd" id="1_v5gac"]
+[ext_resource type="Resource" uid="uid://ca4f7js1vxos" path="res://resources/ingredients/coffee_bean.tres" id="2_ig8o2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqkk7"]
 size = Vector2(32.5, 32.5)
 
 [node name="Coffee" type="Node2D"]
 script = ExtResource("1_v5gac")
+ingredient = ExtResource("2_ig8o2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
