@@ -1,9 +1,23 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bl05s12fg23o3"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bl05s12fg23o3"]
 
 [ext_resource type="StyleBox" uid="uid://b4j6moe2mpnkc" path="res://assets/themes/main_menu_buttons.tres" id="1_msg07"]
 [ext_resource type="StyleBox" uid="uid://cyti2i8qhk2lb" path="res://assets/themes/mm_button_pressed.tres" id="2_ao0f1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gl2ew"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1msp"]
+bg_color = Color(0.84, 0.69188, 0.4536, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6jdk"]
+bg_color = Color(0.599308, 0.59729, 0.303964, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [resource]
 Button/font_sizes/font_size = 48
@@ -11,3 +25,6 @@ Button/styles/focus = SubResource("StyleBoxEmpty_gl2ew")
 Button/styles/hover = null
 Button/styles/normal = ExtResource("1_msg07")
 Button/styles/pressed = ExtResource("2_ao0f1")
+ProgressBar/font_sizes/font_size = 32
+ProgressBar/styles/background = SubResource("StyleBoxFlat_q1msp")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_m6jdk")

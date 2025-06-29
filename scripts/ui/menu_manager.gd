@@ -9,6 +9,12 @@ extends CanvasLayer
 
 enum Position {UP, RIGHT, DOWN, LEFT}
 
+func _ready() -> void:
+	SignalBus.connect("load_level", _on_level_loading)
+
+func _on_level_loading(_level):
+	print("loading level")
+	self.visible = false
 
 func _on_menu_button_pressed(menu_name: String) -> void:
 	assert(menu_name, "menu_name is not set")
