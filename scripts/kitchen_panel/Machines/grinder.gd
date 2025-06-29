@@ -14,7 +14,7 @@ func _ready() -> void:
 	time_waiting = starting_time - (0.25*upgrades)
 	
 func remove_coffee():
-	if get_tree().root.get_child(2).name == "Level1":
+	if get_tree().current_scene.name == "Level1":
 		return
 	amount_in-= 1
 	animationPlayer.play_backwards('grinding' + str(amount_in + 1))

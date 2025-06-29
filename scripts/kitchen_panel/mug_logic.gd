@@ -22,7 +22,7 @@ func _ready() -> void:
 	respawnPos = position
 	last_frame_x = position.x
 	Input.set_use_accumulated_input(false)
-	customer_panel = get_tree().root.get_child(3).get_node("CustomerPanel")
+	customer_panel = get_tree().current_scene.get_node("CustomerPanel")
 	counter = customer_panel.get_child(3)
 	self.connect("entered_counter", Callable(counter, "_check_recipe"))
 	

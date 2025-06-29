@@ -1,5 +1,5 @@
 extends Control
-@onready var levelManager = get_tree().root.get_child(3)
+@onready var levelManager = get_tree().current_scene
 var upgrade_positions
 
 func _ready() -> void:

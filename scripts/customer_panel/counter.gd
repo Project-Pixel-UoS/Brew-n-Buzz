@@ -1,7 +1,7 @@
 extends Node2D
 
 var mugObject: Node2D
-@onready var levelManager: Control = get_tree().root.get_child(3)
+@onready var levelManager: Control = get_tree().current_scene
 @onready var counter = %Counter
 @onready var customer_panel = %CustomerPanel
 var entered = true
