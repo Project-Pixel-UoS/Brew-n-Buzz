@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CustomerData" load_steps=4 format=3 uid="uid://c15e3cvb5n81l"]
 
-[ext_resource type="Resource" uid="uid://cthfpxtgxya7a" path="res://resources/drinks/espresso.tres" id="1_c7fbo"]
+[ext_resource type="Resource" uid="uid://cthfpxtgxya7a" path="res://resources/drinks/coffee/espresso.tres" id="1_c7fbo"]
 [ext_resource type="Script" path="res://resources/customers/customer_data.gd" id="2_aedkv"]
 [ext_resource type="Texture2D" uid="uid://bci3sen5btsdf" path="res://assets/images/customer sprites/named NPCs/bruno_idle.png" id="2_x8csn"]
 
