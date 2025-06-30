@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=8 format=3 uid="uid://bkdiir5uo1gmu"]
+
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="1_hshvn"]
+[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="2_qf1r1"]
+[ext_resource type="Resource" uid="uid://ybrplw5la8s6" path="res://resources/ingredients/matcha_tea.tres" id="3_e7sql"]
+[ext_resource type="Resource" uid="uid://bt3aijlrjqgly" path="res://resources/drinks/recipe_tiers/milk_tier.tres" id="4_w8jlb"]
+[ext_resource type="Resource" uid="uid://deroiwdnbk5yh" path="res://resources/drinks/recipe_tiers/foam_tier.tres" id="5_5s4ks"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_14j5v"]
+
+[sub_resource type="Resource" id="Resource_tfmtr"]
+script = ExtResource("1_hshvn")
+ingredients = Array[ExtResource("2_qf1r1")]([ExtResource("3_e7sql")])
+
+[resource]
+script = ExtResource("6_14j5v")
+name = "matcha latte"
+recipe = Array[ExtResource("1_hshvn")]([SubResource("Resource_tfmtr"), ExtResource("4_w8jlb"), ExtResource("5_5s4ks")])

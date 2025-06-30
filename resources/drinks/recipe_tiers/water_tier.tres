@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RecipeTier" load_steps=4 format=3 uid="uid://bswsapkyan4ta"]
+
+[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="1_tsyqj"]
+[ext_resource type="Resource" uid="uid://w8tidfxytv0d" path="res://resources/ingredients/water.tres" id="2_ccd1v"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="3_bwy35"]
+
+[resource]
+script = ExtResource("3_bwy35")
+ingredients = Array[ExtResource("1_tsyqj")]([ExtResource("2_ccd1v")])

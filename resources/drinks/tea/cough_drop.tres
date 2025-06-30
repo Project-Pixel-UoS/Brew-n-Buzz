@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=8 format=3 uid="uid://cyid6k0cxeyyq"]
+
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="1_fbbxw"]
+[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="2_ii8km"]
+[ext_resource type="Resource" uid="uid://b0r7oiedcoyri" path="res://resources/ingredients/black_tea.tres" id="3_2q4oi"]
+[ext_resource type="Resource" uid="uid://bswsapkyan4ta" path="res://resources/drinks/recipe_tiers/water_tier.tres" id="4_8wghb"]
+[ext_resource type="Resource" uid="uid://drvmqlgl4t8k1" path="res://resources/drinks/recipe_tiers/lemon_honey.tres" id="5_nhm4t"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_4h1xb"]
+
+[sub_resource type="Resource" id="Resource_0v3ax"]
+script = ExtResource("1_fbbxw")
+ingredients = Array[ExtResource("2_ii8km")]([ExtResource("3_2q4oi")])
+
+[resource]
+script = ExtResource("6_4h1xb")
+name = "cough drop"
+recipe = Array[ExtResource("1_fbbxw")]([SubResource("Resource_0v3ax"), ExtResource("4_8wghb"), ExtResource("5_nhm4t")])
