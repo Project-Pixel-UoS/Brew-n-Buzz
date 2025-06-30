@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Drink" load_steps=3 format=3 uid="uid://df2bpg5715cbl"]
 
-[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="1_205mj"]
-[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_y7vwd"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="1_476uj"]
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_m7wnm"]
 
 [resource]
-script = ExtResource("1_205mj")
+script = ExtResource("1_476uj")
 name = "americano"
 recipe = {
 "Coffee": 0,
 "Water": 1
 }
-image = ExtResource("1_y7vwd")
+image = ExtResource("1_m7wnm")
