@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://crbpwjo0i0dmc"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_2k68a"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_lxdyq"]
+[ext_resource type="Resource" uid="uid://bswsapkyan4ta" path="res://resources/drinks/recipe_tiers/water_tier.tres" id="3_yl5tg"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="4_0gvp2"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_jettm"]
+
+[resource]
+script = ExtResource("5_jettm")
+name = "long black"
+recipe = Array[ExtResource("2_lxdyq")]([ExtResource("3_yl5tg"), ExtResource("4_0gvp2")])
+image = ExtResource("1_2k68a")
+description = "an upside down americano with less water"

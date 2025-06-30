@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://44evkd17nd58"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_4p2ec"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_ebi8b"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_jyqco"]
+[ext_resource type="Resource" uid="uid://bt3aijlrjqgly" path="res://resources/drinks/recipe_tiers/milk_tier.tres" id="4_lvqbf"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_a8jj2"]
+
+[resource]
+script = ExtResource("6_a8jj2")
+name = "latte macchiato"
+recipe = Array[ExtResource("2_ebi8b")]([ExtResource("3_jyqco"), ExtResource("3_jyqco"), ExtResource("4_lvqbf"), ExtResource("4_lvqbf")])
+image = ExtResource("1_4p2ec")
+description = "From Latin America"

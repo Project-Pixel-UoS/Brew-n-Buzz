@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=5 format=3 uid="uid://b6ucifcc7npv3"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_xm6hg"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_qgn6i"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_k2n2y"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="4_reguo"]
+
+[resource]
+script = ExtResource("4_reguo")
+name = "doppio"
+recipe = Array[ExtResource("2_qgn6i")]([ExtResource("3_k2n2y"), ExtResource("3_k2n2y")])
+image = ExtResource("1_xm6hg")
+description = ""

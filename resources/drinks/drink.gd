@@ -3,6 +3,7 @@ class_name Drink extends Resource
 @export var name: String
 @export var recipe: Array[RecipeTier]
 @export var image: Texture2D
+@export var description: String
 
 # Loop through each tier of the recipe
 # while there's still ingredients to look at

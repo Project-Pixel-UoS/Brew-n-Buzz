@@ -2,13 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_sg6ni"]
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_oc2lv"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_g0gfb"]
 [ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="3_jxosl"]
 [ext_resource type="Resource" uid="uid://cess5bigwaa2q" path="res://resources/ingredients/lemon.tres" id="4_ev301"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_uxbim"]
-
-[sub_resource type="Resource" id="Resource_suw1a"]
-script = ExtResource("2_oc2lv")
-ingredients = Array[ExtResource("3_jxosl")]([])
 
 [sub_resource type="Resource" id="Resource_pyppa"]
 script = ExtResource("2_oc2lv")
@@ -17,5 +14,6 @@ ingredients = Array[ExtResource("3_jxosl")]([ExtResource("4_ev301")])
 [resource]
 script = ExtResource("5_uxbim")
 name = "romano"
-recipe = Array[ExtResource("2_oc2lv")]([SubResource("Resource_suw1a"), SubResource("Resource_pyppa")])
+recipe = Array[ExtResource("2_oc2lv")]([ExtResource("3_g0gfb"), SubResource("Resource_pyppa")])
 image = ExtResource("1_sg6ni")
+description = ""

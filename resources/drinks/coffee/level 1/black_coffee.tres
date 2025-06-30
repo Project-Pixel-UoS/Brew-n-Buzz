@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=5 format=3 uid="uid://0o13o1255lbu"]
+
+[ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://assets/images/kitchen panel/mug sprites/bnb_espresso.png" id="1_7phgl"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_vbavl"]
+[ext_resource type="Resource" uid="uid://bmn5t3m6qntt0" path="res://resources/drinks/recipe_tiers/coffee_tier.tres" id="3_1d8re"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="4_en5hl"]
+
+[resource]
+script = ExtResource("4_en5hl")
+name = "black coffee"
+recipe = Array[ExtResource("2_vbavl")]([ExtResource("3_1d8re")])
+image = ExtResource("1_7phgl")
+description = "The simplest coffee you can make"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=7 format=3 uid="uid://br1nnjyeovt08"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_v2fe0"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_safgv"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_qlp0e"]
+[ext_resource type="Resource" uid="uid://bt3aijlrjqgly" path="res://resources/drinks/recipe_tiers/milk_tier.tres" id="4_82rgb"]
+[ext_resource type="Resource" uid="uid://deroiwdnbk5yh" path="res://resources/drinks/recipe_tiers/foam_tier.tres" id="4_n5jan"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_j4xbx"]
+
+[resource]
+script = ExtResource("5_j4xbx")
+name = "latte macchiato"
+recipe = Array[ExtResource("2_safgv")]([ExtResource("3_qlp0e"), ExtResource("3_qlp0e"), ExtResource("4_82rgb"), ExtResource("4_82rgb"), ExtResource("4_n5jan")])
+image = ExtResource("1_v2fe0")
+description = "a latte where milk to espresso is 1:1"

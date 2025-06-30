@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=5 format=3 uid="uid://bchxlcj0f1gsk"]
+
+[ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://assets/images/kitchen panel/mug sprites/bnb_espresso.png" id="1_i6aje"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_dimmq"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_jnumk"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="4_ryuwa"]
+
+[resource]
+script = ExtResource("4_ryuwa")
+name = "water"
+recipe = Array[ExtResource("2_dimmq")]([ExtResource("3_jnumk")])
+image = ExtResource("1_i6aje")
+description = "A hydrating mug of water"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://k55g0jj8dppr"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_1apw5"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_w0yhe"]
+[ext_resource type="Resource" uid="uid://bmn5t3m6qntt0" path="res://resources/drinks/recipe_tiers/coffee_tier.tres" id="3_qjj0d"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="4_hm6a1"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_kvv45"]
+
+[resource]
+script = ExtResource("5_kvv45")
+name = "black eye"
+recipe = Array[ExtResource("2_w0yhe")]([ExtResource("3_qjj0d"), ExtResource("4_hm6a1"), ExtResource("4_hm6a1")])
+image = ExtResource("1_1apw5")
+description = "When a red eye is not enough"

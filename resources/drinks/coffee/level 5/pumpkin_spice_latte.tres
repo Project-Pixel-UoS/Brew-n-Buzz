@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=7 format=3 uid="uid://3rum5u15n16"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_msky1"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_tq473"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_cwde2"]
+[ext_resource type="Resource" uid="uid://bt3aijlrjqgly" path="res://resources/drinks/recipe_tiers/milk_tier.tres" id="4_ife1r"]
+[ext_resource type="Resource" uid="uid://deroiwdnbk5yh" path="res://resources/drinks/recipe_tiers/foam_tier.tres" id="5_5nvyi"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_vls6j"]
+
+[resource]
+script = ExtResource("6_vls6j")
+name = "latte"
+recipe = Array[ExtResource("2_tq473")]([ExtResource("3_cwde2"), ExtResource("3_cwde2"), ExtResource("4_ife1r"), ExtResource("4_ife1r"), ExtResource("5_5nvyi")])
+image = ExtResource("1_msky1")
+description = "a milkier capuccino"

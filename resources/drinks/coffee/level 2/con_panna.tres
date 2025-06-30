@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://bskwimf4q4dfh"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_r1d8c"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_jrq8m"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_buxmj"]
+[ext_resource type="Resource" uid="uid://dayonlpb6wpx8" path="res://resources/drinks/recipe_tiers/cream_tier.tres" id="4_8oue4"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_drvnw"]
+
+[resource]
+script = ExtResource("5_drvnw")
+name = "con panna"
+recipe = Array[ExtResource("2_jrq8m")]([ExtResource("3_buxmj"), ExtResource("4_8oue4")])
+image = ExtResource("1_r1d8c")
+description = ""

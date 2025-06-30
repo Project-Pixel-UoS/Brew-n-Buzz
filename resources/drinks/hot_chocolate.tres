@@ -1,22 +1,13 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=10 format=3 uid="uid://blmip734ds6dh"]
+[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://blmip734ds6dh"]
 
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="1_66lik"]
-[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="2_0hd2h"]
-[ext_resource type="Resource" uid="uid://b3aa462fubgxn" path="res://resources/ingredients/cocoa.tres" id="3_p6a2s"]
+[ext_resource type="Resource" uid="uid://dal47q78pdjvf" path="res://resources/drinks/recipe_tiers/chocolate_tier.tres" id="2_hlo4k"]
+[ext_resource type="Resource" uid="uid://dayonlpb6wpx8" path="res://resources/drinks/recipe_tiers/cream_tier.tres" id="4_15uht"]
 [ext_resource type="Resource" uid="uid://bt3aijlrjqgly" path="res://resources/drinks/recipe_tiers/milk_tier.tres" id="4_44bx0"]
-[ext_resource type="Resource" uid="uid://deroiwdnbk5yh" path="res://resources/drinks/recipe_tiers/foam_tier.tres" id="5_0xymg"]
-[ext_resource type="Resource" uid="uid://j8sgnpu7qcib" path="res://resources/ingredients/caramel.tres" id="6_bhbru"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="7_lhyty"]
-
-[sub_resource type="Resource" id="Resource_tfmtr"]
-script = ExtResource("1_66lik")
-ingredients = Array[ExtResource("2_0hd2h")]([ExtResource("3_p6a2s")])
-
-[sub_resource type="Resource" id="Resource_ymyd2"]
-script = ExtResource("1_66lik")
-ingredients = Array[ExtResource("2_0hd2h")]([ExtResource("6_bhbru")])
 
 [resource]
 script = ExtResource("7_lhyty")
 name = "hot chocolate"
-recipe = Array[ExtResource("1_66lik")]([SubResource("Resource_tfmtr"), ExtResource("4_44bx0"), ExtResource("5_0xymg"), SubResource("Resource_ymyd2")])
+recipe = Array[ExtResource("1_66lik")]([ExtResource("2_hlo4k"), ExtResource("4_44bx0"), ExtResource("4_15uht")])
+description = ""

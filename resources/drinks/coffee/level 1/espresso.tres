@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=5 format=3 uid="uid://cthfpxtgxya7a"]
+
+[ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://assets/images/kitchen panel/mug sprites/bnb_espresso.png" id="1_01tpf"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_e64ea"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_x0cdg"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="4_lsgf6"]
+
+[resource]
+script = ExtResource("4_lsgf6")
+name = "espresso"
+recipe = Array[ExtResource("2_e64ea")]([ExtResource("3_x0cdg")])
+image = ExtResource("1_01tpf")
+description = "A basic espresso shot"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=7 format=3 uid="uid://00pbhl3wimeu"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_8fq80"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_w2efx"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_1niwb"]
+[ext_resource type="Resource" uid="uid://dal47q78pdjvf" path="res://resources/drinks/recipe_tiers/chocolate_tier.tres" id="4_t6yq6"]
+[ext_resource type="Resource" uid="uid://deroiwdnbk5yh" path="res://resources/drinks/recipe_tiers/foam_tier.tres" id="5_h06dl"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="7_apx3d"]
+
+[resource]
+script = ExtResource("7_apx3d")
+name = "marocchino"
+recipe = Array[ExtResource("2_w2efx")]([ExtResource("4_t6yq6"), ExtResource("3_1niwb"), ExtResource("5_h06dl"), ExtResource("4_t6yq6")])
+image = ExtResource("1_8fq80")
+description = ""

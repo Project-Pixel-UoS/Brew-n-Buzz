@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://df2bpg5715cbl"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_s03sc"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_p66h4"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_viril"]
+[ext_resource type="Resource" uid="uid://bswsapkyan4ta" path="res://resources/drinks/recipe_tiers/water_tier.tres" id="5_tv46i"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_4uj20"]
+
+[resource]
+script = ExtResource("6_4uj20")
+name = "americano"
+recipe = Array[ExtResource("2_p66h4")]([ExtResource("3_viril"), ExtResource("5_tv46i"), ExtResource("5_tv46i")])
+image = ExtResource("1_s03sc")
+description = "diluted for americans"

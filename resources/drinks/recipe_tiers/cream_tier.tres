@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RecipeTier" load_steps=4 format=3 uid="uid://dayonlpb6wpx8"]
+
+[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="1_j3o1y"]
+[ext_resource type="Resource" uid="uid://v270o3nir5ax" path="res://resources/ingredients/whipped_cream.tres" id="2_cdkyo"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="3_m551n"]
+
+[resource]
+script = ExtResource("3_m551n")
+ingredients = Array[ExtResource("1_j3o1y")]([ExtResource("2_cdkyo")])

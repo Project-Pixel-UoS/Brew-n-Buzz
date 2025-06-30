@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=8 format=3 uid="uid://dbn4weqsw1rir"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_mtqfm"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_ex6lo"]
+[ext_resource type="Resource" uid="uid://bmn5t3m6qntt0" path="res://resources/drinks/recipe_tiers/coffee_tier.tres" id="3_xcrij"]
+[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="4_07cw7"]
+[ext_resource type="Resource" uid="uid://2rlergxoitrl" path="res://resources/ingredients/liquor.tres" id="5_wdf4q"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="7_r6fcn"]
+
+[sub_resource type="Resource" id="Resource_yuihe"]
+script = ExtResource("2_ex6lo")
+ingredients = Array[ExtResource("4_07cw7")]([ExtResource("5_wdf4q")])
+
+[resource]
+script = ExtResource("7_r6fcn")
+name = "corretto"
+recipe = Array[ExtResource("2_ex6lo")]([ExtResource("3_xcrij"), SubResource("Resource_yuihe")])
+image = ExtResource("1_mtqfm")
+description = ""

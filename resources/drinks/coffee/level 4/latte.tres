@@ -1,18 +1,15 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=8 format=3 uid="uid://d1nncxlive1o6"]
+[gd_resource type="Resource" script_class="Drink" load_steps=7 format=3 uid="uid://d1nncxlive1o6"]
 
 [ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_m3yhp"]
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_3c2df"]
-[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="3_v5u0x"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_4gs8e"]
 [ext_resource type="Resource" uid="uid://bt3aijlrjqgly" path="res://resources/drinks/recipe_tiers/milk_tier.tres" id="4_h7gcx"]
 [ext_resource type="Resource" uid="uid://deroiwdnbk5yh" path="res://resources/drinks/recipe_tiers/foam_tier.tres" id="5_n4rsp"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_r15l4"]
 
-[sub_resource type="Resource" id="Resource_suw1a"]
-script = ExtResource("2_3c2df")
-ingredients = Array[ExtResource("3_v5u0x")]([])
-
 [resource]
 script = ExtResource("6_r15l4")
 name = "latte"
-recipe = Array[ExtResource("2_3c2df")]([SubResource("Resource_suw1a"), ExtResource("4_h7gcx"), ExtResource("5_n4rsp")])
+recipe = Array[ExtResource("2_3c2df")]([ExtResource("3_4gs8e"), ExtResource("4_h7gcx"), ExtResource("4_h7gcx"), ExtResource("5_n4rsp")])
 image = ExtResource("1_m3yhp")
+description = "a milkier capuccino"
