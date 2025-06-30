@@ -24,7 +24,7 @@ func _check_recipe():
 			mugObject = child
 			ingredients = child.get_ingredients()
 			
-	var drink = customer_panel.get_doll().get_customer().drink
+	var drink = customer_panel.get_node('./Panel/Doll').get_customer().drink
 	print("Created drink:", drink.name)
 
 	var is_correct = drink.isValidIngredients(ingredients)

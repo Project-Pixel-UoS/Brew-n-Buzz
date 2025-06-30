@@ -35,7 +35,6 @@ func is_customer_ready():
 	
 func _ready():
 	customer_ready = false
-	doll = get_parent().get_node('Doll')
 	queue_numbers = GameManager.get_level_queue(1)
 	var vip_named_count = 0
 	for i in range(0,queue_numbers[0]):
@@ -80,6 +79,7 @@ func spawn_next_customer():
 		queue_empty = true
 	
 	strikes = 0
+	await respawn_doll()
 	doll.reset_pos()
 	var next = customer_queue.pop_front()
 	doll.customer = next 
@@ -111,6 +111,7 @@ func remove_customer():
 	%DialogueLabel.visible = false
 	await doll.exit_queue()
 	customer = null
+	doll.queue_free()
 	spawn_next_customer()
 	
 func react_to_drink(correct: bool):
@@ -131,3 +132,13 @@ func react_to_drink(correct: bool):
 		%DialogueLabel.text = line
 		strikes += 1
 		await get_tree().create_timer(1.5).timeout
+
+func respawn_doll():
+	var doll_scene = load("res://scenes/customer_panel/doll.tscn") 
+	var new_doll = doll_scene.instantiate()
+	get_parent().call_deferred("add_child", new_doll)
+	move_child(new_doll, 0)
+	new_doll.name = "Doll"
+	await new_doll.doll_ready
+	doll = new_doll
+	
