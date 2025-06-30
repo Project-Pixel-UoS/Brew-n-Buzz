@@ -215,6 +215,7 @@ z_index = 1
 script = ExtResource("9_vxukn")
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel/PatienceMeter"]
+visible = false
 position = Vector2(78.4483, 98.4483)
 texture = ExtResource("9_w44ji")
 hframes = 3
