@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://2avx5q1jl6yu"]
 
-[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_jc1pw"]
-[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_cps5g"]
-[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_lwun2"]
-[ext_resource type="Resource" uid="uid://bswsapkyan4ta" path="res://resources/drinks/recipe_tiers/water_tier.tres" id="4_1thi0"]
-[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_37lm4"]
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_74pkr"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_drwaa"]
+[ext_resource type="Resource" uid="uid://bmn5t3m6qntt0" path="res://resources/drinks/recipe_tiers/coffee_tier.tres" id="3_0t3ow"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="4_t6bgk"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_scehk"]
 
 [resource]
-script = ExtResource("5_37lm4")
-name = "americano"
-recipe = Array[ExtResource("2_cps5g")]([ExtResource("3_lwun2"), ExtResource("4_1thi0")])
-image = ExtResource("1_jc1pw")
+script = ExtResource("5_scehk")
+name = "red eye"
+recipe = Array[ExtResource("2_drwaa")]([ExtResource("3_0t3ow"), ExtResource("4_t6bgk")])
+image = ExtResource("1_74pkr")
+description = "When you really need to stay awake"

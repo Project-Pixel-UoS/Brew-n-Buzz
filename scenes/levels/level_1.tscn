@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://d0tmn2yr7n018"]
+[gd_scene load_steps=65 format=3 uid="uid://d0tmn2yr7n018"]
 
 [ext_resource type="Script" path="res://scripts/general/level_manager.gd" id="1_p2g6v"]
 [ext_resource type="Texture2D" uid="uid://b2j4wjwo5o67o" path="res://assets/images/kitchen panel/misc/bnb_kitchen_bg_base.png" id="2_i5lbq"]
@@ -51,6 +51,7 @@
 [ext_resource type="PackedScene" uid="uid://xnigc2lo1y6n" path="res://scenes/kitchen_panel/machine_scenes/steam_wand.tscn" id="44_k8maw"]
 [ext_resource type="PackedScene" uid="uid://de18hqi3hvdur" path="res://scenes/kitchen_panel/machine_scenes/frother.tscn" id="45_74fsf"]
 [ext_resource type="PackedScene" uid="uid://ekoyd5v80o3n" path="res://scenes/kitchen_panel/machine_scenes/bin.tscn" id="46_67qg3"]
+[ext_resource type="Resource" uid="uid://f2078y8fhvl8" path="res://resources/ingredients/coffee.tres" id="47_8gksc"]
 [ext_resource type="Script" path="res://scripts/kitchen_panel/bin.gd" id="47_a25ey"]
 [ext_resource type="PackedScene" uid="uid://g4b5i07s3qtn" path="res://scenes/kitchen_panel/mug_ring.tscn" id="48_q8gw2"]
 [ext_resource type="PackedScene" uid="uid://c67pq8jw0ro0q" path="res://scenes/kitchen_panel/mug_area.tscn" id="49_ufobs"]
@@ -495,6 +496,7 @@ position = Vector2(155, 324)
 [node name="GroupHandle" parent="KitchenPanel/Machines" instance=ExtResource("43_fumh1")]
 unique_name_in_owner = true
 position = Vector2(892, 721)
+ingredient = ExtResource("47_8gksc")
 
 [node name="SteamWand" parent="KitchenPanel/Machines" instance=ExtResource("44_k8maw")]
 position = Vector2(350, 391)

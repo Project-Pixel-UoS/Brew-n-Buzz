@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="Drink" load_steps=8 format=3 uid="uid://c4g68vb0ntmm7"]
 
-[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_sg6ni"]
-[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_oc2lv"]
-[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_g0gfb"]
-[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="3_jxosl"]
-[ext_resource type="Resource" uid="uid://cess5bigwaa2q" path="res://resources/ingredients/lemon.tres" id="4_ev301"]
-[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_uxbim"]
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_it0yb"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_jw10v"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_0tdsy"]
+[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="4_6bxlb"]
+[ext_resource type="Resource" uid="uid://cess5bigwaa2q" path="res://resources/ingredients/lemon.tres" id="5_r231f"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_reds2"]
 
 [sub_resource type="Resource" id="Resource_pyppa"]
-script = ExtResource("2_oc2lv")
-ingredients = Array[ExtResource("3_jxosl")]([ExtResource("4_ev301")])
+script = ExtResource("2_jw10v")
+ingredients = Array[ExtResource("4_6bxlb")]([ExtResource("5_r231f")])
 
 [resource]
-script = ExtResource("5_uxbim")
+script = ExtResource("6_reds2")
 name = "romano"
-recipe = Array[ExtResource("2_oc2lv")]([ExtResource("3_g0gfb"), SubResource("Resource_pyppa")])
-image = ExtResource("1_sg6ni")
-description = ""
+recipe = Array[ExtResource("2_jw10v")]([ExtResource("3_0tdsy"), SubResource("Resource_pyppa")])
+image = ExtResource("1_it0yb")
+description = "An espresso with a dash of lemon"

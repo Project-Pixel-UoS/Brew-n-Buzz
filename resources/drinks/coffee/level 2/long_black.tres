@@ -11,4 +11,4 @@ script = ExtResource("5_jettm")
 name = "long black"
 recipe = Array[ExtResource("2_lxdyq")]([ExtResource("3_yl5tg"), ExtResource("4_0gvp2")])
 image = ExtResource("1_2k68a")
-description = "an upside down americano with less water"
+description = "An inverted americano with less water"

@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://bnird27gt57lb"]
 
-[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_npcjd"]
-[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_gshlv"]
-[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_efx4m"]
-[ext_resource type="Resource" uid="uid://deroiwdnbk5yh" path="res://resources/drinks/recipe_tiers/foam_tier.tres" id="4_qoj3k"]
-[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_x7ly0"]
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_fp2h3"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_jk3g5"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_o0bni"]
+[ext_resource type="Resource" uid="uid://deroiwdnbk5yh" path="res://resources/drinks/recipe_tiers/foam_tier.tres" id="4_0cfku"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_dyr56"]
 
 [resource]
-script = ExtResource("5_x7ly0")
+script = ExtResource("5_dyr56")
 name = "espresso macchiato"
-recipe = Array[ExtResource("2_gshlv")]([ExtResource("3_efx4m"), ExtResource("4_qoj3k"), ExtResource("4_qoj3k")])
-image = ExtResource("1_npcjd")
-description = ""
+recipe = Array[ExtResource("2_jk3g5")]([ExtResource("3_o0bni"), ExtResource("4_0cfku")])
+image = ExtResource("1_fp2h3")
+description = "An espresso \"marked\" with a dash of milk"

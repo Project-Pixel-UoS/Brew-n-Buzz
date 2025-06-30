@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://t7w03c3bbpuj"]
 
-[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_58nlf"]
-[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_7xlki"]
-[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_lq8y0"]
-[ext_resource type="Resource" uid="uid://deroiwdnbk5yh" path="res://resources/drinks/recipe_tiers/foam_tier.tres" id="4_dx3kt"]
-[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_yj50l"]
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_ihc0v"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_1cm85"]
+[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_i54ds"]
+[ext_resource type="Resource" uid="uid://deroiwdnbk5yh" path="res://resources/drinks/recipe_tiers/foam_tier.tres" id="4_uiwfj"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_d7l1v"]
 
 [resource]
-script = ExtResource("6_yj50l")
+script = ExtResource("5_d7l1v")
 name = "galão"
-recipe = Array[ExtResource("2_7xlki")]([ExtResource("3_lq8y0"), ExtResource("4_dx3kt")])
-image = ExtResource("1_58nlf")
+recipe = Array[ExtResource("2_1cm85")]([ExtResource("3_i54ds"), ExtResource("4_uiwfj"), ExtResource("4_uiwfj")])
+image = ExtResource("1_ihc0v")
 description = ""
