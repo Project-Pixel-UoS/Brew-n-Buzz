@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://d0tmn2yr7n018"]
+[gd_scene load_steps=65 format=3 uid="uid://d0tmn2yr7n018"]
 
 [ext_resource type="Script" path="res://scripts/general/level_manager.gd" id="1_p2g6v"]
 [ext_resource type="Texture2D" uid="uid://b2j4wjwo5o67o" path="res://assets/images/kitchen panel/misc/bnb_kitchen_bg_base.png" id="2_i5lbq"]
