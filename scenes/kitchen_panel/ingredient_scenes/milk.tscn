@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bej466ttippun" path="res://assets/images/kitchen panel/ingredients/milk.PNG" id="1_r4fis"]
 [ext_resource type="Script" path="res://scripts/kitchen_panel/ingredient_mug.gd" id="1_vaibv"]
-[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/steamed_milk.tres" id="2_kkgck"]
+[ext_resource type="Resource" uid="uid://bfgta8ci45dc2" path="res://resources/ingredients/milk.tres" id="2_kkgck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8c0i7"]
 size = Vector2(33.5, 34.5)

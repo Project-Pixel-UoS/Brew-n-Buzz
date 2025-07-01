@@ -52,13 +52,10 @@ func set_steamed_milk(truth_value):
 			contents[i] = steamed
 
 func set_frothed_milk():
-	var is_frothered = false
-	var i = 0
-	while !is_frothered and i < contents.size():
-		if contents[i] == steamed:
+	print("chaning milk to frothered milk")
+	for i in range(contents.size()):
+		if contents[i] == base_milk:
 			contents[i] = frothed
-			is_frothered = true
-		i += 1
 
 func check_valid_drop(body: Node2D) -> bool:
 	if body.is_in_group('ingredient') or body.is_in_group('frother') or body.is_in_group('steamWand'):
@@ -95,23 +92,23 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			await get_tree().physics_frame
 			if is_inside_valid_drop and body_ref and has_milk and not is_inside_bin:
 				if body_ref.is_in_group("ingredient"):
-					queue_free()
-					replenish_milk_jug()
+					#queue_free()
+					#replenish_milk_jug()
 					print("Dropping steamed milk into milk jug")
 					
 					body_ref.get_parent().add_ingredient(contents.pop_back())
-					has_milk = contents.size() <= 0
+					has_milk = contents.size() > 0
 				elif body_ref.is_in_group("frother"):
-					print("Dropping into object at position: ", body_ref.position)
+					print("Dropping into object at position: ", body_ref.get_parent().position)
 					var tween = get_tree().create_tween()
-					tween.tween_property(self, "position",body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
+					tween.tween_property(self, "position", body_ref.get_parent().position, 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished
 					z_index = 0
 					if !frothed_milk:
 						body_ref.get_parent().froth_milk()
 						frothed_milk = true
 						set_frothed_milk()
-						initialPos = body_ref.position
+						initialPos = body_ref.get_parent().position
 				elif !steamed_milk:
 					print(body_ref.get_parent().name)
 					print(body_ref.position)
@@ -119,7 +116,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					tween.tween_property(self, "position",Vector2(549,472), 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished
 					body_ref.get_parent().steam_milk(self)
-					initialPos = body_ref.position
+					initialPos = body_ref.get_parent().position
 			elif is_inside_bin and body_ref:
 				queue_free()  
 				replenish_milk_jug()

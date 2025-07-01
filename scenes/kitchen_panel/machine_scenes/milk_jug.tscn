@@ -14,6 +14,7 @@ script = ExtResource("1_ijaby")
 base_milk = ExtResource("2_evl2o")
 steamed = ExtResource("3_mtvpw")
 frothed = ExtResource("4_i3i4x")
+capacity = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
