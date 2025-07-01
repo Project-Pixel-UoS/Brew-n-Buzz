@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="RecipeTier" load_steps=4 format=3 uid="uid://deroiwdnbk5yh"]
 
 [ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="1_uwmcn"]
-[ext_resource type="Resource" uid="uid://7q23ksxgwoak" path="res://resources/ingredients/foam.tres" id="2_trhsj"]
+[ext_resource type="Resource" uid="uid://7q23ksxgwoak" path="res://resources/ingredients/frothy_milk.tres" id="2_trhsj"]
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="3_qw7ec"]
 
 [resource]

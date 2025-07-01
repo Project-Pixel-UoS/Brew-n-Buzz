@@ -20,5 +20,5 @@ recipe = Array[ExtResource("2_7mryy")]([ExtResource("3_u82cl"), SubResource("Res
 image = ExtResource("1_pn613")
 description = "Alcohol in my coffee?"
 transitions = {
-ExtResource("7_neenl"): ExtResource("8_7mfd7")
+[ExtResource("7_neenl")]: ExtResource("8_7mfd7")
 }

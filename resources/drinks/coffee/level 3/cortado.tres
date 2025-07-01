@@ -1,12 +1,16 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=8 format=3 uid="uid://44evkd17nd58"]
+[gd_resource type="Resource" script_class="Drink" load_steps=12 format=3 uid="uid://44evkd17nd58"]
 
 [ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_ox4fr"]
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_06i7k"]
 [ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_yu6o8"]
 [ext_resource type="Resource" uid="uid://bt3aijlrjqgly" path="res://resources/drinks/recipe_tiers/milk_tier.tres" id="4_bjae7"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_fyluf"]
-[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/milk.tres" id="6_ed18l"]
+[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/steamed_milk.tres" id="6_b05au"]
 [ext_resource type="Resource" uid="uid://dtsxfbqjy83yf" path="res://resources/drinks/coffee/level 4/flat_white.tres" id="7_ym7vd"]
+[ext_resource type="Resource" uid="uid://7q23ksxgwoak" path="res://resources/ingredients/frothy_milk.tres" id="8_fect6"]
+[ext_resource type="Resource" uid="uid://d1nncxlive1o6" path="res://resources/drinks/coffee/level 4/latte.tres" id="9_n53g8"]
+[ext_resource type="Resource" uid="uid://3emc3uo0looj" path="res://resources/ingredients/seasonal.tres" id="10_tlrcs"]
+[ext_resource type="Resource" uid="uid://3rum5u15n16" path="res://resources/drinks/coffee/level 5/pumpkin_spice_latte.tres" id="11_00gqo"]
 
 [resource]
 script = ExtResource("5_fyluf")
@@ -15,5 +19,7 @@ recipe = Array[ExtResource("2_06i7k")]([ExtResource("3_yu6o8"), ExtResource("3_y
 image = ExtResource("1_ox4fr")
 description = "From Latin America like an espresso macchiato or a flat white but smaller and more intense"
 transitions = {
-ExtResource("6_ed18l"): ExtResource("7_ym7vd")
+[ExtResource("6_b05au")]: ExtResource("7_ym7vd"),
+[ExtResource("8_fect6")]: ExtResource("9_n53g8"),
+[ExtResource("10_tlrcs"), ExtResource("8_fect6")]: ExtResource("11_00gqo")
 }

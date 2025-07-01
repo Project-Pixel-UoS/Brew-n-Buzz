@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://2avx5q1jl6yu" path="res://resources/drinks/coffee/level 2/red_eye.tres" id="8_x3qhk"]
 [ext_resource type="Resource" uid="uid://2rlergxoitrl" path="res://resources/ingredients/liquor.tres" id="9_8w86i"]
 [ext_resource type="Resource" uid="uid://dbn4weqsw1rir" path="res://resources/drinks/coffee/level 2/corretto.tres" id="10_iuutl"]
-[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/milk.tres" id="11_kdxi0"]
+[ext_resource type="Resource" uid="uid://bfgta8ci45dc2" path="res://resources/ingredients/milk.tres" id="11_kdxi0"]
 [ext_resource type="Resource" uid="uid://befjnrb7q1st2" path="res://resources/drinks/coffee/level 2/cafe_au_lait.tres" id="12_u1jce"]
 
 [resource]
@@ -20,8 +20,8 @@ recipe = Array[ExtResource("2_vbavl")]([ExtResource("3_1d8re")])
 image = ExtResource("1_7phgl")
 description = "The simplest coffee you can make"
 transitions = {
-ExtResource("5_voreq"): ExtResource("6_63cn0"),
-ExtResource("7_44c5k"): ExtResource("8_x3qhk"),
-ExtResource("9_8w86i"): ExtResource("10_iuutl"),
-ExtResource("11_kdxi0"): ExtResource("12_u1jce")
+[ExtResource("5_voreq")]: ExtResource("6_63cn0"),
+[ExtResource("7_44c5k")]: ExtResource("8_x3qhk"),
+[ExtResource("11_kdxi0")]: ExtResource("12_u1jce"),
+[ExtResource("9_8w86i")]: ExtResource("10_iuutl")
 }

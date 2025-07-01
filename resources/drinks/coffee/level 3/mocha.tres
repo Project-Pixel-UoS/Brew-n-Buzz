@@ -16,5 +16,5 @@ recipe = Array[ExtResource("2_dsv42")]([ExtResource("4_wrhde"), ExtResource("3_3
 image = ExtResource("1_gabdu")
 description = ""
 transitions = {
-ExtResource("7_n8ye3"): ExtResource("8_4kyjy")
+[ExtResource("7_n8ye3")]: ExtResource("8_4kyjy")
 }

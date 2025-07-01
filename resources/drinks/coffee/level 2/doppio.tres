@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_88qts"]
 [ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_hfvrn"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="4_bf57c"]
-[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/milk.tres" id="5_a4fnn"]
+[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/steamed_milk.tres" id="5_yyd3i"]
 [ext_resource type="Resource" uid="uid://44evkd17nd58" path="res://resources/drinks/coffee/level 3/cortado.tres" id="6_6rh5h"]
 
 [resource]
@@ -14,5 +14,5 @@ recipe = Array[ExtResource("2_88qts")]([ExtResource("3_hfvrn"), ExtResource("3_h
 image = ExtResource("1_c2ynj")
 description = "A double espresso"
 transitions = {
-ExtResource("5_a4fnn"): ExtResource("6_6rh5h")
+[ExtResource("5_yyd3i")]: ExtResource("6_6rh5h")
 }

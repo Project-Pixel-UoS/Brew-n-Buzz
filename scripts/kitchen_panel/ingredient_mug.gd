@@ -75,8 +75,8 @@ func _on_area_2d_area_entered(body: Node2D) -> void:
 		is_inside_valid_drop = true
 		body_ref = body  
 		if body_ref and body_ref.get_parent().has_method("add_ingredient"):
-			#body_ref.get_parent().add_ingredient(name)  # Add ingredient to mug
-			mugObject.add_ingredient(ingredient)
+			body_ref.get_parent().add_ingredient(ingredient)  # Add ingredient to mug
+			#mugObject.add_ingredient(ingredient)
 		else:
 			print("Error: body_ref is null or missing add_ingredient method")
 	# Check if the object is a bin and destroy the ingredient

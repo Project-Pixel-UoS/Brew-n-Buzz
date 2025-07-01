@@ -15,5 +15,5 @@ recipe = Array[ExtResource("2_drwaa")]([ExtResource("3_0t3ow"), ExtResource("4_t
 image = ExtResource("1_74pkr")
 description = "When you really need to stay awake"
 transitions = {
-ExtResource("6_ww122"): ExtResource("7_3gcnu")
+[ExtResource("6_ww122")]: ExtResource("7_3gcnu")
 }

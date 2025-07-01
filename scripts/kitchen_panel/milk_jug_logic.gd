@@ -11,6 +11,11 @@ var is_inside_bin = false
 var respawnPos
 var being_dragged = false
 var touchpos
+@export var base_milk: Ingredient
+@export var steamed: Ingredient
+@export var frothed: Ingredient
+@export var contents: Array[Ingredient]
+@export var capacity: int = 1
 
 func _ready() -> void:
 	respawnPos = position
@@ -26,9 +31,11 @@ func _process(delta: float) -> void:
 	if being_dragged:
 		global_position = touchpos
 		
-func add_ingredient(name):
+func add_ingredient(ingredient: Ingredient):
 	has_milk = true
 	print("added milk to milk jug")
+	if contents.size() < capacity:
+		contents.push_back(ingredient)
 
 func replenish_milk_jug():
 		var milk_jug_scene = load(scene_file_path)
@@ -40,6 +47,18 @@ func replenish_milk_jug():
 	
 func set_steamed_milk(truth_value):
 	steamed_milk = truth_value
+	for i in range(contents.size()):
+		if contents[i] == base_milk:
+			contents[i] = steamed
+
+func set_frothed_milk():
+	var is_frothered = false
+	var i = 0
+	while !is_frothered and i < contents.size():
+		if contents[i] == steamed:
+			contents[i] = frothed
+			is_frothered = true
+		i += 1
 
 func check_valid_drop(body: Node2D) -> bool:
 	if body.is_in_group('ingredient') or body.is_in_group('frother') or body.is_in_group('steamWand'):
@@ -75,16 +94,13 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			scale = Vector2(1,1)
 			await get_tree().physics_frame
 			if is_inside_valid_drop and body_ref and has_milk and not is_inside_bin:
-				if steamed_milk && body_ref.is_in_group("ingredient"):
+				if body_ref.is_in_group("ingredient"):
 					queue_free()
 					replenish_milk_jug()
 					print("Dropping steamed milk into milk jug")
-					body_ref.get_parent().add_ingredient("Steamed Milk")
-				elif frothed_milk && body_ref.is_in_group("ingredient"):
-					queue_free()
-					replenish_milk_jug()
-					print("Dropping frothed milk into milk jug")
-					body_ref.get_parent().add_ingredient("Frothed Milk")
+					
+					body_ref.get_parent().add_ingredient(contents.pop_back())
+					has_milk = contents.size() <= 0
 				elif body_ref.is_in_group("frother"):
 					print("Dropping into object at position: ", body_ref.position)
 					var tween = get_tree().create_tween()
@@ -94,6 +110,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					if !frothed_milk:
 						body_ref.get_parent().froth_milk()
 						frothed_milk = true
+						set_frothed_milk()
 						initialPos = body_ref.position
 				elif !steamed_milk:
 					print(body_ref.get_parent().name)

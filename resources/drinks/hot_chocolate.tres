@@ -14,5 +14,5 @@ name = "hot chocolate"
 recipe = Array[ExtResource("1_66lik")]([ExtResource("2_hlo4k"), ExtResource("4_44bx0"), ExtResource("4_15uht")])
 description = ""
 transitions = {
-ExtResource("6_c2qwu"): ExtResource("7_ef3o4")
+[ExtResource("6_c2qwu")]: ExtResource("7_ef3o4")
 }

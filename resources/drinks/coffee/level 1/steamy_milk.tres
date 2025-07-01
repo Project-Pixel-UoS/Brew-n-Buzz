@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=7 format=3 uid="uid://bchxlcj0f1gsk"]
+
+[ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://assets/images/kitchen panel/mug sprites/bnb_espresso.png" id="1_c5q3w"]
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_f4j0s"]
+[ext_resource type="Resource" uid="uid://bt3aijlrjqgly" path="res://resources/drinks/recipe_tiers/milk_tier.tres" id="3_gcnfw"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="4_vaba6"]
+[ext_resource type="Resource" uid="uid://bwqeid1vmo4cv" path="res://resources/ingredients/ing_espresso.tres" id="5_8u0mp"]
+[ext_resource type="Resource" uid="uid://br1nnjyeovt08" path="res://resources/drinks/coffee/level 2/latte_macchiato.tres" id="6_ywhkx"]
+
+[resource]
+script = ExtResource("4_vaba6")
+name = "steamy milk"
+recipe = Array[ExtResource("2_f4j0s")]([ExtResource("3_gcnfw")])
+image = ExtResource("1_c5q3w")
+description = "milk"
+transitions = {
+[ExtResource("5_8u0mp")]: ExtResource("6_ywhkx")
+}
