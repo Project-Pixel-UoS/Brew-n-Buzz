@@ -12,3 +12,4 @@ name = "galão"
 recipe = Array[ExtResource("2_1cm85")]([ExtResource("3_i54ds"), ExtResource("4_uiwfj"), ExtResource("4_uiwfj")])
 image = ExtResource("1_ihc0v")
 description = ""
+transitions = {}

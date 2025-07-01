@@ -14,3 +14,5 @@ ingredients = Array[ExtResource("2_jm4a8")]([ExtResource("3_lg6mx")])
 script = ExtResource("5_mhwje")
 name = "camomile tea"
 recipe = Array[ExtResource("1_hx147")]([SubResource("Resource_ef7bh"), ExtResource("4_n8fsp")])
+description = ""
+transitions = {}

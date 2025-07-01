@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=7 format=3 uid="uid://ckvhdnqpr0i7l"]
+[gd_resource type="Resource" script_class="Drink" load_steps=9 format=3 uid="uid://ckvhdnqpr0i7l"]
 
 [ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_gabdu"]
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_dsv42"]
@@ -6,10 +6,15 @@
 [ext_resource type="Resource" uid="uid://dal47q78pdjvf" path="res://resources/drinks/recipe_tiers/chocolate_tier.tres" id="4_wrhde"]
 [ext_resource type="Resource" uid="uid://bt3aijlrjqgly" path="res://resources/drinks/recipe_tiers/milk_tier.tres" id="5_ydsf1"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_ct8am"]
+[ext_resource type="Resource" uid="uid://v270o3nir5ax" path="res://resources/ingredients/whipped_cream.tres" id="7_n8ye3"]
+[ext_resource type="Resource" uid="uid://cayciiribc7wr" path="res://resources/drinks/coffee/level 4/mocha_with_cream.tres" id="8_4kyjy"]
 
 [resource]
 script = ExtResource("6_ct8am")
 name = "mocha"
-recipe = Array[ExtResource("2_dsv42")]([ExtResource("3_3j8tk"), ExtResource("4_wrhde"), ExtResource("5_ydsf1")])
+recipe = Array[ExtResource("2_dsv42")]([ExtResource("4_wrhde"), ExtResource("3_3j8tk"), ExtResource("5_ydsf1")])
 image = ExtResource("1_gabdu")
 description = ""
+transitions = {
+ExtResource("7_n8ye3"): ExtResource("8_4kyjy")
+}

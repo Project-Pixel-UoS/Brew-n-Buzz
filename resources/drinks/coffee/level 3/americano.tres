@@ -12,3 +12,4 @@ name = "americano"
 recipe = Array[ExtResource("2_p66h4")]([ExtResource("3_viril"), ExtResource("5_tv46i"), ExtResource("5_tv46i")])
 image = ExtResource("1_s03sc")
 description = "diluted for americans"
+transitions = {}

@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=5 format=3 uid="uid://dj0d0x73yjkhv"]
+[gd_resource type="Resource" script_class="Drink" load_steps=7 format=3 uid="uid://dj0d0x73yjkhv"]
 
 [ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://assets/images/kitchen panel/mug sprites/bnb_espresso.png" id="1_msse6"]
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_qs4rc"]
 [ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_l4fal"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="4_jqaes"]
+[ext_resource type="Resource" uid="uid://bwqeid1vmo4cv" path="res://resources/ingredients/ing_espresso.tres" id="5_hbjpb"]
+[ext_resource type="Resource" uid="uid://crbpwjo0i0dmc" path="res://resources/drinks/coffee/level 2/long_black.tres" id="6_p66un"]
 
 [resource]
 script = ExtResource("4_jqaes")
@@ -11,3 +13,6 @@ name = "water"
 recipe = Array[ExtResource("2_qs4rc")]([ExtResource("3_l4fal")])
 image = ExtResource("1_msse6")
 description = "A hydrating mug of water"
+transitions = {
+ExtResource("5_hbjpb"): ExtResource("6_p66un")
+}

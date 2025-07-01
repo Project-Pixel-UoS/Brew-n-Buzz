@@ -12,3 +12,4 @@ name = "vienna coffee"
 recipe = Array[ExtResource("2_osgdn")]([ExtResource("3_wu1e0"), ExtResource("4_by87k")])
 image = ExtResource("1_fu3hj")
 description = "coffeee with cream"
+transitions = {}

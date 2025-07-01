@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://dtsxfbqjy83yf"]
+[gd_resource type="Resource" script_class="Drink" load_steps=10 format=3 uid="uid://dtsxfbqjy83yf"]
 
 [ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_r1y6l"]
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_3hm5w"]
 [ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_7q8e4"]
 [ext_resource type="Resource" uid="uid://bt3aijlrjqgly" path="res://resources/drinks/recipe_tiers/milk_tier.tres" id="4_plost"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_rxkjk"]
+[ext_resource type="Resource" uid="uid://7q23ksxgwoak" path="res://resources/ingredients/foam.tres" id="6_7pwch"]
+[ext_resource type="Resource" uid="uid://d1nncxlive1o6" path="res://resources/drinks/coffee/level 4/latte.tres" id="7_mdfjv"]
+[ext_resource type="Resource" uid="uid://3emc3uo0looj" path="res://resources/ingredients/seasonal.tres" id="8_fc07c"]
+[ext_resource type="Resource" uid="uid://3rum5u15n16" path="res://resources/drinks/coffee/level 5/pumpkin_spice_latte.tres" id="9_gbweb"]
 
 [resource]
 script = ExtResource("5_rxkjk")
@@ -12,3 +16,7 @@ name = "flat white"
 recipe = Array[ExtResource("2_3hm5w")]([ExtResource("3_7q8e4"), ExtResource("3_7q8e4"), ExtResource("4_plost"), ExtResource("4_plost")])
 image = ExtResource("1_r1y6l")
 description = "A capuccino with no foam"
+transitions = {
+ExtResource("6_7pwch"): ExtResource("7_mdfjv"),
+[ExtResource("8_fc07c"), ExtResource("6_7pwch")]: ExtResource("9_gbweb")
+}

@@ -17,3 +17,4 @@ name = "romano"
 recipe = Array[ExtResource("2_jw10v")]([ExtResource("3_0tdsy"), SubResource("Resource_pyppa")])
 image = ExtResource("1_it0yb")
 description = "An espresso with a dash of lemon"
+transitions = {}

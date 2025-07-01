@@ -1,9 +1,22 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=5 format=3 uid="uid://cthfpxtgxya7a"]
+[gd_resource type="Resource" script_class="Drink" load_steps=18 format=3 uid="uid://cthfpxtgxya7a"]
 
 [ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://assets/images/kitchen panel/mug sprites/bnb_espresso.png" id="1_01tpf"]
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_e64ea"]
 [ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_x0cdg"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="4_lsgf6"]
+[ext_resource type="Resource" uid="uid://bwqeid1vmo4cv" path="res://resources/ingredients/ing_espresso.tres" id="5_bbbu4"]
+[ext_resource type="Resource" uid="uid://b6ucifcc7npv3" path="res://resources/drinks/coffee/level 2/doppio.tres" id="6_0m5bw"]
+[ext_resource type="Resource" uid="uid://v270o3nir5ax" path="res://resources/ingredients/whipped_cream.tres" id="7_jjpqn"]
+[ext_resource type="Resource" uid="uid://bskwimf4q4dfh" path="res://resources/drinks/coffee/level 2/con_panna.tres" id="8_d5qlk"]
+[ext_resource type="Resource" uid="uid://w8tidfxytv0d" path="res://resources/ingredients/water.tres" id="9_teaao"]
+[ext_resource type="Resource" uid="uid://caxorte43b063" path="res://resources/drinks/coffee/level 2/lungo.tres" id="10_cxgew"]
+[ext_resource type="Resource" uid="uid://7q23ksxgwoak" path="res://resources/ingredients/foam.tres" id="11_1ysbx"]
+[ext_resource type="Resource" uid="uid://bnird27gt57lb" path="res://resources/drinks/coffee/level 2/espresso_macchiato.tres" id="12_x3wuv"]
+[ext_resource type="Resource" uid="uid://cess5bigwaa2q" path="res://resources/ingredients/lemon.tres" id="13_mxekw"]
+[ext_resource type="Resource" uid="uid://c4g68vb0ntmm7" path="res://resources/drinks/coffee/level 2/romano.tres" id="14_gpoum"]
+[ext_resource type="Resource" uid="uid://b3aa462fubgxn" path="res://resources/ingredients/cocoa.tres" id="15_mmxfp"]
+[ext_resource type="Resource" uid="uid://00pbhl3wimeu" path="res://resources/drinks/coffee/level 4/marocchino.tres" id="16_uvrrf"]
+[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/milk.tres" id="17_l8ax0"]
 
 [resource]
 script = ExtResource("4_lsgf6")
@@ -11,3 +24,12 @@ name = "espresso"
 recipe = Array[ExtResource("2_e64ea")]([ExtResource("3_x0cdg")])
 image = ExtResource("1_01tpf")
 description = "A basic espresso shot"
+transitions = {
+ExtResource("5_bbbu4"): ExtResource("6_0m5bw"),
+ExtResource("7_jjpqn"): ExtResource("8_d5qlk"),
+ExtResource("9_teaao"): ExtResource("10_cxgew"),
+ExtResource("11_1ysbx"): ExtResource("12_x3wuv"),
+ExtResource("13_mxekw"): ExtResource("14_gpoum"),
+[ExtResource("15_mmxfp"), ExtResource("11_1ysbx")]: ExtResource("16_uvrrf"),
+[ExtResource("17_l8ax0"), ExtResource("11_1ysbx")]: ExtResource("16_uvrrf")
+}

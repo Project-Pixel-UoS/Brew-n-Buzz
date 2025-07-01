@@ -12,3 +12,4 @@ name = "con panna"
 recipe = Array[ExtResource("2_jrq8m")]([ExtResource("3_buxmj"), ExtResource("4_8oue4")])
 image = ExtResource("1_r1d8c")
 description = ""
+transitions = {}

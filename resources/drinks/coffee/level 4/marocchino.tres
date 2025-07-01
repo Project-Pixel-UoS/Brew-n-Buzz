@@ -13,3 +13,4 @@ name = "marocchino"
 recipe = Array[ExtResource("2_w2efx")]([ExtResource("4_t6yq6"), ExtResource("3_1niwb"), ExtResource("5_h06dl"), ExtResource("4_t6yq6")])
 image = ExtResource("1_8fq80")
 description = ""
+transitions = {}

@@ -14,6 +14,8 @@ var being_dragged = false
 var x_change
 var customer_panel
 var counter
+var drink: Drink = preload("res://resources/drinks/empty_mug.tres")
+var ingredient_index = 0
 
 signal entered_counter
 
@@ -25,7 +27,7 @@ func _ready() -> void:
 	customer_panel = get_tree().root.get_child(2).get_node("CustomerPanel")
 	counter = customer_panel.get_child(3)
 	self.connect("entered_counter", Callable(counter, "_check_recipe"))
-	
+
 func _unhandled_input(event):
 	if being_dragged and event is InputEventScreenDrag:
 		global_position = event.position
@@ -36,14 +38,14 @@ func _unhandled_input(event):
 		determine_animation(x_change)
 		animationPlayer.play('idle')
 		being_dragged = false
-		
+
 func _process(delta: float) -> void: 
 	x_change = global_position.x - last_frame_x
 	last_frame_x = global_position.x
-	
+
 func stop_animation():
 	animationPlayer.set_process(false)
-	
+
 func remove_numbers(input_string: String) -> String:
 	var result = ""
 	for char in input_string:
@@ -51,13 +53,30 @@ func remove_numbers(input_string: String) -> String:
 			result += char 
 	return result
 
+func transition_mug(key: Variant):
+	if drink.transitions.has(key):
+		drink = drink.transitions[key]
+		print("Drink is now %s" % drink.name)
+		ingredient_index = ingredients.size()
+	else:
+		print("Could not transition drink")
+
 func add_ingredient(ingredient: Ingredient) -> void:
 	print("%s added to Mug" % ingredient.name)
 	ingredients.append(ingredient)
 	
+	var current_ingredients = ingredients.slice(ingredient_index)
+	if (current_ingredients.size() > 1):
+		transition_mug(current_ingredients)
+	else:
+		transition_mug(current_ingredients[0])
+
 func get_ingredients() -> Array[Ingredient]:
 	return ingredients
-	
+
+func show_ingredients() -> String:
+	return ", ".join(ingredients.map(func(ingredient): return ingredient.name))
+
 func determine_animation(x_change) -> void:
 	if x_change < -10:
 		animationPlayer.play("move_left")
@@ -66,7 +85,7 @@ func determine_animation(x_change) -> void:
 
 func set_draggable(value):
 	draggable = value	
-			
+
 func has_child_with_name(parent: Node, child_name: String) -> bool:
 	for child in parent.get_children():
 		if child.name == child_name:
@@ -78,7 +97,7 @@ func is_valid_drop(body: Node2D) -> bool:
 		if shape.is_in_group("mug"):
 			return true
 	return false
-	
+
 func _on_area_2d_area_entered(body: Node2D) -> void:
 	print("just entered: " + body.to_string())
 	if being_dragged:
@@ -92,13 +111,13 @@ func _on_area_2d_area_entered(body: Node2D) -> void:
 			is_inside_valid_drop = false
 			is_inside_bin = true
 			body_ref = body
-		
+
 func _on_area_2d_area_exited(body: Node2D) -> void:
 	if body_ref:
 		if body.get_parent() == body_ref.get_parent():
 			is_inside_valid_drop = false
 			is_inside_bin = false
-			
+
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed:

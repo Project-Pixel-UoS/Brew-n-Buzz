@@ -13,3 +13,4 @@ name = "latte macchiato"
 recipe = Array[ExtResource("2_8r4j7")]([ExtResource("3_tvnoc"), ExtResource("4_xlvik"), ExtResource("5_hsu1b")])
 image = ExtResource("1_ckhpn")
 description = "otherwise known as a Latte Stratificato or layered latte"
+transitions = {}

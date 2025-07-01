@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://blmip734ds6dh"]
+[gd_resource type="Resource" script_class="Drink" load_steps=8 format=3 uid="uid://blmip734ds6dh"]
 
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="1_66lik"]
 [ext_resource type="Resource" uid="uid://dal47q78pdjvf" path="res://resources/drinks/recipe_tiers/chocolate_tier.tres" id="2_hlo4k"]
 [ext_resource type="Resource" uid="uid://dayonlpb6wpx8" path="res://resources/drinks/recipe_tiers/cream_tier.tres" id="4_15uht"]
 [ext_resource type="Resource" uid="uid://bt3aijlrjqgly" path="res://resources/drinks/recipe_tiers/milk_tier.tres" id="4_44bx0"]
+[ext_resource type="Resource" uid="uid://j8sgnpu7qcib" path="res://resources/ingredients/caramel.tres" id="6_c2qwu"]
+[ext_resource type="Resource" uid="uid://cg3krls85ipux" path="res://resources/drinks/caramel_whirl.tres" id="7_ef3o4"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="7_lhyty"]
 
 [resource]
@@ -11,3 +13,6 @@ script = ExtResource("7_lhyty")
 name = "hot chocolate"
 recipe = Array[ExtResource("1_66lik")]([ExtResource("2_hlo4k"), ExtResource("4_44bx0"), ExtResource("4_15uht")])
 description = ""
+transitions = {
+ExtResource("6_c2qwu"): ExtResource("7_ef3o4")
+}

@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://2avx5q1jl6yu"]
+[gd_resource type="Resource" script_class="Drink" load_steps=8 format=3 uid="uid://2avx5q1jl6yu"]
 
 [ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_74pkr"]
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_drwaa"]
 [ext_resource type="Resource" uid="uid://bmn5t3m6qntt0" path="res://resources/drinks/recipe_tiers/coffee_tier.tres" id="3_0t3ow"]
 [ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="4_t6bgk"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_scehk"]
+[ext_resource type="Resource" uid="uid://bwqeid1vmo4cv" path="res://resources/ingredients/ing_espresso.tres" id="6_ww122"]
+[ext_resource type="Resource" uid="uid://k55g0jj8dppr" path="res://resources/drinks/coffee/level 3/black_eye.tres" id="7_3gcnu"]
 
 [resource]
 script = ExtResource("5_scehk")
@@ -12,3 +14,6 @@ name = "red eye"
 recipe = Array[ExtResource("2_drwaa")]([ExtResource("3_0t3ow"), ExtResource("4_t6bgk")])
 image = ExtResource("1_74pkr")
 description = "When you really need to stay awake"
+transitions = {
+ExtResource("6_ww122"): ExtResource("7_3gcnu")
+}

@@ -11,6 +11,7 @@
 [resource]
 script = ExtResource("7_mceet")
 name = "mocha with cream"
-recipe = Array[ExtResource("2_i0m3q")]([ExtResource("3_lrfum"), ExtResource("4_eokpq"), ExtResource("6_104wm"), ExtResource("6_lhkqj")])
+recipe = Array[ExtResource("2_i0m3q")]([ExtResource("4_eokpq"), ExtResource("3_lrfum"), ExtResource("6_104wm"), ExtResource("6_lhkqj")])
 image = ExtResource("1_kjhqn")
 description = ""
+transitions = {}

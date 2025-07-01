@@ -12,3 +12,4 @@ name = "espresso macchiato"
 recipe = Array[ExtResource("2_jk3g5")]([ExtResource("3_o0bni"), ExtResource("4_0cfku")])
 image = ExtResource("1_fp2h3")
 description = "An espresso \"marked\" with a dash of milk"
+transitions = {}

@@ -13,3 +13,4 @@ name = "latte"
 recipe = Array[ExtResource("2_3c2df")]([ExtResource("3_4gs8e"), ExtResource("4_h7gcx"), ExtResource("4_h7gcx"), ExtResource("5_n4rsp")])
 image = ExtResource("1_m3yhp")
 description = "a milkier capuccino"
+transitions = {}

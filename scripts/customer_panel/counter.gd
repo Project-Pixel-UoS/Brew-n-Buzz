@@ -25,12 +25,15 @@ func _check_recipe():
 			ingredients = child.get_ingredients()
 			
 	var drink = customer_panel.get_doll().get_customer().drink
-	print("Created drink:", drink.name)
+	print("Ordered drink:", drink.name)
 
-	var is_correct = drink.isValidIngredients(ingredients)
+	#var is_correct = drink.isValidIngredients(ingredients)
+	var is_correct = drink.is_equal_to(mugObject.drink)
 	var customerManager = levelManager.find_child("CustomerQueueManager", true, false)
 
-	print("Ingredients in mug: ", ingredients)
+	#print("Ingredients in mug: ", ingredients)
+	print("name of given drink: ", mugObject.drink.name)
+	print("Ingredients in mug: ", mugObject.show_ingredients())
 	print("Is drink correct: ", is_correct)
 
 	# Handle correct and incorrect recipes

@@ -14,3 +14,5 @@ ingredients = Array[ExtResource("2_p7y1m")]([ExtResource("3_g15yl")])
 script = ExtResource("5_i1fp0")
 name = "fruit tea"
 recipe = Array[ExtResource("1_7hjvs")]([SubResource("Resource_vy5rh"), ExtResource("4_sg3ol")])
+description = ""
+transitions = {}

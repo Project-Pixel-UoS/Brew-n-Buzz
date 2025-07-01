@@ -12,3 +12,4 @@ name = "long black"
 recipe = Array[ExtResource("2_lxdyq")]([ExtResource("3_yl5tg"), ExtResource("4_0gvp2")])
 image = ExtResource("1_2k68a")
 description = "An inverted americano with less water"
+transitions = {}

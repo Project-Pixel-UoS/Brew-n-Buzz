@@ -17,3 +17,4 @@ script = ExtResource("6_gti7u")
 name = "hot chocolate"
 recipe = Array[ExtResource("1_kce03")]([ExtResource("2_wjpcw"), ExtResource("4_dqqi2"), ExtResource("4_n3g8e"), SubResource("Resource_weusx")])
 description = ""
+transitions = {}

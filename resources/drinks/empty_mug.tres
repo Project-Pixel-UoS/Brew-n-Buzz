@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=25 format=3 uid="uid://bd1nxx18dx62q"]
+
+[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="1_rtjhj"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="2_jsyx3"]
+[ext_resource type="Resource" uid="uid://bwqeid1vmo4cv" path="res://resources/ingredients/ing_espresso.tres" id="3_yynla"]
+[ext_resource type="Resource" uid="uid://cthfpxtgxya7a" path="res://resources/drinks/coffee/level 1/espresso.tres" id="4_8ed6c"]
+[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/milk.tres" id="5_x5xsx"]
+[ext_resource type="Resource" uid="uid://bchxlcj0f1gsk" path="res://resources/drinks/coffee/level 1/milk.tres" id="6_5jsl8"]
+[ext_resource type="Resource" uid="uid://w8tidfxytv0d" path="res://resources/ingredients/water.tres" id="7_dappf"]
+[ext_resource type="Resource" uid="uid://dj0d0x73yjkhv" path="res://resources/drinks/coffee/level 1/water.tres" id="8_665yk"]
+[ext_resource type="Resource" uid="uid://f2078y8fhvl8" path="res://resources/ingredients/coffee.tres" id="9_pif14"]
+[ext_resource type="Resource" uid="uid://0o13o1255lbu" path="res://resources/drinks/coffee/level 1/black_coffee.tres" id="10_tpwuq"]
+[ext_resource type="Resource" uid="uid://b3aa462fubgxn" path="res://resources/ingredients/cocoa.tres" id="11_54quj"]
+[ext_resource type="Resource" uid="uid://ckvhdnqpr0i7l" path="res://resources/drinks/coffee/level 3/mocha.tres" id="12_phsbd"]
+[ext_resource type="Resource" uid="uid://7q23ksxgwoak" path="res://resources/ingredients/foam.tres" id="13_c008d"]
+[ext_resource type="Resource" uid="uid://00pbhl3wimeu" path="res://resources/drinks/coffee/level 4/marocchino.tres" id="14_qpf3e"]
+[ext_resource type="Resource" uid="uid://v270o3nir5ax" path="res://resources/ingredients/whipped_cream.tres" id="15_2xak0"]
+[ext_resource type="Resource" uid="uid://blmip734ds6dh" path="res://resources/drinks/hot_chocolate.tres" id="16_rn6di"]
+[ext_resource type="Resource" uid="uid://ybrplw5la8s6" path="res://resources/ingredients/matcha_tea.tres" id="17_dg5kv"]
+[ext_resource type="Resource" uid="uid://bkdiir5uo1gmu" path="res://resources/drinks/tea/matcha_latte.tres" id="18_qxnuf"]
+[ext_resource type="Resource" uid="uid://b0r7oiedcoyri" path="res://resources/ingredients/black_tea.tres" id="19_3r53i"]
+[ext_resource type="Resource" uid="uid://clf234gldg758" path="res://resources/drinks/tea/black_tea.tres" id="20_fx4rp"]
+[ext_resource type="Resource" uid="uid://bkdm727u7tq7x" path="res://resources/ingredients/camomile_tea.tres" id="21_071g4"]
+[ext_resource type="Resource" uid="uid://cb8h4rpxxrhk7" path="res://resources/drinks/tea/camomile_tea.tres" id="22_5rc2q"]
+[ext_resource type="Resource" uid="uid://bjpaothvackmh" path="res://resources/ingredients/fruit_tea.tres" id="23_131s3"]
+[ext_resource type="Resource" uid="uid://bjgr0msegc4u1" path="res://resources/drinks/tea/fruit_tea.tres" id="24_kwjox"]
+
+[resource]
+script = ExtResource("2_jsyx3")
+name = "Empty Mug"
+recipe = Array[ExtResource("1_rtjhj")]([])
+description = ""
+transitions = {
+ExtResource("3_yynla"): ExtResource("4_8ed6c"),
+ExtResource("9_pif14"): ExtResource("10_tpwuq"),
+[ExtResource("5_x5xsx")]: ExtResource("6_5jsl8"),
+[ExtResource("7_dappf")]: ExtResource("8_665yk"),
+[ExtResource("19_3r53i"), ExtResource("7_dappf")]: ExtResource("20_fx4rp"),
+[ExtResource("21_071g4"), ExtResource("7_dappf")]: ExtResource("22_5rc2q"),
+[ExtResource("23_131s3"), ExtResource("7_dappf")]: ExtResource("24_kwjox"),
+[ExtResource("11_54quj"), ExtResource("3_yynla"), ExtResource("5_x5xsx")]: ExtResource("12_phsbd"),
+[ExtResource("11_54quj"), ExtResource("5_x5xsx"), ExtResource("15_2xak0")]: ExtResource("16_rn6di"),
+[ExtResource("17_dg5kv"), ExtResource("5_x5xsx"), ExtResource("13_c008d")]: ExtResource("18_qxnuf"),
+[ExtResource("11_54quj"), ExtResource("3_yynla"), ExtResource("13_c008d"), ExtResource("11_54quj")]: ExtResource("14_qpf3e")
+}

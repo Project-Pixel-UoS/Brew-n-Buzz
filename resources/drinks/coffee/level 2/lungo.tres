@@ -2,13 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_1u2ps"]
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_up300"]
-[ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_ittuq"]
-[ext_resource type="Resource" uid="uid://bswsapkyan4ta" path="res://resources/drinks/recipe_tiers/water_tier.tres" id="4_lsfbw"]
+[ext_resource type="Resource" uid="uid://w8tidfxytv0d" path="res://resources/ingredients/water.tres" id="4_caftw"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_26qyn"]
+[ext_resource type="Resource" uid="uid://df2bpg5715cbl" path="res://resources/drinks/coffee/level 3/americano.tres" id="5_47ctk"]
 
 [resource]
 script = ExtResource("5_26qyn")
 name = "lungo"
-recipe = Array[ExtResource("2_up300")]([ExtResource("3_ittuq"), ExtResource("4_lsfbw")])
+recipe = Array[ExtResource("2_up300")]([])
 image = ExtResource("1_1u2ps")
 description = "A diluted espresso shot"
+transitions = {
+ExtResource("4_caftw"): ExtResource("5_47ctk")
+}

@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=7 format=3 uid="uid://clf234gldg758"]
+[gd_resource type="Resource" script_class="Drink" load_steps=10 format=3 uid="uid://clf234gldg758"]
 
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="1_svr6i"]
 [ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="2_lnbla"]
 [ext_resource type="Resource" uid="uid://b0r7oiedcoyri" path="res://resources/ingredients/black_tea.tres" id="3_xwl5c"]
 [ext_resource type="Resource" uid="uid://bswsapkyan4ta" path="res://resources/drinks/recipe_tiers/water_tier.tres" id="4_nqksw"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_13tt6"]
+[ext_resource type="Resource" uid="uid://cess5bigwaa2q" path="res://resources/ingredients/lemon.tres" id="6_xsm3s"]
+[ext_resource type="Resource" uid="uid://b45f1vebrnp02" path="res://resources/ingredients/honey.tres" id="7_u6bt3"]
+[ext_resource type="Resource" uid="uid://cyid6k0cxeyyq" path="res://resources/drinks/tea/cough_drop.tres" id="8_lnkjo"]
 
 [sub_resource type="Resource" id="Resource_ncvst"]
 script = ExtResource("1_svr6i")
@@ -14,3 +17,8 @@ ingredients = Array[ExtResource("2_lnbla")]([ExtResource("3_xwl5c")])
 script = ExtResource("5_13tt6")
 name = "black tea"
 recipe = Array[ExtResource("1_svr6i")]([SubResource("Resource_ncvst"), ExtResource("4_nqksw")])
+description = ""
+transitions = {
+[ExtResource("6_xsm3s"), ExtResource("7_u6bt3")]: ExtResource("8_lnkjo"),
+[ExtResource("7_u6bt3"), ExtResource("6_xsm3s")]: ExtResource("8_lnkjo")
+}

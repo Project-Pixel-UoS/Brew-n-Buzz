@@ -1,14 +1,21 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=7 format=3 uid="uid://cl0xv301lg5wv"]
+[gd_resource type="Resource" script_class="Drink" load_steps=9 format=3 uid="uid://cl0xv301lg5wv"]
 
 [ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_1m2jh"]
 [ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="2_q7k3r"]
 [ext_resource type="Resource" uid="uid://uewv8nnaner8" path="res://resources/drinks/recipe_tiers/espresso_tier.tres" id="3_jqg0s"]
-[ext_resource type="Resource" uid="uid://bt3aijlrjqgly" path="res://resources/drinks/recipe_tiers/milk_tier.tres" id="4_2bu8x"]
+[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="4_kg163"]
+[ext_resource type="Resource" uid="uid://2rlergxoitrl" path="res://resources/ingredients/liquor.tres" id="5_8us2d"]
 [ext_resource type="Resource" uid="uid://deroiwdnbk5yh" path="res://resources/drinks/recipe_tiers/foam_tier.tres" id="5_mlanu"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_uqlyi"]
+
+[sub_resource type="Resource" id="Resource_8wgo1"]
+script = ExtResource("2_q7k3r")
+ingredients = Array[ExtResource("4_kg163")]([ExtResource("5_8us2d")])
 
 [resource]
 script = ExtResource("6_uqlyi")
 name = "latte"
-recipe = Array[ExtResource("2_q7k3r")]([ExtResource("3_jqg0s"), ExtResource("4_2bu8x"), ExtResource("5_mlanu")])
+recipe = Array[ExtResource("2_q7k3r")]([ExtResource("3_jqg0s"), SubResource("Resource_8wgo1"), ExtResource("5_mlanu")])
 image = ExtResource("1_1m2jh")
+description = ""
+transitions = {}

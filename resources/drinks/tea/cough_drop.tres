@@ -16,3 +16,4 @@ script = ExtResource("6_4h1xb")
 name = "cough drop"
 recipe = Array[ExtResource("1_fbbxw")]([SubResource("Resource_0v3ax"), ExtResource("4_8wghb"), ExtResource("5_nhm4t")])
 description = ""
+transitions = {}

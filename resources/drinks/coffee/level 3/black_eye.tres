@@ -12,3 +12,4 @@ name = "black eye"
 recipe = Array[ExtResource("2_w0yhe")]([ExtResource("3_qjj0d"), ExtResource("4_hm6a1"), ExtResource("4_hm6a1")])
 image = ExtResource("1_1apw5")
 description = "When a red eye is not enough"
+transitions = {}
