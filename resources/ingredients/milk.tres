@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://8lgklbcb7glt"]
-
-[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="1_xttwx"]
-
-[resource]
-script = ExtResource("1_xttwx")
-name = "milk"
-description = ""

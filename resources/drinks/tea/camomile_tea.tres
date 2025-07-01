@@ -1,16 +1,13 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=7 format=3 uid="uid://cb8h4rpxxrhk7"]
+[gd_resource type="Resource" script_class="Drink" load_steps=4 format=3 uid="uid://cb8h4rpxxrhk7"]
 
-[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="1_hx147"]
-[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="2_jm4a8"]
+[ext_resource type="Resource" uid="uid://w8tidfxytv0d" path="res://resources/ingredients/water.tres" id="2_d8jta"]
 [ext_resource type="Resource" uid="uid://bkdm727u7tq7x" path="res://resources/ingredients/camomile_tea.tres" id="3_lg6mx"]
-[ext_resource type="Resource" uid="uid://bswsapkyan4ta" path="res://resources/drinks/recipe_tiers/water_tier.tres" id="4_n8fsp"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_mhwje"]
-
-[sub_resource type="Resource" id="Resource_ef7bh"]
-script = ExtResource("1_hx147")
-ingredients = Array[ExtResource("2_jm4a8")]([ExtResource("3_lg6mx")])
 
 [resource]
 script = ExtResource("5_mhwje")
 name = "camomile tea"
-recipe = Array[ExtResource("1_hx147")]([SubResource("Resource_ef7bh"), ExtResource("4_n8fsp")])
+recipe = {
+ExtResource("3_lg6mx"): 0,
+ExtResource("2_d8jta"): 1
+}

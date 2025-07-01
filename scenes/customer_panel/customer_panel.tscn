@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dxtsd31kpgpvb"]
+[gd_scene load_steps=36 format=3 uid="uid://dxtsd31kpgpvb"]
 
 [ext_resource type="Texture2D" uid="uid://cwhb32383si0o" path="res://assets/images/customer panel/Background.png" id="1_14pq6"]
 [ext_resource type="PackedScene" uid="uid://dbplx5axo07pj" path="res://scenes/customer_panel/doll.tscn" id="2_aajm0"]
@@ -18,9 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://brkv3vu5qtvkj" path="res://assets/images/customer sprites/NPC sprites/Hoodie 1.png" id="17_8br4y"]
 [ext_resource type="Texture2D" uid="uid://uotoyvg3rac2" path="res://assets/images/customer sprites/NPC sprites/Hoodie 2.png" id="18_f50xm"]
 [ext_resource type="Texture2D" uid="uid://b3062okusdy32" path="res://assets/images/customer sprites/NPC sprites/Hoodie 3.png" id="19_4i6on"]
-[ext_resource type="Resource" uid="uid://cthfpxtgxya7a" path="res://resources/drinks/coffee/espresso.tres" id="19_exsli"]
+[ext_resource type="Resource" uid="uid://dpbmwveomvsqn" path="res://resources/drinks/coffee/espresso.tres" id="19_exsli"]
 [ext_resource type="Texture2D" uid="uid://1eycxi4bu2r5" path="res://assets/images/customer sprites/NPC sprites/Face 1.png" id="20_agls0"]
-[ext_resource type="Resource" uid="uid://df2bpg5715cbl" path="res://resources/drinks/coffee/americano.tres" id="20_okruu"]
+[ext_resource type="Resource" uid="uid://q0fp0uits6ml" path="res://resources/drinks/coffee/americano.tres" id="20_okruu"]
 [ext_resource type="Texture2D" uid="uid://qnwqj7r3v52n" path="res://assets/images/customer sprites/NPC sprites/Face 2.png" id="21_1syul"]
 [ext_resource type="Texture2D" uid="uid://b2g6uaxvukl05" path="res://assets/images/customer sprites/NPC sprites/Face 3.png" id="22_ml340"]
 [ext_resource type="Texture2D" uid="uid://b3ksb8i1xdax4" path="res://assets/images/customer sprites/NPC sprites/Hair 1.png" id="23_lhmik"]
@@ -28,6 +28,7 @@
 [ext_resource type="Resource" uid="uid://dxqvhldqgq0x5" path="res://resources/customers/sarah.tres" id="25_bdbav"]
 [ext_resource type="Texture2D" uid="uid://dnn07c44qf1xa" path="res://assets/images/customer sprites/NPC sprites/Hair 3.png" id="25_qj4l0"]
 [ext_resource type="Resource" uid="uid://c15e3cvb5n81l" path="res://resources/customers/chef_bruno.tres" id="27_knri8"]
+[ext_resource type="Resource" uid="uid://cyid6k0cxeyyq" path="res://resources/drinks/tea/cough_drop.tres" id="29_jyqn5"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fqnyi"]
 size = Vector2(50, 30)
@@ -250,6 +251,6 @@ possible_first_incorrect_drink_lines = Array[String](["Hmm, this isn’t quite r
 possible_second_incorrect_drink_lines = Array[String](["Still off… Come on! There’s a queue", "Not that either. Aren’t you some kind of professional coffee person?", "No, no, no. I’m still tasting something different. One more chance. ", "Argh! Just follow the recipe, it can’t be that hard!", "Nuh-uh. It’s all wrong. Make it perfect this time or I’m leaving.", "Look, if you can’t make this drink, I’ll go elsewhere! Oh, you can? Prove it!"])
 possible_third_incorrect_drink_lines = Array[String](["Ugh, forget it!", "Never mind!", "Worst. Service. Ever.", "Do you even know what coffee is?", "Seriously? I’m outta here.", "Horrendous. I won’t be back."])
 possible_order_lines = Array[String](["No small talk. I'll take ART ORDER", "Hi!! Oh, my order? Hmm... Let's do ART ORDER", "Awful weather, truly. Anyway, I'll get ART ORDER", "Lovely weather we're having. I'd like ART ORDER, duck", "Hey bro, gimme ART ORDER. Make sure it's hot!", "One ORDER, please. Nice shirt, by the way!", "One ORDER. And just so you know, I'm in a rush", "What should I get this time? Oh, what about ART ORDER?", "You still got that ORDER? I'll get one of those", "I want to get a... What was it called again? ORDER!", "Just ART ORDER", "Business looks good! I'll get my regular ORDER", "I need caffeine, stat. ORDER. Now!", "It's gonna be a long day, bud. Gimme ART ORDER", "You don't recognise me? Ugh. Fine. My drink's ART ORDER", "I'm trying something new today - ORDER, please", "My buddy recommended this one - I'll get ART ORDER", "Ooo, so many options! I guess I'll get ART ORDER", "Can't remember what my friends wanted. I'll get ART ORDER though", "Busy day! I hope you still have ART ORDER", "You got ART ORDER ready for me? No? Chop chop, then!", "I heard the best drink to order here is ART ORDER", "Another ORDER today. Thanks!", "Okay, I think I'll finally try ART ORDER", "I'll take my regular ORDER. Cheers!"])
-drinks = Array[Resource]([ExtResource("19_exsli"), ExtResource("20_okruu")])
+drinks = Array[Resource]([ExtResource("19_exsli"), ExtResource("20_okruu"), ExtResource("29_jyqn5")])
 
 [connection signal="timeout" from="Panel/PatienceMeter/Timer" to="Panel/PatienceMeter" method="_on_timer_timeout"]

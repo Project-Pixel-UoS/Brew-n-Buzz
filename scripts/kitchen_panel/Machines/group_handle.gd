@@ -9,6 +9,7 @@ var being_dragged = false
 var has_ground_coffee = false
 var respawnPos
 var can_be_dragged = true
+@export var ingredient: Ingredient
 
 @onready var grinder = get_node_or_null("../Grinder")
 @onready var coffeeMachine = get_node_or_null("../CoffeeMachine")
@@ -55,6 +56,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					await tween.finished 
 					grinder.remove_coffee()
 					coffeeMachine.is_group_handle_in_machine(true)
+				elif body_ref.get_parent().name == "Mug":
+					body_ref.get_parent().add_ingredient(ingredient)
 			elif is_inside_bin and body_ref:
 				queue_free()  
 				replenish_group_handle()
@@ -75,6 +78,8 @@ func _on_area_2d_area_entered(body: Node2D) -> void:
 		elif body.is_in_group('bin'):
 			is_inside_bin = true
 			body_ref = body
+		elif body.is_in_group('ingredient'):
+			is_inside_valid_drop = true
 		
 func check_valid_drop(body: Node2D) -> bool:
 	for shape in body.get_children():

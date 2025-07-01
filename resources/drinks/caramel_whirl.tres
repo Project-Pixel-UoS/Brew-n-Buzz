@@ -1,17 +1,17 @@
-[gd_resource type="Resource" script_class="Drink" load_steps=8 format=3 uid="uid://cg3krls85ipux"]
+[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://blmip734ds6dh"]
 
-[ext_resource type="Script" path="res://resources/drinks/recipe_tiers/recipe_tier.gd" id="1_kce03"]
-[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="2_17caw"]
+[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/steamed_milk.tres" id="2_rm4qx"]
+[ext_resource type="Resource" uid="uid://v270o3nir5ax" path="res://resources/ingredients/whipped_cream.tres" id="3_5ykkh"]
 [ext_resource type="Resource" uid="uid://b3aa462fubgxn" path="res://resources/ingredients/cocoa.tres" id="3_62v05"]
-[ext_resource type="Resource" uid="uid://bt3aijlrjqgly" path="res://resources/drinks/recipe_tiers/milk_tier.tres" id="4_dqqi2"]
-[ext_resource type="Resource" uid="uid://deroiwdnbk5yh" path="res://resources/drinks/recipe_tiers/foam_tier.tres" id="5_l3aq4"]
+[ext_resource type="Resource" uid="uid://j8sgnpu7qcib" path="res://resources/ingredients/caramel.tres" id="4_3s7jc"]
 [ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_gti7u"]
-
-[sub_resource type="Resource" id="Resource_tfmtr"]
-script = ExtResource("1_kce03")
-ingredients = Array[ExtResource("2_17caw")]([ExtResource("3_62v05")])
 
 [resource]
 script = ExtResource("6_gti7u")
-name = "hot chocolate"
-recipe = Array[ExtResource("1_kce03")]([SubResource("Resource_tfmtr"), ExtResource("4_dqqi2"), ExtResource("5_l3aq4")])
+name = "caramel_whirl"
+recipe = {
+ExtResource("3_62v05"): 0,
+ExtResource("2_rm4qx"): 1,
+ExtResource("3_5ykkh"): 2,
+ExtResource("4_3s7jc"): 3
+}
