@@ -74,16 +74,14 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhmh3"]
-size = Vector2(116, 121.75)
+size = Vector2(24, 26.5)
 
 [node name="Mug" type="Node2D" groups=["counter", "ingredient"]]
-position = Vector2(200, 20)
 script = ExtResource("1_7mphb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(5, 5)
 texture = ExtResource("2_dkovv")
 hframes = 4
 vframes = 2
@@ -99,7 +97,7 @@ speed_scale = 0.7
 script = ExtResource("1_7mphb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(5, -12.125)
+position = Vector2(0, -1.75)
 shape = SubResource("RectangleShape2D_hhmh3")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

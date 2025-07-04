@@ -40,7 +40,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw1gs"]
-size = Vector2(25.25, 23.75)
+size = Vector2(4.625, 4.625)
 
 [node name="Frother" type="Node2D" groups=["frother"]]
 script = ExtResource("1_rxply")
@@ -48,7 +48,6 @@ script = ExtResource("1_rxply")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(4, -23)
-scale = Vector2(6, 6)
 texture = ExtResource("2_s82dk")
 hframes = 4
 vframes = 2
@@ -63,7 +62,7 @@ speed_scale = 0.5
 [node name="Area2D" type="Area2D" parent="." groups=["frother"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-44, 33)
+position = Vector2(-5, -11)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_fw1gs")
 

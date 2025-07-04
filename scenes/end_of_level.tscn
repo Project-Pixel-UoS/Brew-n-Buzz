@@ -29,6 +29,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1600.0
+offset_bottom = -900.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xi6wx")
@@ -42,8 +44,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -760.0
 offset_top = -440.0
-offset_right = 760.0
-offset_bottom = 440.0
+offset_right = -507.0
+offset_bottom = -294.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -53,7 +55,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 30.0
-offset_right = -34.0
+offset_right = -192.0
+offset_bottom = -122.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_peoc2")
@@ -66,7 +69,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 82.0
-offset_right = -83.0
+offset_right = -157.0
+offset_bottom = -122.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_14nhf")
@@ -76,7 +80,8 @@ expand_mode = 1
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 87.0171
+offset_right = 19.606
+offset_bottom = -122.0
 grow_vertical = 2
 texture = ExtResource("4_qyvqk")
 expand_mode = 3
@@ -88,6 +93,8 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -87.0171
+offset_right = -67.4111
+offset_bottom = -122.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(87, 0)
@@ -120,15 +127,15 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -545.0
 offset_top = -214.0
-offset_right = -240.0
-offset_bottom = -160.0
+offset_right = -495.0
+offset_bottom = -205.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="money_made"]
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 16.0
+offset_bottom = 16.0
 texture = ExtResource("2_dwit8")
 
 [node name="money_label" type="RichTextLabel" parent="money_made"]
@@ -150,15 +157,15 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -591.0
 offset_top = 280.0
-offset_right = -286.0
-offset_bottom = 334.0
+offset_right = -541.0
+offset_bottom = 289.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="money_left"]
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 16.0
+offset_bottom = 16.0
 texture = ExtResource("2_dwit8")
 
 [node name="money_left_label" type="RichTextLabel" parent="money_left"]
@@ -180,15 +187,15 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -542.0
 offset_top = -158.0
-offset_right = -237.0
-offset_bottom = -104.0
+offset_right = -492.0
+offset_bottom = -149.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="drinks_served"]
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 32.0
+offset_bottom = 32.0
 texture = ExtResource("3_lwdr7")
 
 [node name="drinks_label" type="RichTextLabel" parent="drinks_served"]
@@ -210,8 +217,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -760.0
 offset_top = -70.0
-offset_right = 760.0
-offset_bottom = 430.0
+offset_right = -507.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -234,24 +241,24 @@ text = "[center]Shop"
 anchors_preset = 0
 offset_left = 346.0
 offset_top = 146.0
-offset_right = 386.0
-offset_bottom = 186.0
+offset_right = 352.0
+offset_bottom = 152.0
 
 [node name="upgrade_2" type="Control" parent="shop"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 748.0
 offset_top = 138.0
-offset_right = 788.0
-offset_bottom = 178.0
+offset_right = 754.0
+offset_bottom = 144.0
 
 [node name="upgrade_3" type="Control" parent="shop"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1158.0
 offset_top = 120.0
-offset_right = 1198.0
-offset_bottom = 160.0
+offset_right = 1164.0
+offset_bottom = 126.0
 
 [node name="ExitLevelButton" type="TextureButton" parent="."]
 layout_mode = 1
@@ -262,8 +269,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -164.0
 offset_top = 230.0
-offset_right = -68.0
-offset_bottom = 326.0
+offset_right = -140.0
+offset_bottom = 254.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("9_fs7j7")
@@ -278,8 +285,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 164.0
 offset_top = 230.0
-offset_right = 260.0
-offset_bottom = 326.0
+offset_right = 188.0
+offset_bottom = 254.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("10_v1bn2")
@@ -293,8 +300,8 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_top = 230.0
-offset_right = 96.0
-offset_bottom = 326.0
+offset_right = 24.0
+offset_bottom = 254.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("11_3spde")
