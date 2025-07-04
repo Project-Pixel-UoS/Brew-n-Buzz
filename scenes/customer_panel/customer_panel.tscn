@@ -111,7 +111,6 @@ z_as_relative = false
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 180.0
-scale = Vector2(6, 6)
 
 [node name="Background" type="Sprite2D" parent="Panel"]
 z_index = 1
