@@ -48,7 +48,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if is_inside_valid_drop and body_ref and has_ground_coffee:
 				print("group handle good !")
 				if body_ref.get_parent().name == "CoffeeMachine":
-					var new_position = Vector2(95,360)
+					var new_position = Vector2(16,60)
 					print(new_position)
 					var tween = get_tree().create_tween()
 					tween.tween_property(self, "position", new_position, 0.2).set_ease(Tween.EASE_OUT)
