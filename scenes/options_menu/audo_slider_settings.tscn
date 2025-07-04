@@ -8,6 +8,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1600.0
+offset_bottom = -900.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rtigq")
@@ -15,22 +17,22 @@ bus_name = "Master"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-offset_right = 900.0
-offset_bottom = 100.0
-theme_override_constants/separation = 64
+offset_right = 240.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
 
 [node name="Audio_Name_Lbl" type="RichTextLabel" parent="HBoxContainer"]
-custom_minimum_size = Vector2(380, 40)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_fonts/normal_font = ExtResource("2_mu2xd")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[center] Master Volume"
 
 [node name="HSlider" type="HSlider" parent="HBoxContainer"]
-custom_minimum_size = Vector2(200, 32)
+custom_minimum_size = Vector2(33, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -38,11 +40,11 @@ max_value = 1.0
 step = 0.01
 
 [node name="Audio_Num_Lbl" type="RichTextLabel" parent="HBoxContainer"]
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(32, 11)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("2_mu2xd")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "99"
