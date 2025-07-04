@@ -18,7 +18,7 @@ var counter
 signal entered_counter
 
 func _ready() -> void:
-	initialPos = Vector2(464,771)
+	initialPos = Vector2(77,129)
 	respawnPos = position
 	last_frame_x = position.x
 	Input.set_use_accumulated_input(false)
@@ -119,18 +119,18 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 						tween.tween_property(self, "position", Vector2(366,497), 0.2).set_ease(Tween.EASE_OUT)
 						body_ref.get_parent().add_water()
 						is_inside_valid_drop = false
-						initialPos = Vector2(366, 497)
+						initialPos = Vector2(61, 83)
 					else:
 						body_ref.get_parent().is_mug_in_machine(true)
 						var tween = get_tree().create_tween()
 						tween.tween_property(self, "position", Vector2(119,497), 0.2).set_ease(Tween.EASE_OUT)
-						initialPos = Vector2(119, 497)
+						initialPos = Vector2(20, 83)
 				elif body_ref.get_parent().name == "Counter":
 					if customer_panel.get_node('Panel/CustomerQueueManager').is_customer_ready():
 						var tween = get_tree().create_tween()
 						tween.tween_property(self, "position", Vector2(-390,960), 0.2).set_ease(Tween.EASE_OUT)
 						await tween.finished
-						initialPos = Vector2(-390, 960)
+						initialPos = Vector2(-65, 160)
 						emit_signal('entered_counter')
 					else:
 						var tween = get_tree().create_tween()
@@ -140,7 +140,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				elif body_ref.get_parent().name == "MugRing":
 					var tween = get_tree().create_tween()
 					tween.tween_property(self, "position", Vector2(464,771), 0.2).set_ease(Tween.EASE_OUT)
-					initialPos = Vector2(464, 771)
+					initialPos = Vector2(77, 129)
 				else:
 					printerr("Unrecognised area2d, body: " + body_ref.to_string())
 					var tween = get_tree().create_tween()
