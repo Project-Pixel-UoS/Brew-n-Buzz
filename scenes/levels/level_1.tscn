@@ -272,17 +272,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -18.5
-offset_top = -6.0
-offset_right = 18.5
-offset_bottom = 6.0
+offset_left = -10.5
+offset_top = -4.0
+offset_right = 26.5
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("9_xnvvl")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
-text = "[right]0"
+text = "[center]0"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -503,7 +503,7 @@ position = Vector2(58, 65)
 [node name="Frother" parent="KitchenPanel/Machines" groups=["mug"] instance=ExtResource("45_74fsf")]
 z_index = 1
 texture_filter = 1
-position = Vector2(113, 110)
+position = Vector2(112, 128)
 
 [node name="Bin" parent="KitchenPanel/Machines" instance=ExtResource("46_67qg3")]
 z_index = 10
