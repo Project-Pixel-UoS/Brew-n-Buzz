@@ -56,7 +56,6 @@ offset_right = -386.0
 offset_bottom = -158.0
 grow_horizontal = 0
 grow_vertical = 2
-scale = Vector2(1.8, 1.8)
 theme = SubResource("Theme_id8kp")
 texture_normal = ExtResource("14_ishto")
 script = ExtResource("3_ydt3q")
@@ -69,6 +68,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1600.0
+offset_bottom = -900.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -77,7 +78,8 @@ mouse_filter = 2
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 680.914
+offset_right = 170.229
+offset_bottom = -150.0
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("10_lyvtn")
@@ -91,6 +93,8 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -337.371
+offset_right = -253.028
+offset_bottom = -150.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(303.634, 0)
@@ -156,7 +160,6 @@ offset_right = 37.0
 offset_bottom = -165.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(6, 6)
 pivot_offset = Vector2(37.5, 0)
 texture = ExtResource("8_wn6et")
 
@@ -173,18 +176,19 @@ text = "Reset"
 
 [node name="SettingsMenu" parent="MenuCanvas" instance=ExtResource("2_ap78m")]
 offset_left = -1280.0
-offset_right = -1280.0
+offset_right = -2880.0
+offset_bottom = -1050.0
 pivot_offset = Vector2(1200, 0)
 script = ExtResource("3_70rn2")
 start_position = 3
 
 [node name="ScrollContainer" parent="MenuCanvas/SettingsMenu" index="1"]
 clip_contents = false
-custom_minimum_size = Vector2(678, 322)
-offset_top = -180.0
+custom_minimum_size = Vector2(113, 53)
 offset_bottom = 180.0
 
 [node name="VBoxContainer" parent="MenuCanvas/SettingsMenu/ScrollContainer" index="0"]
+custom_minimum_size = Vector2(113, 53)
 theme = SubResource("Theme_t31c4")
 
 [node name="Audo_Slider_Settings" parent="MenuCanvas/SettingsMenu/ScrollContainer/VBoxContainer" index="0"]
@@ -201,14 +205,15 @@ offset_bottom = 24.0
 
 [node name="LevelsMenu" parent="MenuCanvas" instance=ExtResource("4_qvo6n")]
 offset_left = 1280.0
-offset_right = 1280.0
+offset_right = -320.0
+offset_bottom = -1050.0
 script = ExtResource("3_70rn2")
 start_position = 1
 
 [node name="HFlowContainer" parent="MenuCanvas/LevelsMenu" index="0"]
 offset_top = -10.0
-offset_right = 308.0
-offset_bottom = 170.0
+offset_right = -206.0
+offset_bottom = 20.0
 
 [node name="BackButton" type="TextureButton" parent="MenuCanvas/LevelsMenu"]
 layout_mode = 0
@@ -216,7 +221,6 @@ offset_left = 1640.0
 offset_top = 867.0
 offset_right = 1664.0
 offset_bottom = 891.0
-scale = Vector2(6, 6)
 texture_normal = ExtResource("15_v2tpv")
 
 [node name="AnimationComponent" type="Node" parent="MenuCanvas/LevelsMenu/BackButton"]
@@ -232,8 +236,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 282.0
 offset_top = -346.0
-offset_right = 504.0
-offset_bottom = -270.0
+offset_right = 319.0
+offset_bottom = -334.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_31p7v")
@@ -247,8 +251,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -84.0
 offset_top = -26.0
-offset_right = -40.0
-offset_bottom = 18.0
+offset_right = -68.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_gglst")
