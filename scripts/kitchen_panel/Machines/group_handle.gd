@@ -9,7 +9,7 @@ var being_dragged = false
 var has_ground_coffee = false
 var respawnPos
 var can_be_dragged = true
-
+var coord_scale 
 @onready var grinder = get_node_or_null("../Grinder")
 @onready var coffeeMachine = get_node_or_null("../CoffeeMachine")
 
@@ -31,6 +31,7 @@ func _unhandled_input(event):
 		
 func _process(delta: float) -> void:
 	has_ground_coffee = grinder.is_coffee_grinded()
+	coord_scale = get_viewport().get_visible_rect().size.x / 320
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventScreenTouch and can_be_dragged:
@@ -48,8 +49,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if is_inside_valid_drop and body_ref and has_ground_coffee:
 				print("group handle good !")
 				if body_ref.get_parent().name == "CoffeeMachine":
-					var new_position = Vector2(16,60)
-					print(new_position)
+					var new_position = Vector2(21,62)*coord_scale
 					var tween = get_tree().create_tween()
 					tween.tween_property(self, "position", new_position, 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished 
@@ -59,7 +59,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				queue_free()  
 				replenish_group_handle()
 			else:
-				print("hi3")
 				var tween = get_tree().create_tween()
 				tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 			z_index = 0				
