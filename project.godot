@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://scripts/general/game_manager.gd"
 AudioManager="*res://scripts/general/audio_manager.gd"
+SignalBus="*res://scripts/general/signal_bus.gd"
 
 [display]
 
