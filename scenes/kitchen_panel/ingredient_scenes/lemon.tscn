@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccfltk5xsbiqq"]
+[gd_scene load_steps=5 format=3 uid="uid://ccfltk5xsbiqq"]
 
 [ext_resource type="Script" path="res://scripts/kitchen_panel/ingredient_logic.gd" id="1_b8f13"]
+[ext_resource type="Resource" uid="uid://cess5bigwaa2q" path="res://resources/ingredients/lemon.tres" id="2_akifj"]
 [ext_resource type="Texture2D" uid="uid://cd65qjd357183" path="res://assets/images/kitchen panel/ingredients/lemon.PNG" id="2_xihge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7n2gy"]
@@ -8,6 +9,7 @@ size = Vector2(33.5, 34.5)
 
 [node name="Lemon" type="Node2D"]
 script = ExtResource("1_b8f13")
+ingredient = ExtResource("2_akifj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

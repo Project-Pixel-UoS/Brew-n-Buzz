@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://d1nncxlive1o6"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_m3yhp"]
+[ext_resource type="Resource" uid="uid://dpbmwveomvsqn" path="res://resources/drinks/coffee/espresso.tres" id="2_x40jb"]
+[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/steamed_milk.tres" id="3_wj3ql"]
+[ext_resource type="Resource" uid="uid://7q23ksxgwoak" path="res://resources/ingredients/foam.tres" id="4_mxl28"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_r15l4"]
+
+[resource]
+script = ExtResource("6_r15l4")
+name = "latte"
+recipe = {
+ExtResource("2_x40jb"): 0,
+ExtResource("3_wj3ql"): 1,
+ExtResource("4_mxl28"): 2
+}
+image = ExtResource("1_m3yhp")

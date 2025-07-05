@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://g1ipf2yosa4x"]
+
+[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="1_wderf"]
+
+[resource]
+script = ExtResource("1_wderf")
+name = "milk"
+description = "regular milk"

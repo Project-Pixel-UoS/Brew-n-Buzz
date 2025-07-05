@@ -4,13 +4,20 @@ class_name Drink extends Resource
 @export var recipe: Dictionary
 @export var image: Texture2D
 
-func isValidIngredients(ingredients: Array[String]) -> bool:
+# Loop through each tier of the recipe
+# while there's still ingredients to look at
+# and the used ingredients for the tier is smaller than the tier_size
+# compare the ingredient with the tier's ingredients
+func isValidIngredients(ingredients: Array[Ingredient]) -> bool:
 	if ingredients.is_empty() or ingredients.size() != recipe.size():
 		return false
 	var currentIngredientIndex = 0
 	# Making copy so I can remove from it during this function
+	print(recipe)
 	var recipeCopy = recipe.duplicate(true)
-	
+	#for i in range(recipe.size()):
+		#if ingredients[i] != recipe[i]:
+			#return false
 	for ingredient in ingredients:
 		if !recipeCopy.has(ingredient):
 			print("This ingredient isn't needed in this recipe")

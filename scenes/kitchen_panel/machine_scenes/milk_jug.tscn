@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cikh8xovd5wod"]
+[gd_scene load_steps=7 format=3 uid="uid://cikh8xovd5wod"]
 
 [ext_resource type="Script" path="res://scripts/kitchen_panel/milk_jug_logic.gd" id="1_ijaby"]
 [ext_resource type="Texture2D" uid="uid://cehcerwxdn810" path="res://assets/images/kitchen panel/machines/bnb_milk_jug.png" id="2_iyqvh"]
+[ext_resource type="Resource" uid="uid://g1ipf2yosa4x" path="res://resources/ingredients/ing_milk.tres" id="2_xjjk8"]
+[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/steamed_milk.tres" id="3_oxf2g"]
+[ext_resource type="Resource" path="res://resources/ingredients/foam.tres" id="4_vt107"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_po6pa"]
 size = Vector2(140, 141)
 
 [node name="MilkJug" type="Node2D" groups=["milkJug"]]
 script = ExtResource("1_ijaby")
+base_milk = ExtResource("2_xjjk8")
+steamed = ExtResource("3_oxf2g")
+frothed = ExtResource("4_vt107")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

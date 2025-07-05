@@ -2,7 +2,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 @onready var animationPlayer = %AnimationPlayer
 
-var ingredients: Array[String] = []
+var ingredients: Array[Ingredient] = []
 var draggable = true
 var is_inside_valid_drop = false
 var body_ref
@@ -51,10 +51,11 @@ func remove_numbers(input_string: String) -> String:
 			result += char 
 	return result
 
-func add_ingredient(ingredient: String) -> void:
-	ingredients.append(remove_numbers(ingredient))
+func add_ingredient(ingredient: Ingredient) -> void:
+	print("%s added to Mug" % ingredient.name)
+	ingredients.append(ingredient)
 	
-func get_ingredients() -> Array[String]:
+func get_ingredients() -> Array[Ingredient]:
 	return ingredients
 	
 func determine_animation(x_change) -> void:

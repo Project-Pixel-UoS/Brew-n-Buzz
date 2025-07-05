@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6p8tde7gf4ur"]
+[gd_scene load_steps=12 format=3 uid="uid://c6p8tde7gf4ur"]
 
 [ext_resource type="Script" path="res://scripts/kitchen_panel/Machines/coffee_machine.gd" id="1_ugxt8"]
 [ext_resource type="Texture2D" uid="uid://cugn5sv1t5mop" path="res://assets/images/kitchen panel/machines/bnb_coffee_machine_all.png" id="2_dfvj3"]
+[ext_resource type="Resource" uid="uid://w8tidfxytv0d" path="res://resources/ingredients/water.tres" id="2_yp3xb"]
+[ext_resource type="Resource" uid="uid://bye1caiy4qjpb" path="res://resources/ingredients/ing_espresso.tres" id="3_gsouy"]
 
 [sub_resource type="Animation" id="Animation_a4m57"]
 length = 0.001
@@ -66,6 +68,8 @@ size = Vector2(143.5, 154)
 
 [node name="CoffeeMachine" type="Node2D" groups=["coffeeMachine"]]
 script = ExtResource("1_ugxt8")
+water = ExtResource("2_yp3xb")
+coffee = ExtResource("3_gsouy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

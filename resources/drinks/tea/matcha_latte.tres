@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=5 format=3 uid="uid://bkdiir5uo1gmu"]
+
+[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/steamed_milk.tres" id="2_uwy1o"]
+[ext_resource type="Resource" uid="uid://ybrplw5la8s6" path="res://resources/ingredients/matcha_tea.tres" id="3_e7sql"]
+[ext_resource type="Resource" uid="uid://7q23ksxgwoak" path="res://resources/ingredients/foam.tres" id="3_f4s7q"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_14j5v"]
+
+[resource]
+script = ExtResource("6_14j5v")
+name = "matcha latte"
+recipe = {
+ExtResource("3_e7sql"): 0,
+ExtResource("2_uwy1o"): 1,
+ExtResource("3_f4s7q"): 2
+}

@@ -12,6 +12,8 @@ var offset: Vector2
 var respawnPos
 var is_inside_grinder = true
 var touchpos
+@export var ingredient: Ingredient
+
 func _ready() -> void:
 	select_sound = load('res://assets/audio/sfx/pick_up_select.wav')
 	deselect_sound = load('res://assets/audio/sfx/put_down_deselect.wav')
@@ -92,7 +94,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				if body_ref.get_parent().name == 'Grinder':
 					body_ref.get_parent().fill_grinder()
 				else:
-					body_ref.get_parent().add_ingredient(name)
+					body_ref.get_parent().add_ingredient(ingredient)
 				queue_free()
 				replenish_ingredient(name)
 			elif is_inside_bin and body_ref:

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://cyid6k0cxeyyq"]
+
+[ext_resource type="Resource" uid="uid://w8tidfxytv0d" path="res://resources/ingredients/water.tres" id="2_07aoe"]
+[ext_resource type="Resource" uid="uid://b0r7oiedcoyri" path="res://resources/ingredients/black_tea.tres" id="3_2q4oi"]
+[ext_resource type="Resource" uid="uid://cess5bigwaa2q" path="res://resources/ingredients/lemon.tres" id="3_k3oml"]
+[ext_resource type="Resource" uid="uid://b45f1vebrnp02" path="res://resources/ingredients/honey.tres" id="4_2yx6c"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_4h1xb"]
+
+[resource]
+script = ExtResource("6_4h1xb")
+name = "cough drop"
+recipe = {
+ExtResource("3_2q4oi"): 0,
+ExtResource("2_07aoe"): 1,
+ExtResource("3_k3oml"): 2,
+ExtResource("4_2yx6c"): 2
+}

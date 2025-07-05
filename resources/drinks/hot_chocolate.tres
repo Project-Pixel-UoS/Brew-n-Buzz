@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=5 format=3 uid="uid://b0ptfn4el6ypj"]
+
+[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/steamed_milk.tres" id="2_dbphq"]
+[ext_resource type="Resource" uid="uid://v270o3nir5ax" path="res://resources/ingredients/whipped_cream.tres" id="3_cl4mu"]
+[ext_resource type="Resource" uid="uid://b3aa462fubgxn" path="res://resources/ingredients/cocoa.tres" id="3_p6a2s"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="7_lhyty"]
+
+[resource]
+script = ExtResource("7_lhyty")
+name = "hot chocolate"
+recipe = {
+ExtResource("3_p6a2s"): 0,
+ExtResource("2_dbphq"): 1,
+ExtResource("3_cl4mu"): 2
+}
