@@ -12,7 +12,12 @@ var order_line
 
 func _ready() -> void:
 	reset_position = Vector2(-22,90)
+
+func _process(delta):
+	$animation.text = "leaving_queue %s" % leaving_queue
+	$status.text = "finished_moving %s" % finished_moving
 	
+
 func reset_pos():
 	self.position = reset_position
 		
@@ -89,6 +94,7 @@ func say_dialogue():
 			$full_body.vframes = 3
 		%AnimationPlayer.play('special')
 		await %AnimationPlayer.animation_finished
+		
 		while not leaving_queue:
 			var random_val = randi() % 100
 			if random_val < 80:
@@ -111,7 +117,7 @@ func say_dialogue():
 				%AnimationPlayer.play('special')
 			await %AnimationPlayer.animation_finished
 		emit_signal("movement_finished")
-		
+
 func repeat_order_line():
 	%DialogueLabel.text = order_line
 
@@ -136,12 +142,14 @@ func enter_queue():
 	while counter != 4:
 		await exit_animation()
 		counter += 1
+	#finished_moving = true
 		
 func exit_queue():
 	leaving_queue = true
-	if not finished_moving:
-		await self.movement_finished
-		finished_moving = true
+	#delays the start of the leaving animation, so commented out
+	#if not finished_moving:
+		#await self.movement_finished
+		#finished_moving = true
 	var counter = 0
 	while counter != 6:
 		await exit_animation()
