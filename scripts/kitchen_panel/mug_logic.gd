@@ -25,7 +25,7 @@ func _ready() -> void:
 	customer_panel = get_tree().current_scene.get_node("CustomerPanel")
 	counter = customer_panel.get_child(3)
 	self.connect("entered_counter", Callable(counter, "_check_recipe"))
-	
+
 func _unhandled_input(event):
 	if being_dragged and event is InputEventScreenDrag:
 		global_position = event.position
@@ -36,28 +36,28 @@ func _unhandled_input(event):
 		determine_animation(x_change)
 		animationPlayer.play('idle')
 		being_dragged = false
-		
-func _process(delta: float) -> void: 
+
+func _process(delta: float) -> void:
 	x_change = global_position.x - last_frame_x
 	last_frame_x = global_position.x
-	
+
 func stop_animation():
 	animationPlayer.set_process(false)
-	
+
 func remove_numbers(input_string: String) -> String:
 	var result = ""
 	for char in input_string:
 		if not (char >= "0" and char <= "9"):
-			result += char 
+			result += char
 	return result
 
 func add_ingredient(ingredient: Ingredient) -> void:
 	print("%s added to Mug" % ingredient.name)
 	ingredients.append(ingredient)
-	
+
 func get_ingredients() -> Array[Ingredient]:
 	return ingredients
-	
+
 func determine_animation(x_change) -> void:
 	if x_change < -10:
 		animationPlayer.play("move_left")
@@ -65,8 +65,8 @@ func determine_animation(x_change) -> void:
 		animationPlayer.play("move_right")
 
 func set_draggable(value):
-	draggable = value	
-			
+	draggable = value
+
 func has_child_with_name(parent: Node, child_name: String) -> bool:
 	for child in parent.get_children():
 		if child.name == child_name:
@@ -78,13 +78,13 @@ func is_valid_drop(body: Node2D) -> bool:
 		if shape.is_in_group("mug"):
 			return true
 	return false
-	
+
 func _on_area_2d_area_entered(body: Node2D) -> void:
 	print("just entered: " + body.to_string())
 	if being_dragged:
 		if is_valid_drop(body):
 			is_inside_valid_drop = true
-			body_ref = body  
+			body_ref = body
 		elif (body.get_parent()).name == 'Counter':
 			is_inside_valid_drop = true
 			body_ref = body
@@ -92,22 +92,22 @@ func _on_area_2d_area_entered(body: Node2D) -> void:
 			is_inside_valid_drop = false
 			is_inside_bin = true
 			body_ref = body
-		
+
 func _on_area_2d_area_exited(body: Node2D) -> void:
 	if body_ref:
 		if body.get_parent() == body_ref.get_parent():
 			is_inside_valid_drop = false
 			is_inside_bin = false
-			
+
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			GameManager.is_dragging = true
-			scale = Vector2(1.05,1.05)  
+			scale = Vector2(1.05,1.05)
 			being_dragged = true
 			global_position = event.position
 			determine_animation(x_change)
-		elif not event.pressed: 
+		elif not event.pressed:
 			being_dragged = false
 			GameManager.is_dragging = false
 			scale = Vector2(1,1)
@@ -155,7 +155,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 				determine_animation(x_change)
 				animationPlayer.play("idle")
-							
+
 	elif event is InputEventScreenDrag and being_dragged:
 		global_position = event.position
 		determine_animation(x_change)
