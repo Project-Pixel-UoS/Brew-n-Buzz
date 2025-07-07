@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/ui/end_of_level_screen.gd" id="1_kjc0s"]
 [ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://assets/images/customer panel/bnb_money_pile.png" id="2_dwit8"]
+[ext_resource type="Texture2D" uid="uid://dggrhcksq4jli" path="res://assets/images/menu/notice_board/cork.png" id="2_peoc2"]
+[ext_resource type="Texture2D" uid="uid://d2nrw8dr7vm6s" path="res://assets/images/menu/notice_board/frame_center.png" id="3_k7hml"]
 [ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://assets/images/kitchen panel/mug sprites/bnb_espresso.png" id="3_lwdr7"]
+[ext_resource type="Texture2D" uid="uid://xpbefsiyhuvy" path="res://assets/images/menu/notice_board/Frame_left.png" id="4_yy2ba"]
+[ext_resource type="Texture2D" uid="uid://cttbgt334e3t5" path="res://assets/images/menu/notice_board/Frame_right.png" id="5_6r10u"]
 [ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="6_5xqyn"]
 [ext_resource type="Texture2D" uid="uid://ccpl84w827ciu" path="res://assets/images/buttons/bnb_exit.PNG" id="9_fs7j7"]
 [ext_resource type="Texture2D" uid="uid://1iroxuglugmu" path="res://assets/images/buttons/bnb_play.PNG" id="10_v1bn2"]
@@ -10,18 +14,6 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xi6wx"]
 bg_color = Color(0.203922, 0.203922, 0.203922, 0.654902)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vcc2p"]
-load_path = "res://.godot/imported/cork.png-679aca1251141d9e9f1bdfee00df3a54.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2vsoj"]
-load_path = "res://.godot/imported/border_centre.png-6bf9c7751425906c88b45fcfc1b117b4.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_thhw8"]
-load_path = "res://.godot/imported/border_left.png-335845fa8c8ff147bfc8b5e8b669296b.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d87vg"]
-load_path = "res://.godot/imported/border_right.png-9da63f56ca17d59f2639533229f6b893.ctex"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -48,10 +40,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -151.8
-offset_top = -83.95
-offset_right = 151.8
-offset_bottom = 83.95
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -60,9 +52,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 16.4
+offset_bottom = 12.1
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CompressedTexture2D_vcc2p")
+texture = ExtResource("2_peoc2")
 expand_mode = 1
 stretch_mode = 1
 
@@ -71,11 +65,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 19.0
-offset_right = -19.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CompressedTexture2D_2vsoj")
+texture = ExtResource("3_k7hml")
 expand_mode = 1
 
 [node name="BorderLeft" type="TextureRect" parent="BgNoticeBoard"]
@@ -84,7 +76,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 19.6057
 grow_vertical = 2
-texture = SubResource("CompressedTexture2D_thhw8")
+texture = ExtResource("4_yy2ba")
 expand_mode = 3
 
 [node name="BorderRight" type="TextureRect" parent="BgNoticeBoard"]
@@ -93,11 +85,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -19.0
-offset_right = 1.0
+offset_left = -24.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = SubResource("CompressedTexture2D_d87vg")
+texture = ExtResource("5_6r10u")
 expand_mode = 3
 
 [node name="Title" type="RichTextLabel" parent="."]
@@ -147,6 +138,7 @@ theme_override_font_sizes/normal_font_size = 8
 text = "Total money: X"
 
 [node name="money_left" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
