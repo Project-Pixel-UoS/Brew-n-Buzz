@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0mwircdbxw1d"]
+[gd_scene load_steps=4 format=3 uid="uid://c0mwircdbxw1d"]
 
 [ext_resource type="Texture2D" uid="uid://ddr10onmyok2c" path="res://assets/images/menu/start_button.png" id="1_3y6tr"]
 [ext_resource type="Script" path="res://scripts/ui/start_button.gd" id="2_dr4fb"]
 [ext_resource type="Texture2D" uid="uid://d1s3fbq6y1ddr" path="res://assets/images/menu/settings_button.png" id="3_w7mhb"]
-[ext_resource type="Texture2D" uid="uid://yfd0gd6gol5w" path="res://assets/images/menu/menu_coffee.png" id="5_cgaai"]
 
 [node name="TitleMenu" type="Control"]
 layout_mode = 3
@@ -44,23 +43,6 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(88, 0)
 texture_normal = ExtResource("3_w7mhb")
-
-[node name="Coffee" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -349.0
-offset_top = -149.0
-offset_right = -233.0
-grow_horizontal = 0
-grow_vertical = 0
-pivot_offset = Vector2(116, 149)
-texture = ExtResource("5_cgaai")
-stretch_mode = 2
 
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"Music"

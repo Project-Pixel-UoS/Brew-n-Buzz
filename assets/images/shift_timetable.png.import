@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctiw86b4ohhhi"
-path="res://.godot/imported/logo.png-c3d087a6f3b2c24b571b512eab188714.ctex"
+uid="uid://c6a6eigr0pnxr"
+path="res://.godot/imported/shift_timetable.png-4b3c1eb4d9465f6cb0ca4588cb38a7e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/menu/logo.png"
-dest_files=["res://.godot/imported/logo.png-c3d087a6f3b2c24b571b512eab188714.ctex"]
+source_file="res://assets/images/shift_timetable.png"
+dest_files=["res://.godot/imported/shift_timetable.png-4b3c1eb4d9465f6cb0ca4588cb38a7e4.ctex"]
 
 [params]
 
@@ -21,8 +21,8 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
-mipmaps/limit=3
+mipmaps/generate=false
+mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=true

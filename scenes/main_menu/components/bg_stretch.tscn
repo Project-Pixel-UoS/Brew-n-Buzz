@@ -2,17 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://dggrhcksq4jli" path="res://assets/images/menu/notice_board/cork.png" id="1_i5ej2"]
 [ext_resource type="Texture2D" uid="uid://d2nrw8dr7vm6s" path="res://assets/images/menu/notice_board/frame_center.png" id="2_60fqu"]
-[ext_resource type="Texture2D" uid="uid://dy7itn1chxloa" path="res://assets/images/menu/notes.png" id="2_mwjvc"]
 [ext_resource type="Texture2D" uid="uid://xpbefsiyhuvy" path="res://assets/images/menu/notice_board/Frame_left.png" id="3_cyack"]
-[ext_resource type="Texture2D" uid="uid://brt1klixqpxtd" path="res://assets/images/menu/shift.png" id="3_i3ucy"]
 [ext_resource type="Texture2D" uid="uid://cttbgt334e3t5" path="res://assets/images/menu/notice_board/Frame_right.png" id="4_j65uh"]
-[ext_resource type="Texture2D" uid="uid://yfd0gd6gol5w" path="res://assets/images/menu/menu_coffee.png" id="4_ljwyf"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pkcec"]
-load_path = "res://.godot/imported/plants_left.png-958ebcc591b204545d0663dd41c69def.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x8gmr"]
-load_path = "res://.godot/imported/plants_right.png-c026b44b19a0f645b4ad0e40cbd4ed6d.ctex"
+[ext_resource type="Texture2D" uid="uid://c852do7vf0ht7" path="res://assets/images/notes.png" id="5_1gjsx"]
+[ext_resource type="Texture2D" uid="uid://c6a6eigr0pnxr" path="res://assets/images/shift_timetable.png" id="6_q1jee"]
+[ext_resource type="Texture2D" uid="uid://d0gmn4g1vs2em" path="res://assets/images/menu_coffee.png" id="7_mpfjl"]
+[ext_resource type="Texture2D" uid="uid://bdreiryd3sdyr" path="res://assets/images/menu/plant_left.png" id="8_eqv5h"]
+[ext_resource type="Texture2D" uid="uid://cpeevd3e1qtmb" path="res://assets/images/menu/plant_right.png" id="9_qyily"]
 
 [node name="Background" type="Control"]
 texture_filter = 1
@@ -79,20 +75,18 @@ texture = ExtResource("4_j65uh")
 expand_mode = 3
 
 [node name="Notes" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -2.0
-offset_right = -110.0
-offset_bottom = 231.0
+offset_left = 9.0
+offset_top = 45.0
+offset_right = 71.0
+offset_bottom = 121.0
 grow_vertical = 2
-texture = ExtResource("2_mwjvc")
+texture = ExtResource("5_1gjsx")
 
 [node name="ShiftTimeTable" type="TextureRect" parent="."]
-visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 6
@@ -100,57 +94,56 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -423.0
-offset_top = 178.0
-offset_right = -192.0
-offset_bottom = 371.0
+offset_left = 220.0
+offset_top = 70.0
+offset_right = 296.0
+offset_bottom = 133.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("3_i3ucy")
+texture = ExtResource("6_q1jee")
 stretch_mode = 2
 
 [node name="Coffee" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -116.0
-offset_top = 24.0
-offset_bottom = 173.0
+offset_left = 237.0
+offset_top = 132.0
+offset_right = 275.0
+offset_bottom = 181.0
 grow_horizontal = 0
 grow_vertical = 0
 pivot_offset = Vector2(116, 149)
-texture = ExtResource("4_ljwyf")
+texture = ExtResource("7_mpfjl")
 stretch_mode = 2
 
 [node name="PlantLeft" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 170.229
-offset_bottom = -150.0
+offset_bottom = 180.0
 grow_vertical = 2
-texture = SubResource("CompressedTexture2D_pkcec")
+mouse_filter = 2
+texture = ExtResource("8_eqv5h")
 expand_mode = 3
 stretch_mode = 4
 
 [node name="PlantRight" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -506.057
-offset_right = -421.714
-offset_bottom = -150.0
+offset_left = 255.0
+offset_right = 320.0
+offset_bottom = 180.0
 grow_horizontal = 0
 grow_vertical = 2
-pivot_offset = Vector2(303.634, 0)
-texture = SubResource("CompressedTexture2D_x8gmr")
+mouse_filter = 2
+texture = ExtResource("9_qyily")
 expand_mode = 3
 stretch_mode = 4

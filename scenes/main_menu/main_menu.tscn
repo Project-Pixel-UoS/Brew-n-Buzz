@@ -1,22 +1,20 @@
-[gd_scene load_steps=28 format=3 uid="uid://bwovlnl5bfqtr"]
+[gd_scene load_steps=26 format=3 uid="uid://bwovlnl5bfqtr"]
 
 [ext_resource type="PackedScene" uid="uid://o08kpm1g2d1a" path="res://scenes/main_menu/components/bg_stretch.tscn" id="1_2a4e5"]
 [ext_resource type="Script" path="res://scripts/ui/menu_manager.gd" id="1_r2aoh"]
 [ext_resource type="PackedScene" uid="uid://c0mwircdbxw1d" path="res://scenes/main_menu/title_menu.tscn" id="1_vk558"]
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://scenes/main_menu/settings_menu.tscn" id="2_ap78m"]
+[ext_resource type="Texture2D" uid="uid://drnqees5y3q1j" path="res://assets/images/pixel_logo.png" id="2_ging2"]
 [ext_resource type="Script" path="res://scripts/ui/transition_ui.gd" id="3_70rn2"]
 [ext_resource type="Script" path="res://scripts/ui/pixel_button.gd" id="3_ydt3q"]
-[ext_resource type="Texture2D" uid="uid://bdreiryd3sdyr" path="res://assets/images/menu/plant_left.png" id="4_3hkxk"]
 [ext_resource type="PackedScene" uid="uid://cyakoudohtl2h" path="res://scenes/main_menu/levels_menu.tscn" id="4_qvo6n"]
 [ext_resource type="Theme" uid="uid://bl05s12fg23o3" path="res://assets/themes/main_menu_theme.tres" id="5_1yw01"]
-[ext_resource type="Texture2D" uid="uid://cpeevd3e1qtmb" path="res://assets/images/menu/plant_right.png" id="5_106po"]
 [ext_resource type="Script" path="res://scripts/general/animation_component.gd" id="7_4kjcu"]
 [ext_resource type="Script" path="res://scripts/general/saver_loader.gd" id="7_s7wvx"]
 [ext_resource type="Texture2D" uid="uid://b6vbnyk3724a4" path="res://assets/images/menu/brew_n_buzz_logo.png" id="8_wn6et"]
 [ext_resource type="Script" path="res://scripts/general/saved_game.gd" id="9_08i8y"]
 [ext_resource type="Script" path="res://scripts/customer_panel/money_counter.gd" id="11_n08fg"]
 [ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://scenes/main_menu/components/title_label.tscn" id="13_h33pi"]
-[ext_resource type="Texture2D" uid="uid://ctiw86b4ohhhi" path="res://assets/images/menu/logo.png" id="14_ishto"]
 [ext_resource type="Texture2D" uid="uid://1iroxuglugmu" path="res://assets/images/buttons/bnb_play.PNG" id="15_v2tpv"]
 [ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://assets/images/kitchen panel/misc/bnb_clockbg.PNG" id="17_52fwj"]
 [ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://assets/images/customer panel/bnb_money_pile.png" id="18_gglst"]
@@ -45,20 +43,19 @@ level_started = 0
 [node name="Background" parent="BackgroundCanvas" instance=ExtResource("1_2a4e5")]
 
 [node name="PixelButton" type="TextureButton" parent="BackgroundCanvas" node_paths=PackedStringArray("credits_page")]
-visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1657.0
-offset_top = -330.0
-offset_right = -1518.0
-offset_bottom = -253.0
+offset_left = -110.0
+offset_top = -55.0
+offset_right = -65.0
+offset_bottom = -30.0
 grow_horizontal = 0
 grow_vertical = 2
 theme = SubResource("Theme_id8kp")
-texture_normal = ExtResource("14_ishto")
+texture_normal = ExtResource("2_ging2")
 script = ExtResource("3_ydt3q")
 credits_page = NodePath("../../PlantLayer/Control/Credits")
 
@@ -74,34 +71,6 @@ offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="PlantLeft" type="TextureRect" parent="PlantLayer/Control"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 170.229
-offset_bottom = 180.0
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("4_3hkxk")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="PlantRight" type="TextureRect" parent="PlantLayer/Control"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 255.0
-offset_right = 320.0
-offset_bottom = 180.0
-grow_horizontal = 0
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("5_106po")
-expand_mode = 3
-stretch_mode = 4
 
 [node name="Credits" type="Control" parent="PlantLayer/Control"]
 visible = false
