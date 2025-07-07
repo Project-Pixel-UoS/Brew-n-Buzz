@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl5mgyycaevkj"
-path="res://.godot/imported/border_right.png-9da63f56ca17d59f2639533229f6b893.ctex"
+uid="uid://bmdl1n8so5ov6"
+path="res://.godot/imported/level_2_icon_incomplete.png-146899c0b92581fa0bb4c027c41324fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/menu/notice_board/border_right.png"
-dest_files=["res://.godot/imported/border_right.png-9da63f56ca17d59f2639533229f6b893.ctex"]
+source_file="res://assets/images/menu/level icons/level_2_icon_incomplete.png"
+dest_files=["res://.godot/imported/level_2_icon_incomplete.png-146899c0b92581fa0bb4c027c41324fc.ctex"]
 
 [params]
 
@@ -21,8 +21,8 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
-mipmaps/limit=3
+mipmaps/generate=false
+mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=true

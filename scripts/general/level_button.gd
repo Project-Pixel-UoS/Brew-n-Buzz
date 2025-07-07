@@ -8,7 +8,7 @@ func _ready() -> void:
 	level_filename = level_filename % level_number
 	name = "LevelButton%d" % level_number
 	level_filename = "scenes/levels/level_%d.tscn" % level_number
-	self.texture_normal = load("res://assets/images/menu/level icons/level_%d_icon.png" % level_number)
+	self.texture_normal = load("res://assets/images/menu/level icons/level_%d_icon_incomplete.png" % level_number)
 	self.custom_minimum_size = Vector2(32,32)
 	
 ## @brief Loads levelscne

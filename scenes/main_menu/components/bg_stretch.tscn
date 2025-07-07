@@ -1,14 +1,18 @@
 [gd_scene load_steps=10 format=3 uid="uid://o08kpm1g2d1a"]
 
-[ext_resource type="Texture2D" uid="uid://cns3adku4b2x4" path="res://assets/images/menu/notice_board/border_left.png" id="1_hshpv"]
-[ext_resource type="Texture2D" uid="uid://cfr5y2legycov" path="res://assets/images/menu/notice_board/cork.png" id="1_ltd7g"]
-[ext_resource type="Texture2D" uid="uid://bu7w5ne2tplwm" path="res://assets/images/menu/notice_board/border_centre.png" id="2_ll3oy"]
+[ext_resource type="Texture2D" uid="uid://dggrhcksq4jli" path="res://assets/images/menu/notice_board/cork.png" id="1_i5ej2"]
+[ext_resource type="Texture2D" uid="uid://d2nrw8dr7vm6s" path="res://assets/images/menu/notice_board/frame_center.png" id="2_60fqu"]
 [ext_resource type="Texture2D" uid="uid://dy7itn1chxloa" path="res://assets/images/menu/notes.png" id="2_mwjvc"]
-[ext_resource type="Texture2D" uid="uid://dl5mgyycaevkj" path="res://assets/images/menu/notice_board/border_right.png" id="3_h3na8"]
+[ext_resource type="Texture2D" uid="uid://xpbefsiyhuvy" path="res://assets/images/menu/notice_board/Frame_left.png" id="3_cyack"]
 [ext_resource type="Texture2D" uid="uid://brt1klixqpxtd" path="res://assets/images/menu/shift.png" id="3_i3ucy"]
+[ext_resource type="Texture2D" uid="uid://cttbgt334e3t5" path="res://assets/images/menu/notice_board/Frame_right.png" id="4_j65uh"]
 [ext_resource type="Texture2D" uid="uid://yfd0gd6gol5w" path="res://assets/images/menu/menu_coffee.png" id="4_ljwyf"]
-[ext_resource type="Texture2D" uid="uid://8odguhgmhxjc" path="res://assets/images/menu/plants_left.png" id="5_1n0h3"]
-[ext_resource type="Texture2D" uid="uid://b4788gbrrrlce" path="res://assets/images/menu/plants_right.png" id="6_qn27v"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pkcec"]
+load_path = "res://.godot/imported/plants_left.png-958ebcc591b204545d0663dd41c69def.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x8gmr"]
+load_path = "res://.godot/imported/plants_right.png-c026b44b19a0f645b4ad0e40cbd4ed6d.ctex"
 
 [node name="Background" type="Control"]
 texture_filter = 1
@@ -16,8 +20,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1600.0
-offset_bottom = -900.0
+offset_right = -320.0
+offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -26,6 +30,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -36,7 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ltd7g")
+texture = ExtResource("1_i5ej2")
 expand_mode = 1
 stretch_mode = 1
 
@@ -45,20 +51,18 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 23.0
-offset_right = -18.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ll3oy")
+texture = ExtResource("2_60fqu")
 expand_mode = 1
 
 [node name="BorderLeft" type="TextureRect" parent="BgNoticeBoard"]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 24.1714
+offset_right = 24.172
 grow_vertical = 2
-texture = ExtResource("1_hshpv")
+texture = ExtResource("3_cyack")
 expand_mode = 3
 
 [node name="BorderRight" type="TextureRect" parent="BgNoticeBoard"]
@@ -67,12 +71,12 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -24.171
-offset_right = 0.000427246
+offset_left = -24.0
+offset_right = 0.171997
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(87, 0)
-texture = ExtResource("3_h3na8")
+texture = ExtResource("4_j65uh")
 expand_mode = 3
 
 [node name="Notes" type="TextureRect" parent="."]
@@ -131,7 +135,7 @@ anchor_bottom = 1.0
 offset_right = 170.229
 offset_bottom = -150.0
 grow_vertical = 2
-texture = ExtResource("5_1n0h3")
+texture = SubResource("CompressedTexture2D_pkcec")
 expand_mode = 3
 stretch_mode = 4
 
@@ -148,6 +152,6 @@ offset_bottom = -150.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(303.634, 0)
-texture = ExtResource("6_qn27v")
+texture = SubResource("CompressedTexture2D_x8gmr")
 expand_mode = 3
 stretch_mode = 4

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4umrgogj3djk"
-path="res://.godot/imported/level_8_icon.png-b45ce19b5a503f98f6774ab426a1835c.ctex"
+uid="uid://boysggnb8wo70"
+path="res://.godot/imported/level_4_icon_incomplete.png-aa66dbe783d5361751fc3573c2d4974e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/menu/level icons/level_8_icon.png"
-dest_files=["res://.godot/imported/level_8_icon.png-b45ce19b5a503f98f6774ab426a1835c.ctex"]
+source_file="res://assets/images/menu/level icons/level_4_icon_incomplete.png"
+dest_files=["res://.godot/imported/level_4_icon_incomplete.png-aa66dbe783d5361751fc3573c2d4974e.ctex"]
 
 [params]
 

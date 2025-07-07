@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cns3adku4b2x4"
-path="res://.godot/imported/border_left.png-335845fa8c8ff147bfc8b5e8b669296b.ctex"
+uid="uid://bdreiryd3sdyr"
+path="res://.godot/imported/plant_left.png-f8c4e90639bf053df55535537dacc62e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/menu/notice_board/border_left.png"
-dest_files=["res://.godot/imported/border_left.png-335845fa8c8ff147bfc8b5e8b669296b.ctex"]
+source_file="res://assets/images/menu/plant_left.png"
+dest_files=["res://.godot/imported/plant_left.png-f8c4e90639bf053df55535537dacc62e.ctex"]
 
 [params]
 
@@ -21,8 +21,8 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
-mipmaps/limit=3
+mipmaps/generate=false
+mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=true

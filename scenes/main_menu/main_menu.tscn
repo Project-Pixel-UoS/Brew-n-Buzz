@@ -6,14 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://scenes/main_menu/settings_menu.tscn" id="2_ap78m"]
 [ext_resource type="Script" path="res://scripts/ui/transition_ui.gd" id="3_70rn2"]
 [ext_resource type="Script" path="res://scripts/ui/pixel_button.gd" id="3_ydt3q"]
+[ext_resource type="Texture2D" uid="uid://bdreiryd3sdyr" path="res://assets/images/menu/plant_left.png" id="4_3hkxk"]
 [ext_resource type="PackedScene" uid="uid://cyakoudohtl2h" path="res://scenes/main_menu/levels_menu.tscn" id="4_qvo6n"]
 [ext_resource type="Theme" uid="uid://bl05s12fg23o3" path="res://assets/themes/main_menu_theme.tres" id="5_1yw01"]
+[ext_resource type="Texture2D" uid="uid://cpeevd3e1qtmb" path="res://assets/images/menu/plant_right.png" id="5_106po"]
 [ext_resource type="Script" path="res://scripts/general/animation_component.gd" id="7_4kjcu"]
 [ext_resource type="Script" path="res://scripts/general/saver_loader.gd" id="7_s7wvx"]
 [ext_resource type="Texture2D" uid="uid://b6vbnyk3724a4" path="res://assets/images/menu/brew_n_buzz_logo.png" id="8_wn6et"]
 [ext_resource type="Script" path="res://scripts/general/saved_game.gd" id="9_08i8y"]
-[ext_resource type="Texture2D" uid="uid://8odguhgmhxjc" path="res://assets/images/menu/plants_left.png" id="10_lyvtn"]
-[ext_resource type="Texture2D" uid="uid://b4788gbrrrlce" path="res://assets/images/menu/plants_right.png" id="11_amd6u"]
 [ext_resource type="Script" path="res://scripts/customer_panel/money_counter.gd" id="11_n08fg"]
 [ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://scenes/main_menu/components/title_label.tscn" id="13_h33pi"]
 [ext_resource type="Texture2D" uid="uid://ctiw86b4ohhhi" path="res://assets/images/menu/logo.png" id="14_ishto"]
@@ -43,8 +43,6 @@ level_started = 0
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
 
 [node name="Background" parent="BackgroundCanvas" instance=ExtResource("1_2a4e5")]
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="PixelButton" type="TextureButton" parent="BackgroundCanvas" node_paths=PackedStringArray("credits_page")]
 visible = false
@@ -85,7 +83,7 @@ offset_right = 170.229
 offset_bottom = 180.0
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("10_lyvtn")
+texture = ExtResource("4_3hkxk")
 expand_mode = 3
 stretch_mode = 4
 
@@ -95,14 +93,13 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 235.657
+offset_left = 255.0
 offset_right = 320.0
 offset_bottom = 180.0
 grow_horizontal = 0
 grow_vertical = 2
-pivot_offset = Vector2(303.634, 0)
 mouse_filter = 2
-texture = ExtResource("11_amd6u")
+texture = ExtResource("5_106po")
 expand_mode = 3
 stretch_mode = 4
 
@@ -133,20 +130,20 @@ script = ExtResource("3_70rn2")
 is_active = true
 
 [node name="StartButton" parent="MenuCanvas/TitleMenu" index="0"]
-offset_left = -137.0
-offset_top = 11.0
-offset_right = -9.0
-offset_bottom = 51.0
+offset_left = -45.0
+offset_top = 22.0
+offset_right = 45.0
+offset_bottom = 43.0
 
 [node name="AnimationComponent" type="Node" parent="MenuCanvas/TitleMenu/StartButton" index="0"]
 script = ExtResource("7_4kjcu")
 transition_type = 1
 
 [node name="SettingsButton" parent="MenuCanvas/TitleMenu" index="1"]
-offset_left = -26.0
-offset_top = 50.0
-offset_right = 150.0
-offset_bottom = 90.0
+offset_left = -45.0
+offset_top = 46.0
+offset_right = 45.0
+offset_bottom = 67.0
 
 [node name="AnimationComponent" type="Node" parent="MenuCanvas/TitleMenu/SettingsButton" index="0"]
 script = ExtResource("7_4kjcu")
@@ -192,9 +189,9 @@ start_position = 3
 clip_contents = false
 custom_minimum_size = Vector2(113, 53)
 offset_left = -124.0
-offset_top = -28.0
+offset_top = -50.0
 offset_right = 115.0
-offset_bottom = 74.0
+offset_bottom = 52.0
 
 [node name="VBoxContainer" parent="MenuCanvas/SettingsMenu/ScrollContainer" index="0"]
 theme = SubResource("Theme_t31c4")
@@ -206,10 +203,10 @@ theme = SubResource("Theme_acqyv")
 theme = SubResource("Theme_7ldcs")
 
 [node name="BackButton" parent="MenuCanvas/SettingsMenu" index="2"]
-offset_left = 279.0
-offset_top = 151.0
-offset_right = 303.0
-offset_bottom = 175.0
+offset_left = 255.0
+offset_top = 134.0
+offset_right = 279.0
+offset_bottom = 158.0
 scale = Vector2(1, 1)
 
 [node name="LevelsMenu" parent="MenuCanvas" instance=ExtResource("4_qvo6n")]
@@ -220,17 +217,18 @@ script = ExtResource("3_70rn2")
 start_position = 1
 
 [node name="HFlowContainer" parent="MenuCanvas/LevelsMenu" index="0"]
-offset_left = -80.0
-offset_top = -10.0
-offset_right = -80.0
-offset_bottom = 20.0
+offset_left = -86.0
+offset_top = -30.0
+offset_right = 86.0
+offset_bottom = 72.0
+number_of_levels = 9
 
 [node name="BackButton" type="TextureButton" parent="MenuCanvas/LevelsMenu"]
 layout_mode = 0
-offset_left = 273.0
-offset_top = 144.0
-offset_right = 297.0
-offset_bottom = 168.0
+offset_left = 255.0
+offset_top = 134.0
+offset_right = 279.0
+offset_bottom = 158.0
 texture_normal = ExtResource("15_v2tpv")
 
 [node name="AnimationComponent" type="Node" parent="MenuCanvas/LevelsMenu/BackButton"]

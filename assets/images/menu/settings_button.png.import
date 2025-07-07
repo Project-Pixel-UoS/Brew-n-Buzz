@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvceom1p52f6f"
+uid="uid://d1s3fbq6y1ddr"
 path="res://.godot/imported/settings_button.png-d1b59853ea94a25af1c467afaad030fd.ctex"
 metadata={
 "vram_texture": false
@@ -21,8 +21,8 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
-mipmaps/limit=3
+mipmaps/generate=false
+mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=true

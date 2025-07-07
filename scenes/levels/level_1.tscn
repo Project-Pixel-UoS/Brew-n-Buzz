@@ -7,13 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://scenes/main_menu/settings_menu.tscn" id="5_5uegq"]
 [ext_resource type="Script" path="res://scripts/ui/settings_menu_level.gd" id="6_u1a7f"]
 [ext_resource type="PackedScene" uid="uid://cor4f38g6u27x" path="res://scenes/pause_menu.tscn" id="7_5lwwb"]
-[ext_resource type="Texture2D" uid="uid://cfr5y2legycov" path="res://assets/images/menu/notice_board/cork.png" id="7_agin5"]
 [ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://assets/images/kitchen panel/misc/bnb_clockbg.PNG" id="8_bcdoe"]
-[ext_resource type="Texture2D" uid="uid://bu7w5ne2tplwm" path="res://assets/images/menu/notice_board/border_centre.png" id="8_qs34t"]
-[ext_resource type="Texture2D" uid="uid://cns3adku4b2x4" path="res://assets/images/menu/notice_board/border_left.png" id="9_1i1gk"]
 [ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="9_xnvvl"]
 [ext_resource type="Script" path="res://scripts/kitchen_panel/timer.gd" id="10_6vkhq"]
-[ext_resource type="Texture2D" uid="uid://dl5mgyycaevkj" path="res://assets/images/menu/notice_board/border_right.png" id="10_wqkp0"]
 [ext_resource type="Script" path="res://scripts/customer_panel/money_container.gd" id="11_spih7"]
 [ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://assets/images/customer panel/bnb_money_pile.png" id="12_btdww"]
 [ext_resource type="PackedScene" uid="uid://cy2b17h1cvyh0" path="res://scenes/customer_panel/counter.tscn" id="13_gvvpr"]
@@ -59,6 +55,18 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wktt8"]
 bg_color = Color(0.203922, 0.203922, 0.203922, 0.654902)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vcc2p"]
+load_path = "res://.godot/imported/cork.png-679aca1251141d9e9f1bdfee00df3a54.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2vsoj"]
+load_path = "res://.godot/imported/border_centre.png-6bf9c7751425906c88b45fcfc1b117b4.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_thhw8"]
+load_path = "res://.godot/imported/border_left.png-335845fa8c8ff147bfc8b5e8b669296b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d87vg"]
+load_path = "res://.godot/imported/border_right.png-9da63f56ca17d59f2639533229f6b893.ctex"
 
 [sub_resource type="GDScript" id="GDScript_nqnjm"]
 script/source = "extends Control
@@ -146,7 +154,7 @@ offset_right = -192.0
 offset_bottom = -122.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_agin5")
+texture = SubResource("CompressedTexture2D_vcc2p")
 expand_mode = 1
 stretch_mode = 1
 
@@ -160,7 +168,7 @@ offset_right = -157.0
 offset_bottom = -122.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("8_qs34t")
+texture = SubResource("CompressedTexture2D_2vsoj")
 expand_mode = 1
 
 [node name="BorderLeft" type="TextureRect" parent="SettingsLayer/BgNoticeBoard"]
@@ -170,7 +178,7 @@ anchor_bottom = 1.0
 offset_right = 19.606
 offset_bottom = -122.0
 grow_vertical = 2
-texture = ExtResource("9_1i1gk")
+texture = SubResource("CompressedTexture2D_thhw8")
 expand_mode = 3
 
 [node name="BorderRight" type="TextureRect" parent="SettingsLayer/BgNoticeBoard"]
@@ -185,7 +193,7 @@ offset_bottom = -122.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(87, 0)
-texture = ExtResource("10_wqkp0")
+texture = SubResource("CompressedTexture2D_d87vg")
 expand_mode = 3
 
 [node name="settings_menu" parent="SettingsLayer" instance=ExtResource("5_5uegq")]
@@ -202,8 +210,6 @@ visible = false
 
 [node name="pause_menu" parent="PauseLayer" instance=ExtResource("7_5lwwb")]
 unique_name_in_owner = true
-offset_right = -1600.0
-offset_bottom = -900.0
 
 [node name="CustomerPanel" parent="." instance=ExtResource("39_vtvvj")]
 unique_name_in_owner = true
