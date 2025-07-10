@@ -7,8 +7,11 @@ var correct_recipes = 0
 var incorrect_recipes = 0
 var inactive_objects = ["KitchenPanel/Ingredients/Seasonal", "KitchenPanel/Machines/Grinder", "KitchenPanel/Machines/MilkJug", 
 "KitchenPanel/Ingredients/Coffee", "KitchenPanel/Ingredients/Milk"]
+var level_ended := false
 var shader
 var level_money = 0
+var money_added_this_level = 0
+
 func _ready() -> void:
 	endOfLevel.visible = false
 	shader = preload("res://scenes/kitchen_panel/ingredient_scenes/greyscale.gdshader") 
@@ -16,12 +19,23 @@ func _ready() -> void:
 		turn_inactive(object)
 
 func _process(delta: float) -> void:
-	if timer.out_of_time() or customerPanel.get_node('Panel/CustomerQueueManager').is_queue_empty():
-		#@TODO SAVE LEVEL HERE
-		Engine.time_scale = 0
-		endOfLevel.visible = true
+	if level_ended:
+		return
 		
-		GameManager.update_level()
+	if timer.out_of_time() or customerPanel.get_node('Panel/CustomerQueueManager').is_queue_empty():
+		end_level()
+
+func end_level() -> void:
+	if level_ended:
+		return
+	level_ended = true
+
+	GameManager.add_money(level_money)
+	money_added_this_level = level_money
+	save_end_level()
+	Engine.time_scale = 0
+	endOfLevel.visible = true
+	GameManager.update_level()
 
 func increment_correct_recipe():
 	correct_recipes += 1
@@ -54,3 +68,9 @@ func turn_off_collisions(object):
 		object.get_node("Area2D/CollisionShape2D").set_disabled(true)
 	else:
 		object.get_node("StaticBody2D/CollisionShape2D").set_disabled(true)
+
+func save_end_level():
+	var save := saved_game.new()
+	save.correct_recipes = correct_recipes
+	save.total_money = GameManager.total_money
+	save.write_savegame()

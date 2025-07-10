@@ -6,6 +6,10 @@ var shop_upgrade_dictionary = {'A': "grinder", 'B': "coffee_machine"} #Changed n
 var level_upgrade_dictionary = {1: ['A']}
 var level_queue = [[6,1,1]]
 var is_dragging = false
+var current_level := 1
+
+func _ready():
+	load_progress()
 
 func get_level_upgrades(level_number):
 	return level_upgrade_dictionary[level_number]
@@ -26,6 +30,8 @@ func get_money():
 	return total_money
 
 func update_level():
+	current_level += 1
+	save_progress() 
 	pass
 
 func add_upgrade(machineName):
@@ -37,3 +43,19 @@ func get_number_upgrades(machineName):
 
 func get_max_upgrades(machineName):
 	return upgrades[upgrades.find(machineName)][2]
+
+func save_progress():
+	var save = saved_game.new()
+	save.level_completed = current_level
+	save.total_money = total_money
+	save.upgrades = upgrades.duplicate(true)
+	save.write_savegame()
+
+func load_progress():
+	var save = saved_game.load_savegame()
+	if save:
+		total_money = save.total_money
+		upgrades = save.upgrades.duplicate(true)
+		current_level = save.level_completed
+	else:
+		print("No saved game found.")

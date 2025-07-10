@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="saved_game" load_steps=2 format=3 uid="uid://yyyvjtfn5yqy"]
+
+[ext_resource type="Script" path="res://scripts/general/saved_game.gd" id="1_sfijg"]
+
+[resource]
+script = ExtResource("1_sfijg")
+level_completed = 9
+total_money = 54
+upgrades = [["Grinder", 1, 1]]
+correct_recipes = 0
