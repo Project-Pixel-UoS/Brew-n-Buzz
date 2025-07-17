@@ -2,6 +2,11 @@ extends Node2D
 
 var milk_steamed = true
 @onready var animationPlayer = %AnimationPlayer
+@export var slot: Node2D
+
+var slot_position: Vector2 :
+	get:
+		return slot.position + position
 
 
 func steam_milk(milk_jug_node):
