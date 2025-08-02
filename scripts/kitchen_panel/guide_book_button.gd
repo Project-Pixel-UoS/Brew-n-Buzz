@@ -9,4 +9,5 @@ func open_guideBook():
 	await get_tree().create_timer(0.2).timeout
 	guideBookLayer.visible = true
 	guideBookLayer.get_node("guidebook_menu").show_correct_page(0)
+	Engine.time_scale = 0
 	

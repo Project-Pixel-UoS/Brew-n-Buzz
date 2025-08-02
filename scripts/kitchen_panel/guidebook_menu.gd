@@ -26,6 +26,7 @@ func _on_button_pressed(): #back button
 	AudioManager.set_stream(load('res://assets/audio/sfx/guidebook sounds/book_close.wav'))
 	AudioManager.play()
 	guidebook_layer.visible = false
+	Engine.time_scale = 1
 	
 func get_current_page_index():
 	return current_page_index
