@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dxtsd31kpgpvb"]
+[gd_scene load_steps=36 format=3 uid="uid://dxtsd31kpgpvb"]
 
 [ext_resource type="Texture2D" uid="uid://cwhb32383si0o" path="res://assets/images/customer panel/Background.png" id="1_14pq6"]
 [ext_resource type="Texture2D" uid="uid://f46riariqn3d" path="res://assets/images/customer panel/Counter (positioned for 100x180).png" id="3_hf0r0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c4x2sf7jodeed" path="res://assets/images/customer panel/Fixed till (positioned).png" id="6_1m27n"]
 [ext_resource type="Texture2D" uid="uid://d3xbyqbaelprj" path="res://assets/images/customer panel/Bell (isolated).png" id="7_m51nf"]
 [ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="8_r2lhv"]
+[ext_resource type="FontFile" uid="uid://dj0c1n2llop5c" path="res://assets/fonts/Vaticanus-G3yVG.ttf" id="9_ddcfa"]
 [ext_resource type="Script" path="res://scripts/customer_panel/patience_meter.gd" id="9_vxukn"]
 [ext_resource type="Texture2D" uid="uid://bai52bbgw5fyq" path="res://assets/images/customer panel/bnb_customer_patience_emojis.png" id="9_w44ji"]
 [ext_resource type="Texture2D" uid="uid://cbfoqwwoska4x" path="res://assets/images/customer panel/dialogue_box_9patch.png" id="12_gbijp"]
@@ -110,7 +111,6 @@ z_as_relative = false
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 180.0
-scale = Vector2(6, 6)
 
 [node name="Background" type="Sprite2D" parent="Panel"]
 z_index = 1
@@ -167,25 +167,29 @@ text = "TEXT"
 
 [node name="DialogueBox" type="VBoxContainer" parent="Panel"]
 z_index = 9
-layout_mode = 0
-offset_left = 47.5
-offset_top = 43.1667
-offset_right = 143.5
-offset_bottom = 75.1667
-scale = Vector2(0.5, 0.5)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -143.0
+offset_right = 90.0
+offset_bottom = -127.0
+grow_horizontal = 2
+grow_vertical = 0
 alignment = 2
 
 [node name="DialogueLabel" type="Label" parent="Panel/DialogueBox"]
 unique_name_in_owner = true
-visible = false
 z_index = 1
-custom_minimum_size = Vector2(96, 16)
+custom_minimum_size = Vector2(80, 8)
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("8_r2lhv")
+theme_override_fonts/font = ExtResource("9_ddcfa")
 theme_override_font_sizes/font_size = 8
-text = "My buddy recommended this one - I'll get a ORDER."
+text = "My buddy recommended this one !"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -197,17 +201,17 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = -6.0
-offset_right = 6.0
-offset_bottom = 6.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_gbijp")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
 
 [node name="PatienceMeter" type="Node2D" parent="Panel"]
 unique_name_in_owner = true

@@ -14,11 +14,11 @@ var being_dragged = false
 var x_change
 var customer_panel
 var counter
-
+var coord_scale
 signal entered_counter
 
 func _ready() -> void:
-	initialPos = Vector2(464,771)
+	initialPos = Vector2(77,129)
 	respawnPos = position
 	last_frame_x = position.x
 	Input.set_use_accumulated_input(false)
@@ -40,6 +40,7 @@ func _unhandled_input(event):
 func _process(delta: float) -> void: 
 	x_change = global_position.x - last_frame_x
 	last_frame_x = global_position.x
+	coord_scale = get_viewport().get_visible_rect().size.x / 320
 	
 func stop_animation():
 	animationPlayer.set_process(false)
@@ -115,23 +116,23 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if is_inside_valid_drop and body_ref:
 				print("intial" + "(%s,%s)" % [initialPos.x, initialPos.y])
 				if body_ref.get_parent().name == "CoffeeMachine":
-					if has_child_with_name(body_ref, "MugWaterCollision") and self.position.x > 300:
+					if has_child_with_name(body_ref, "MugWaterCollision") and self.position.x > 50*coord_scale:
 						var tween = get_tree().create_tween()
-						tween.tween_property(self, "position", Vector2(366,497), 0.2).set_ease(Tween.EASE_OUT)
+						tween.tween_property(self, "position", Vector2(68,83)*coord_scale, 0.2).set_ease(Tween.EASE_OUT)
 						body_ref.get_parent().add_water()
 						is_inside_valid_drop = false
-						initialPos = Vector2(366, 497)
+						initialPos = Vector2(61, 83)*coord_scale
 					else:
 						body_ref.get_parent().is_mug_in_machine(true)
 						var tween = get_tree().create_tween()
-						tween.tween_property(self, "position", Vector2(119,497), 0.2).set_ease(Tween.EASE_OUT)
-						initialPos = Vector2(119, 497)
+						tween.tween_property(self, "position", Vector2(26, 83)*coord_scale, 0.2).set_ease(Tween.EASE_OUT)
+						initialPos = Vector2(20, 83)*coord_scale
 				elif body_ref.get_parent().name == "Counter":
 					if customer_panel.get_node('Panel/CustomerQueueManager').is_customer_ready():
 						var tween = get_tree().create_tween()
-						tween.tween_property(self, "position", Vector2(-390,960), 0.2).set_ease(Tween.EASE_OUT)
+						tween.tween_property(self, "position", Vector2(-65, 160)*coord_scale, 0.2).set_ease(Tween.EASE_OUT)
 						await tween.finished
-						initialPos = Vector2(-390, 960)
+						initialPos = Vector2(-65, 160)*coord_scale
 						emit_signal('entered_counter')
 					else:
 						var tween = get_tree().create_tween()
@@ -140,8 +141,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 						animationPlayer.play("idle")
 				elif body_ref.get_parent().name == "MugRing":
 					var tween = get_tree().create_tween()
-					tween.tween_property(self, "position", Vector2(464,771), 0.2).set_ease(Tween.EASE_OUT)
-					initialPos = Vector2(464, 771)
+					tween.tween_property(self, "position", Vector2(77, 129)*coord_scale, 0.2).set_ease(Tween.EASE_OUT)
+					initialPos = Vector2(77, 129)*coord_scale
 				else:
 					printerr("Unrecognised area2d, body: " + body_ref.to_string())
 					var tween = get_tree().create_tween()

@@ -58,13 +58,13 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74vpx"]
-size = Vector2(25.1724, 20.6897)
+size = Vector2(3.44827, 2.2414)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfbmk"]
-size = Vector2(138.75, 155.5)
+size = Vector2(23.6875, 15.875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i071q"]
-size = Vector2(143.5, 154)
+size = Vector2(21.75, 14.5)
 
 [node name="CoffeeMachine" type="Node2D" groups=["coffeeMachine"]]
 script = ExtResource("1_ugxt8")
@@ -73,8 +73,7 @@ coffee = ExtResource("3_gsouy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(186, 116)
-scale = Vector2(6, 6)
+position = Vector2(62, 40)
 texture = ExtResource("2_dfvj3")
 hframes = 5
 vframes = 5
@@ -90,14 +89,14 @@ speed_scale = 0.25
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="GroupHandleCollision" type="CollisionShape2D" parent="Area2D" groups=["groupHandle"]]
-position = Vector2(-31, 14)
+position = Vector2(26, 26)
 scale = Vector2(5.8, 5.8)
 shape = SubResource("RectangleShape2D_74vpx")
 
 [node name="MugCoffeeCollision" type="CollisionShape2D" parent="Area2D" groups=["mug"]]
-position = Vector2(-35, 177)
+position = Vector2(26, 50)
 shape = SubResource("RectangleShape2D_nfbmk")
 
 [node name="MugWaterCollision" type="CollisionShape2D" parent="Area2D" groups=["mug"]]
-position = Vector2(220.25, 177)
+position = Vector2(68, 50)
 shape = SubResource("RectangleShape2D_i071q")

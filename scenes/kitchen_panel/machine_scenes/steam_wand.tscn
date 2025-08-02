@@ -42,14 +42,13 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rergy"]
-size = Vector2(21.875, 21.4375)
+size = Vector2(3.6875, 2.71875)
 
 [node name="SteamWand" type="Node2D" groups=["steamWand"]]
 script = ExtResource("1_jfvpe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(6, 6)
 texture = ExtResource("2_kh0mp")
 hframes = 2
 
@@ -62,6 +61,6 @@ libraries = {
 [node name="Area2D" type="Area2D" parent="." groups=["steamWand"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(193, 86)
+position = Vector2(33, 13)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_rergy")

@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://bfxjpjitx6rw4" path="res://resources/ingredients/mashmallows.tres" id="2_rkgqo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjmu7"]
-size = Vector2(33.5, 34.5)
+size = Vector2(24, 24)
 
 [node name="Marshmallows" type="Node2D"]
 script = ExtResource("1_svr6p")
@@ -13,13 +13,11 @@ ingredient = ExtResource("2_rkgqo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(6, 6)
 texture = ExtResource("2_a4wc0")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_pjmu7")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

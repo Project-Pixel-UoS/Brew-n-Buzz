@@ -1,9 +1,11 @@
 [gd_scene load_steps=29 format=3 uid="uid://bwovlnl5bfqtr"]
 
+
 [ext_resource type="PackedScene" uid="uid://o08kpm1g2d1a" path="res://scenes/main_menu/components/bg_stretch.tscn" id="1_2a4e5"]
 [ext_resource type="Script" path="res://scripts/ui/menu_manager.gd" id="1_r2aoh"]
 [ext_resource type="PackedScene" uid="uid://c0mwircdbxw1d" path="res://scenes/main_menu/title_menu.tscn" id="1_vk558"]
 [ext_resource type="PackedScene" uid="uid://bek4j2yvgcwn8" path="res://scenes/main_menu/settings_menu.tscn" id="2_ap78m"]
+[ext_resource type="Texture2D" uid="uid://drnqees5y3q1j" path="res://assets/images/pixel_logo.png" id="2_ging2"]
 [ext_resource type="Script" path="res://scripts/ui/transition_ui.gd" id="3_70rn2"]
 [ext_resource type="Script" path="res://scripts/ui/pixel_button.gd" id="3_ydt3q"]
 [ext_resource type="PackedScene" uid="uid://cyakoudohtl2h" path="res://scenes/main_menu/levels_menu.tscn" id="4_qvo6n"]
@@ -12,11 +14,8 @@
 [ext_resource type="Script" path="res://scripts/general/saver_loader.gd" id="7_s7wvx"]
 [ext_resource type="Texture2D" uid="uid://b6vbnyk3724a4" path="res://assets/images/menu/brew_n_buzz_logo.png" id="8_wn6et"]
 [ext_resource type="Script" path="res://scripts/general/saved_game.gd" id="9_08i8y"]
-[ext_resource type="Texture2D" uid="uid://8odguhgmhxjc" path="res://assets/images/menu/plants_left.png" id="10_lyvtn"]
-[ext_resource type="Texture2D" uid="uid://b4788gbrrrlce" path="res://assets/images/menu/plants_right.png" id="11_amd6u"]
 [ext_resource type="Script" path="res://scripts/customer_panel/money_counter.gd" id="11_n08fg"]
 [ext_resource type="PackedScene" uid="uid://ddhh2xsw1lvqd" path="res://scenes/main_menu/components/title_label.tscn" id="13_h33pi"]
-[ext_resource type="Texture2D" uid="uid://ctiw86b4ohhhi" path="res://assets/images/menu/logo.png" id="14_ishto"]
 [ext_resource type="Texture2D" uid="uid://1iroxuglugmu" path="res://assets/images/buttons/bnb_play.PNG" id="15_v2tpv"]
 [ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://assets/images/kitchen panel/misc/bnb_clockbg.PNG" id="17_52fwj"]
 [ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://assets/images/customer panel/bnb_money_pile.png" id="18_gglst"]
@@ -51,15 +50,14 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -525.0
-offset_top = -235.0
-offset_right = -386.0
-offset_bottom = -158.0
+offset_left = -110.0
+offset_top = -55.0
+offset_right = -65.0
+offset_bottom = -30.0
 grow_horizontal = 0
 grow_vertical = 2
-scale = Vector2(1.8, 1.8)
 theme = SubResource("Theme_id8kp")
-texture_normal = ExtResource("14_ishto")
+texture_normal = ExtResource("2_ging2")
 script = ExtResource("3_ydt3q")
 credits_page = NodePath("../../PlantLayer/Control/Credits")
 
@@ -70,35 +68,11 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -320.0
+offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="PlantLeft" type="TextureRect" parent="PlantLayer/Control"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 680.914
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("10_lyvtn")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="PlantRight" type="TextureRect" parent="PlantLayer/Control"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -337.371
-grow_horizontal = 0
-grow_vertical = 2
-pivot_offset = Vector2(303.634, 0)
-mouse_filter = 2
-texture = ExtResource("11_amd6u")
-expand_mode = 3
-stretch_mode = 4
 
 [node name="Credits" type="Control" parent="PlantLayer/Control"]
 visible = false
@@ -127,17 +101,20 @@ script = ExtResource("3_70rn2")
 is_active = true
 
 [node name="StartButton" parent="MenuCanvas/TitleMenu" index="0"]
-offset_top = 230.0
-offset_bottom = 270.0
+offset_left = -45.0
+offset_top = 22.0
+offset_right = 45.0
+offset_bottom = 43.0
 
 [node name="AnimationComponent" type="Node" parent="MenuCanvas/TitleMenu/StartButton" index="0"]
 script = ExtResource("7_4kjcu")
 transition_type = 1
 
 [node name="SettingsButton" parent="MenuCanvas/TitleMenu" index="1"]
-visible = false
-offset_top = 310.0
-offset_bottom = 350.0
+offset_left = -45.0
+offset_top = 46.0
+offset_right = 45.0
+offset_bottom = 67.0
 
 [node name="AnimationComponent" type="Node" parent="MenuCanvas/TitleMenu/SettingsButton" index="0"]
 script = ExtResource("7_4kjcu")
@@ -151,13 +128,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -37.0
-offset_top = -240.0
-offset_right = 37.0
-offset_bottom = -165.0
+offset_left = -35.0
+offset_top = -58.0
+offset_right = 39.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(6, 6)
 pivot_offset = Vector2(37.5, 0)
 texture = ExtResource("8_wn6et")
 
@@ -173,17 +149,20 @@ theme = ExtResource("5_1yw01")
 text = "Reset"
 
 [node name="SettingsMenu" parent="MenuCanvas" instance=ExtResource("2_ap78m")]
-offset_left = -1280.0
-offset_right = -1280.0
+offset_left = -320.0
+offset_right = -320.0
+offset_bottom = 0.0
 pivot_offset = Vector2(1200, 0)
 script = ExtResource("3_70rn2")
 start_position = 3
 
 [node name="ScrollContainer" parent="MenuCanvas/SettingsMenu" index="1"]
 clip_contents = false
-custom_minimum_size = Vector2(678, 322)
-offset_top = -180.0
-offset_bottom = 180.0
+custom_minimum_size = Vector2(113, 53)
+offset_left = -124.0
+offset_top = -50.0
+offset_right = 115.0
+offset_bottom = 52.0
 
 [node name="VBoxContainer" parent="MenuCanvas/SettingsMenu/ScrollContainer" index="0"]
 theme = SubResource("Theme_t31c4")
@@ -195,29 +174,32 @@ theme = SubResource("Theme_acqyv")
 theme = SubResource("Theme_7ldcs")
 
 [node name="BackButton" parent="MenuCanvas/SettingsMenu" index="2"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 24.0
-offset_bottom = 24.0
+offset_left = 255.0
+offset_top = 134.0
+offset_right = 279.0
+offset_bottom = 158.0
+scale = Vector2(1, 1)
 
 [node name="LevelsMenu" parent="MenuCanvas" instance=ExtResource("4_qvo6n")]
-offset_left = 1280.0
-offset_right = 1280.0
+offset_left = 320.0
+offset_right = 320.0
+offset_bottom = 0.0
 script = ExtResource("3_70rn2")
 start_position = 1
 
 [node name="HFlowContainer" parent="MenuCanvas/LevelsMenu" index="0"]
-offset_top = -10.0
-offset_right = 308.0
-offset_bottom = 170.0
+offset_left = -86.0
+offset_top = -30.0
+offset_right = 86.0
+offset_bottom = 72.0
+number_of_levels = 9
 
 [node name="BackButton" type="TextureButton" parent="MenuCanvas/LevelsMenu"]
 layout_mode = 0
-offset_left = 1640.0
-offset_top = 867.0
-offset_right = 1664.0
-offset_bottom = 891.0
-scale = Vector2(6, 6)
+offset_left = 255.0
+offset_top = 134.0
+offset_right = 279.0
+offset_bottom = 158.0
 texture_normal = ExtResource("15_v2tpv")
 
 [node name="AnimationComponent" type="Node" parent="MenuCanvas/LevelsMenu/BackButton"]
@@ -231,10 +213,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 282.0
-offset_top = -346.0
-offset_right = 504.0
-offset_bottom = -270.0
+offset_left = 58.0
+offset_top = -55.0
+offset_right = 95.0
+offset_bottom = -43.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_31p7v")
@@ -246,10 +228,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -84.0
-offset_top = -26.0
-offset_right = -40.0
-offset_bottom = 18.0
+offset_left = -15.5
+offset_top = -10.0
+offset_right = 0.5
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_gglst")
@@ -262,15 +244,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -56.0
-offset_top = -13.0
-offset_right = 86.0
-offset_bottom = 27.0
+offset_left = -3.5
+offset_top = -4.0
+offset_right = 18.5
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("19_d2nob")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[center]0"
 script = ExtResource("11_n08fg")
@@ -321,6 +303,7 @@ theme = ExtResource("5_1yw01")
 [connection signal="pressed" from="MenuCanvas/TitleMenu/StartButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["LevelsMenu"]]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/SettingsButton" to="MenuCanvas/TitleMenu/SettingsButton/AnimationComponent" method="button_press"]
 [connection signal="pressed" from="MenuCanvas/TitleMenu/SettingsButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["SettingsMenu"]]
+[connection signal="pressed" from="MenuCanvas/SettingsMenu/BackButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]
 [connection signal="pressed" from="MenuCanvas/LevelsMenu/BackButton" to="MenuCanvas/LevelsMenu/BackButton/AnimationComponent" method="button_press"]
 [connection signal="pressed" from="MenuCanvas/LevelsMenu/BackButton" to="MenuCanvas" method="_on_menu_button_pressed" binds= ["TitleMenu"]]
 
