@@ -1,15 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://cf0ya1o4m6ooe"]
+[gd_scene load_steps=13 format=3 uid="uid://cf0ya1o4m6ooe"]
 
 [ext_resource type="Script" path="res://scripts/kitchen_panel/guidebook_menu.gd" id="1_cyubo"]
 [ext_resource type="Texture2D" uid="uid://cholgudtx35vj" path="res://assets/images/kitchen panel/ingredients/coffeebean.PNG" id="2_ch34b"]
 [ext_resource type="Texture2D" uid="uid://cnqmvs0eh5wkf" path="res://assets/images/kitchen panel/misc/bookinside_base.PNG" id="2_mm3me"]
 [ext_resource type="Texture2D" uid="uid://cavqg8ft3a5g7" path="res://assets/images/kitchen panel/misc/leftpage.PNG" id="3_2txu0"]
 [ext_resource type="Texture2D" uid="uid://lgfavxd1s0nj" path="res://assets/images/kitchen panel/misc/rightpage.PNG" id="4_xb1cd"]
-[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="6_0ju50"]
 [ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="6_1ibgr"]
-[ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://assets/images/kitchen panel/mug sprites/bnb_espresso.png" id="6_5yo77"]
 [ext_resource type="Texture2D" uid="uid://b6nab1daylfuw" path="res://assets/images/kitchen panel/ingredients/bnb_water_drop_a.png" id="7_07k52"]
 [ext_resource type="Texture2D" uid="uid://1iroxuglugmu" path="res://assets/images/buttons/bnb_play.PNG" id="9_gqnwh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h27ga"]
+bg_color = Color(0.203922, 0.203922, 0.203922, 0.654902)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_468d8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -38,6 +39,17 @@ offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cyubo")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h27ga")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -92,23 +104,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_468d8")
 
 [node name="Panel" type="Panel" parent="Pages/Page1/Americano"]
 layout_mode = 0
+offset_left = 3.0
 offset_top = -4.0
-offset_right = 85.0
+offset_right = 83.0
 offset_bottom = 11.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uxr8j")
-
-[node name="TextureRect" type="TextureRect" parent="Pages/Page1/Americano/Panel"]
-layout_mode = 0
-offset_left = -52.0
-offset_top = 5.0
-offset_right = -20.0
-offset_bottom = 37.0
-texture = ExtResource("6_0ju50")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page1/Americano/Panel"]
 layout_mode = 0
 offset_top = 3.0
-offset_right = 85.0
+offset_right = 80.0
 offset_bottom = 11.0
 theme_override_fonts/normal_font = ExtResource("6_1ibgr")
 theme_override_font_sizes/normal_font_size = 8
@@ -117,112 +122,69 @@ text = "[center]Americano"
 
 [node name="Panel2" type="Panel" parent="Pages/Page1/Americano"]
 layout_mode = 0
-offset_left = -1.0
+offset_left = 3.0
 offset_top = 13.0
-offset_right = 84.0
-offset_bottom = 81.0
+offset_right = 83.0
+offset_bottom = 47.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_aso8s")
 
 [node name="TextureRect" type="TextureRect" parent="Pages/Page1/Americano/Panel2"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 2.0
-offset_right = 29.0
-offset_bottom = 26.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 32.0
+offset_bottom = 28.0
 texture = ExtResource("2_ch34b")
 
 [node name="TextureRect2" type="TextureRect" parent="Pages/Page1/Americano/Panel2"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 29.0
-offset_right = 28.0
-offset_bottom = 53.0
+offset_left = 48.0
+offset_top = 4.0
+offset_right = 72.0
+offset_bottom = 28.0
 texture = ExtResource("7_07k52")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page1/Americano/Panel2"]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 35.0
-offset_right = 363.0
-offset_bottom = 75.0
-theme_override_fonts/normal_font = ExtResource("6_1ibgr")
-theme_override_font_sizes/normal_font_size = 8
-bbcode_enabled = true
-text = "[center]Coffee"
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Pages/Page1/Americano/Panel2"]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 115.0
-offset_right = 463.0
-offset_bottom = 155.0
-theme_override_fonts/normal_font = ExtResource("6_1ibgr")
-theme_override_font_sizes/normal_font_size = 8
-bbcode_enabled = true
-text = "[center]Hot Water"
 
 [node name="Espresso" type="Panel" parent="Pages/Page1"]
 texture_filter = 1
-layout_mode = 0
-offset_left = 315.0
-offset_top = 578.0
-offset_right = 412.0
-offset_bottom = 610.0
+offset_left = 113.0
+offset_top = 9.0
+offset_right = 198.0
+offset_bottom = 41.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_468d8")
 
 [node name="Panel" type="Panel" parent="Pages/Page1/Espresso"]
 layout_mode = 0
-offset_left = 49.0
-offset_top = -48.0
-offset_right = 133.0
-offset_bottom = -33.0
+offset_left = 3.0
+offset_top = -4.0
+offset_right = 83.0
+offset_bottom = 11.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uxr8j")
-
-[node name="TextureRect" type="TextureRect" parent="Pages/Page1/Espresso/Panel"]
-layout_mode = 0
-offset_left = 33.0
-offset_top = -1.0
-offset_right = 65.0
-offset_bottom = 31.0
-texture = ExtResource("6_5yo77")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page1/Espresso/Panel"]
 layout_mode = 0
-offset_left = 102.0
-offset_top = 24.0
-offset_right = 502.0
-offset_bottom = 67.0
+offset_top = 3.0
+offset_right = 80.0
+offset_bottom = 11.0
 theme_override_fonts/normal_font = ExtResource("6_1ibgr")
-theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[center]Espresso"
 
 [node name="Panel2" type="Panel" parent="Pages/Page1/Espresso"]
 layout_mode = 0
-offset_left = 33.0
-offset_top = 60.0
-offset_right = 122.0
-offset_bottom = 79.0
+offset_left = 3.0
+offset_top = 13.0
+offset_right = 83.0
+offset_bottom = 47.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_aso8s")
 
 [node name="TextureRect" type="TextureRect" parent="Pages/Page1/Espresso/Panel2"]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 19.0
-offset_right = 90.0
-offset_bottom = 43.0
+offset_left = 28.0
+offset_top = 4.0
+offset_right = 52.0
+offset_bottom = 28.0
 texture = ExtResource("2_ch34b")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page1/Espresso/Panel2"]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 35.0
-offset_right = 363.0
-offset_bottom = 75.0
-theme_override_fonts/normal_font = ExtResource("6_1ibgr")
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
-text = "[center]Coffee"
 
 [node name="Page2" type="Control" parent="Pages"]
 visible = false
@@ -241,10 +203,10 @@ offset_bottom = 40.0
 [node name="TextureButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 1493.0
-offset_top = 179.0
-offset_right = 1517.0
-offset_bottom = 203.0
+offset_left = 277.0
+offset_top = 147.0
+offset_right = 301.0
+offset_bottom = 171.0
 texture_normal = ExtResource("9_gqnwh")
 stretch_mode = 0
 
