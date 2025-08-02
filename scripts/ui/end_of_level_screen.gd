@@ -1,9 +1,11 @@
 extends Control
 @onready var levelManager = get_tree().current_scene
+@onready var shopLayer = %shop_layer
 var upgrade_positions
 
 func _ready() -> void:
-	upgrade_positions = [get_node('shop/upgrade_1'),get_node('shop/upgrade_2'),get_node('shop/upgrade_3')]
+	shopLayer.visible = false
+	upgrade_positions = [get_node('shop_layer/shop/upgrade_1'),get_node('shop_layer/shop/upgrade_2'),get_node('shop_layer/shop/upgrade_3')]
 	var level_upgrades = GameManager.get_level_upgrades(1)
 	var upgrade_counter = 0
 	for upgrade_key in level_upgrades:
@@ -33,3 +35,9 @@ func _process(delta: float) -> void:
 func _on_replay_level_button_pressed() -> void:
 	get_tree().change_scene_to_file("scenes/levels/level_1.tscn")
 	Engine.time_scale = 1
+
+func _on_view_shop_button_pressed() -> void:
+	shopLayer.visible = true
+
+func _on_back_to_level_button_pressed() -> void:
+	shopLayer.visible = false

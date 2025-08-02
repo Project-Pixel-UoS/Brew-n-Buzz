@@ -3,7 +3,7 @@ extends Node2D
 @export var customer: CustomerData
 @onready var customer_scene = get_tree().root.get_node(".")
 @export var spawn_position: Vector2
-@export var max_customers: int = 40
+@export var max_customers: int = 0
 @export var possible_heads: Array[Texture2D]
 @export var possible_bodies: Array[Texture2D]
 @export var possible_faces: Array[Texture2D]

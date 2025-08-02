@@ -1,6 +1,6 @@
 extends Node
 
-var total_money = 0
+var total_money = 10
 var upgrades = [['Grinder',0,1]] 
 var shop_upgrade_dictionary = {'A': "grinder", 'B': "coffee_machine"} #Changed naming to work better with scene finding
 var level_upgrade_dictionary = {1: ['A']}

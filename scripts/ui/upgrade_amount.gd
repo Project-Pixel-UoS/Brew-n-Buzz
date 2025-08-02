@@ -15,9 +15,9 @@ func _process(delta: float) -> void:
 	var beginning_time = machine.get_current_time()
 	if GameManager.get_max_upgrades(machine.name) == current_number_of_upgrades:
 		self.text = "[center]Maxed out"
-		buyButton.get_node('Price').add_theme_font_size_override("normal_font_size", 15)
-		buyButton.get_node('Price').text = '[center]Maxed out'
+		buyButton.get_node('Price').add_theme_font_size_override("normal_font_size", 8)
+		buyButton.get_node('Price').text = '[right]Maxed out'
 	else:
 		self.text = "[center]" + str(beginning_time) + " -> " + str(beginning_time-(0.25*(upgrades+1))) + "s"
-		buyButton.get_node('Price').text = '[center]' + str(10 + (2*upgrades))
+		buyButton.get_node('Price').text = '[right]' + str(10 + (2*upgrades))
 		buyButton.set_price(10+(2*upgrades))

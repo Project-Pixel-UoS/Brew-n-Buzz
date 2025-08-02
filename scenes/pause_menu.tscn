@@ -102,7 +102,7 @@ theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[center]Paused"
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="BackToLevelButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -135,5 +135,5 @@ grow_vertical = 2
 texture_normal = ExtResource("8_81m5v")
 stretch_mode = 0
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="BackToLevelButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="ExitLevelButton" to="." method="_on_exit_level_button_pressed"]
