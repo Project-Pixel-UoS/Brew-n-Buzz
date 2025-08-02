@@ -1,5 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bwovlnl5bfqtr"]
-
+[gd_scene load_steps=27 format=3 uid="uid://bwovlnl5bfqtr"]
 
 [ext_resource type="PackedScene" uid="uid://o08kpm1g2d1a" path="res://scenes/main_menu/components/bg_stretch.tscn" id="1_2a4e5"]
 [ext_resource type="Script" path="res://scripts/ui/menu_manager.gd" id="1_r2aoh"]
