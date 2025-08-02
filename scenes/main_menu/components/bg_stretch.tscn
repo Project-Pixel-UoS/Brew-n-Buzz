@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c852do7vf0ht7" path="res://assets/images/notes.png" id="5_1gjsx"]
 [ext_resource type="Texture2D" uid="uid://c6a6eigr0pnxr" path="res://assets/images/shift_timetable.png" id="6_q1jee"]
 [ext_resource type="Texture2D" uid="uid://d0gmn4g1vs2em" path="res://assets/images/menu_coffee.png" id="7_mpfjl"]
-[ext_resource type="Texture2D" uid="uid://bdreiryd3sdyr" path="res://assets/images/menu/plant_left.png" id="8_eqv5h"]
+[ext_resource type="Texture2D" uid="uid://bboytbvw7a8v4" path="res://assets/images/menu/plant_left.png" id="8_h1q1n"]
 [ext_resource type="Texture2D" uid="uid://cpeevd3e1qtmb" path="res://assets/images/menu/plant_right.png" id="9_qyily"]
 
 [node name="Background" type="Control"]
@@ -128,7 +128,7 @@ offset_right = 170.229
 offset_bottom = 180.0
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("8_eqv5h")
+texture = ExtResource("8_h1q1n")
 expand_mode = 3
 stretch_mode = 4
 
