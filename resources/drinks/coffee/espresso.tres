@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=4 format=3 uid="uid://dpbmwveomvsqn"]
+
+[ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://assets/images/kitchen panel/mug sprites/bnb_espresso.png" id="1_eskr8"]
+[ext_resource type="Resource" uid="uid://bye1caiy4qjpb" path="res://resources/ingredients/ing_espresso.tres" id="2_vty4s"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_vxgy6"]
+
+[resource]
+script = ExtResource("5_vxgy6")
+name = "espresso"
+recipe = {
+ExtResource("2_vty4s"): 0
+}
+image = ExtResource("1_eskr8")

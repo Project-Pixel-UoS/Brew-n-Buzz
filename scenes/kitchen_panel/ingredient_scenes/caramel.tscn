@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://codola8g3qlei"]
+[gd_scene load_steps=5 format=3 uid="uid://codola8g3qlei"]
 
 [ext_resource type="Script" path="res://scripts/kitchen_panel/ingredient_logic.gd" id="1_rsemr"]
+[ext_resource type="Resource" uid="uid://j8sgnpu7qcib" path="res://resources/ingredients/caramel.tres" id="2_hpw5a"]
 [ext_resource type="Texture2D" uid="uid://c8uo4vwkrjvxa" path="res://assets/images/kitchen panel/ingredients/caramel.PNG" id="2_yrx8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t285i"]
@@ -8,6 +9,7 @@ size = Vector2(24, 24.5)
 
 [node name="Caramel" type="Node2D"]
 script = ExtResource("1_rsemr")
+ingredient = ExtResource("2_hpw5a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=6 format=3 uid="uid://blmip734ds6dh"]
+
+[ext_resource type="Resource" uid="uid://8lgklbcb7glt" path="res://resources/ingredients/steamed_milk.tres" id="2_rm4qx"]
+[ext_resource type="Resource" uid="uid://v270o3nir5ax" path="res://resources/ingredients/whipped_cream.tres" id="3_5ykkh"]
+[ext_resource type="Resource" uid="uid://b3aa462fubgxn" path="res://resources/ingredients/cocoa.tres" id="3_62v05"]
+[ext_resource type="Resource" uid="uid://j8sgnpu7qcib" path="res://resources/ingredients/caramel.tres" id="4_3s7jc"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="6_gti7u"]
+
+[resource]
+script = ExtResource("6_gti7u")
+name = "caramel_whirl"
+recipe = {
+ExtResource("3_62v05"): 0,
+ExtResource("2_rm4qx"): 1,
+ExtResource("3_5ykkh"): 2,
+ExtResource("4_3s7jc"): 3
+}

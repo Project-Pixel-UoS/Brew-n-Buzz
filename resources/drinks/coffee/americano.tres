@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=5 format=3 uid="uid://q0fp0uits6ml"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_e5v0g"]
+[ext_resource type="Resource" uid="uid://bye1caiy4qjpb" path="res://resources/ingredients/ing_espresso.tres" id="2_m2cmj"]
+[ext_resource type="Resource" uid="uid://w8tidfxytv0d" path="res://resources/ingredients/water.tres" id="3_40pwk"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="4_xsybf"]
+
+[resource]
+script = ExtResource("4_xsybf")
+name = "americano"
+recipe = {
+ExtResource("2_m2cmj"): 0,
+ExtResource("3_40pwk"): 1
+}
+image = ExtResource("1_e5v0g")

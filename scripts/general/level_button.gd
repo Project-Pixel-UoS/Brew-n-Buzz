@@ -3,6 +3,7 @@ extends TextureButton
 
 @export var level_number: int
 @export var level_filename: String = "level_%d.tscn"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	level_filename = level_filename % level_number
@@ -13,4 +14,4 @@ func _ready() -> void:
 	
 ## @brief Loads levelscne
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file(level_filename)
+	SignalBus.emit_signal("load_level", level_filename)

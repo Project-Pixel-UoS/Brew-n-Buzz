@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cywru0xulouqc"]
+[gd_scene load_steps=5 format=3 uid="uid://cywru0xulouqc"]
 
 [ext_resource type="Script" path="res://scripts/kitchen_panel/Machines/group_handle.gd" id="1_3m80d"]
 [ext_resource type="Texture2D" uid="uid://bce8wdr8esqjy" path="res://assets/images/kitchen panel/machines/bnb_group_handle.png" id="2_cwk3t"]
+[ext_resource type="Resource" uid="uid://f2078y8fhvl8" path="res://resources/ingredients/coffee.tres" id="2_krh3n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fc41"]
 size = Vector2(20, 11)
 
 [node name="GroupHandle" type="Node2D" groups=["groupHandle"]]
 script = ExtResource("1_3m80d")
+ingredient = ExtResource("2_krh3n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

@@ -5,6 +5,9 @@ var has_group_handle = false
 var has_mug = false
 var groupHandleObject
 var mugObject
+@export var water: Ingredient
+@export var coffee: Ingredient
+
 @onready var animationPlayer = %AnimationPlayer
 
 func _ready() -> void:
@@ -22,7 +25,7 @@ func add_water():
 	animationPlayer.play("water")
 	await get_tree().create_timer(3.0).timeout
 	mugObject.set_draggable(true)
-	mugObject.add_ingredient("Water") # Ensure it's not locked in an animation
+	mugObject.add_ingredient(water) # Ensure it's not locked in an animation
 
 func is_group_handle_in_machine(truth_value):
 	has_group_handle = truth_value
@@ -50,4 +53,4 @@ func make_coffee():
 	await get_tree().create_timer(3.0).timeout
 	mugObject.set_draggable(true)
 	coffee_made = true
-	mugObject.add_ingredient("Coffee")
+	mugObject.add_ingredient(coffee)

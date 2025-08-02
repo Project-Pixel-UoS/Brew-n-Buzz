@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=4 format=3 uid="uid://cb8h4rpxxrhk7"]
+
+[ext_resource type="Resource" uid="uid://w8tidfxytv0d" path="res://resources/ingredients/water.tres" id="2_d8jta"]
+[ext_resource type="Resource" uid="uid://bkdm727u7tq7x" path="res://resources/ingredients/camomile_tea.tres" id="3_lg6mx"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_mhwje"]
+
+[resource]
+script = ExtResource("5_mhwje")
+name = "camomile tea"
+recipe = {
+ExtResource("3_lg6mx"): 0,
+ExtResource("2_d8jta"): 1
+}

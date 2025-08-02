@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://j8sgnpu7qcib"]
+
+[ext_resource type="Script" path="res://resources/ingredients/ingredient.gd" id="1_il5hd"]
+
+[resource]
+script = ExtResource("1_il5hd")
+name = "caramel"
+description = "sweet as honey"

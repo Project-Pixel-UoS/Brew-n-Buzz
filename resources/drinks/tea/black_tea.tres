@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=4 format=3 uid="uid://clf234gldg758"]
+
+[ext_resource type="Resource" uid="uid://w8tidfxytv0d" path="res://resources/ingredients/water.tres" id="2_2qfwk"]
+[ext_resource type="Resource" uid="uid://b0r7oiedcoyri" path="res://resources/ingredients/black_tea.tres" id="3_xwl5c"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_13tt6"]
+
+[resource]
+script = ExtResource("5_13tt6")
+name = "black tea"
+recipe = {
+ExtResource("3_xwl5c"): 0,
+ExtResource("2_2qfwk"): 1
+}

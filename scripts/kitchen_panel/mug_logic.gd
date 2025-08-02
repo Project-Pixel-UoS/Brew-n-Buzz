@@ -2,7 +2,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 @onready var animationPlayer = %AnimationPlayer
 
-var ingredients: Array[String] = []
+var ingredients: Array[Ingredient] = []
 var draggable = true
 var is_inside_valid_drop = false
 var body_ref
@@ -22,7 +22,7 @@ func _ready() -> void:
 	respawnPos = position
 	last_frame_x = position.x
 	Input.set_use_accumulated_input(false)
-	customer_panel = get_tree().root.get_child(2).get_node("CustomerPanel")
+	customer_panel = get_tree().current_scene.get_node("CustomerPanel")
 	counter = customer_panel.get_child(3)
 	self.connect("entered_counter", Callable(counter, "_check_recipe"))
 	
@@ -52,10 +52,11 @@ func remove_numbers(input_string: String) -> String:
 			result += char 
 	return result
 
-func add_ingredient(ingredient: String) -> void:
-	ingredients.append(remove_numbers(ingredient))
+func add_ingredient(ingredient: Ingredient) -> void:
+	print("%s added to Mug" % ingredient.name)
+	ingredients.append(ingredient)
 	
-func get_ingredients() -> Array[String]:
+func get_ingredients() -> Array[Ingredient]:
 	return ingredients
 	
 func determine_animation(x_change) -> void:

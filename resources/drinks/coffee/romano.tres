@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Drink" load_steps=5 format=3 uid="uid://c4g68vb0ntmm7"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea24pdwjpa" path="res://assets/images/kitchen panel/mug sprites/bnb_americano.png" id="1_sg6ni"]
+[ext_resource type="Resource" uid="uid://bye1caiy4qjpb" path="res://resources/ingredients/ing_espresso.tres" id="2_ckd0r"]
+[ext_resource type="Resource" uid="uid://cess5bigwaa2q" path="res://resources/ingredients/lemon.tres" id="4_ev301"]
+[ext_resource type="Script" path="res://resources/drinks/drink.gd" id="5_uxbim"]
+
+[resource]
+script = ExtResource("5_uxbim")
+name = "romano"
+recipe = {
+ExtResource("2_ckd0r"): 0,
+ExtResource("4_ev301"): 1
+}
+image = ExtResource("1_sg6ni")

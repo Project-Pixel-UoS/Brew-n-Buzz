@@ -11,12 +11,14 @@ var offset: Vector2
 var initialPos: Vector2
 var being_dragged = false
 var valid_drops = ['ingredient','milkJug']
+@export var ingredient: Ingredient
 var select_sound
 var deselect_sound
 
 func _ready() -> void:
 	select_sound = load('res://assets/audio/sfx/pick_up_select.wav')
 	deselect_sound = load('res://assets/audio/sfx/put_down_deselect.wav')
+	initialPos = position
 
 func _process(delta: float) -> void:
 	for child in get_parent().get_children():
@@ -26,7 +28,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("click"):
 			## @brief maintain position of where mouse clicked on object through using an offset
 			## @brief if i hold object from bottom left it will maintain that
-			initialPos = position
+			#initialPos = position
 			offset = get_global_mouse_position() - position
 			GameManager.is_dragging = true
 			being_dragged = true
@@ -44,7 +46,7 @@ func _process(delta: float) -> void:
 				## @brief if object is dropped in box then move item to box
 				print("Dropping into mug at position: ", body_ref.position)
 				var tween = get_tree().create_tween()
-				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 				await tween.finished  # Wait until the animation finishes
 				queue_free()
 				
@@ -74,7 +76,7 @@ func _on_area_2d_area_entered(body: Node2D) -> void:
 		is_inside_valid_drop = true
 		body_ref = body  
 		if body_ref and body_ref.get_parent().has_method("add_ingredient"):
-			body_ref.get_parent().add_ingredient(name)  # Add ingredient to mug
+			body_ref.get_parent().add_ingredient(ingredient)  # Add ingredient to mug
 		else:
 			print("Error: body_ref is null or missing add_ingredient method")
 	# Check if the object is a bin and destroy the ingredient

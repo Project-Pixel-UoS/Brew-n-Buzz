@@ -5,13 +5,16 @@ var old_position
 var new_position
 var leaving_queue = false
 var end_position 
-var reset_position
+var reset_position = Vector2(-22,90)
 signal movement_finished
+signal doll_ready
 var finished_moving =  false
 var order_line
+@onready var dialogue_box = get_node("../DialogueBox/DialogueLabel")
 
 func _ready() -> void:
-	reset_position = Vector2(-22,90)
+	await get_tree().process_frame
+	emit_signal('doll_ready')
 	
 func reset_pos():
 	self.position = reset_position
@@ -26,7 +29,7 @@ func enter_animation():
 	await tween.finished
 	
 func exit_animation():
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	old_position = self.position
 	new_position = Vector2(old_position.x+10, old_position.y+2)
 	end_position = Vector2(old_position.x+20, old_position.y)
@@ -75,7 +78,7 @@ func say_dialogue():
 	old_position = self.position
 	if customer.idle_body_texture == null:
 		new_position = Vector2(old_position.x, old_position.y +2)
-		%DialogueLabel.text = order_line
+		dialogue_box.text = order_line
 		while not leaving_queue:
 			await NPC_animation()
 		emit_signal("movement_finished")
@@ -113,7 +116,7 @@ func say_dialogue():
 		emit_signal("movement_finished")
 		
 func repeat_order_line():
-	%DialogueLabel.text = order_line
+	dialogue_box.text = order_line
 
 func get_dialogue_time(line):
 	var time = 0
@@ -126,7 +129,7 @@ func get_dialogue_time(line):
 func say_special_dialogue():
 	for line in customer.special_order_lines:
 		var time = get_dialogue_time(line)
-		%DialogueLabel.text = line
+		dialogue_box.text = line
 		await get_tree().create_timer(time).timeout
 		
 func enter_queue():
