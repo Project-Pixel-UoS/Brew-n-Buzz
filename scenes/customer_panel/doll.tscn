@@ -87,3 +87,23 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_3wm8h")
 }
+
+[node name="animation" type="Label" parent="."]
+visible = false
+offset_left = -52.0
+offset_top = -69.0
+offset_right = 8.0
+offset_bottom = -46.0
+theme_override_font_sizes/font_size = 12
+text = "animation"
+autowrap_mode = 2
+
+[node name="status" type="Label" parent="."]
+visible = false
+offset_left = -47.0
+offset_top = -32.0
+offset_right = 2.0
+offset_bottom = -9.0
+theme_override_font_sizes/font_size = 12
+text = "Status"
+autowrap_mode = 2

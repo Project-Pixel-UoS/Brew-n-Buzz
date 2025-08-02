@@ -23,6 +23,8 @@ func _ready() -> void:
 	initialPos = position
 
 func _unhandled_input(event):
+	if being_dragged and event is InputEventScreenDrag:
+		global_position = event.position
 	if being_dragged and event is InputEventScreenTouch and not event.pressed:
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
@@ -110,13 +112,12 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 						set_frothed_milk()
 						initialPos = body_ref.get_parent().position
 				elif !steamed_milk:
-					print(body_ref.get_parent().name)
-					print(body_ref.position)
+					print("Dropping into object at position: ", body_ref.get_parent().slot_position)
 					var tween = get_tree().create_tween()
-					tween.tween_property(self, "position",Vector2(549,472), 0.2).set_ease(Tween.EASE_OUT)
+					tween.tween_property(self, "position", body_ref.get_parent().slot_position, 0.2).set_ease(Tween.EASE_OUT)
 					await tween.finished
 					body_ref.get_parent().steam_milk(self)
-					initialPos = body_ref.get_parent().position
+					initialPos = body_ref.get_parent().slot_position
 			elif is_inside_bin and body_ref:
 				queue_free()
 				replenish_milk_jug()

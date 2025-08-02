@@ -1,10 +1,10 @@
 extends Node2D
 
 @export var customer: CustomerData
-var old_position 
+var old_position
 var new_position
 var leaving_queue = false
-var end_position 
+var end_position
 var reset_position = Vector2(-22,90)
 signal movement_finished
 signal doll_ready
@@ -15,10 +15,10 @@ var order_line
 func _ready() -> void:
 	await get_tree().process_frame
 	emit_signal('doll_ready')
-	
+
 func reset_pos():
 	self.position = reset_position
-		
+
 func enter_animation():
 	var tween = get_tree().create_tween()
 	old_position = self.position
@@ -27,7 +27,7 @@ func enter_animation():
 	tween.tween_property(self, "position", new_position, 0.3).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "position", end_position, 0.3).set_ease(Tween.EASE_OUT)
 	await tween.finished
-	
+
 func exit_animation():
 	var tween = create_tween()
 	old_position = self.position
@@ -44,7 +44,7 @@ func NPC_animation():
 	tween.tween_property(self, "position", new_position, 1).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "position", old_position, 1).set_ease(Tween.EASE_OUT)
 	await tween.finished
-	
+
 func get_customer() -> CustomerData:
 	return customer
 
@@ -63,7 +63,7 @@ func update_customer_appearance():
 	else:
 		$full_body.hframes = 4
 		$full_body.vframes = 3
-	
+
 func say_dialogue():
 	# format dialogue
 	var drink_name = customer.drink.name
@@ -74,7 +74,7 @@ func say_dialogue():
 	order_line = order_line.replace("ORDER", drink_name)
 	order_line = order_line.replace("ART", article)
 	# set text
-	
+
 	old_position = self.position
 	if customer.idle_body_texture == null:
 		new_position = Vector2(old_position.x, old_position.y +2)
@@ -114,7 +114,7 @@ func say_dialogue():
 				%AnimationPlayer.play('special')
 			await %AnimationPlayer.animation_finished
 		emit_signal("movement_finished")
-		
+
 func repeat_order_line():
 	dialogue_box.text = order_line
 
@@ -125,13 +125,13 @@ func get_dialogue_time(line):
 	else:
 		time = 2
 	return time
-	
+
 func say_special_dialogue():
 	for line in customer.special_order_lines:
 		var time = get_dialogue_time(line)
 		dialogue_box.text = line
 		await get_tree().create_timer(time).timeout
-		
+
 func enter_queue():
 	leaving_queue = false
 	finished_moving = false
@@ -139,18 +139,19 @@ func enter_queue():
 	while counter != 4:
 		await exit_animation()
 		counter += 1
-		
+
 func exit_queue():
 	leaving_queue = true
-	if not finished_moving:
-		await self.movement_finished
-		finished_moving = true
+	#delays the start of the leaving animation, so commented out
+	#if not finished_moving:
+		#await self.movement_finished
+		#finished_moving = true
 	var counter = 0
 	while counter != 6:
 		await exit_animation()
 		counter += 1
 	reset_sprites()
-		
+
 func reset_sprites():
 	$head.texture = null
 	$body.texture = null
