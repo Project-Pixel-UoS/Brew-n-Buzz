@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/ui/end_of_level_screen.gd" id="1_kjc0s"]
 [ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://assets/images/customer panel/bnb_money_pile.png" id="2_dwit8"]
-[ext_resource type="Texture2D" uid="uid://cfr5y2legycov" path="res://assets/images/menu/notice_board/cork.png" id="2_peoc2"]
-[ext_resource type="Texture2D" uid="uid://bu7w5ne2tplwm" path="res://assets/images/menu/notice_board/border_centre.png" id="3_14nhf"]
+[ext_resource type="Texture2D" uid="uid://dggrhcksq4jli" path="res://assets/images/menu/notice_board/cork.png" id="2_peoc2"]
+[ext_resource type="Texture2D" uid="uid://d2nrw8dr7vm6s" path="res://assets/images/menu/notice_board/frame_center.png" id="3_k7hml"]
 [ext_resource type="Texture2D" uid="uid://crpnw14vydhto" path="res://assets/images/kitchen panel/mug sprites/bnb_espresso.png" id="3_lwdr7"]
-[ext_resource type="Texture2D" uid="uid://cns3adku4b2x4" path="res://assets/images/menu/notice_board/border_left.png" id="4_qyvqk"]
-[ext_resource type="Texture2D" uid="uid://dl5mgyycaevkj" path="res://assets/images/menu/notice_board/border_right.png" id="5_jxxab"]
+[ext_resource type="Texture2D" uid="uid://xpbefsiyhuvy" path="res://assets/images/menu/notice_board/Frame_left.png" id="4_yy2ba"]
+[ext_resource type="Texture2D" uid="uid://cttbgt334e3t5" path="res://assets/images/menu/notice_board/Frame_right.png" id="5_6r10u"]
 [ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="6_5xqyn"]
 [ext_resource type="Texture2D" uid="uid://ccpl84w827ciu" path="res://assets/images/buttons/bnb_exit.PNG" id="9_fs7j7"]
 [ext_resource type="Texture2D" uid="uid://1iroxuglugmu" path="res://assets/images/buttons/bnb_play.PNG" id="10_v1bn2"]
@@ -40,10 +40,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -760.0
-offset_top = -440.0
-offset_right = 760.0
-offset_bottom = 440.0
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -52,8 +52,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 30.0
-offset_right = -34.0
+offset_right = 16.4
+offset_bottom = 12.1
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_peoc2")
@@ -65,20 +65,18 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 82.0
-offset_right = -83.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_14nhf")
+texture = ExtResource("3_k7hml")
 expand_mode = 1
 
 [node name="BorderLeft" type="TextureRect" parent="BgNoticeBoard"]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 87.0171
+offset_right = 19.6057
 grow_vertical = 2
-texture = ExtResource("4_qyvqk")
+texture = ExtResource("4_yy2ba")
 expand_mode = 3
 
 [node name="BorderRight" type="TextureRect" parent="BgNoticeBoard"]
@@ -87,11 +85,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -87.0171
+offset_left = -24.0
 grow_horizontal = 0
 grow_vertical = 2
-pivot_offset = Vector2(87, 0)
-texture = ExtResource("5_jxxab")
+texture = ExtResource("5_6r10u")
 expand_mode = 3
 
 [node name="Title" type="RichTextLabel" parent="."]
@@ -99,15 +96,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -760.0
-offset_top = 191.0
-offset_right = 760.0
-offset_bottom = 298.0
+offset_left = -151.0
+offset_top = 23.0
+offset_right = 152.6
+offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("6_5xqyn")
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[center]End of level"
 
@@ -118,57 +114,58 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -545.0
-offset_top = -214.0
-offset_right = -240.0
-offset_bottom = -160.0
+offset_left = -57.0
+offset_top = -40.0
+offset_right = 53.0
+offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="money_made"]
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = -6.0
+offset_right = 16.0
+offset_bottom = 10.0
 texture = ExtResource("2_dwit8")
 
 [node name="money_label" type="RichTextLabel" parent="money_made"]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 1.0
-offset_right = 414.0
-offset_bottom = 39.0
+offset_left = 18.0
+offset_right = 113.0
+offset_bottom = 10.0
 theme_override_fonts/normal_font = ExtResource("6_5xqyn")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 8
 text = "Total money: X"
 
 [node name="money_left" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -591.0
-offset_top = 280.0
-offset_right = -286.0
-offset_bottom = 334.0
+offset_left = -57.0
+offset_top = 8.0
+offset_right = 53.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="money_left"]
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = -6.0
+offset_right = 16.0
+offset_bottom = 10.0
 texture = ExtResource("2_dwit8")
 
 [node name="money_left_label" type="RichTextLabel" parent="money_left"]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 1.0
-offset_right = 414.0
-offset_bottom = 39.0
+offset_left = 22.0
+offset_right = 117.0
+offset_bottom = 10.0
 theme_override_fonts/normal_font = ExtResource("6_5xqyn")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 8
 text = "Money left: X"
 
 [node name="drinks_served" type="Control" parent="."]
@@ -178,40 +175,41 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -542.0
-offset_top = -158.0
-offset_right = -237.0
-offset_bottom = -104.0
+offset_left = -65.0
+offset_top = -15.0
+offset_right = 45.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="drinks_served"]
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = -12.0
+offset_right = 32.0
+offset_bottom = 20.0
 texture = ExtResource("3_lwdr7")
 
 [node name="drinks_label" type="RichTextLabel" parent="drinks_served"]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 1.0
-offset_right = 462.0
-offset_bottom = 42.0
+offset_left = 30.0
+offset_right = 136.0
+offset_bottom = 10.0
 theme_override_fonts/normal_font = ExtResource("6_5xqyn")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 8
 text = "Drinks served: X"
 
 [node name="shop" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -760.0
-offset_top = -70.0
-offset_right = 760.0
-offset_bottom = 430.0
+offset_left = -126.0
+offset_top = -21.0
+offset_right = 127.0
+offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -220,38 +218,37 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -760.0
-offset_top = -3.0
-offset_right = 760.0
-offset_bottom = 65.0
+offset_left = -126.5
+offset_right = 126.5
+offset_bottom = 11.0
 grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("6_5xqyn")
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[center]Shop"
 
 [node name="upgrade_1" type="Control" parent="shop"]
 anchors_preset = 0
-offset_left = 346.0
-offset_top = 146.0
-offset_right = 386.0
-offset_bottom = 186.0
+offset_left = 57.0
+offset_top = 24.0
+offset_right = 63.0
+offset_bottom = 30.0
 
 [node name="upgrade_2" type="Control" parent="shop"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 748.0
-offset_top = 138.0
-offset_right = 788.0
-offset_bottom = 178.0
+offset_left = 124.0
+offset_top = 23.0
+offset_right = 130.0
+offset_bottom = 29.0
 
 [node name="upgrade_3" type="Control" parent="shop"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1158.0
-offset_top = 120.0
-offset_right = 1198.0
-offset_bottom = 160.0
+offset_left = 193.0
+offset_top = 20.0
+offset_right = 199.0
+offset_bottom = 26.0
 
 [node name="ExitLevelButton" type="TextureButton" parent="."]
 layout_mode = 1
@@ -260,10 +257,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -164.0
-offset_top = 230.0
-offset_right = -68.0
-offset_bottom = 326.0
+offset_left = -44.0
+offset_top = 42.0
+offset_right = -20.0
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("9_fs7j7")
@@ -276,10 +273,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 164.0
-offset_top = 230.0
-offset_right = 260.0
-offset_bottom = 326.0
+offset_left = 20.0
+offset_top = 42.0
+offset_right = 44.0
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("10_v1bn2")
@@ -292,9 +289,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = 230.0
-offset_right = 96.0
-offset_bottom = 326.0
+offset_left = -12.0
+offset_top = 42.0
+offset_right = 12.0
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("11_3spde")

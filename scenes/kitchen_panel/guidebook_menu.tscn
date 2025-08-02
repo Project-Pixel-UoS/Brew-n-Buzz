@@ -33,6 +33,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -320.0
+offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cyubo")
@@ -40,101 +42,101 @@ script = ExtResource("1_cyubo")
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 240.0
-offset_top = 135.0
-offset_right = 1680.0
-offset_bottom = 945.0
+offset_left = 55.0
+offset_top = 34.0
+offset_right = 265.0
+offset_bottom = 145.0
 texture = ExtResource("2_mm3me")
 
 [node name="RightButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 1475.0
-offset_top = 795.0
-offset_right = 1611.0
-offset_bottom = 931.0
+offset_left = 238.0
+offset_top = 126.0
+offset_right = 255.0
+offset_bottom = 143.0
 texture_normal = ExtResource("3_2txu0")
 stretch_mode = 0
 
 [node name="LeftButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 288.0
-offset_top = 795.0
-offset_right = 424.0
-offset_bottom = 931.0
+offset_left = 62.0
+offset_top = 126.0
+offset_right = 79.0
+offset_bottom = 143.0
 texture_normal = ExtResource("4_xb1cd")
 stretch_mode = 0
 
 [node name="Pages" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 55.0
+offset_top = 34.0
+offset_right = 265.0
+offset_bottom = 145.0
 
 [node name="Page1" type="Control" parent="Pages"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 210.0
+offset_bottom = 111.0
 
 [node name="Americano" type="Panel" parent="Pages/Page1"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 315.0
-offset_top = 234.0
-offset_right = 897.0
-offset_bottom = 426.0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 95.0
+offset_bottom = 41.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_468d8")
 
 [node name="Panel" type="Panel" parent="Pages/Page1/Americano"]
 layout_mode = 0
-offset_left = 49.0
-offset_top = -48.0
-offset_right = 553.0
-offset_bottom = 44.0
+offset_top = -4.0
+offset_right = 85.0
+offset_bottom = 11.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uxr8j")
 
 [node name="TextureRect" type="TextureRect" parent="Pages/Page1/Americano/Panel"]
 layout_mode = 0
-offset_left = 33.0
-offset_top = -1.0
-offset_right = 147.0
-offset_bottom = 109.0
+offset_left = -52.0
+offset_top = 5.0
+offset_right = -20.0
+offset_bottom = 37.0
 texture = ExtResource("6_0ju50")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page1/Americano/Panel"]
 layout_mode = 0
-offset_left = 102.0
-offset_top = 24.0
-offset_right = 502.0
-offset_bottom = 67.0
+offset_top = 3.0
+offset_right = 85.0
+offset_bottom = 11.0
 theme_override_fonts/normal_font = ExtResource("6_1ibgr")
-theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[center]Americano"
 
 [node name="Panel2" type="Panel" parent="Pages/Page1/Americano"]
 layout_mode = 0
-offset_left = 33.0
-offset_top = 60.0
-offset_right = 566.0
-offset_bottom = 266.0
+offset_left = -1.0
+offset_top = 13.0
+offset_right = 84.0
+offset_bottom = 81.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_aso8s")
 
 [node name="TextureRect" type="TextureRect" parent="Pages/Page1/Americano/Panel2"]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 19.0
-offset_right = 138.0
-offset_bottom = 91.0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 29.0
+offset_bottom = 26.0
 texture = ExtResource("2_ch34b")
 
 [node name="TextureRect2" type="TextureRect" parent="Pages/Page1/Americano/Panel2"]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 99.0
-offset_right = 138.0
-offset_bottom = 171.0
+offset_left = 4.0
+offset_top = 29.0
+offset_right = 28.0
+offset_bottom = 53.0
 texture = ExtResource("7_07k52")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page1/Americano/Panel2"]
@@ -144,7 +146,7 @@ offset_top = 35.0
 offset_right = 363.0
 offset_bottom = 75.0
 theme_override_fonts/normal_font = ExtResource("6_1ibgr")
-theme_override_font_sizes/normal_font_size = 35
+theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[center]Coffee"
 
@@ -155,7 +157,7 @@ offset_top = 115.0
 offset_right = 463.0
 offset_bottom = 155.0
 theme_override_fonts/normal_font = ExtResource("6_1ibgr")
-theme_override_font_sizes/normal_font_size = 35
+theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[center]Hot Water"
 
@@ -164,24 +166,24 @@ texture_filter = 1
 layout_mode = 0
 offset_left = 315.0
 offset_top = 578.0
-offset_right = 897.0
-offset_bottom = 770.0
+offset_right = 412.0
+offset_bottom = 610.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_468d8")
 
 [node name="Panel" type="Panel" parent="Pages/Page1/Espresso"]
 layout_mode = 0
 offset_left = 49.0
 offset_top = -48.0
-offset_right = 553.0
-offset_bottom = 44.0
+offset_right = 133.0
+offset_bottom = -33.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uxr8j")
 
 [node name="TextureRect" type="TextureRect" parent="Pages/Page1/Espresso/Panel"]
 layout_mode = 0
 offset_left = 33.0
 offset_top = -1.0
-offset_right = 147.0
-offset_bottom = 109.0
+offset_right = 65.0
+offset_bottom = 31.0
 texture = ExtResource("6_5yo77")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page1/Espresso/Panel"]
@@ -199,16 +201,16 @@ text = "[center]Espresso"
 layout_mode = 0
 offset_left = 33.0
 offset_top = 60.0
-offset_right = 567.0
-offset_bottom = 176.0
+offset_right = 122.0
+offset_bottom = 79.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_aso8s")
 
 [node name="TextureRect" type="TextureRect" parent="Pages/Page1/Espresso/Panel2"]
 layout_mode = 0
 offset_left = 66.0
 offset_top = 19.0
-offset_right = 138.0
-offset_bottom = 91.0
+offset_right = 90.0
+offset_bottom = 43.0
 texture = ExtResource("2_ch34b")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pages/Page1/Espresso/Panel2"]
@@ -241,8 +243,8 @@ texture_filter = 1
 layout_mode = 0
 offset_left = 1493.0
 offset_top = 179.0
-offset_right = 1583.0
-offset_bottom = 269.0
+offset_right = 1517.0
+offset_bottom = 203.0
 texture_normal = ExtResource("9_gqnwh")
 stretch_mode = 0
 

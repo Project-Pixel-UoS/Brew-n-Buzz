@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://bkdm727u7tq7x" path="res://resources/ingredients/camomile_tea.tres" id="2_u5jij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pnk7"]
-size = Vector2(33.5, 34.5)
+size = Vector2(24, 24)
 
 [node name="CamomilleTea" type="Node2D"]
 script = ExtResource("1_4vrwq")
@@ -13,13 +13,11 @@ ingredient = ExtResource("2_u5jij")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(6, 6)
 texture = ExtResource("2_lgq08")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_0pnk7")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

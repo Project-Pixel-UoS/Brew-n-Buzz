@@ -10,9 +10,12 @@ var entered = true
 func _ready() -> void:
 	modulate = Color(Color.MEDIUM_PURPLE, 0.7)
 	mugObject = levelManager.get_node('KitchenPanel').get_node("Mug")
-	print(mugObject)
 	var area2d = counter.get_node("Area2D")
 
+func get_queue_customer():
+	for child in customer_panel.get_node('Panel').get_children():
+		if child.name.begins_with("Doll"):
+			return child
 ## @brief Compares the ingredients in the mug with the correct recipe, and determines whether the drink is correct.
 ## @details This function is called when the mug is placed on the counter. It checks the drink ingredients and notifies the customer manager.
 func _check_recipe():
@@ -24,7 +27,8 @@ func _check_recipe():
 			mugObject = child
 			ingredients = child.get_ingredients()
 			
-	var drink = customer_panel.get_doll().get_customer().drink
+	var customer = get_queue_customer()		
+	var drink = customer.get_customer().drink
 	print("Created drink:", drink.name)
 
 	var is_correct = drink.isValidIngredients(ingredients)

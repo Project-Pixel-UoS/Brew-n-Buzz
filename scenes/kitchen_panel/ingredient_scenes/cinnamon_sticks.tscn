@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://bvqnj37vusvjm" path="res://resources/ingredients/cinnamon_sticks.tres" id="2_wubh1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3k70"]
-size = Vector2(33.5, 34.5)
+size = Vector2(24, 24)
 
 [node name="CinnamonSticks" type="Node2D"]
 script = ExtResource("1_bktny")
@@ -13,13 +13,11 @@ ingredient = ExtResource("2_wubh1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(6, 6)
 texture = ExtResource("2_db1lr")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_v3k70")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

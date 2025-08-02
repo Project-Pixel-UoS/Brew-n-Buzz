@@ -5,9 +5,9 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_b3gq6"]
 
 [node name="LevelButton" type="TextureButton"]
-offset_right = 192.0
-offset_bottom = 192.0
-scale = Vector2(6, 6)
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(0.5, 0.5)
 texture_normal = SubResource("PlaceholderTexture2D_b3gq6")
 stretch_mode = 0
 script = ExtResource("1_7exeq")

@@ -7,7 +7,7 @@
 [ext_resource type="Resource" path="res://resources/ingredients/foam.tres" id="4_vt107"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_po6pa"]
-size = Vector2(140, 141)
+size = Vector2(24, 25)
 
 [node name="MilkJug" type="Node2D" groups=["milkJug"]]
 script = ExtResource("1_ijaby")
@@ -17,13 +17,12 @@ frothed = ExtResource("4_vt107")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(6, 6)
 texture = ExtResource("2_iyqvh")
 
 [node name="Area2D" type="Area2D" parent="." groups=["milkJug"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2, -2.5)
+position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_po6pa")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

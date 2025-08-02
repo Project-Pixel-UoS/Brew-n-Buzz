@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CustomerData" load_steps=5 format=3 uid="uid://dxqvhldqgq0x5"]
 
 [ext_resource type="Script" path="res://resources/customers/customer_data.gd" id="1_c2fgt"]
-[ext_resource type="Resource" uid="uid://cthfpxtgxya7a" path="res://resources/drinks/coffee/espresso.tres" id="1_eyw5c"]
+[ext_resource type="Resource" uid="uid://dpbmwveomvsqn" path="res://resources/drinks/coffee/espresso.tres" id="1_eyw5c"]
 [ext_resource type="Texture2D" uid="uid://b8m3var2x0iwq" path="res://assets/images/customer sprites/VIPs/idle sprites/Sarah Idle Spritesheet.png" id="2_sn20g"]
 [ext_resource type="Texture2D" uid="uid://btfm7d2tcffxw" path="res://assets/images/customer sprites/VIPs/special sprites/Sarah Special Spritesheet.png" id="4_wssp8"]
 
