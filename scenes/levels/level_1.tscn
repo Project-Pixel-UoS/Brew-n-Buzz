@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://c2tdqnsn53tw8" path="res://assets/images/kitchen panel/misc/bnb_clockbg.PNG" id="8_bcdoe"]
 [ext_resource type="FontFile" uid="uid://cefw83v7a4qbq" path="res://assets/fonts/PixelOperator8.ttf" id="9_xnvvl"]
 [ext_resource type="Script" path="res://scripts/kitchen_panel/timer.gd" id="10_6vkhq"]
+[ext_resource type="Texture2D" uid="uid://c7oe6lm6bwvfv" path="res://assets/images/customer panel/bnb_coin_sprite_squished.png" id="10_147fv"]
 [ext_resource type="Script" path="res://scripts/customer_panel/money_container.gd" id="11_spih7"]
-[ext_resource type="Texture2D" uid="uid://bcwlbm3ypyxxd" path="res://assets/images/customer panel/bnb_money_pile.png" id="12_btdww"]
 [ext_resource type="PackedScene" uid="uid://cy2b17h1cvyh0" path="res://scenes/customer_panel/counter.tscn" id="13_gvvpr"]
 [ext_resource type="Texture2D" uid="uid://bg8lbig0x5h82" path="res://assets/images/kitchen panel/misc/bnb_side_newest.PNG" id="14_2ujls"]
 [ext_resource type="Texture2D" uid="uid://drhr6fyawp2hy" path="res://assets/images/buttons/bnb_settings.PNG" id="15_qgx4i"]
@@ -261,13 +261,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -17.5
-offset_top = -10.0
-offset_right = -1.5
-offset_bottom = 6.0
+offset_left = -16.5
+offset_top = -4.0
+offset_right = -3.5
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_btdww")
+texture = ExtResource("10_147fv")
 
 [node name="MoneyLabel" type="RichTextLabel" parent="CustomerPanel/MoneyContainer"]
 unique_name_in_owner = true
@@ -277,9 +277,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -10.5
+offset_left = -11.5
 offset_top = -4.0
-offset_right = 26.5
+offset_right = 25.5
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
